@@ -1,5 +1,7 @@
 create database db_encuesta_muni;
 
+use db_encuesta_muni;
+
 CREATE TABLE IF NOT EXISTS `tbl_usuario` (
 `id_usuario` int(11) NOT NULL AUTO_INCREMENT ,
 `nombre` varchar(50) NOT NULL UNIQUE,
@@ -104,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `tbl_enfermedad` (
 `id_enfermedad` int(11) NOT NULL AUTO_INCREMENT,
 `nombre` varchar(50) NOT NULL,
 `descripcion` varchar(250),
-PRIMARY KEY (`id_enfermedad_persona`)
+PRIMARY KEY (`id_enfermedad`)
 );
 
 CREATE TABLE IF NOT EXISTS `tbl_serviciomedico_familia` (
@@ -203,8 +205,8 @@ CREATE TABLE IF NOT EXISTS `tbl_mobiliario` (
 `id_mobiliario` int(11) NOT NULL AUTO_INCREMENT,
 `nombre` varchar(50) NOT NULL,
 `descripcion` varchar(250),
-PRIMARY KEY (`id_mobiliario`)
-);
+PRIMARY KEY (`id_mobiliario`)       
+);  
 
 CREATE TABLE IF NOT EXISTS `tbl_servicio_vivienda` (
 `id_servicio_vivienda` int(11) NOT NULL AUTO_INCREMENT,
