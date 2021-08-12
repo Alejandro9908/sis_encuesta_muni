@@ -40,7 +40,7 @@
     <!--no tiene content-heaer-->
     <div class="content">
         <div class="row">
-            <div class="box scroll color-light">
+            <div class="box scroll-x color-light">
                 <div class="box-header">
                     <h2>Usuarios</h2>
                     <div>

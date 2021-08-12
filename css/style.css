@@ -750,8 +750,26 @@ h6{
     font-size: medium;
 }
 
+
+
 .form-item input:focus, select:focus{
     outline-color: var(--primary);
+}
+
+.scroll-x{
+    overflow-x: auto;
+}
+
+.select-multiple{
+    height: 40px;
+    border: 1px solid var(--gray-light);
+    padding: 8px 25px;
+    font-size: medium;
+}
+
+.select-multiple[multiple]:focus,
+.select-multiple[multiple]:active {
+        height: auto;
 }
 
 
@@ -761,6 +779,10 @@ h6{
 @media (max-width: 1220px){
     .form-row-4{
         grid-template-columns: repeat(2,1fr);
+    }
+
+    .select-multiple{
+        height: 80px;
     }
 }
 
@@ -791,7 +813,6 @@ h6{
     .form-row-3{
         grid-template-columns: repeat(2,1fr);
     }
-
     
 }
 
@@ -805,7 +826,7 @@ h6{
         width: 600px; 
     }
 
-    .scroll{
+    .scroll-x{
         overflow-x: auto;
     }
 
@@ -832,7 +853,7 @@ h6{
         grid-template-columns: repeat(1,1fr);
     }
 
-    .scroll{
+    .scroll-x{
         overflow-x: auto;
     }
 

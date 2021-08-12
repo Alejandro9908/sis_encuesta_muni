@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="createBoleta.php">
                         <span class="icon"><i class="las la-file-medical"></i></span>
                         <span class="title">Nueva boleta</span>
                     </a>
