@@ -1,6 +1,6 @@
 <?php
 
-require_once ("../constantes.php");
+include_once ($_SERVER['DOCUMENT_ROOT']."/constantes.php");
 
 class Conexion{
     public $pdo;
@@ -8,7 +8,7 @@ class Conexion{
     public function Conexion()
     {
         try{
-            $this->pdo = new PDO('mysql:host=localhost;dbname=db_encuesta_muni','root','');
+            $this->pdo = new PDO('mysql:host='.DB_HOST.';dbname='.DB_BASE_DATOS,DB_USER,'');
             
             //$this->pdo = new PDO('mysql:host=localhost;dbname=db_encuesta_muni;port=8889','root','');
             //$this->pdo = new PDO("mysql:host={DB_HOST};dbname={DB_BASE_DATOS};port={DB_PORT}", DB_USER, DB_PASS);
