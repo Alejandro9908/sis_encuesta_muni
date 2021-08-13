@@ -1,5 +1,6 @@
 <?php
-include_once ($_SERVER['DOCUMENT_ROOT'].'/proyectoCensoMuni/routes.php');
+include ("../constantes.php");
+include_once ($_SERVER['DOCUMENT_ROOT'].'/' . UBICACION_PROYECTO . '/routes.php');
 include_once (MODEL_PATH.'usuario.php');
 include_once (MODEL_PATH.'rol.php');
 include_once ('conexion.php');
