@@ -383,6 +383,10 @@ FOREIGN KEY (id_sector)
 REFERENCES tbl_sector(id_sector);
 
 
+-- insertar usuario defecto
+INSERT INTO `tbl_rol` (`nombre`, `descripcion`) VALUES ('Administrador', 'Admin');
+INSERT INTO `tbl_usuario` (`id_usuario`, `nombre`, `usuario`, `rol`, `password`, `estado`, `fecha_commit`, `fecha_update`) VALUES (NULL, 'Admin', 'Admin', '1', '$2y$12$cF2qA1NW0qHWGPYABPTwMOHkSVSDmxHYaGn1EGaNSYq0cvjpciGtq', '1', current_timestamp(), current_timestamp());
+
 
 
 
