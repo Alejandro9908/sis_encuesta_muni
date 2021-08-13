@@ -1,10 +1,8 @@
 <?php 
-    include ("./constantes.php");
-    //$nombre_carpeta_proyecto = 'proyectoCensoMuni';
-    $nombre_carpeta_proyecto = UBICACION_PROYECTO;
+    //include ("constantes.php");
 
-    include_once ($_SERVER['DOCUMENT_ROOT'].'/' . $nombre_carpeta_proyecto . '/routes.php');
-    include_once (CONTROLLER_PATH."sesiones.php");
+    include_once ('routes.php');
+    include_once ("controllers/sesiones.php");
     include_once 'views/layout/header.php';
     include_once 'views/layout/sidebar.php';
     include_once 'views/layout/topbar.php';
