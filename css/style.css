@@ -494,7 +494,6 @@ h6{
 .box{
     position: relative;
     display: grid;
-    min-height: 300px;
     width: 100%;
     padding: 20px;
     box-shadow: 0px 0px 5px 1px var(--gray-lighter);
@@ -597,7 +596,6 @@ h6{
     border: 1px solid var(--gray-light);
     font-size: medium;
     border-radius: 3px;
-    
 }
 
 .search label {
