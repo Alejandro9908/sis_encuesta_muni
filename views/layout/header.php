@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/select2.css">
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <title>Plantilla</title>
+    <title>Censo Muni</title>
 </head>
 
 <!-- Modales -->
