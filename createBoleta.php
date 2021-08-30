@@ -1,9 +1,12 @@
 <?php 
-    
     include_once 'controllers/sesiones.php';
     include_once 'views/layout/header.php';
     include_once 'views/layout/sidebar.php';
     include_once 'views/layout/topbar.php';
+    include_once 'controllers/enfermedadController.php';
+
+
+
 ?>
 
 
@@ -94,19 +97,21 @@
                         </div>
                         <div class="form-row-2">
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Enfermedades <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                                <select class="select-multiple" name="transportes[]" id="txt_transporte" multiple>
-                                    <option value="1">Bus</option>
-                                    <option value="2">Carro</option>
-                                    <option value="3">Moto</option>
+                                <label for="txt_usuario" class="text-gray">Enfermedades <a href="#" id="addEnfermedad" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                                <select class="select-multiple" name="enfermedades[]" id="txt_enfermedad" multiple>
+                
                                 </select>
                             </div>
                             <div class="form-item">
                                 <label for="txt_usuario" class="text-gray">Discapacidades <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                                <select class="select-multiple" name="transportes[]" id="txt_transporte" multiple>
-                                    <option value="1">Bus</option>
-                                    <option value="2">Carro</option>
-                                    <option value="3">Moto</option>
+                                <select class="select-multiple" name="discapacidades[]" id="txt_discapacidad" multiple>
+                                    <?php 
+                                    foreach ($enfermedades as $e){
+                                    ?>
+                                        <option value="<?php echo $e->get('id_opcion');?>"><?php echo $e->get('nombre');?></option>
+                                    <?php 
+                                    }//termina ciclo for
+                                    ?>
                                 </select>
                             </div>
                         </div>
