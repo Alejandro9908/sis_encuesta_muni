@@ -4,9 +4,6 @@
     include_once 'views/layout/sidebar.php';
     include_once 'views/layout/topbar.php';
     include_once 'controllers/enfermedadController.php';
-
-
-
 ?>
 
 
@@ -38,80 +35,74 @@
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Sexo</label>
-                                <select class="form-control" name="txt_rol" id="txt_rol">
+                                <label for="txt_sexo" class="text-gray">Sexo</label>
+                                <select class="form-control" name="txt_sexo" id="txt_sexo">
                                     <option value="">Masculino</option>
                                     <option value="">Femenino</option>
                                 </select>
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Fecha de nacimiento</label>
-                                <input type="date" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_fecha_nacimiento" class="text-gray">Fecha de nacimiento</label>
+                                <input type="date" id="txt_fecha_nacimiento" name="txt_fecha_nacimiento" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Edad</label>
-                                <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_edad" class="text-gray">Edad</label>
+                                <input type="text" id="txt_edad" name="txt_edad" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">DPI</label>
-                                <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_dpi" class="text-gray">DPI</label>
+                                <input type="text" id="txt_dpi" name="txt_dpi" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Estado Civil</label>
-                                <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_estado_civil" class="text-gray">Estado Civil</label>
+                                <input type="text" id="txt_estado_civil" name="txt_estado_civil" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Escolaridad</label>
-                                <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_escolaridad" class="text-gray">Escolaridad</label>
+                                <input type="text" id="txt_escolaridad" name="txt_escolaridad" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Ocupacion</label>
-                                <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_ocupacion" class="text-gray">Ocupacion</label>
+                                <input type="text" id="txt_ocupacion" name="txt_ocupacion" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Teléfono</label>
-                                <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_telefono" class="text-gray">Teléfono</label>
+                                <input type="text" id="txt_telefono" name="txt_telefono" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Gestación</label>
-                                <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_gestacion" class="text-gray">Gestación</label>
+                                <input type="text" id="txt_gestacion" name="txt_gestacion" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Semanas</label>
-                                <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_semanas_gestacion" class="text-gray">Semanas de gestación</label>
+                                <input type="text" id="txt_semanas_gestacion" name="txt_semanas_gestacion" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Ingreso Mensual</label>
-                                <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                                <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual</label>
+                                <input type="number" step="0.01" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required value=""
                                     class="form-control" placeholder="">
                             </div>
                         </div>
                         <div class="form-row-2">
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Enfermedades <a href="#" id="addEnfermedad" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                                <label for="txt_enfermedad" class="text-gray">Enfermedades <a href="#" id="addEnfermedad" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
                                 <select class="select-multiple" name="enfermedades[]" id="txt_enfermedad" multiple>
                 
                                 </select>
                             </div>
                             <div class="form-item">
-                                <label for="txt_usuario" class="text-gray">Discapacidades <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                                <label for="txt_discapacidad" class="text-gray">Discapacidades <a href="#" id="addDiscapacidad" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
                                 <select class="select-multiple" name="discapacidades[]" id="txt_discapacidad" multiple>
-                                    <?php 
-                                    foreach ($enfermedades as $e){
-                                    ?>
-                                        <option value="<?php echo $e->get('id_opcion');?>"><?php echo $e->get('nombre');?></option>
-                                    <?php 
-                                    }//termina ciclo for
-                                    ?>
+
                                 </select>
                             </div>
                         </div>
@@ -201,66 +192,64 @@
                 <div class="box-header">
                     <h2>2. Identificación domiciliaria</h2>
                     <div>
-                        <a href="#" class="btn color-primary text-light agregar_persona">Añadir persona</a>
+
                     </div>
                 </div>
                 <div class="form-contaniter">
                     <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Sector</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
+                            <label for="txt_sector" class="text-gray">Sector</label>
+                            <select class="form-control" name="txt_sector" id="txt_sector">
                                 <option value="">Masculino</option>
                                 <option value="">Femenino</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Comunidad</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
+                            <label for="txt_comunidad" class="text-gray">Comunidad</label>
+                            <select class="form-control" name="txt_comunidad" id="txt_comunidad">
                                 <option value="">Masculino</option>
                                 <option value="">Femenino</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Dirección</label>
-                            <input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"
+                            <label for="txt_direccion" class="text-gray">Dirección</label>
+                            <input type="text" id="txt_direccion" name="txt_direccion" required value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Numero de casa</label>
-                            <input type="text" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_numero_casa" class="text-gray">Numero de casa</label>
+                            <input type="text" id="txt_numero_casa" name="txt_numero_casa" value="" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
                     <div class="form-row-3">
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Colindantes</label>
-                            <input type="text" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_colindantes" class="text-gray">Colindantes</label>
+                            <input type="text" id="txt_colindantes" name="txt_colindantes" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Latitud</label>
-                            <input type="text" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_latitud" class="text-gray">Latitud</label>
+                            <input type="text" id="txt_latitud" name="txt_latitud" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Longitud</label>
-                            <input type="text" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_longitud" class="text-gray">Longitud</label>
+                            <input type="text" id="txt_longitud" name="txt_longitud" value="" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
                     <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Telefono</label>
-                            <input type="text" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_telefono" class="text-gray">Telefono</label>
+                            <input type="text" id="txt_telefono" name="txt_telefono" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Medios de transporte para llegar al
-                                domicilio <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <label for="txt_transporte" class="text-gray">Medios de transporte para llegar al
+                                domicilio <a href="#" id="addTransporte" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
                             <select class="select-multiple" name="transportes[]" id="txt_transporte" multiple>
-                                <option value="1">Bus</option>
-                                <option value="2">Carro</option>
-                                <option value="3">Moto</option>
+
                             </select>
                         </div>
                     </div>
@@ -280,79 +269,79 @@
                     <div class="form-row-4">
                         
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Alimentación</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" required value="" class="form-control"
+                            <label for="txt_alimentacion" class="text-gray">Alimentación</label>
+                            <input type="number" step="0.01" id="txt_alimentacion" name="txt_alimentacion" required value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Gas o combustible</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_gas" class="text-gray">Gas o combustible</label>
+                            <input type="number" step="0.01" id="txt_gas" name="txt_gas" value="" class="form-control"
                                 placeholder="">
                         </div>
         
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Renta</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_renta" class="text-gray">Renta</label>
+                            <input type="number" step="0.01" id="txt_renta" name="txt_renta" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Agua</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_agua" class="text-gray">Agua</label>
+                            <input type="number" step="0.01" id="txt_agua" name="txt_agua" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Electricidad</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_electricidad" class="text-gray">Electricidad</label>
+                            <input type="number" step="0.01" id="txt_electricidad" name="txt_electricidad" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Telefono Residencial</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_telefono_residencial" class="text-gray">Telefono Residencial</label>
+                            <input type="number" step="0.01" id="txt_telefono_residencial" name="txt_telefono_residencial" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Telefono Celular</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_telefono_celular" class="text-gray">Telefono Celular</label>
+                            <input type="number" step="0.01" id="txt_telefono_celular" name="txt_telefono_celular" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Transporte</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_transporte" class="text-gray">Transporte</label>
+                            <input type="number" step="0.01" id="txt_transporte" name="txt_transporte" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Educación</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_educacion" class="text-gray">Educación</label>
+                            <input type="number" step="0.01" id="txt_educacion" name="txt_educacion" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Gastos Médicos</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_medicos" class="text-gray">Gastos Médicos</label>
+                            <input type="number" step="0.01" id="txt_medicos" name="txt_medicos" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Recreación</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_gastos_recreacion" class="text-gray">Recreación</label>
+                            <input type="number" step="0.01" id="txt_gastos_recreacion" name="txt_gastos_recreacion" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Cable</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_cable" class="text-gray">Cable</label>
+                            <input type="number" step="0.01" id="txt_cable" name="txt_cable" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Ropa y Calzado</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_ropa_calzado" class="text-gray">Ropa y Calzado</label>
+                            <input type="number" step="0.01" id="txt_ropa_calzado" name="txt_ropa_calzado" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Fondos de ahorro</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_fondos_ahorro" class="text-gray">Fondos de ahorro</label>
+                            <input type="number" step="0.01" id="txt_fondos_ahorro" name="txt_fondos_ahorro" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Creditos</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_creditos" class="text-gray">Creditos</label>
+                            <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -375,49 +364,49 @@
                 <div class="form-contaniter">
                     <div class="form-row-4">
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Tenencia</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
+                            <label for="txt_tenencia" class="text-gray">Tenencia</label>
+                            <select class="form-control" name="txt_tenencia" id="txt_tenencia">
                                 <option value="">Propia</option>
                                 <option value="">Rentada</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Numero de dormitorios</label>
-                            <input type="number" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_numero_dormitorios" class="text-gray">Numero de dormitorios</label>
+                            <input type="number" id="txt_numero_dormitorios" name="txt_numero_dormitorios" value="" class="form-control"
                                 placeholder="">
                         </div>
         
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">¿Cuenta con sala?</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
+                            <label for="txt_sala" class="text-gray">¿Cuenta con sala?</label>
+                            <select class="form-control" name="txt_sala" id="txt_sala">
                                 <option value="">Si</option>
                                 <option value="">No</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">¿Cuenta con comedor?</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
+                            <label for="txt_comedor" class="text-gray">¿Cuenta con comedor?</label>
+                            <select class="form-control" name="txt_comedor" id="txt_comedor">
                                 <option value="">Si</option>
                                 <option value="">No</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">¿Cuenta con cocina?</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
+                            <label for="txt_cocina" class="text-gray">¿Cuenta con cocina?</label>
+                            <select class="form-control" name="txt_cocina" id="txt_cocina">
                                 <option value="">Si</option>
                                 <option value="">No</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">¿Cuenta con baño privado?</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
+                            <label for="txt_banio_privado" class="text-gray">¿Cuenta con baño privado?</label>
+                            <select class="form-control" name="txt_banio_privado" id="txt_banio_privado">
                                 <option value="">Si</option>
                                 <option value="">No</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">¿Cuenta con baño colectivo?</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
+                            <label for="txt_banio_colectivo" class="text-gray">¿Cuenta con baño colectivo?</label>
+                            <select class="form-control" name="txt_banio_colectivo" id="txt_banio_colectivo">
                                 <option value="">Si</option>
                                 <option value="">No</option>
                             </select>
@@ -425,63 +414,51 @@
                     </div>
                     <div class="form-row-1">
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Observaciones</label>
-                            <input type="text" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_observaciones_vivienda" class="text-gray">Observaciones</label>
+                            <input type="text" id="txt_observaciones_vivienda" name="txt_observaciones_vivienda" value="" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
                     <div class="form-row-4">
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Material predominante pared <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Propia</option>
-                                <option value="">Rentada</option>
+                            <label for="txt_pared" class="text-gray">Material predominante pared <a href="#" class="btn color-primary" id="addPared" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <select class="form-control" name="txt_pared" id="txt_pared">
+
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Material predominante techo <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Propia</option>
-                                <option value="">Rentada</option>
+                            <label for="txt_techo" class="text-gray">Material predominante techo <a href="#" class="btn color-primary" id="addTecho" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <select class="form-control" name="txt_techo" id="txt_techo">
+
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Material predominante piso <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Propia</option>
-                                <option value="">Rentada</option>
+                            <label for="txt_piso" class="text-gray">Material predominante piso <a href="#" class="btn color-primary" id="addPiso" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <select class="form-control" name="txt_piso" id="txt_piso">
+
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_usuario" class="text-gray">Mobiliario y equipo <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="select-multiple" name="muebles[]" id="txt_transporte" multiple>
-                                <option value="1">Closet</option>
-                                <option value="2">Sofá</option>
-                                <option value="3">Mesa y sillas</option>
-                                <option value="4">Cama</option>
-                                <option value="5">Gabinete</option>
-                                <option value="6">Television</option>
+                            <label for="txt_mobiliario" class="text-gray">Mobiliario y equipo <a href="#" id="addMobiliario" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <select class="select-multiple" name="mobiliarios[]" id="txt_mobiliario" multiple>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_usuario" class="text-gray">Servicio básico <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="select-multiple" name="muebles[]" id="txt_transporte" multiple>
-                                <option value="1">Agua</option>
-                                <option value="2">Drenaje</option>
-                                <option value="3">Luz</option>
+                            <label for="txt_servicio" class="text-gray">Servicio básico <a href="#" id="addServicio" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <select class="select-multiple" name="servicios[]" id="txt_servicio" multiple>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_usuario" class="text-gray">Tipo de sanitario <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="select-multiple" name="muebles[]" id="txt_transporte" multiple>
+                            <label for="txt_sanitario" class="text-gray">Tipo de sanitario <a href="#" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <select class="select-multiple" name="sanitarios[]" id="txt_sanitario" multiple>
                                 <option value="1">Lavable</option>
                                 <option value="2">Letrina</option>
                                 <option value="3">Pozo ciego</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Eliminación de basura</label>
-                            <input type="text" id="txt_nombre" name="txt_nombre" value="" class="form-control"
+                            <label for="txt_eliminacion_basura" class="text-gray">Eliminación de basura</label>
+                            <input type="text" id="txt_eliminacion_basura" name="txt_eliminacion_basura" value="" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -500,15 +477,13 @@
                 <div class="form-contaniter">
                     <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Servicios de salud <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Propia</option>
-                                <option value="">Rentada</option>
+                            <label for="txt_servicio_medico" class="text-gray">Servicios Medicos <a href="#" id="addServicioMedico" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <select class="select-multiple" name="servicios_medicos[]" id="txt_servicio_medico" multiple>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Fecuencia de uso de servicio medicos</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
+                            <label for="txt_frecuencia_medico" class="text-gray">Fecuencia de uso de servicio medicos</label>
+                            <select class="form-control" name="txt_frecuencia_medico" id="txt_frecuencia_medico">
                                 <option value="">Mensualmente</option>
                                 <option value="">Anualmente</option>
                             </select>
@@ -529,73 +504,103 @@
                 <div class="form-contaniter">
                     <div class="form-row-4">
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Carne de res</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_carne_res" class="text-gray">Carne de res</label>
+                            <select class="form-control" name="txt_carne_res" id="txt_carne_res">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Carne de pollo</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_carne_pollo" class="text-gray">Carne de pollo</label>
+                            <select class="form-control" name="txt_carne_pollo" id="txt_carne_pollo">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Carne de cerdo</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_carne_cerdo" class="text-gray">Carne de cerdo</label>
+                            <select class="form-control" name="txt_carne_cerdo" id="txt_carne_cerdo">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Carne de pescado</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_carne_pescado" class="text-gray">Carne de pescado</label>
+                            <select class="form-control" name="txt_carne_pescado" id="txt_carne_pescado">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Leche</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_leche" class="text-gray">Leche</label>
+                            <select class="form-control" name="txt_leche" id="txt_leche">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Cereales</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_cereales" class="text-gray">Cereales</label>
+                            <select class="form-control" name="txt_cereales" id="txt_cereales">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Huevos</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_huevos" class="text-gray">Huevos</label>
+                            <select class="form-control" name="txt_huevos" id="txt_huevos">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Frutas</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_frutas" class="text-gray">Frutas</label>
+                            <select class="form-control" name="txt_frutas" id="txt_frutas">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Verduras</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_verduras" class="text-gray">Verduras</label>
+                            <select class="form-control" name="txt_verduras" id="txt_verduras">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Leguminosas</label>
-                            <select class="form-control" name="txt_rol" id="txt_rol">
-                                <option value="">Diario</option>
-                                <option value="">Cada tres días</option>
+                            <label for="txt_leguminosas" class="text-gray">Leguminosas</label>
+                            <select class="form-control" name="txt_leguminosas" id="txt_leguminosas">
+                                <option value="4">Diario</option>
+                                <option value="3">Cada tres días</option>
+                                <option value="2">Una vez a la semana</option>
+                                <option value="1">Cada vez al mes</option>
+                                <option value="0">Nunca</option>
                             </select>
                         </div>
                     </div>
@@ -614,11 +619,8 @@
                 <div class="form-contaniter">
                     <div class="form-row-1">
                         <div class="form-item">
-                            <label for="txt_nombre" class="text-gray">Activiades familiariares del fin de semana <a href="indexUsuario.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="select-multiple" name="transportes[]" id="txt_transporte" multiple>
-                                <option value="">Practicar deporte</option>
-                                <option value="">Video juegos</option>
-                                <option value="">Visitar familiares y amigos</option>
+                            <label for="txt_recreacion" class="text-gray">Activiades familiariares del fin de semana <a href="#" id="addRecreacion" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <select class="select-multiple" name="recreaciones[]" id="txt_recreacion" multiple>
                             </select>
                         </div>
                     </div>
@@ -637,20 +639,20 @@
                 <div class="form-contaniter">
                     <div class="form-row-1">
                         <div class="form-item">
-                            <label for="txt_usuario" class="text-gray">Observaciones</label>
-                            <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                            <label for="txt_observaciones_encuesta" class="text-gray">Observaciones</label>
+                            <input type="text" id="txt_observaciones_encuesta" name="txt_observaciones_encuesta" required value=""
                             class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_usuario" class="text-gray">Evaluador</label>
-                            <input type="text" id="txt_usuario" name="txt_usuario" required value=""
+                            <label for="txt_evaluador" class="text-gray">Evaluador</label>
+                            <input type="text" id="txt_evaluador" name="txt_evaluador" required value=""
                             class="form-control" placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_usuario" class="text-gray">Fecha de evaluación</label>
-                            <input type="date" id="txt_usuario" name="txt_usuario" required value=""
+                            <label for="txt_fecha_evaluacion" class="text-gray">Fecha de evaluación</label>
+                            <input type="date" id="txt_fecha_evaluacion" name="txt_fecha_evaluacion" required value=""
                             class="form-control" placeholder="">
                         </div>
                     </div>

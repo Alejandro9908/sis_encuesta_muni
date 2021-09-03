@@ -5,7 +5,7 @@ include_once ('../conexion.php');
     {
         $conexion = new Conexion();
         $resultado = array();
-        $sql = "SELECT * FROM tbl_enfermedad ORDER BY nombre ASC";
+        $sql = "SELECT * FROM tbl_servicio ORDER BY nombre ASC";
         $stmt = $conexion->pdo->prepare($sql);
         $stmt->execute();
        
@@ -13,7 +13,7 @@ include_once ('../conexion.php');
         {
 
             $resultado[] = array(
-                'id_opcion' => $registro->id_enfermedad,
+                'id_opcion' => $registro->id_servicio,
                 'nombre' => $registro->nombre,
                 'descripcion' => $registro->descripcion
             );
