@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="indexComunidad.php">
                         <span class="icon"><i class="las la-map-marker"></i></span>
                         <span class="title">Comunidades</span>
                     </a>
