@@ -4,7 +4,7 @@
     include_once 'views/layout/sidebar.php';
     include_once 'views/layout/topbar.php';
     include_once 'controllers/comunidadController.php';
-
+    include_once 'controllers/sectorController.php';
     $controlador = new comunidadController();
 
     
@@ -46,11 +46,9 @@
                             </div>
                             <div class="form-row-2">
                             <div class="form-item">
-                                <label for="txt_sector" class="text-gray">Sector <a href="indexComunidad.php" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                                <select class="select-multiple" name="sector[]" id="txt_sector" multiple>
-                                    <option value="1">Sector 1</option>
-                                    <option value="2">Sector 2</option>
-                                    <option value="3">Sector 3</option>
+                            <label for="txt_sector" class="text-gray">Seleccione sector <a href="#" id="addSector" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                                <select class="select-multiple" name="sectores[]" id="txt_sector" multiple>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -78,3 +76,88 @@
 <?php 
     include_once 'views/layout/footer.php';
 ?>
+
+<script type="text/javascript" defer>
+
+    listarSectores();
+
+    $('#txt_sector').click(function(){
+        sectores = $('#txt_sector').val()
+        console.log(sectores);
+    });
+
+    $("#addSector").click(function(e){
+        e.preventDefault();
+        
+        $('.modal-container').fadeIn();
+        $('.modal-title').text('Agregar Sector');
+        $('.modal-body').html('<form action="" method="post" name="agregarSector" id="agregarSector"'+
+                                'onsubmit="event.preventDefault(); agregar_sector();"'+
+                                'class="form-container">'+
+                                '<div class="form-row-1">'+
+                                '<div class="form-item">'+
+                                '<label for="txt_nombre" class="text-gray">Nombre</label>'+
+                                '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
+                                'placeholder="">'+
+                                '</div>'+
+                                '<div class="form-item">'+
+                                '<label for="txt_descripcion" class="text-gray">Descripcion</label>'+
+                                '<input type="text" id="txt_descripcion" name="txt_descripcion" value=""'+
+                                'class="form-control" placeholder="">'+
+                                '</div>'+
+                                '</div>'+
+                                '<div class="form-footer">'+
+                                '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
+                                '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
+                                '</div>'+
+                                '</form>');                      
+        
+	});
+
+    function agregar_sector(){
+    var datos = $('#agregarSector').serializeArray();
+    
+    $.post("controllers/sectorProcesos.php", datos, function (respuesta){
+        $('.modal-container').fadeOut();
+        listarSectores();
+        setTimeout(function(){
+            if(respuesta == 'exito'){
+                $('.modal-container').fadeIn();
+                $('.modal-title').text('Mensaje');
+                $('.modal-body').html(  '<div>'+
+                                            '<p>Registro agregado correctamente</p><br>'+
+                                            '<input type="button" value="Aceptar" onclick="cerrarModal();" style="padding: 10px 15px;" class="btn color-primary text-light cerrar-modal">'+
+                                            '</div>');
+                $('#editarPassword').trigger('reset');
+            }else{
+                $('.modal-container').fadeIn();
+                $('.modal-title').text('Mensaje');
+                $('.modal-body').html(  '<div>'+
+                                            '<p>Error al guardar el registro</p><br>'+
+                                            '<input type="button" value="Aceptar" onclick="cerrarModal();" style="padding: 10px 15px;" class="btn color-primary text-light cerrar-modal">'+
+                                            '</div>');
+        }
+        }, 400);
+    });
+    
+}
+
+function listarSectores(){
+    $.ajax({
+        url: 'controllers/select/listarSectores.php',
+        type: 'GET',
+        success: function(respuesta){
+            let Sectores = JSON.parse(respuesta);
+            let lista = '';
+            Sectores.forEach(e => {
+                lista += `
+                <option value="${e.id_opcion}">${e.nombre}</option>
+                `
+            });
+            $('#txt_sector').html(lista);
+        }
+    });
+}
+    
+</script>
