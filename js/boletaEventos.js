@@ -24,9 +24,10 @@ $(document).ready(function(){
     listarServiciosMedicos();
     listarRecreaciones();
     
-    $('#txt_enfermedad').click(function(){
-        enfermedades = $('#txt_enfermedad').val()
-        console.log(enfermedades);
+    
+    $('#txt_transporte').click(function(){
+        transportes = $('#txt_transporte').val()
+        console.log(transportes);
     });
 
     $("#addEnfermedad").click(function(e){
@@ -58,11 +59,6 @@ $(document).ready(function(){
         
 	});
 
-    $('#txt_discapacidad').click(function(){
-        discapacidades = $('#txt_discapacidad').val()
-        console.log(discapacidades);
-    });
-
     $("#addDiscapacidad").click(function(e){
         e.preventDefault();
         
@@ -92,10 +88,6 @@ $(document).ready(function(){
         
 	});
 
-    $('#txt_transporte').click(function(){
-        transportes = $('#txt_transporte').val()
-        console.log(transportes);
-    });
 
     $("#addTransporte").click(function(e){
         e.preventDefault();
@@ -213,11 +205,6 @@ $(document).ready(function(){
         
 	});
 
-    $('#txt_mobiliario').click(function(){
-        transportes = $('#txt_mobiliario').val()
-        console.log(transportes);
-    });
-
     $("#addMobiliario").click(function(e){
         e.preventDefault();
         
@@ -246,11 +233,6 @@ $(document).ready(function(){
                                 '</form>');                      
         
 	});
-
-    $('#txt_servicio').click(function(){
-        transportes = $('#txt_servicio').val()
-        console.log(transportes);
-    });
 
     $("#addServicio").click(function(e){
         e.preventDefault();
@@ -281,11 +263,6 @@ $(document).ready(function(){
         
 	});
 
-    $('#txt_servicio_medico').click(function(){
-        transportes = $('#txt_servicio_medico').val()
-        console.log(transportes);
-    });
-
     $("#addServicioMedico").click(function(e){
         e.preventDefault();
         
@@ -314,11 +291,6 @@ $(document).ready(function(){
                                 '</form>');                      
         
 	});
-
-    $('#txt_recreacion').click(function(){
-        transportes = $('#txt_recreacion').val()
-        console.log(transportes);
-    });
 
     $("#addRecreacion").click(function(e){
         e.preventDefault();
