@@ -1,6 +1,7 @@
 <?php
 include ($_SERVER['DOCUMENT_ROOT']."/constantes.php");
 include_once ($_SERVER['DOCUMENT_ROOT'].'/routes.php');
+include_once ($_SERVER['DOCUMENT_ROOT'].'/models/comunidad.php');
 include_once ('conexion.php');
 
 class comunidadController{
@@ -69,58 +70,16 @@ class comunidadController{
 
             $registro = $sql->fetch(PDO::FETCH_OBJ);
 
-            $o = new Opcion();
+            $c = new Comunidad();
 
-            $o->set('id_opcion', $registro->id_comunidad);
-            $o->set('nombre', $registro->nombre);
-            $o->set('descripcion', $registro->descripcion);
+            $c->set('id_comunidad', $registro->id_comunidad);
+            $c->set('nombre', $registro->nombre);
+            $c->set('descripcion', $registro->descripcion);
+            $c->set('tipo', $registro->tipo);
+            $c->set('id_sector', $registro->id_sector);
 
-            return $o;
+            return $c;
 
-
-            return $resultado;
-        }
-        catch (Exception $e)
-        {
-            die('Error: '.$e->getMessage());
-        }
-    }
-
-    public function guardar(Opcion $o){
-        try
-        {
-            $sql = "INSERT INTO tbl_comunidad (nombre, descripcion) VALUES (?,?)";
-
-            $conexion = new Conexion();
-            $resultado = $conexion->pdo->prepare($sql)->execute(
-                array(
-                    $o->get('nombre'),
-                    $o->get('descripcion')
-                )
-            );
-
-            return $resultado;
-        }
-        catch (Exception $e)
-        {
-            echo "error";
-        }
-    }
-
-    public function editar(Opcion $o)
-    {
-        try
-        {
-            $conexion = new Conexion();
-            $sql = "UPDATE tbl_comunidad SET nombre=?, descripcion=? WHERE id_comunidad=?";
-
-            $resultado = $conexion->pdo->prepare($sql)->execute(
-                array(
-                  $o->get('nombre'),
-                  $o->get('descripcion'),
-                  $o->get('id_opcion')
-                )
-            );
 
             return $resultado;
         }
@@ -130,13 +89,61 @@ class comunidadController{
         }
     }
 
-    public function eliminar($id)
+    public function guardar(Comunidad $c){
+        try
+        {
+            $sql = "INSERT INTO tbl_comunidad (nombre, descripcion, tipo, id_sector, estado) VALUES (?,?,?,?,1)";
+
+            $conexion = new Conexion();
+            $resultado = $conexion->pdo->prepare($sql)->execute(
+                array(
+                    $c->get('nombre'),
+                    $c->get('descripcion'),
+                    $c->get('tipo'),
+                    $c->get('id_sector')
+                )
+            );
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            echo "error: ".$e;
+        }
+    }
+
+    public function editar(Comunidad $c)
     {
         try
         {
             $conexion = new Conexion();
-            $sql = "DELETE FROM tbl_comunidad WHERE id_comunidad=?";
+            $sql = "UPDATE tbl_comunidad SET nombre=?, descripcion=?, tipo=?, id_sector=? WHERE id_comunidad=?";
 
+            $resultado = $conexion->pdo->prepare($sql)->execute(
+                array(
+                  $c->get('nombre'),
+                  $c->get('descripcion'),
+                  $c->get('tipo'),
+                  $c->get('id_sector'),
+                  $c->get('id_comunidad')
+                )
+            );
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error: '.$e->getMessage());
+        }
+    }
+
+    public function inactivar($id)
+    {
+        try
+        {
+            $conexion = new Conexion();
+            $sql = "UPDATE tbl_comunidad SET estado=0 WHERE id_comunidad=?";
+            
             $resultado = $conexion->pdo->prepare($sql)->execute(
                 array($id)
             );
@@ -146,6 +153,53 @@ class comunidadController{
         catch (Exception $e)
         {
             die('Error: '.$e->getMessage());
+        }
+    }
+
+    public function activar($id)
+    {
+        try
+        {
+            $conexion = new Conexion();
+            $sql = "UPDATE tbl_comunidad SET estado=1 WHERE id_comunidad=?";
+            
+            $resultado = $conexion->pdo->prepare($sql)->execute(
+                array($id)
+            );
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error: '.$e->getMessage());
+        }
+    }
+
+    public function listarSectores(){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT * FROM tbl_sector;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $c = new Comunidad();
+    
+                $c->set('id_sector', $registro->id_sector);
+                $c->set('nombre', $registro->nombre);
+                $c->set('descripcion', $registro->descripcion);
+                
+                $resultado[] = $c;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
         }
     }
 

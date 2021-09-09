@@ -84,7 +84,6 @@
                                 ?>
                             </td>
                             <td>
-                                <a href="showComunidad.php?id_comunidad=<?php echo $r->get('id_comunidad'); ?>" class="btn color-info">Ver</a>
                                 <a href="editComunidad.php?id_comunidad=<?php echo $r->get('id_comunidad'); ?>" class="btn color-warning">Editar</a>
                                 <?php if($r->get('estado')==1){ ?>
                                 <a href="#" product="<?php echo $r->get('id_comunidad'); ?>" class="btn color-danger inactivar_comunidad">Inactivar</a>

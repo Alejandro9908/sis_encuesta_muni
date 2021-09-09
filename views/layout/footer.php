@@ -11,6 +11,7 @@
     <script src="js/select2.js"></script>
     <script src="js/MooTools-Core-1.6.0.js"></script>
     <script src="js/usuarioEventos.js"></script>
+    <script src="js/comunidadEventos.js"></script>
     <script src="js/personaEventos.js"></script>
     <script src="js/boletaEventos.js"></script>
     <script src="js/funcionesPlantilla.js"></script>
