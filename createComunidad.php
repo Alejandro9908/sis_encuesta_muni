@@ -8,6 +8,9 @@
     $controlador = new comunidadController();
 
     
+    $sectores = array();
+    $sectores = $controlador->listarSectores();
+    
 ?>
 
 
@@ -27,7 +30,7 @@
                     </div>   
                 </div>
                 <div class="form-container">
-                    <form role="form" name="crearRegistro" id="crearRegistro" method="POST" action="controllers/comunidadProcesos.php">
+                    <form role="form" name="crearComunidad" id="crearComunidad" method="POST" action="controllers/comunidadProcesos.php">
                         <div class="form-row-2">
                             <div class="form-item">
                                 <label for="txt_nombre" class="text-gray">Nombre </label>
@@ -36,21 +39,34 @@
                             </div>
                             <div class="form-item">
                                 <label for="txt_descripcion" class="text-gray">Descripcion</label>
-                                <input type="text" id="txt_descripcion" name="txt_descripcion" required value="" class="form-control"
+                                <input type="text" id="txt_descripcion" name="txt_descripcion" value="" class="form-control"
                                 placeholder="Ingrese una descripcion">
                             </div>
                             <div class="form-item">
                             <label for="txt_tipo" class="text-gray">Tipo</label>
-                                <input type="text" id="txt_tipo" name="txt_tipo" required value="" class="form-control"
-                                placeholder="Indique el tipo de comunidad">
-                            </div>
-                            <div class="form-row-2">
-                            <div class="form-item">
-                            <label for="txt_sector" class="text-gray">Seleccione sector <a href="#" id="addSector" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                                <select class="select-multiple" name="sectores[]" id="txt_sector" multiple>
-                                    
+                                <select class="form-control" name="txt_tipo" id="txt_tipo">
+                                    <option value="barrio">Barrio</option>
+                                    <option value="colonia">Colonia</option>
+                                    <option value="lotificacion">Lotificacion</option>
+                                    <option value="aldea">Aldea</option>
+                                    <option value="caserio">Caserio</option>
                                 </select>
                             </div>
+                            
+                            <div class="form-item">
+                                <label for="txt_rol" class="text-gray">Sector</label>
+                                <select class="form-control" name="txt_sector" id="txt_sector">
+                                  
+                                    <?php 
+                                    foreach ($sectores as $s){
+                                    ?>
+                                        <option value="<?php echo $s->get('id_sector');?>"><?php echo $s->get('nombre');?></option>
+                                    <?php 
+                                    }//termina ciclo for
+                                    ?>
+                                </select>
+                            </div>
+
                         </div>
                         <div class="form-footer">
                             <input type="hidden" name="registro" value="guardar">   

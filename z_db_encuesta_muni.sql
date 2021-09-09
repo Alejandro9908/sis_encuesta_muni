@@ -247,6 +247,7 @@ CREATE TABLE IF NOT EXISTS `tbl_comunidad` (
 `descripcion` varchar(250),
 `tipo` varchar(50),
 `id_sector` int(11) NOT NULL,
+`estado` int(11) NOT NULL,
 PRIMARY KEY (`id_comunidad`)
 );
 
@@ -388,8 +389,6 @@ INSERT INTO `tbl_rol` (`nombre`, `descripcion`) VALUES ('Administrador', 'Admin'
 INSERT INTO `tbl_rol` (`nombre`, `descripcion`) VALUES ('Administrador', 'Admin');
 INSERT INTO `tbl_usuario` (`id_usuario`, `nombre`, `usuario`, `rol`, `password`, `estado`, `fecha_commit`, `fecha_update`) VALUES (NULL, 'Admin', 'Admin', '1', '$2y$12$cF2qA1NW0qHWGPYABPTwMOHkSVSDmxHYaGn1EGaNSYq0cvjpciGtq', '1', current_timestamp(), current_timestamp());
 
-
-INSERT INTO `tbl_enfermedad` (`nombre`, `descripcion`) VALUES ('Respiratorias', '');
 
 
 
