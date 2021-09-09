@@ -20,76 +20,102 @@
             <div class="box color-light">
                 <div class="box-header">
                     <h2>1. Estructura familiar</h2>
+                    <form role="form" name="addPersona" id="addPersona" method="POST"
+                        action="controllers/usuarioProcesos.php">
                     <div>
-                        <!--boton a la derecha-->
+                        <label><input type="checkbox" id="cbox_entrevistado" value="1"> Entrevistado</label><br>
+                        <input type="hidden" id="txt_entrevistado" name="txt_entrevistado">
                     </div>
                 </div>
                 <!--Formulario para añadir persona-->
                 <div class="form-container">
-                    <form role="form" name="crearRegistro" id="crearRegistro" method="POST"
+                    <form role="form" name="addPersona" id="addPersona" method="POST"
                         action="controllers/usuarioProcesos.php">
                         <div class="form-row-4">
                             <div class="form-item">
-                                <label for="txt_nombre" class="text-gray">Nombre Completo</label>
-                                <input type="text" id="txt_nombre" name="txt_nombre" required value=""
+                                <label for="txt_nombre" class="text-gray">Nombres</label>
+                                <input type="text" id="txt_nombres" name="txt_nombres" required value="Ale"
+                                    class="form-control" placeholder="">
+                            </div>
+                            <div class="form-item">
+                                <label for="txt_nombre" class="text-gray">Primer apellido</label>
+                                <input type="text" id="txt_primer_apellido" name="txt_primer_apellido" required value="Cas"
+                                    class="form-control" placeholder="">
+                            </div>
+                            <div class="form-item">
+                                <label for="txt_nombre" class="text-gray">Segundo apellido</label>
+                                <input type="text" id="txt_segundo_apellido" name="txt_segundo_apellido" value="Pad"
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_sexo" class="text-gray">Sexo</label>
-                                <select class="form-control" name="txt_sexo" id="txt_sexo">
-                                    <option value="">Masculino</option>
-                                    <option value="">Femenino</option>
+                                <select required class="form-control" name="txt_sexo" id="txt_sexo">
+                                    <option value="" disabled selected>Seleccione una opción</option> 
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
                                 </select>
                             </div>
                             <div class="form-item">
                                 <label for="txt_fecha_nacimiento" class="text-gray">Fecha de nacimiento</label>
-                                <input type="date" id="txt_fecha_nacimiento" name="txt_fecha_nacimiento" required value=""
+                                <input type="date" id="txt_fecha_nacimiento" name="txt_fecha_nacimiento" value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_edad" class="text-gray">Edad</label>
-                                <input type="text" id="txt_edad" name="txt_edad" required value=""
+                                <input type="number" id="txt_edad" name="txt_edad" min="0" required value="21"
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_dpi" class="text-gray">DPI</label>
-                                <input type="text" id="txt_dpi" name="txt_dpi" required value=""
-                                    class="form-control" placeholder="">
+                                <input type="text" id="txt_dpi" name="txt_dpi" value="1234123451234"
+                                    class="form-control" placeholder="" minlength="13" maxlength="13">
                             </div>
                             <div class="form-item">
                                 <label for="txt_estado_civil" class="text-gray">Estado Civil</label>
-                                <input type="text" id="txt_estado_civil" name="txt_estado_civil" required value=""
-                                    class="form-control" placeholder="">
+                                <select required class="form-control" name="txt_estado_civil" id="txt_estado_civil">
+                                    <option value="" disabled selected>Seleccione una opción</option>    
+                                    <option value="soltero">Soltero</option>
+                                    <option value="casado">Casado</option>
+                                    <option value="divorciado">Divorciado</option>
+                                </select>
                             </div>
                             <div class="form-item">
                                 <label for="txt_escolaridad" class="text-gray">Escolaridad</label>
-                                <input type="text" id="txt_escolaridad" name="txt_escolaridad" required value=""
-                                    class="form-control" placeholder="">
+                                <select required class="form-control" name="txt_escolaridad" id="txt_escolaridad">
+                                    <option value="" disabled selected>Seleccione una opción</option>
+                                    <option value="sin estudios">Sin estudio</option>
+                                    <option value="primaria">Nivel primario</option>
+                                    <option value="basico">Nivel básico</option>
+                                    <option value="diversificado">Nivel diversificado</option>
+                                    <option value="universitario">Nivel universitario</option>
+                                </select>
                             </div>
                             <div class="form-item">
                                 <label for="txt_ocupacion" class="text-gray">Ocupacion</label>
-                                <input type="text" id="txt_ocupacion" name="txt_ocupacion" required value=""
+                                <input type="text" id="txt_ocupacion" name="txt_ocupacion" value="Estudiante"
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_telefono" class="text-gray">Teléfono</label>
-                                <input type="text" id="txt_telefono" name="txt_telefono" required value=""
-                                    class="form-control" placeholder="">
+                                <input type="text" id="txt_telefono" name="txt_telefono" value="52525252"
+                                    class="form-control" placeholder="" minlength="8" maxlength="8">
                             </div>
-                            <div class="form-item">
+                            <div class="form-item" id="div-gestacion">
                                 <label for="txt_gestacion" class="text-gray">Gestación</label>
-                                <input type="text" id="txt_gestacion" name="txt_gestacion" required value=""
-                                    class="form-control" placeholder="">
+                                <select class="form-control" name="txt_gestacion" id="txt_gestacion">
+                                    <option value="0" selected>No</option>
+                                    <option value="1">Si</option>
+                                </select>
                             </div>
-                            <div class="form-item">
+                            <div class="form-item" id="div-semanas-gestacion">
                                 <label for="txt_semanas_gestacion" class="text-gray">Semanas de gestación</label>
-                                <input type="text" id="txt_semanas_gestacion" name="txt_semanas_gestacion" required value=""
+                                <input type="number" id="txt_semanas_gestacion" name="txt_semanas_gestacion" required value="0"
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual</label>
-                                <input type="number" step="0.01" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required value=""
-                                    class="form-control" placeholder="">
+                                <input type="number" step="0.01" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required value="3000"
+                                    class="form-control" placeholder="" min="0.00">
                             </div>
                         </div>
                         <div class="form-row-2">
@@ -119,67 +145,12 @@
                 <div class="scroll-x">
                     <table class="table">
                         <thead>
+                            <td>ENTREVISTADO</td>
                             <td>NOMBRE</td>
-                            <td>SEXO</td>
-                            <td>EDAD</td>
-                            <td>FECHA NACIMIENTO</td>
                             <td>DPI</td>
-                            <td>ESTADO CIVIL</td>
-                            <td>ESCOLARIDAD</td>
-                            <td>OCUPACION</td>
-                            <td>TELEFONO</td>
-                            <td>DISCAPACIDADES</td>
-                            <td>INGRESO MENSUAL</td>
-                            <td>ENFERMEDADES</td>
-                            <td>GESTACION</td>
                             <td>OPCIONES</td>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                            </tr>
-                            <tr>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                            </tr>
-                            <tr>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                                <td>dato1</td>
-                            </tr>
+                        <tbody id="listaPersonas">
                         </tbody>
                     </table>
                 </div>
@@ -271,78 +242,78 @@
                         <div class="form-item">
                             <label for="txt_alimentacion" class="text-gray">Alimentación</label>
                             <input type="number" step="0.01" id="txt_alimentacion" name="txt_alimentacion" required value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_gas" class="text-gray">Gas o combustible</label>
                             <input type="number" step="0.01" id="txt_gas" name="txt_gas" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
         
                         <div class="form-item">
                             <label for="txt_renta" class="text-gray">Renta</label>
                             <input type="number" step="0.01" id="txt_renta" name="txt_renta" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_agua" class="text-gray">Agua</label>
                             <input type="number" step="0.01" id="txt_agua" name="txt_agua" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_electricidad" class="text-gray">Electricidad</label>
                             <input type="number" step="0.01" id="txt_electricidad" name="txt_electricidad" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_telefono_residencial" class="text-gray">Telefono Residencial</label>
                             <input type="number" step="0.01" id="txt_telefono_residencial" name="txt_telefono_residencial" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_telefono_celular" class="text-gray">Telefono Celular</label>
                             <input type="number" step="0.01" id="txt_telefono_celular" name="txt_telefono_celular" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_transporte" class="text-gray">Transporte</label>
                             <input type="number" step="0.01" id="txt_transporte" name="txt_transporte" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_educacion" class="text-gray">Educación</label>
                             <input type="number" step="0.01" id="txt_educacion" name="txt_educacion" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_medicos" class="text-gray">Gastos Médicos</label>
                             <input type="number" step="0.01" id="txt_medicos" name="txt_medicos" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_gastos_recreacion" class="text-gray">Recreación</label>
                             <input type="number" step="0.01" id="txt_gastos_recreacion" name="txt_gastos_recreacion" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_cable" class="text-gray">Cable</label>
                             <input type="number" step="0.01" id="txt_cable" name="txt_cable" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_ropa_calzado" class="text-gray">Ropa y Calzado</label>
                             <input type="number" step="0.01" id="txt_ropa_calzado" name="txt_ropa_calzado" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_fondos_ahorro" class="text-gray">Fondos de ahorro</label>
                             <input type="number" step="0.01" id="txt_fondos_ahorro" name="txt_fondos_ahorro" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_creditos" class="text-gray">Creditos</label>
                             <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="" class="form-control"
-                                placeholder="">
+                                placeholder="" min="0.00">
                         </div>
                     </div>
                     
@@ -664,7 +635,13 @@
         <!--Termina row-->
 
         <div class="content-footer">
-
+            <div class="form-footer">
+                <form role="form" name="crearBoleta" id="crearBoleta" method="POST" action="controllers/boletaProcesos.php">
+                    <input type="hidden" name="registro" value="guardar">
+                    <input type="submit" value="Guardar Boleta" class="color-primary text-light">
+                    <input type="reset" value="Cancelar" class="color-danger text-light">
+                </form>
+            </div>
         </div>
         <!--Termina content-footer-->
     </div>
