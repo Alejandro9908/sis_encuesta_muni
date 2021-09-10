@@ -23,6 +23,8 @@ $(document).ready(function(){
     listarServicios();
     listarServiciosMedicos();
     listarRecreaciones();
+    listarSectores();
+    listarTenencia();
     
     
     $('#txt_transporte').click(function(){
@@ -320,6 +322,12 @@ $(document).ready(function(){
                                 '</form>');                      
         
 	});
+
+
+    $('#txt_sector').change(function(){
+        var sector = $('#txt_sector').val()
+        listarComunidades(sector);
+    });
   
 
 });
@@ -771,6 +779,57 @@ function listarRecreaciones(){
                 `
             });
             $('#txt_recreacion').html(lista);
+        }
+    });
+}
+
+function listarSectores(){
+    $.ajax({
+        url: 'controllers/select/listarSectores.php',
+        type: 'GET',
+        success: function(respuesta){
+            let Resultado = JSON.parse(respuesta);
+            let lista = '<option value="" disabled selected>Seleccione una opción</option>';
+            Resultado.forEach(e => {
+                lista += `
+                <option value="${e.id_opcion}">${e.nombre}</option>
+                `
+            });
+            $('#txt_sector').html(lista);
+        }
+    });
+}
+
+function listarComunidades(sector){
+    $.ajax({
+        url: 'controllers/select/listarComunidades.php?sector='+sector,
+        type: 'GET',
+        success: function(respuesta){
+            let Resultado = JSON.parse(respuesta);
+            let lista = '';
+            Resultado.forEach(e => {
+                lista += `
+                <option value="${e.id_comunidad}">${e.nombre}</option>
+                `
+            });
+            $('#txt_comunidad').html(lista);
+        }
+    });
+}
+
+function listarTenencia(){
+    $.ajax({
+        url: 'controllers/select/listarTenencia.php',
+        type: 'GET',
+        success: function(respuesta){
+            let Resultado = JSON.parse(respuesta);
+            let lista = '';
+            Resultado.forEach(e => {
+                lista += `
+                <option value="${e.id_opcion}">${e.nombre}</option>
+                `
+            });
+            $('#txt_tenencia').html(lista);
         }
     });
 }
