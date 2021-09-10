@@ -167,53 +167,52 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
+                    <form role="form" name="add-form-2" id="add-form-2" method="POST"
+                        action="controllers/boletaProcesos.php">
                     <div class="form-row-2">
                         <div class="form-item">
                             <label for="txt_sector" class="text-gray">Sector</label>
-                            <select class="form-control" name="txt_sector" id="txt_sector">
-                                <option value="">Masculino</option>
-                                <option value="">Femenino</option>
+                            <select required class="form-control" name="txt_sector" id="txt_sector">
+                                <option value="" disabled selected>Seleccione una opción</option>
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_comunidad" class="text-gray">Comunidad</label>
                             <select class="form-control" name="txt_comunidad" id="txt_comunidad">
-                                <option value="">Masculino</option>
-                                <option value="">Femenino</option>
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_direccion" class="text-gray">Dirección</label>
-                            <input type="text" id="txt_direccion" name="txt_direccion" required value="" class="form-control"
+                            <input type="text" id="txt_direccion" name="txt_direccion" required value="calle 1" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
                             <label for="txt_numero_casa" class="text-gray">Numero de casa</label>
-                            <input type="text" id="txt_numero_casa" name="txt_numero_casa" value="" class="form-control"
+                            <input type="text" id="txt_numero_casa" name="txt_numero_casa" value="151515" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
                     <div class="form-row-3">
                         <div class="form-item">
                             <label for="txt_colindantes" class="text-gray">Colindantes</label>
-                            <input type="text" id="txt_colindantes" name="txt_colindantes" value="" class="form-control"
+                            <input type="text" id="txt_colindantes" name="txt_colindantes" value="Juan y pedro" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
                             <label for="txt_latitud" class="text-gray">Latitud</label>
-                            <input type="text" id="txt_latitud" name="txt_latitud" value="" class="form-control"
+                            <input type="text" id="txt_latitud" name="txt_latitud" value="89'151151" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
                             <label for="txt_longitud" class="text-gray">Longitud</label>
-                            <input type="text" id="txt_longitud" name="txt_longitud" value="" class="form-control"
+                            <input type="text" id="txt_longitud" name="txt_longitud" value="89'151151" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
                     <div class="form-row-2">
                         <div class="form-item">
                             <label for="txt_telefono" class="text-gray">Telefono</label>
-                            <input type="text" id="txt_telefono" name="txt_telefono" value="" class="form-control"
+                            <input type="text" id="txt_telefono" name="txt_telefono" value="12345678" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
@@ -224,6 +223,7 @@
                             </select>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
             <!--termina identificacion domiciliaria-->
@@ -237,89 +237,88 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
+                    <form role="form" name="add-form-3" id="add-form-3" method="POST"
+                        action="controllers/boletaProcesos.php">
                     <div class="form-row-4">
-                        
                         <div class="form-item">
                             <label for="txt_alimentacion" class="text-gray">Alimentación</label>
-                            <input type="number" step="0.01" id="txt_alimentacion" name="txt_alimentacion" required value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_alimentacion" name="txt_alimentacion" required value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_gas" class="text-gray">Gas o combustible</label>
-                            <input type="number" step="0.01" id="txt_gas" name="txt_gas" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_gas" name="txt_gas" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
         
                         <div class="form-item">
                             <label for="txt_renta" class="text-gray">Renta</label>
-                            <input type="number" step="0.01" id="txt_renta" name="txt_renta" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_renta" name="txt_renta" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_agua" class="text-gray">Agua</label>
-                            <input type="number" step="0.01" id="txt_agua" name="txt_agua" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_agua" name="txt_agua" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_electricidad" class="text-gray">Electricidad</label>
-                            <input type="number" step="0.01" id="txt_electricidad" name="txt_electricidad" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_electricidad" name="txt_electricidad" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_telefono_residencial" class="text-gray">Telefono Residencial</label>
-                            <input type="number" step="0.01" id="txt_telefono_residencial" name="txt_telefono_residencial" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_telefono_residencial" name="txt_telefono_residencial" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_telefono_celular" class="text-gray">Telefono Celular</label>
-                            <input type="number" step="0.01" id="txt_telefono_celular" name="txt_telefono_celular" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_telefono_celular" name="txt_telefono_celular" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_transporte" class="text-gray">Transporte</label>
-                            <input type="number" step="0.01" id="txt_transporte" name="txt_transporte" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_transporte" name="txt_transporte" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_educacion" class="text-gray">Educación</label>
-                            <input type="number" step="0.01" id="txt_educacion" name="txt_educacion" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_educacion" name="txt_educacion" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_medicos" class="text-gray">Gastos Médicos</label>
-                            <input type="number" step="0.01" id="txt_medicos" name="txt_medicos" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_medicos" name="txt_medicos" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_gastos_recreacion" class="text-gray">Recreación</label>
-                            <input type="number" step="0.01" id="txt_gastos_recreacion" name="txt_gastos_recreacion" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_gastos_recreacion" name="txt_gastos_recreacion" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_cable" class="text-gray">Cable</label>
-                            <input type="number" step="0.01" id="txt_cable" name="txt_cable" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_cable" name="txt_cable" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_ropa_calzado" class="text-gray">Ropa y Calzado</label>
-                            <input type="number" step="0.01" id="txt_ropa_calzado" name="txt_ropa_calzado" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_ropa_calzado" name="txt_ropa_calzado" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_fondos_ahorro" class="text-gray">Fondos de ahorro</label>
-                            <input type="number" step="0.01" id="txt_fondos_ahorro" name="txt_fondos_ahorro" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_fondos_ahorro" name="txt_fondos_ahorro" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
                             <label for="txt_creditos" class="text-gray">Creditos</label>
-                            <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="" class="form-control"
+                            <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
+                        
                     </div>
-                    
-                        
-                        
-
+                    </form>
                 </div>
             </div>
             <!--termina egresos-->
@@ -333,60 +332,60 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
+                    <form role="form" name="add-form-4" id="add-form-4" method="POST"
+                        action="controllers/boletaProcesos.php">
                     <div class="form-row-4">
                         <div class="form-item">
                             <label for="txt_tenencia" class="text-gray">Tenencia</label>
                             <select class="form-control" name="txt_tenencia" id="txt_tenencia">
-                                <option value="">Propia</option>
-                                <option value="">Rentada</option>
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_numero_dormitorios" class="text-gray">Numero de dormitorios</label>
-                            <input type="number" id="txt_numero_dormitorios" name="txt_numero_dormitorios" value="" class="form-control"
-                                placeholder="">
+                            <input type="number" id="txt_numero_dormitorios" name="txt_numero_dormitorios" value="2" class="form-control"
+                                placeholder="" min="0">
                         </div>
         
                         <div class="form-item">
                             <label for="txt_sala" class="text-gray">¿Cuenta con sala?</label>
                             <select class="form-control" name="txt_sala" id="txt_sala">
-                                <option value="">Si</option>
-                                <option value="">No</option>
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_comedor" class="text-gray">¿Cuenta con comedor?</label>
                             <select class="form-control" name="txt_comedor" id="txt_comedor">
-                                <option value="">Si</option>
-                                <option value="">No</option>
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_cocina" class="text-gray">¿Cuenta con cocina?</label>
                             <select class="form-control" name="txt_cocina" id="txt_cocina">
-                                <option value="">Si</option>
-                                <option value="">No</option>
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_banio_privado" class="text-gray">¿Cuenta con baño privado?</label>
                             <select class="form-control" name="txt_banio_privado" id="txt_banio_privado">
-                                <option value="">Si</option>
-                                <option value="">No</option>
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_banio_colectivo" class="text-gray">¿Cuenta con baño colectivo?</label>
                             <select class="form-control" name="txt_banio_colectivo" id="txt_banio_colectivo">
-                                <option value="">Si</option>
-                                <option value="">No</option>
+                                <option value="1">Si</option>
+                                <option value="0">No</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row-1">
                         <div class="form-item">
                             <label for="txt_observaciones_vivienda" class="text-gray">Observaciones</label>
-                            <input type="text" id="txt_observaciones_vivienda" name="txt_observaciones_vivienda" value="" class="form-control"
+                            <input type="text" id="txt_observaciones_vivienda" name="txt_observaciones_vivienda" value="esto es una observacion" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -429,10 +428,11 @@
                         </div>
                         <div class="form-item">
                             <label for="txt_eliminacion_basura" class="text-gray">Eliminación de basura</label>
-                            <input type="text" id="txt_eliminacion_basura" name="txt_eliminacion_basura" value="" class="form-control"
+                            <input type="text" id="txt_eliminacion_basura" name="txt_eliminacion_basura" value="fuego" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
             <!--termina vivienda-->
@@ -446,6 +446,8 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
+                    <form role="form" name="add-form-5" id="add-form-5" method="POST"
+                        action="controllers/boletaProcesos.php">
                     <div class="form-row-2">
                         <div class="form-item">
                             <label for="txt_servicio_medico" class="text-gray">Servicios Medicos <a href="#" id="addServicioMedico" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
@@ -455,11 +457,14 @@
                         <div class="form-item">
                             <label for="txt_frecuencia_medico" class="text-gray">Fecuencia de uso de servicio medicos</label>
                             <select class="form-control" name="txt_frecuencia_medico" id="txt_frecuencia_medico">
-                                <option value="">Mensualmente</option>
-                                <option value="">Anualmente</option>
+                                <option value="una vez por semana">Una vez por semana</option>
+                                <option value="mensualmente">Mensualmente</option>
+                                <option value="anualmente">Anualmente</option>
+                                <option value="cuando se enferman">Cuando se enferman</option>
                             </select>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
             <!--termina salud-->
@@ -473,6 +478,8 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
+                    <form role="form" name="add-form-6" id="add-form-6" method="POST"
+                        action="controllers/boletaProcesos.php">
                     <div class="form-row-4">
                         <div class="form-item">
                             <label for="txt_carne_res" class="text-gray">Carne de res</label>
@@ -575,6 +582,7 @@
                             </select>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
             <!--termina alimentacion-->
@@ -588,6 +596,8 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
+                <form role="form" name="add-form-7" id="add-form-7" method="POST"
+                        action="controllers/boletaProcesos.php">
                     <div class="form-row-1">
                         <div class="form-item">
                             <label for="txt_recreacion" class="text-gray">Activiades familiariares del fin de semana <a href="#" id="addRecreacion" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
@@ -595,6 +605,7 @@
                             </select>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
             <!--termina recreacion-->
@@ -608,18 +619,20 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
+                <form role="form" name="add-form-8" id="add-form-8" method="POST"
+                        action="controllers/boletaProcesos.php">
                     <div class="form-row-1">
                         <div class="form-item">
                             <label for="txt_observaciones_encuesta" class="text-gray">Observaciones</label>
-                            <input type="text" id="txt_observaciones_encuesta" name="txt_observaciones_encuesta" required value=""
+                            <input type="text" id="txt_observaciones_encuesta" name="txt_observaciones_encuesta" required value="esta es una observacion"
                             class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="form-row-2">
                         <div class="form-item">
                             <label for="txt_evaluador" class="text-gray">Evaluador</label>
-                            <input type="text" id="txt_evaluador" name="txt_evaluador" required value=""
-                            class="form-control" placeholder="">
+                            <input type="text" id="txt_evaluador" name="txt_evaluador" required value="Juan Perez"
+                            class="form-control" placeholder="" >
                         </div>
                         <div class="form-item">
                             <label for="txt_fecha_evaluacion" class="text-gray">Fecha de evaluación</label>
@@ -627,6 +640,7 @@
                             class="form-control" placeholder="">
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
             <!--termina observaciones-->
