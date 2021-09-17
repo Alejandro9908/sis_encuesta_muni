@@ -10,6 +10,7 @@ class Persona
     private $segundo_apellido;
     private $sexo;
     private $fecha_nacimiento;
+    private $perentesco;
     private $edad;
     private $estado_civil;
     private $escolaridad;

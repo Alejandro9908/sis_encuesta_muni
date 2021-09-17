@@ -40,7 +40,7 @@ PRIMARY KEY (`id_familia`)
 );
 
 CREATE TABLE IF NOT EXISTS `tbl_alimentacion` (
-`id_alimentacion` int(11) NOT NULL ,
+`id_alimentacion` int(11) NOT NULL AUTO_INCREMENT,
 `id_familia` int(11) NOT NULL,
 `carne_res` int(5) NOT NULL ,
 `carne_pollo` int(5) NOT NULL,
@@ -55,7 +55,7 @@ PRIMARY KEY (`id_alimentacion`)
 );
 
 CREATE TABLE IF NOT EXISTS `tbl_egreso` (
-`id_egreso` int(11) NOT NULL ,
+`id_egreso` int(11) NOT NULL AUTO_INCREMENT,
 `id_familia` int(11) NOT NULL,
 `alimentacion` int(5) NOT NULL ,
 `combustible` int(5) NOT NULL,
@@ -78,15 +78,20 @@ PRIMARY KEY (`id_egreso`)
 CREATE TABLE IF NOT EXISTS `tbl_persona` (
 `id_persona` int(11) NOT NULL AUTO_INCREMENT ,
 `id_familia` int(11) NOT NULL ,
-`dpi` varchar(20),
+`entrevistado` int(5),
 `nombres` varchar(50) NOT NULL,
 `primer_apellido` varchar(50) NOT NULL,
 `segundo_apellido` varchar(50),
+`sexo` varchar(10),
+`fecha_nacimiento` date,
+`edad` int(10),
+`dpi` varchar(20),
+`estado_civil` varchar(20),
 `escolaridad` varchar(50) NOT NULL,
 `ocupacion` varchar(50) NOT NULL,
+`telefono` varchar(20),
 `gestacion` int(5),
 `semanas_gestacion` int(11) NOT NULL,
-`telefono` varchar(20),
 `ingreso_mensual` float(5,2) NOT NULL,
 PRIMARY KEY (`id_persona`)
 );
@@ -123,6 +128,7 @@ CREATE TABLE IF NOT EXISTS `tbl_serviciomedico_familia` (
 `id_medico_familia` int(11) NOT NULL AUTO_INCREMENT,
 `id_servicio_medico` int(11) NOT NULL,
 `id_familia` int(11) NOT NULL,
+`frecuencia_medico` varchar(45) NOT NULL,
 PRIMARY KEY (`id_medico_familia`)
 );
 
@@ -160,6 +166,7 @@ CREATE TABLE IF NOT EXISTS `tbl_vivienda` (
 `cocina` int(5) NOT NULL,
 `baño_privado` int(5) NOT NULL,
 `baño_colectivo` int(5) NOT NULL,
+`id_sanitario` int(5) NOT NULL,
 `observaciones` varchar(250),
 `id_mp_pared` int(11) NOT NULL,
 `id_mp_techo` int(11) NOT NULL,
@@ -256,6 +263,13 @@ CREATE TABLE IF NOT EXISTS `tbl_sector` (
 `nombre` varchar(50) NOT NULL,
 `descripcion` varchar(250),
 PRIMARY KEY (`id_sector`)
+);
+
+CREATE TABLE IF NOT EXISTS `tbl_sanitario` (
+`id_sanitario` int(11) NOT NULL AUTO_INCREMENT,
+`nombre` varchar(50) NOT NULL,
+`descripcion` varchar(250),
+PRIMARY KEY (`id_sanitario`)
 );
 
 #llaves foraneas----------------------------------------------------------------------------------------
@@ -382,6 +396,11 @@ REFERENCES tbl_transporte(id_transporte);
 ALTER TABLE tbl_comunidad ADD CONSTRAINT `fk_comunidad_sector` 
 FOREIGN KEY (id_sector)
 REFERENCES tbl_sector(id_sector);
+
+#tabla comunidad
+ALTER TABLE tbl_vivienda ADD CONSTRAINT `fk_vivienda_sanitario` 
+FOREIGN KEY (id_sanitario)
+REFERENCES tbl_sanitario(id_sanitario);
 
 
 -- insertar usuario defecto

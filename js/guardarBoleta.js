@@ -1,12 +1,19 @@
 let banderaEntrevistado = 0;
 let personas = [];
+var bandera = 0;
 
 $(document).ready(function(){
 
-    $('#txt_entrevistado').val(0);
+    $('#cbox_entrevistado').prop("checked",true);
+    $('#txt_entrevistado').val(1);
 
     $('#div-gestacion').hide();
     $('#div-semanas-gestacion').hide();
+
+    $('#div-parentesco').hide();
+    $('#txt_parentesco').val("yo");
+
+
 
     $('#txt_sexo').change(function(){
         sexo = $('#txt_sexo').val()
@@ -26,9 +33,19 @@ $(document).ready(function(){
         if( $('#cbox_entrevistado').is(':checked') ){
             $('#txt_entrevistado').val(1);
             
+            $('#div-parentesco').hide();
+            $('#txt_parentesco').val("yo");
+
+            $('#div-fecha-nacimiento').show();
+            $('#txt_fecha_nacimiento').val("");
         } else {
             $('#txt_entrevistado').val(0);
-         
+            
+            $('#div-parentesco').show();
+            $('#txt_parentesco').val("");
+
+            $('#div-fecha-nacimiento').hide();
+            $('#txt_fecha_nacimiento').val("");
         }
     });
 
@@ -40,58 +57,109 @@ $(document).ready(function(){
 
     $('#crearBoleta').submit(function (e){
         e.preventDefault();
-        var personasJson = JSON.encode(personas);
         
-        var domicilio = addDomicilio($("#add-form-2").serializeArray());//domicilio
-        var domicilioJson = JSON.encode(domicilio);
+        if(personas.length == 0){
+            validacionFormulario('No se agregaron personas', '1. Estructura Familiar');
+        }else if($('#txt_comunidad').val() == null || $('#txt_direccion').val() == ""){
+            validacionFormulario('No se identificó la dirección domiciliaria', '2. Identificacion domiciliaria');
+        }else if(($('#txt_alimentacion').val() == "") || 
+                    ($('#txt_gas').val() == "") || 
+                    ($('#txt_renta').val() == "") || 
+                    ($('#txt_agua').val() == "") || 
+                    ($('#txt_electricidad').val() == "") || 
+                    ($('#txt_telefono_residencial').val() == "") ||
+                    ($('#txt_telefono_celular').val() == "") || 
+                    ($('#txt_transporte').val() == "") || 
+                    ($('#txt_educacion').val() == "") || 
+                    ($('#txt_medicos').val() == "") || 
+                    ($('#txt_gastos_recreacion').val() == "") || 
+                    ($('#txt_cable').val() == "") || 
+                    ($('#txt_ropa_calzado').val() == "") || 
+                    ($('#txt_fondos_ahorro').val() == "") || 
+                    ($('#txt_creditos').val() == "")){
+            validacionFormulario('Se deben completar los datos', '3. Egresos mensuales de la familia');
+        }else if(($('#txt_numero_dormitorios').val() == "")){
+            validacionFormulario('Se deben completar los datos', '4. Vivienda');
+        }else if(($('#txt_servicio_medico').val() == null) || ($('#txt_frecuencia_medico').val() == null)){
+            validacionFormulario('Se deben completar los datos', '5. Salud');
+        }else if(($('#txt_carne_res').val() == null) || 
+                    ($('#txt_carne_pollo').val() == null) || 
+                    ($('#txt_carne_cerdo').val() == null) || 
+                    ($('#txt_carne_pescado').val() == null) || 
+                    ($('#txt_leche').val() == null) || 
+                    ($('#txt_cereales').val() == null) ||
+                    ($('#txt_huevos').val() == null) || 
+                    ($('#txt_frutas').val() == null) || 
+                    ($('#txt_verduras').val() == null) || 
+                    ($('#txt_leguminosas').val() == null)){
+            validacionFormulario('Se deben completar los datos', '6. Alimentacion');
+        }else{
+            console.log("Guardado");
+            var personasJson = JSON.encode(personas);
+            
+            var domicilio = addDomicilio($("#add-form-2").serializeArray());//domicilio
+            var domicilioJson = JSON.encode(domicilio);
 
-        var egresos = addEgresos($("#add-form-3").serializeArray());//domicilio
-        var egresosJson = JSON.encode(egresos);
+            var egresos = addEgresos($("#add-form-3").serializeArray());//domicilio
+            var egresosJson = JSON.encode(egresos);
 
-        var vivienda = addVivienda($("#add-form-4").serializeArray());//domicilio
-        var viviendaJson = JSON.encode(vivienda);
+            var vivienda = addVivienda($("#add-form-4").serializeArray());//domicilio
+            var viviendaJson = JSON.encode(vivienda);
 
-        var salud = addSalud($("#add-form-5").serializeArray());//domicilio
-        var saludJson = JSON.encode(salud);
+            var salud = addSalud($("#add-form-5").serializeArray());//domicilio
+            var saludJson = JSON.encode(salud);
 
-        var alimentacion = addAlimentacion($("#add-form-6").serializeArray());//domicilio
-        var alimentacionJson = JSON.encode(alimentacion);
+            var alimentacion = addAlimentacion($("#add-form-6").serializeArray());//domicilio
+            var alimentacionJson = JSON.encode(alimentacion);
 
-        var recreacion = addRecreacion($("#add-form-7").serializeArray());//domicilio
-        var recreacionJson = JSON.encode(recreacion);
+            var recreacion = addRecreacion($("#add-form-7").serializeArray());//domicilio
+            var recreacionJson = JSON.encode(recreacion);
 
-        var observacion = addObservacion($("#add-form-8").serializeArray());//domicilio
-        var observacionJson = JSON.encode(observacion);
-        //console.log(observacionJson);
-        
-        $.post("controllers/guardarBoleta.php",
-        "personas="+personasJson+
-        "&domicilio="+domicilioJson+
-        "&egresos="+egresosJson+
-        "&vivienda="+viviendaJson+
-        "&salud="+saludJson+ 
-        "&alimentacion="+alimentacionJson+ 
-        "&recreacion="+recreacionJson+ 
-        "&observacion="+observacionJson, 
-        function (respuesta){
-            console.log(respuesta);
-            if(respuesta == 'exito'){
-               
-            }else{
-  
-            }
-        });
+            var observacion = addObservacion($("#add-form-8").serializeArray());//domicilio
+            var observacionJson = JSON.encode(observacion);
+            //console.log(observacionJson);
+            
+            $.post("controllers/guardarBoleta.php",
+            "personas="+personasJson+
+            "&domicilio="+domicilioJson+
+            "&egresos="+egresosJson+
+            "&vivienda="+viviendaJson+
+            "&salud="+saludJson+ 
+            "&alimentacion="+alimentacionJson+ 
+            "&recreacion="+recreacionJson+ 
+            "&observacion="+observacionJson, 
+            function (respuesta){
+                console.log(respuesta);
+                if(respuesta == 'exito'){
+                
+                }else{
+    
+                }
+            });
+        }
         
     });
 
 
 });
 
+
+function validacionFormulario(mensaje, modulo){
+    $('.modal-container').fadeIn();
+                $('.modal-title').text('La boleta no se puede guardar');
+                $('.modal-body').html(  '<div>'+
+                                        '<p>Problema detectado: '+mensaje+'</p><br>'+
+                                        '<p>Módulo: '+modulo+'</p><br>'+
+                                        '<input type="button" value="Aceptar" onclick="cerrarModal();" style="padding: 10px 15px;" class="btn color-primary text-light cerrar-modal">'+
+                                        '</div>');
+}
+
 function addObservacion(datos){
     var observacion = {
         observaciones_encuesta: '',
         evaluador: '',
-        fecha_evaluacion: ''
+        fecha_evaluacion: '',
+        id_usuario: ''
     }
 
 
@@ -101,6 +169,7 @@ function addObservacion(datos){
             case 'txt_observaciones_encuesta': observacion['observaciones_encuesta'] = datos[i]["value"]; break;
             case 'txt_evaluador': observacion['evaluador'] = datos[i]["value"]; break;
             case 'txt_fecha_evaluacion': observacion['fecha_evaluacion'] = datos[i]["value"]; break;
+            case 'txt_usuario': observacion['id_usuario'] = datos[i]["value"]; break;
         }
         
     }
@@ -164,23 +233,20 @@ function addAlimentacion(datos){
 
 function addSalud(datos){
     var salud = {
-        servicios_medicos: '',
+        servicio_medico: '',
         frecuencia_medico: ''
     }
-
-    var servicios_medicos = [];
 
     for(i = 0; i < datos.length; i++){
         //console.log(datos[i]['name']);
         switch(datos[i]['name']){
 
             case 'txt_frecuencia_medico': salud['frecuencia_medico'] = datos[i]["value"]; break;
-            case 'servicios_medicos[]': servicios_medicos.push(datos[i]["value"]); break;
+            case 'servicios_medicos[]': salud['servicio_medico'] = datos[i]["value"]; break;
         }
         
     }
 
-    salud['servicios_medicos'] = servicios_medicos;
     return salud;
 }
 
@@ -201,13 +267,12 @@ function addVivienda(datos){
         piso: '',
         mobiliarios: '',
         servicios: '',
-        sanitarios: '',
+        sanitario: '',
         eliminacion_basura: ''
     }
 
     var mobiliarios = [];
     var servicios = [];
-    var sanitarios = [];
 
 
     for(i = 0; i < datos.length; i++){
@@ -227,14 +292,13 @@ function addVivienda(datos){
             case 'txt_eliminacion_basura': vivienda['eliminacion_basura'] = datos[i]["value"]; break;
             case 'mobiliarios[]': mobiliarios.push(datos[i]["value"]); break;
             case 'servicios[]': servicios.push(datos[i]["value"]); break;
-            case 'sanitarios[]': sanitarios.push(datos[i]["value"]); break;
+            case 'txt_sanitario': vivienda['sanitario'] = datos[i]["value"]; break;
         }
         
     }
 
     vivienda['mobiliarios'] = mobiliarios;
     vivienda['servicios'] = servicios;
-    vivienda['sanitarios'] = sanitarios;
 
     return vivienda;
 }
@@ -329,6 +393,7 @@ function addPersona(datos){
         segundo_apellido: '',
         sexo: '',
         fecha_nacimiento: '',
+        parentesco: '',
         edad: '',
         dpi: '',
         estado_civil: '',
@@ -356,6 +421,7 @@ function addPersona(datos){
             case 'txt_sexo': persona['sexo'] = datos[i]["value"]; break;
             case 'txt_fecha_nacimiento': persona['fecha_nacimiento'] = datos[i]["value"]; break;
             case 'txt_edad': persona['edad'] = datos[i]["value"]; break;
+            case 'txt_parentesco': persona['parentesco'] = datos[i]["value"]; break;
             case 'txt_dpi': persona['dpi'] = datos[i]["value"]; break;
             case 'txt_estado_civil': persona['estado_civil'] = datos[i]["value"]; break;
             case 'txt_escolaridad': persona['escolaridad'] = datos[i]["value"]; break;
@@ -375,6 +441,19 @@ function addPersona(datos){
     //console.log(discapacidades);
     persona['enfermedades'] = enfermedades;
     persona['discapacidades'] = discapacidades;
+
+    if(persona['entrevistado']==1){
+        $('#cbox_entrevistado').prop("checked",false);
+        
+        $('#div-parentesco').show();
+        $('#txt_parentesco').val("");
+
+        $('#div-fecha-nacimiento').hide();
+        $('#txt_fecha_nacimiento').val("");
+
+        $('#txt_entrevistado').val(0);
+    }
+
     personas.push(persona);
     addTabla(personas);
 
@@ -386,14 +465,14 @@ function addTabla(personas){
     for(i = 0; i < personas.length; i++){
         
         var banderaEntrevistado = "";
-        if(personas[i]['txt_entrevistado']=="1"){
+        if(personas[i]['entrevistado']=="1"){
             banderaEntrevistado = "◉"
         }
         lista += `
         <tr>
         <td>${banderaEntrevistado}</td>
-        <td>${personas[i]['txt_nombres']+" "+personas[i]['txt_primer_apellido']+" "+personas[i]['txt_segundo_apellido']}</td>
-        <td>${personas[i]['txt_dpi']}</td>
+        <td>${personas[i]['nombres']+" "+personas[i]['primer_apellido']+" "+personas[i]['segundo_apellido']}</td>
+        <td>${personas[i]['dpi']}</td>
         <td>
         <a class="btn color-danger" onclick="quitarRegistro(${i})">Eliminar</a>
         <a class="btn color-info" onclick="verRegistro(${i})">Ver</a>

@@ -25,10 +25,11 @@ $(document).ready(function(){
     listarRecreaciones();
     listarSectores();
     listarTenencia();
+    listarSanitarios();
     
     
-    $('#txt_transporte').click(function(){
-        transportes = $('#txt_transporte').val()
+    $('#txt_transportes').click(function(){
+        transportes = $('#txt_transportes').val()
         console.log(transportes);
     });
 
@@ -323,6 +324,34 @@ $(document).ready(function(){
         
 	});
 
+    $("#addSanitario").click(function(e){
+        e.preventDefault();
+        
+        $('.modal-container').fadeIn();
+        $('.modal-title').text('Agregar tipo de sanitario');
+        $('.modal-body').html('<form action="" method="post" name="agregarSanitario" id="agregarSanitario"'+
+                                'onsubmit="event.preventDefault(); agregar_sanitario();"'+
+                                'class="form-container">'+
+                                '<div class="form-row-1">'+
+                                '<div class="form-item">'+
+                                '<label for="txt_nombre" class="text-gray">Tipo de sanitario</label>'+
+                                '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
+                                'placeholder="">'+
+                                '</div>'+
+                                '<div class="form-item">'+
+                                '<label for="txt_descripcion" class="text-gray">Descripcion</label>'+
+                                '<input type="text" id="txt_descripcion" name="txt_descripcion" value=""'+
+                                'class="form-control" placeholder="">'+
+                                '</div>'+
+                                '</div>'+
+                                '<div class="form-footer">'+
+                                '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
+                                '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
+                                '</div>'+
+                                '</form>');                      
+        
+	});
 
     $('#txt_sector').change(function(){
         var sector = $('#txt_sector').val()
@@ -463,7 +492,7 @@ function listarTransportes(){
                 <option value="${e.id_opcion}">${e.nombre}</option>
                 `
             });
-            $('#txt_transporte').html(lista);
+            $('#txt_transportes').html(lista);
         }
     });
 }
@@ -727,7 +756,7 @@ function listarServiciosMedicos(){
         type: 'GET',
         success: function(respuesta){
             let Resultado = JSON.parse(respuesta);
-            let lista = '';
+            let lista = '<option value="" disabled selected>Seleccione una opción</option>';
             Resultado.forEach(e => {
                 lista += `
                 <option value="${e.id_opcion}">${e.nombre}</option>
@@ -830,6 +859,51 @@ function listarTenencia(){
                 `
             });
             $('#txt_tenencia').html(lista);
+        }
+    });
+}
+
+function agregar_sanitario(){
+    var datos = $('#agregarSanitario').serializeArray();
+    
+    $.post("controllers/sanitarioProcesos.php", datos, function (respuesta){
+        $('.modal-container').fadeOut();
+        listarSanitarios();
+        setTimeout(function(){
+            if(respuesta == 'exito'){
+                $('.modal-container').fadeIn();
+                $('.modal-title').text('Mensaje');
+                $('.modal-body').html(  '<div>'+
+                                            '<p>Registro agregado correctamente</p><br>'+
+                                            '<input type="button" value="Aceptar" onclick="cerrarModal();" style="padding: 10px 15px;" class="btn color-primary text-light cerrar-modal">'+
+                                            '</div>');
+                $('#editarPassword').trigger('reset');
+            }else{
+                $('.modal-container').fadeIn();
+                $('.modal-title').text('Mensaje');
+                $('.modal-body').html(  '<div>'+
+                                            '<p>Error al guardar el registro</p><br>'+
+                                            '<input type="button" value="Aceptar" onclick="cerrarModal();" style="padding: 10px 15px;" class="btn color-primary text-light cerrar-modal">'+
+                                            '</div>');
+        }
+        }, 400);
+    });
+    
+}
+
+function listarSanitarios(){
+    $.ajax({
+        url: 'controllers/select/listarSanitarios.php',
+        type: 'GET',
+        success: function(respuesta){
+            let Resultado = JSON.parse(respuesta);
+            let lista = '';
+            Resultado.forEach(e => {
+                lista += `
+                <option value="${e.id_opcion}">${e.nombre}</option>
+                `
+            });
+            $('#txt_sanitario').html(lista);
         }
     });
 }

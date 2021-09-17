@@ -6,8 +6,23 @@
     include_once 'views/layout/header.php';
     include_once 'views/layout/sidebar.php';
     include_once 'views/layout/topbar.php';
+    include_once ('controllers/conteoController.php');
 
+    $controlador = new conteoController();
     
+
+    /*if(!isset($_GET['b'])){
+        $_GET['b'] = "";
+    }
+
+    $buscar = $_GET['b'];*/
+
+    $total_registros_persona = $controlador->contarRegistrosPersonas("%%","%%");
+    $total_registros_mujeres = $controlador->contarRegistrosMujeres("%%","%%");
+    $total_registros_hombres = $controlador->contarRegistrosHombres("%%","%%");
+    $total_registros_familia = $controlador->contarRegistrosFamilias("%%","%%");
+
+
 ?>
 
 
@@ -27,48 +42,46 @@
                         Personas
                     </div>
                     <div class="cardContent text-gray-dark">
-                        20,153
+                        <?php echo $total_registros_persona; ?>
                     </div>
                 </div>
                 <div class="cardIcon"><i class="las la-user-alt text-success"></i></div>
             </div>
 
-
-
             <div class="card color-light">
                 <div>
                     <div class="cardTitle text-gray">
-                        Viviendas
+                        Familias
                     </div>
                     <div class="cardContent text-gray-dark">
-                        5,153
+                        <?php echo $total_registros_familia; ?>
                     </div>
                 </div>
-                <div class="cardIcon"><i class="las la-home text-danger"></i></div>
+                <div class="cardIcon"><i class="las la-user-friends text-danger"></i></div>
             </div>
 
             <div class="card color-light">
                 <div>
                     <div class="cardTitle text-gray">
-                        Señores
+                        Hombres
                     </div>
                     <div class="cardContent text-gray-dark">
-                        20,153
+                        <?php echo $total_registros_hombres; ?>
                     </div>
                 </div>
-                <div class="cardIcon"><i class="las la-hiking text-warning"></i></div>
+                <div class="cardIcon"><i class="las la-male text-warning"></i></div>
             </div>
 
             <div class="card color-light">
                 <div>
                     <div class="cardTitle text-gray">
-                        Graduados
+                        Mujeres
                     </div>
                     <div class="cardContent text-gray-dark">
-                        20,153
+                        <?php echo $total_registros_mujeres; ?>
                     </div>
                 </div>
-                <div class="cardIcon"><i class="las la-user-graduate text-info"></i></div>
+                <div class="cardIcon"><i class="las la-female text-info"></i></div>
             </div>
 
         </div>
