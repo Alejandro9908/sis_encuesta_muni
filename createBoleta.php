@@ -55,9 +55,14 @@
                                     <option value="F">Femenino</option>
                                 </select>
                             </div>
-                            <div class="form-item">
+                            <div class="form-item" id="div-fecha-nacimiento">
                                 <label for="txt_fecha_nacimiento" class="text-gray">Fecha de nacimiento</label>
                                 <input type="date" id="txt_fecha_nacimiento" name="txt_fecha_nacimiento" value=""
+                                    class="form-control" placeholder="">
+                            </div>
+                            <div class="form-item" id="div-parentesco">
+                                <label for="txt_parentesco" class="text-gray">Parentesco con el entrevistado</label>
+                                <input type="text" id="txt_parentesco" name="txt_parentesco" required value="hermano"
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
@@ -200,12 +205,12 @@
                         </div>
                         <div class="form-item">
                             <label for="txt_latitud" class="text-gray">Latitud</label>
-                            <input type="text" id="txt_latitud" name="txt_latitud" value="89'151151" class="form-control"
+                            <input type="text" id="txt_latitud" name="txt_latitud" value="89151151" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
                             <label for="txt_longitud" class="text-gray">Longitud</label>
-                            <input type="text" id="txt_longitud" name="txt_longitud" value="89'151151" class="form-control"
+                            <input type="text" id="txt_longitud" name="txt_longitud" value="89151151" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -218,7 +223,7 @@
                         <div class="form-item">
                             <label for="txt_transporte" class="text-gray">Medios de transporte para llegar al
                                 domicilio <a href="#" id="addTransporte" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="select-multiple" name="transportes[]" id="txt_transporte" multiple>
+                            <select class="select-multiple" name="transportes[]" id="txt_transportes" multiple>
 
                             </select>
                         </div>
@@ -419,11 +424,9 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_sanitario" class="text-gray">Tipo de sanitario <a href="#" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="select-multiple" name="sanitarios[]" id="txt_sanitario" multiple>
-                                <option value="1">Lavable</option>
-                                <option value="2">Letrina</option>
-                                <option value="3">Pozo ciego</option>
+                            <label for="txt_sanitario" class="text-gray">Tipo de sanitario <a href="#" id="addSanitario" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <select class="form-control" name="txt_sanitario" id="txt_sanitario">
+                                
                             </select>
                         </div>
                         <div class="form-item">
@@ -451,12 +454,13 @@
                     <div class="form-row-2">
                         <div class="form-item">
                             <label for="txt_servicio_medico" class="text-gray">Servicios Medicos <a href="#" id="addServicioMedico" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                            <select class="select-multiple" name="servicios_medicos[]" id="txt_servicio_medico" multiple>
+                            <select class="form-control" name="servicios_medicos[]" id="txt_servicio_medico">
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_frecuencia_medico" class="text-gray">Fecuencia de uso de servicio medicos</label>
                             <select class="form-control" name="txt_frecuencia_medico" id="txt_frecuencia_medico">
+                                <option value="" disabled selected>Seleccione una opción</option>
                                 <option value="una vez por semana">Una vez por semana</option>
                                 <option value="mensualmente">Mensualmente</option>
                                 <option value="anualmente">Anualmente</option>
@@ -484,7 +488,8 @@
                         <div class="form-item">
                             <label for="txt_carne_res" class="text-gray">Carne de res</label>
                             <select class="form-control" name="txt_carne_res" id="txt_carne_res">
-                                <option value="4">Diario</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="4" selected>Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -494,7 +499,8 @@
                         <div class="form-item">
                             <label for="txt_carne_pollo" class="text-gray">Carne de pollo</label>
                             <select class="form-control" name="txt_carne_pollo" id="txt_carne_pollo">
-                                <option value="4">Diario</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="4" selected>Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -504,7 +510,8 @@
                         <div class="form-item">
                             <label for="txt_carne_cerdo" class="text-gray">Carne de cerdo</label>
                             <select class="form-control" name="txt_carne_cerdo" id="txt_carne_cerdo">
-                                <option value="4">Diario</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="4" selected>Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -514,7 +521,8 @@
                         <div class="form-item">
                             <label for="txt_carne_pescado" class="text-gray">Carne de pescado</label>
                             <select class="form-control" name="txt_carne_pescado" id="txt_carne_pescado">
-                                <option value="4">Diario</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="4" selected>Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -524,7 +532,8 @@
                         <div class="form-item">
                             <label for="txt_leche" class="text-gray">Leche</label>
                             <select class="form-control" name="txt_leche" id="txt_leche">
-                                <option value="4">Diario</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="4" selected>Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -534,7 +543,8 @@
                         <div class="form-item">
                             <label for="txt_cereales" class="text-gray">Cereales</label>
                             <select class="form-control" name="txt_cereales" id="txt_cereales">
-                                <option value="4">Diario</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="4" selected>Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -544,7 +554,8 @@
                         <div class="form-item">
                             <label for="txt_huevos" class="text-gray">Huevos</label>
                             <select class="form-control" name="txt_huevos" id="txt_huevos">
-                                <option value="4">Diario</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="4" selected>Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -554,7 +565,8 @@
                         <div class="form-item">
                             <label for="txt_frutas" class="text-gray">Frutas</label>
                             <select class="form-control" name="txt_frutas" id="txt_frutas">
-                                <option value="4">Diario</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="4" selected>Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -564,7 +576,8 @@
                         <div class="form-item">
                             <label for="txt_verduras" class="text-gray">Verduras</label>
                             <select class="form-control" name="txt_verduras" id="txt_verduras">
-                                <option value="4">Diario</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
+                                <option value="4" selected>Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -574,6 +587,7 @@
                         <div class="form-item">
                             <label for="txt_leguminosas" class="text-gray">Leguminosas</label>
                             <select class="form-control" name="txt_leguminosas" id="txt_leguminosas">
+                                <option value="" disabled selected>Seleccione una opción</option>
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
@@ -638,6 +652,10 @@
                             <label for="txt_fecha_evaluacion" class="text-gray">Fecha de evaluación</label>
                             <input type="date" id="txt_fecha_evaluacion" name="txt_fecha_evaluacion" required value=""
                             class="form-control" placeholder="">
+                        </div>
+                        <div class="form-item">
+                            <input type="hidden" id="txt_usuario" name="txt_usuario" required value="<?php echo $_SESSION['id_usuario'] ?>"
+                            class="form-control" placeholder="" >
                         </div>
                     </div>
                 </form>
