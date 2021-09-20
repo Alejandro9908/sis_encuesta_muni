@@ -6,9 +6,9 @@
     include_once ('views/layout/header.php');
     include_once ('views/layout/sidebar.php');
     include_once ('views/layout/topbar.php');
-    include_once ('controllers/usuarioController.php');
+    include_once ('controllers/reportePoblacionController.php');
     
-    $controlador = new usuarioController();
+    $controlador = new reportePoblacionController();
 
     if(!isset($_GET['b'])){
         $_GET['b'] = "";
@@ -44,25 +44,29 @@
         <div class="row">
             <div class="box scroll-x color-light">
                 <div class="box-header">
-                    <h2>Usuarios</h2>
+                    <h2>Reporte de población</h2>
                     <div>
-                        <a href="indexUsuario.php" class="btn color-success text-light"><i class="las la-sync-alt"></i></a>
-                        <a href="createUsuario.php" class="btn color-primary text-light">Nuevo Usuario</a>
+                        <a href="indexPoblacion.php" class="btn color-success text-light"><i class="las la-sync-alt"></i></a>
                     </div>  
                 </div>
-                <form role="form" name="buscar" id="buscar" method="GET" action="indexUsuario.php" class="search">
+                <form role="form" name="buscar" id="buscar" method="GET" action="indexPoblacion.php" class="search">
                     <label>
-                        <input type="text" placeholder="Buscar" name="b" value="<?php echo $buscar; ?>">
+                        <input type="text" placeholder="Buscar por DPI, nombre, comunidad o sector" name="b" value="<?php echo $buscar; ?>">
                         <i class="las la-search"></i>
                     </label>
                 </form>
                 <table class="table tabla-normal-ancho">
                     <thead>
+                        <td>ID FAMILIA</td>
                         <td>ID</td>
                         <td>NOMBRE</td>
-                        <td>USUARIO</td>
-                        <td>ROL</td>
-                        <td>ESTADO</td>
+                        <td>DPI</td>
+                        <td>SEXO</td>
+                        <td>EDAD</td>
+                        <td>ESTADO CIVIL</td>
+                        <td>ESCOLARIDAD</td>
+                        <td>TELEFONO</td>
+                        <td>COMUNIDAD</td>
                         <td>OPCIONES</td>
                     </thead>
                     <tbody>
@@ -70,27 +74,19 @@
                         foreach ($resultado as $r){
                         ?>
                         <tr>
-                            <td><?php echo $r->get('id_usuario'); ?></td>
-                            <td><?php echo $r->get('nombre'); ?></td>
-                            <td><?php echo $r->get('usuario'); ?></td>
-                            <td><?php echo $r->get('rol'); ?></td>
+                            <td><?php echo $r['id_familia']; ?></td>
+                            <td><?php echo $r['id_persona']; ?></td>
+                            <td><?php echo $r['nombre_completo']; ?></td>
+                            <td><?php echo $r['dpi']; ?></td>
+                            <td><?php echo $r['sexo']; ?></td>
+                            <td><?php echo $r['edad']; ?></td>
+                            <td><?php echo $r['estado_civil']; ?></td>
+                            <td><?php echo $r['escolaridad']; ?></td>
+                            <td><?php echo $r['telefono']; ?></td>
+                            <td><?php echo $r['comunidad']; ?></td>
                             <td>
-                                <?php 
-                                if($r->get('estado')==0){
-                                    echo "Inactivo";
-                                } else if($r->get('estado')==1){
-                                    echo "Activo";
-                                } 
-                                ?>
-                            </td>
-                            <td>
-                                <a href="showUsuario.php?id_usuario=<?php echo $r->get('id_usuario'); ?>" class="btn color-info">Ver</a>
-                                <a href="editUsuario.php?id_usuario=<?php echo $r->get('id_usuario'); ?>" class="btn color-warning">Editar</a>
-                                <?php if($r->get('estado')==1){ ?>
-                                <a href="#" product="<?php echo $r->get('id_usuario'); ?>" class="btn color-danger inactivar_usuario">Inactivar</a>
-                                <?php }else  if($r->get('estado')==0){?>
-                                <a href="#" product="<?php echo $r->get('id_usuario'); ?>" class="btn color-primary activar_usuario">Activar</a>
-                                <?php } ?>   
+                                <a href="showPersona.php?id_usuario=<?php echo $r['id_boleta']; ?>" class="btn color-info">Ver</a>
+                                <a href="showBoleta.php?id_usuario=<?php echo $r['id_boleta']; ?>" class="btn color-warning">Ver boleta</a>
                             </td>
                         </tr>
                         <?php 

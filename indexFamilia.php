@@ -6,9 +6,9 @@
     include_once ('views/layout/header.php');
     include_once ('views/layout/sidebar.php');
     include_once ('views/layout/topbar.php');
-    include_once ('controllers/usuarioController.php');
+    include_once ('controllers/reporteFamiliaController.php');
     
-    $controlador = new usuarioController();
+    $controlador = new reporteFamiliaController();
 
     if(!isset($_GET['b'])){
         $_GET['b'] = "";
@@ -44,25 +44,29 @@
         <div class="row">
             <div class="box scroll-x color-light">
                 <div class="box-header">
-                    <h2>Usuarios</h2>
+                    <h2>Reporte por familias</h2>
                     <div>
-                        <a href="indexUsuario.php" class="btn color-success text-light"><i class="las la-sync-alt"></i></a>
-                        <a href="createUsuario.php" class="btn color-primary text-light">Nuevo Usuario</a>
+                        <a href="indexFamilia.php" class="btn color-success text-light"><i class="las la-sync-alt"></i></a>
                     </div>  
                 </div>
-                <form role="form" name="buscar" id="buscar" method="GET" action="indexUsuario.php" class="search">
+                <form role="form" name="buscar" id="buscar" method="GET" action="indexFamilia.php" class="search">
                     <label>
-                        <input type="text" placeholder="Buscar" name="b" value="<?php echo $buscar; ?>">
+                        <input type="text" placeholder="Buscar por DPI, nombre, comunidad o sector" name="b" value="<?php echo $buscar; ?>">
                         <i class="las la-search"></i>
                     </label>
                 </form>
                 <table class="table tabla-normal-ancho">
                     <thead>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>USUARIO</td>
-                        <td>ROL</td>
-                        <td>ESTADO</td>
+                        <td>ID FAMILIA</td>
+                        <td>ENTREVISTADO</td>
+                        <td>DPI</td>
+                        <td>TELEFONO CELULAR</td>
+                        <td>TELEFONO DOMICILIAR</td>
+                        <td>NUMERO CASA</td>
+                        <td>DIRECCION</td>
+                        <td>COMUNIDAD</td>
+                        <td>SECTOR</td>
+                        <td>TENENCIA</td>
                         <td>OPCIONES</td>
                     </thead>
                     <tbody>
@@ -70,27 +74,18 @@
                         foreach ($resultado as $r){
                         ?>
                         <tr>
-                            <td><?php echo $r->get('id_usuario'); ?></td>
-                            <td><?php echo $r->get('nombre'); ?></td>
-                            <td><?php echo $r->get('usuario'); ?></td>
-                            <td><?php echo $r->get('rol'); ?></td>
+                            <td><?php echo $r['id_familia']; ?></td>
+                            <td><?php echo $r['nombre_entrevistado']; ?></td>
+                            <td><?php echo $r['dpi_entrevistado']; ?></td>
+                            <td><?php echo $r['telefono_entrevistado']; ?></td>
+                            <td><?php echo $r['telefono_domiciliar']; ?></td>
+                            <td><?php echo $r['numero_casa']; ?></td>
+                            <td><?php echo $r['direccion']; ?></td>
+                            <td><?php echo $r['comunidad']; ?></td>
+                            <td><?php echo $r['sector']; ?></td>
+                            <td><?php echo $r['tenencia']; ?></td>
                             <td>
-                                <?php 
-                                if($r->get('estado')==0){
-                                    echo "Inactivo";
-                                } else if($r->get('estado')==1){
-                                    echo "Activo";
-                                } 
-                                ?>
-                            </td>
-                            <td>
-                                <a href="showUsuario.php?id_usuario=<?php echo $r->get('id_usuario'); ?>" class="btn color-info">Ver</a>
-                                <a href="editUsuario.php?id_usuario=<?php echo $r->get('id_usuario'); ?>" class="btn color-warning">Editar</a>
-                                <?php if($r->get('estado')==1){ ?>
-                                <a href="#" product="<?php echo $r->get('id_usuario'); ?>" class="btn color-danger inactivar_usuario">Inactivar</a>
-                                <?php }else  if($r->get('estado')==0){?>
-                                <a href="#" product="<?php echo $r->get('id_usuario'); ?>" class="btn color-primary activar_usuario">Activar</a>
-                                <?php } ?>   
+                                <a href="showPersona.php?id_usuario=<?php echo $r['id_boleta']; ?>" class="btn color-info">Ver</a>
                             </td>
                         </tr>
                         <?php 

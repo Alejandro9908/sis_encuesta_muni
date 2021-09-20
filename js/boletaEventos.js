@@ -835,7 +835,7 @@ function listarComunidades(sector){
         type: 'GET',
         success: function(respuesta){
             let Resultado = JSON.parse(respuesta);
-            let lista = '';
+            let lista = '<option value="" disabled selected>Seleccione una opción</option>';
             Resultado.forEach(e => {
                 lista += `
                 <option value="${e.id_comunidad}">${e.nombre}</option>

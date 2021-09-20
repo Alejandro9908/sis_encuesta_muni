@@ -54,7 +54,7 @@
                         <i class="las la-search"></i>
                     </label>
                 </form>
-                <table class="table">
+                <table class="table tabla-normal-ancho">
                     <thead>
                         <td>ID</td>
                         <td>NOMBRE</td>
@@ -117,10 +117,9 @@
                             <li><a href="?pagina=<?php echo $total_paginas; ?>&b=<?php echo $buscar; ?>"><i class="las la-angle-double-right"></i></a></li>
                         </ul>
                     </div>
+                    <div><p style="font-size: 14px;">Resultados encontrados: <?php echo $total_registros ?></p></div>
                 </div>
-            </div>
-
-            
+            </div>    
         </div>
         <!--Termina row-->
 

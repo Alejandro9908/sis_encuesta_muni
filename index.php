@@ -9,18 +9,41 @@
     include_once ('controllers/conteoController.php');
 
     $controlador = new conteoController();
-    
 
-    /*if(!isset($_GET['b'])){
-        $_GET['b'] = "";
+    if(!isset($_GET['sector'])){
+        $_GET['sector'] = "%%";
     }
 
-    $buscar = $_GET['b'];*/
+    if(!isset($_GET['comunidad'])){
+        $_GET['comunidad'] = "%%";
+    }
 
-    $total_registros_persona = $controlador->contarRegistrosPersonas("%%","%%");
-    $total_registros_mujeres = $controlador->contarRegistrosMujeres("%%","%%");
-    $total_registros_hombres = $controlador->contarRegistrosHombres("%%","%%");
-    $total_registros_familia = $controlador->contarRegistrosFamilias("%%","%%");
+    $sector = $_GET['sector'];
+    $comunidad = $_GET['comunidad'];
+    $nombre_comunidad = "";
+
+    if($comunidad == "%%"){
+        $nombre_comunidad = "Todos";
+    }else{
+        $nombre_comunidad = $controlador->buscarComunidad($comunidad);
+    }
+
+    $total_registros_persona = $controlador->contarRegistrosPersonas("$sector","$comunidad");
+    $total_registros_mujeres = $controlador->contarRegistrosMujeres("$sector","$comunidad");
+    $total_registros_hombres = $controlador->contarRegistrosHombres("$sector","$comunidad");
+    $total_registros_familia = $controlador->contarRegistrosFamilias("$sector","$comunidad");
+    $lista_enfermedades = array();
+    $lista_enfermedades = $controlador->listarEnfermedades("$sector","$comunidad");
+    $lista_discapacidades = array();
+    $lista_discapacidades = $controlador->listarDiscapacidades("$sector","$comunidad");
+    $lista_estado_civil = array();
+    $lista_estado_civil = $controlador->listarEstadoCivil("$sector","$comunidad");
+    $lista_escolaridad = array();
+    $lista_escolaridad = $controlador->listarEscolaridad("$sector","$comunidad");
+    $lista_ocupacion = array();
+    $lista_ocupacion = $controlador->listarOcupacion("$sector","$comunidad");
+    $lista_rango_edades = array();
+    $lista_rango_edades = $controlador->listarRangosEdades("$sector","$comunidad");
 
 
 ?>
@@ -28,12 +51,50 @@
 
 
 <div class="content-wrapper">
-    <div class="content-header">
-        <h2>Dashboard</h2>
-    </div>
+
     <!--Termina content-heaer-->
     <div class="content">
+        <div class="row">
+            <div class="box color-light">
+                <div class="box-header">
+                    <h3>Buscar</h3>
 
+                </div>
+                <div class="form-contaniter">
+                    <form role="form" name="buscar-index" id="buscar-index" method="POST"
+                        action="controllers/boletaProcesos.php">
+                        <div class="form-row-2">
+                            <div class="form-item">
+                                <label for="txt_sector" class="text-gray">Sector</label>
+                                <select required class="form-control" name="txt_sector" id="txt_sector_index">
+                                    <option value="" disabled selected>Seleccione una opción</option>
+                                </select>
+                            </div>
+                            <div class="form-item">
+                                <label for="txt_comunidad" class="text-gray">Comunidad</label>
+                                <select class="form-control submit-buscar-index" name="txt_comunidad"
+                                    id="txt_comunidad_index">
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="form-contaniter">
+                <form role="form" name="buscar-index" id="buscar-index" method="POST"
+                    action="controllers/boletaProcesos.php">
+                    <div class="form-row-2">
+                        <div class="content-header">
+                            <h2>Sector: <?php if($sector == "%%"){echo "Todos";}else{echo $sector;} ?></h2>
+                        </div>
+                        <div class="content-header">
+                            <h2>Comunidad: <?php echo $nombre_comunidad;?></h2>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
         <div class="cardBox">
 
             <div class="card color-light">
@@ -87,44 +148,60 @@
         </div>
         <!--Termina CardBox-->
 
-        <div class="row">
+        <div class="row-2 scroll-x">
             <div class="box scroll color-light">
                 <div class="box-header">
-                    <h2>Tabla</h2>
-                    <a href="#" class="btn color-success text-light">Ver todo</a>
+                    <h3>Edades</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
+
                 <table class="table">
                     <thead>
-                        <td>Column1</td>
-                        <td>Column2</td>
-                        <td>Column3</td>
-                        <td>Column4</td>
+                        <td>RANGO</td>
+                        <td>RESULTADO</td>
                     </thead>
                     <tbody>
+                        <?php 
+                        foreach ($lista_rango_edades as $ld){
+                        ?>
                         <tr>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
+                            <td><?php echo $ld['grupo_edad']; ?></td>
+                            <td><?php echo $ld['total']; ?></td>
                         </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
+                    </tbody>
+                </table>
+
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+            <div class="box color-light">
+                <div class="box-header">
+                    <h3>Enfermedades</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
+                </div>
+                <table class="table table-2">
+                    <thead>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>RESULTADO</td>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        foreach ($lista_enfermedades as $le){
+                        ?>
                         <tr>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
+                            <td><?php echo $le['id']; ?></td>
+                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo $le['total']; ?></td>
                         </tr>
-                        <tr>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                        </tr>
-                        <tr>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                        </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
                     </tbody>
                 </table>
 
@@ -135,42 +212,119 @@
 
             <div class="box scroll color-light">
                 <div class="box-header">
-                    <h3>Tabla</h3>
-                    <a href="#" class="btn color-info">Ver todo</a>
+                    <h3>Discapacidades</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
 
                 <table class="table">
                     <thead>
-                        <td>Column1</td>
-                        <td>Column2</td>
-                        <td>Column3</td>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>RESULTADO</td>
 
                     </thead>
                     <tbody>
+                        <?php 
+                        foreach ($lista_discapacidades as $ld){
+                        ?>
                         <tr>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-
+                            <td><?php echo $ld['id']; ?></td>
+                            <td><?php echo $ld['nombre']; ?></td>
+                            <td><?php echo $ld['total']; ?></td>
                         </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
+                    </tbody>
+                </table>
+
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+            <div class="box scroll color-light">
+                <div class="box-header">
+                    <h3>Estado Civil</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <td>NOMBRE</td>
+                        <td>RESULTADO</td>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        foreach ($lista_estado_civil as $l){
+                        ?>
                         <tr>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-
+                            <td><?php echo $l['estado_civil']; ?></td>
+                            <td><?php echo $l['total']; ?></td>
                         </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
+                    </tbody>
+                </table>
+
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+            <div class="box scroll color-light">
+                <div class="box-header">
+                    <h3>Escolaridad</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <td>NOMBRE</td>
+                        <td>RESULTADO</td>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        foreach ($lista_escolaridad as $ld){
+                        ?>
                         <tr>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-
+                            <td><?php echo $ld['escolaridad']; ?></td>
+                            <td><?php echo $ld['total']; ?></td>
                         </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
+                    </tbody>
+                </table>
+
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+            <div class="box scroll color-light">
+                <div class="box-header">
+                    <h3>Ocupacion</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <td>NOMBRE</td>
+                        <td>RESULTADO</td>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        foreach ($lista_ocupacion as $ld){
+                        ?>
                         <tr>
-                            <td>dato1</td>
-                            <td>dato1</td>
-                            <td>dato1</td>
-
+                            <td><?php echo $ld['ocupacion']; ?></td>
+                            <td><?php echo $ld['total']; ?></td>
                         </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
                     </tbody>
                 </table>
 

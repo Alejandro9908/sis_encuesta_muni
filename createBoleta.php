@@ -4,6 +4,10 @@
     include_once 'views/layout/sidebar.php';
     include_once 'views/layout/topbar.php';
     include_once 'controllers/enfermedadController.php';
+    
+    date_default_timezone_set('America/Guatemala');
+    $hoy = date('Y-m-d');
+
 ?>
 
 
@@ -34,17 +38,17 @@
                         <div class="form-row-4">
                             <div class="form-item">
                                 <label for="txt_nombre" class="text-gray">Nombres</label>
-                                <input type="text" id="txt_nombres" name="txt_nombres" required value="Ale"
+                                <input type="text" id="txt_nombres" name="txt_nombres" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_nombre" class="text-gray">Primer apellido</label>
-                                <input type="text" id="txt_primer_apellido" name="txt_primer_apellido" required value="Cas"
+                                <input type="text" id="txt_primer_apellido" name="txt_primer_apellido" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_nombre" class="text-gray">Segundo apellido</label>
-                                <input type="text" id="txt_segundo_apellido" name="txt_segundo_apellido" value="Pad"
+                                <input type="text" id="txt_segundo_apellido" name="txt_segundo_apellido" value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
@@ -58,30 +62,32 @@
                             <div class="form-item" id="div-fecha-nacimiento">
                                 <label for="txt_fecha_nacimiento" class="text-gray">Fecha de nacimiento</label>
                                 <input type="date" id="txt_fecha_nacimiento" name="txt_fecha_nacimiento" value=""
-                                    class="form-control" placeholder="">
+                                    class="form-control" placeholder="" max="<?php echo $hoy ?>">
                             </div>
                             <div class="form-item" id="div-parentesco">
                                 <label for="txt_parentesco" class="text-gray">Parentesco con el entrevistado</label>
-                                <input type="text" id="txt_parentesco" name="txt_parentesco" required value="hermano"
+                                <input type="text" id="txt_parentesco" name="txt_parentesco" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_edad" class="text-gray">Edad</label>
-                                <input type="number" id="txt_edad" name="txt_edad" min="0" required value="21"
+                                <input type="number" id="txt_edad" name="txt_edad" min="0" required value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_dpi" class="text-gray">DPI</label>
-                                <input type="text" id="txt_dpi" name="txt_dpi" value="1234123451234"
+                                <input type="text" id="txt_dpi" name="txt_dpi" value="" required
                                     class="form-control" placeholder="" minlength="13" maxlength="13">
                             </div>
                             <div class="form-item">
                                 <label for="txt_estado_civil" class="text-gray">Estado Civil</label>
                                 <select required class="form-control" name="txt_estado_civil" id="txt_estado_civil">
                                     <option value="" disabled selected>Seleccione una opción</option>    
-                                    <option value="soltero">Soltero</option>
-                                    <option value="casado">Casado</option>
-                                    <option value="divorciado">Divorciado</option>
+                                    <option value="soltero">Soltero(a)</option>
+                                    <option value="casado">Casado(a)</option>
+                                    <option value="divorciado">Divorciado(a)</option>
+                                    <option value="viudo">Viudo(a)</option>
+                                    <option value="union libre">Unión Libre</option>
                                 </select>
                             </div>
                             <div class="form-item">
@@ -97,12 +103,12 @@
                             </div>
                             <div class="form-item">
                                 <label for="txt_ocupacion" class="text-gray">Ocupacion</label>
-                                <input type="text" id="txt_ocupacion" name="txt_ocupacion" value="Estudiante"
+                                <input type="text" id="txt_ocupacion" name="txt_ocupacion" value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_telefono" class="text-gray">Teléfono</label>
-                                <input type="text" id="txt_telefono" name="txt_telefono" value="52525252"
+                                <input type="number" id="txt_telefono" name="txt_telefono" value=""
                                     class="form-control" placeholder="" minlength="8" maxlength="8">
                             </div>
                             <div class="form-item" id="div-gestacion">
@@ -115,11 +121,11 @@
                             <div class="form-item" id="div-semanas-gestacion">
                                 <label for="txt_semanas_gestacion" class="text-gray">Semanas de gestación</label>
                                 <input type="number" id="txt_semanas_gestacion" name="txt_semanas_gestacion" required value="0"
-                                    class="form-control" placeholder="">
+                                    class="form-control" placeholder=""  min="0">
                             </div>
                             <div class="form-item">
                                 <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual</label>
-                                <input type="number" step="0.01" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required value="3000"
+                                <input type="number" step="0.01" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required value=""
                                     class="form-control" placeholder="" min="0.00">
                             </div>
                         </div>
@@ -127,7 +133,6 @@
                             <div class="form-item">
                                 <label for="txt_enfermedad" class="text-gray">Enfermedades <a href="#" id="addEnfermedad" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
                                 <select class="select-multiple" name="enfermedades[]" id="txt_enfermedad" multiple>
-                
                                 </select>
                             </div>
                             <div class="form-item">
@@ -148,7 +153,7 @@
 
                 <!--Empieza tabla de personas añadidas-->
                 <div class="scroll-x">
-                    <table class="table">
+                    <table class="table tabla-normal-ancho">
                         <thead>
                             <td>ENTREVISTADO</td>
                             <td>NOMBRE</td>

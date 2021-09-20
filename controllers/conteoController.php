@@ -5,6 +5,26 @@ include_once ('conexion.php');
 
 class conteoController{
    
+    public function buscarComunidad($id){
+
+        try
+        {
+            $conexion = new Conexion();
+            $sql = "SELECT nombre from tbl_comunidad where id_comunidad = $id";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            $registro = $stmt->fetch(PDO::FETCH_OBJ);
+
+            return $registro->nombre;
+        }catch(Exception $e)
+        {
+            echo 'Error '. $e;
+        }
+        
+    }
+    
+    
     public function contarRegistrosPersonas($sector, $comunidad){
 
         try
@@ -95,6 +115,233 @@ class conteoController{
         }
         
     }
+
+    public function listarEnfermedades($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT ep.id_enfermedad as id, e.nombre as nombre, count(*) as total from 
+                    tbl_enfermedad_persona as ep inner join 
+                    tbl_enfermedad as e on ep.id_enfermedad = e.id_enfermedad inner join 
+                    tbl_persona as p on ep.id_persona = p.id_persona inner join 
+                    tbl_familia as f on p.id_familia = f.id_familia inner join 
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    group by ep.id_enfermedad";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $c = array(
+                    "id" => $registro->id,
+                    "nombre" => $registro->nombre,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $c;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
+    public function listarDiscapacidades($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT ed.id_discapacidad AS id, d.nombre as nombre, count(*) as total from 
+                    tbl_discapacidad_persona as ed inner join 
+                    tbl_discapacidad as d on ed.id_discapacidad = d.id_discapacidad inner join 
+                    tbl_persona as p on ed.id_persona = p.id_persona inner join 
+                    tbl_familia as f on p.id_familia = f.id_familia inner join 
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    group by ed.id_discapacidad;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $l = array(
+                    "id" => $registro->id,
+                    "nombre" => $registro->nombre,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $l;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
+    public function listarEstadoCivil($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT p.estado_civil as estado_civil, count(*) as total from 
+                    tbl_persona as p inner join 
+                    tbl_familia as f on p.id_familia = f.id_familia inner join 
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    group by p.estado_civil";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $l = array(
+                    "estado_civil" => $registro->estado_civil,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $l;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
+    public function listarEscolaridad($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT p.escolaridad as escolaridad, count(*) as total from 
+                    tbl_persona as p inner join 
+                    tbl_familia as f on p.id_familia = f.id_familia inner join 
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    group by p.escolaridad;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $l = array(
+                    "escolaridad" => $registro->escolaridad,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $l;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
+    public function listarOcupacion($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT p.ocupacion as ocupacion, count(*) as total from 
+                    tbl_persona as p inner join 
+                    tbl_familia as f on p.id_familia = f.id_familia inner join 
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    group by p.ocupacion;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $l = array(
+                    "ocupacion" => $registro->ocupacion,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $l;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
+
+    public function listarRangosEdades($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT 
+                    CASE
+                    WHEN p.edad < 5 THEN 'Entre 1 y 4'
+                    WHEN p.edad < 8 THEN 'Entre 5 y 7'
+                    WHEN p.edad < 13 THEN 'Entre 8 y 12'
+                    WHEN p.edad < 19 THEN 'Entre 13 y 18'
+                    WHEN p.edad < 31 THEN 'Entre 19 y 30'
+                    WHEN p.edad < 41 THEN 'Entre 31 y 40'
+                    WHEN p.edad < 51 THEN 'Entre 41 y 50'
+                    WHEN p.edad < 61 THEN 'Entre 51 y 60'
+                    WHEN p.edad < 71 THEN 'Entre 61 y 70'
+                    WHEN p.edad < 81 THEN 'Entre 71 y 80'
+                    WHEN p.edad < 91 THEN 'Entre 81 y 90'
+                    WHEN p.edad < 101 THEN 'Entre 91 y 100'
+                    ELSE 'más de 100'
+                    END
+                    as grupo_edad, count(*) as total
+                    FROM tbl_persona as p inner join
+                    tbl_familia as f on p.id_familia = f.id_familia inner join 
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    GROUP BY grupo_edad order by total desc;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $l = array(
+                    "grupo_edad" => $registro->grupo_edad,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $l;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
+
+
+
+
+
 }
 
 ?>
