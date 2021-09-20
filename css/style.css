@@ -491,6 +491,15 @@ h6{
     padding-bottom: 20px;
 }
 
+.row-2{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2,1fr);
+    padding-bottom: 20px;
+}
+
 .box{
     position: relative;
     display: grid;
@@ -506,6 +515,14 @@ h6{
     margin-bottom: 20px;
 }
 
+.box .box-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
 
 .btn{
     position: relative;
@@ -519,8 +536,12 @@ h6{
     border-radius: 2px;
 }
 
-.table{
+.tabla-normal-ancho{
     width: 100%;
+}
+
+.table{
+    
     border-collapse: collapse;
     margin-top: 30px;
 }
@@ -562,7 +583,6 @@ h6{
 .paginador ul{
    list-style: none;
    background: var(--white-color);
-   margin-top: 15px;
    display: flex;
    justify-content: flex-start;
 }
@@ -811,6 +831,10 @@ h6{
     .form-row-3{
         grid-template-columns: repeat(2,1fr);
     }
+
+    .row-2{
+        grid-template-columns: repeat(1,1fr);
+    }
     
 }
 
@@ -820,10 +844,11 @@ h6{
         grid-template-columns: repeat(1,1fr);
     }
 
-    .table{
-        width: 600px; 
+    .tabla-normal-ancho{
+        width: 600px;
     }
 
+    
     .scroll-x{
         overflow-x: auto;
     }
@@ -853,10 +878,6 @@ h6{
 
     .scroll-x{
         overflow-x: auto;
-    }
-
-    .table{
-        width: 600px; 
     }
 
     .navigation{

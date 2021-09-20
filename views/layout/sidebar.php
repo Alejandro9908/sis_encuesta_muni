@@ -29,15 +29,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="indexPoblacion.php">
                         <span class="icon"><i class="las la-male"></i></i></span>
                         <span class="title">Reporte por poblacion</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="indexFamilia.php">
                         <span class="icon"><i class="las la-home"></i></span>
-                        <span class="title">Reporte por viviendas</span>
+                        <span class="title">Reporte por familias</span>
                     </a>
                 </li>
                 <li>
