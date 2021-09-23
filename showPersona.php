@@ -1,16 +1,21 @@
 <?php 
-    include_once 'controllers/sesiones.php';
-    include_once 'views/layout/header.php';
-    include_once 'views/layout/sidebar.php';
-    include_once 'views/layout/topbar.php';
-    include_once 'controllers/reportePoblacionController.php';
-    
-    date_default_timezone_set('America/Guatemala');
-    $hoy = date('Y-m-d');
+   include_once 'controllers/sesiones.php';
+   include_once 'views/layout/header.php';
 
-    //$controlador = new reportePoblacionController();
+   $id_persona = $_GET['id_persona'];
+   if(!filter_var($id_persona,FILTER_VALIDATE_INT)){
+     die('Error');
+   }
 
-    //$resultado = $controlador->buscarPersona($id);
+   include_once 'views/layout/sidebar.php';
+   include_once 'views/layout/topbar.php';
+   include_once 'controllers/reportePoblacionController.php';
+
+   $controlador = new reportePoblacionController();
+   $personas = array();
+   $personas = $controlador->buscarPersona($id_persona);
+
+   
 
 ?>
 
@@ -24,11 +29,11 @@
 
     <div class="content">
         <div class="row">
-            <div class="box color-light">
+        <div class="box color-light">
                 <div class="box-header">
                     <h2>Datos de la persona</h2>
-                    <form role="form" name="addPersona" id="addPersona" method="POST"
-                        action="controllers/usuarioProcesos.php">
+                    <form role="form" name="add-form-2" id="add-form-2" method="POST"
+                        action="controllers/boletaProcesos.php">
                     <div>
                         <label><input type="checkbox" id="cbox_entrevistado" value="1"> Entrevistado</label><br>
                         <input type="hidden" id="txt_entrevistado" name="txt_entrevistado">
@@ -40,18 +45,22 @@
                         action="controllers/usuarioProcesos.php">
                         <div class="form-row-4">
                             <div class="form-item">
-                                <label for="txt_nombre" class="text-gray">Nombres</label>
-                                <input type="text" id="txt_nombres" name="txt_nombres" readonly="readonly" value="<?php echo $resultado->get('nombres');?>" class="form-control">
+                            <label for="txt_nombres" class="text-gray">Nombres</label>
+                                <input type="text" id="txt_nombres" name="txt_nombres" required readonly
+                                    value="<?php echo $personas['nombres']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_nombre" class="text-gray">Primer apellido</label>
-                                <input type="text" id="txt_primer_apellido" name="txt_primer_apellido" required value=""
-                                    class="form-control" placeholder="">
+                                <label for="txt_primer_apellido" class="text-gray">Primer apellido</label>
+                                <input type="text" id="txt_primer_apellido" name="txt_primer_apellido" required readonly
+                                    value="<?php echo $personas['primer_apellido']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_nombre" class="text-gray">Segundo apellido</label>
-                                <input type="text" id="txt_segundo_apellido" name="txt_segundo_apellido" value=""
-                                    class="form-control" placeholder="">
+                                <label for="txt_segundo_apellido" class="text-gray">Segundo apellido</label>
+                                <input type="text" id="txt_segundo_apellido" name="txt_segundo_apellido" required readonly
+                                    value="<?php echo $personas['segundo_apelldio']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_sexo" class="text-gray">Sexo</label>
@@ -68,18 +77,21 @@
                             </div>
                             <div class="form-item" id="div-parentesco">
                                 <label for="txt_parentesco" class="text-gray">Parentesco con el entrevistado</label>
-                                <input type="text" id="txt_parentesco" name="txt_parentesco" required value=""
-                                    class="form-control" placeholder="">
+                                <input type="text" id="txt_parentesco" name="txt_parentesco" required readonly
+                                    value="<?php echo $personas['parentesco']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_edad" class="text-gray">Edad</label>
-                                <input type="number" id="txt_edad" name="txt_edad" min="0" required value=""
-                                    class="form-control" placeholder="">
+                                <input type="text" id="txt_edad" name="txt_edad" required readonly
+                                    value="<?php echo $personas['edad']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_dpi" class="text-gray">DPI</label>
-                                <input type="text" id="txt_dpi" name="txt_dpi" value="" required
-                                    class="form-control" placeholder="" minlength="13" maxlength="13">
+                                <input type="text" id="txt_dpi" name="txt_dpi" required readonly
+                                    value="<?php echo $personas['dpi']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_estado_civil" class="text-gray">Estado Civil</label>
@@ -105,13 +117,15 @@
                             </div>
                             <div class="form-item">
                                 <label for="txt_ocupacion" class="text-gray">Ocupacion</label>
-                                <input type="text" id="txt_ocupacion" name="txt_ocupacion" value=""
-                                    class="form-control" placeholder="">
+                                <input type="text" id="txt_ocupacion" name="txt_ocupacion" required readonly
+                                    value="<?php echo $personas['ocupacion']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_telefono" class="text-gray">Teléfono</label>
-                                <input type="number" id="txt_telefono" name="txt_telefono" value=""
-                                    class="form-control" placeholder="" minlength="8" maxlength="8">
+                                <input type="text" id="txt_telefono" name="txt_telefono" required readonly
+                                    value="<?php echo $personas['telefono']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                             <div class="form-item" id="div-gestacion">
                                 <label for="txt_gestacion" class="text-gray">Gestación</label>
@@ -122,13 +136,15 @@
                             </div>
                             <div class="form-item" id="div-semanas-gestacion">
                                 <label for="txt_semanas_gestacion" class="text-gray">Semanas de gestación</label>
-                                <input type="number" id="txt_semanas_gestacion" name="txt_semanas_gestacion" required value="0"
-                                    class="form-control" placeholder=""  min="0">
+                                <input type="text" id="txt_semanas_gestacion" name="txt_semanas_gestacion" required readonly
+                                    value="<?php echo $personas['semanas_gestacion']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual</label>
-                                <input type="number" step="0.01" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required value=""
-                                    class="form-control" placeholder="" min="0.00">
+                                <input type="text" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required readonly
+                                    value="<?php echo $personas['ingreso_mensual']; ?>" class="form-control-2"
+                                    placeholder="" min="0.00">
                             </div>
                         </div>
                         <div class="form-row-2">
@@ -143,6 +159,7 @@
 
                                 </select>
                             </div>
+                           
                         </div>
                         <div class="form-footer">
                             <input type="hidden" name="registro" value="guardar">

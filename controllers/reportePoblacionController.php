@@ -161,44 +161,54 @@ class reportePoblacionController{
         try{
             $conexion = new Conexion();
             $resultado = array();
-            $sql = $conexion->pdo->prepare("SELECT id_persona, id_familia, entrevistado, nombres, primer_apellido, segundo_apellido, 
-            sexo, fecha_nacimiento, edad, dpi, estado_civil, escolaridad, ocupacion, telefono, gestacion, semanas_gestacion, ingreso_mensual, parentesco FROM tbl_persona WHERE id_persona = ?;");
-            $sql->execute(array($id));
+            $sql = "SELECT b.id_boleta, f.id_familia, p.id_persona, p.dpi, p.sexo, p.edad, p.estado_civil, p.escolaridad, p.telefono,
+                    concat_ws('',p.nombres,' ',p.primer_apellido,' ',p.segundo_apellido) as nombre_completo,
+                    p.ocupacion, s.nombre as sector, p.entrevistado, p.fecha_nacimiento, p.parentesco, p.gestacion, p.semanas_gestacion
+                    from tbl_persona as p inner join 
+                    tbl_familia as f on p.id_familia = f.id_familia inner join 
+                    tbl_boleta as b on f.id_boleta = b.id_boleta inner join 
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad inner join
+                    tbl_sector as s on s.id_sector = c.id_sector
+                    WHERE f.id_familia = $id";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
 
-            $registro = $sql->fetch(PDO::FETCH_OBJ);
+            $resultado = array();
             
-            $u = new persona();
-    
-            $u->set('id_persona', $registro->id_persona);
-            $u->set('id_familia', $registro->id_familia);
-            $u->set('entrevistado', $registro->entrevistado);
-            $u->set('nombres', $registro->nombres);
-            $u->set('primer_apellido', $registro->primer_apellido);
-            $u->set('segundo_apellido', $registro->segundo_apellido);
-            $u->set('sexo', $registro->sexo);
-            $u->set('fecha_nacimiento', $registro->fecha_nacimiento);
-            $u->set('edad', $registro->edad);
-            $u->set('dpi', $registro->dpi);
-            $u->set('estado_civil', $registro->estado_civil);
-            $u->set('escolaridad', $registro->escolaridad);
-            $u->set('ocupacion', $registro->ocupacion);
-            $u->set('telefono', $registro->telefono);
-            $u->set('gestacion', $registro->gestacion);
-            $u->set('semanas_gestacion', $registro->semanas_gestacion);
-            $u->set('ingreso_mensual', $registro->ingreso_mensual);
-            $u->set('parentesco', $registro->parentesco);
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $r = array(
+                    "id_boleta" => $registro->id_boleta,
+                    "id_familia" => $registro->id_familia,
+                    "id_persona" => $registro->id_persona,
+                    "dpi" => $registro->dpi,
+                    "sexo" => $registro->sexo,
+                    "edad" => $registro->edad,
+                    "estado_civil" => $registro->estado_civil,
+                    "escolaridad" => $registro->escolaridad,
+                    "telefono" => $registro->telefono,
+                    "nombre_completo" => $registro->nombre_completo,
+                    "ocupacion" => $registro->ocupacion,
+                    "sector" => $registro->sector,
+                    "entrevistado" => $registro->entrevistado,
+                    "fecha_nacimiento" => $registro->fecha_nacimiento,
+                    "parentesco" => $registro->parentesco,
+                    "gestacion" => $registro->gestacion,
+                    "semanas_gestacion" => $registro->semanas_gestacion
+                );
                 
-            return $u;
-            
+                $resultado[] = $r;
+            }
 
             return $resultado;
+
         }
         catch (Exception $e)
         {
             die('Error: '.$e->getMessage());
         }
     }
-
 
 }
 
