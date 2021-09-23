@@ -88,7 +88,7 @@
 
             //tabla persona
             foreach ($listaPersonas as $i){
-                $stmt->exec("INSERT INTO tbl_persona (id_familia,entrevistado,nombres,primer_apellido,segundo_apellido,sexo,fecha_nacimiento,edad,dpi,estado_civil,escolaridad,ocupacion,telefono,gestacion,semanas_gestacion,ingreso_mensual) 
+                $stmt->exec("INSERT INTO tbl_persona (id_familia,entrevistado,nombres,primer_apellido,segundo_apellido,sexo,fecha_nacimiento,edad,dpi,estado_civil,escolaridad,ocupacion,telefono,gestacion,semanas_gestacion,ingreso_mensual, parentesco) 
                             values ('".$id_familia."','"
                                         .$i->get('entrevistado')."','"
                                         .$i->get('nombres')."','"
@@ -104,7 +104,8 @@
                                         .$i->get('telefono')."','"
                                         .$i->get('gestacion')."','"
                                         .$i->get('semanas_gestacion')."','"
-                                        .$i->get('ingreso_mensual')."')");
+                                        .$i->get('ingreso_mensual')."','"
+                                        .$i->get('parentesco')."')");
                 $id_persona = $stmt->lastInsertId();
                 //print_r($id_persona."-");
 

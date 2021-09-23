@@ -13,6 +13,7 @@
     <script src="js/usuarioEventos.js"></script>
     <script src="js/comunidadEventos.js"></script>
     <script src="js/guardarBoleta.js"></script>
+    <script src="js/editarBoleta.js"></script>
     <script src="js/boletaEventos.js"></script>
     <script src="js/recuentoEventos.js"></script>
     <script src="js/funcionesPlantilla.js"></script>

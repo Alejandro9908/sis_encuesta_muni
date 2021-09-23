@@ -85,7 +85,7 @@
                             <td><?php echo $r['sector']; ?></td>
                             <td><?php echo $r['tenencia']; ?></td>
                             <td>
-                                <a href="showPersona.php?id_usuario=<?php echo $r['id_boleta']; ?>" class="btn color-info">Ver</a>
+                                <a href="showFamilia.php?id_familia=<?php echo $r['id_familia']; ?>" class="btn color-info">Ver</a>
                             </td>
                         </tr>
                         <?php 
