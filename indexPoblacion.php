@@ -1,6 +1,5 @@
 <?php 
 
-
     include_once ($_SERVER['DOCUMENT_ROOT'].'/routes.php');
     include_once ('controllers/sesiones.php');
     include_once ('views/layout/header.php');
@@ -85,8 +84,7 @@
                             <td><?php echo $r['telefono']; ?></td>
                             <td><?php echo $r['comunidad']; ?></td>
                             <td>
-                                <a href="showPersona.php?id_usuario=<?php echo $r['id_boleta']; ?>" class="btn color-info">Ver</a>
-                                <a href="showBoleta.php?id_usuario=<?php echo $r['id_boleta']; ?>" class="btn color-warning">Ver boleta</a>
+                                <a href="showPersona.php?id_persona=<?php echo $r['id_persona']; ?>" class="btn color-info">Ver</a>
                             </td>
                         </tr>
                         <?php 
