@@ -25,26 +25,25 @@ class sanitarioController{
     }
 
 
-    public function listar($buscar, $desde, $hasta)
+    public function listarSelect2()
     {
         try
         {
             $conexion = new Conexion();
             $resultado = array();
-            $sql = "SELECT * FROM tbl_sanitario WHERE
-                    (id_sanitario LIKE '%$buscar%' OR nombre LIKE '%$buscar%') ORDER BY nombre ASC LIMIT $desde, $hasta";
+            $sql = "SELECT * FROM tbl_sanitario;";
             $stmt = $conexion->pdo->prepare($sql);
             $stmt->execute();
 
             foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
             {
-                $o = new Opcion();
-
-                $o->set('id_opcion', $registro->id_sanitario);
-                $o->set('nombre', $registro->nombre);
-                $o->set('descripcion', $registro->descripcion);
-
-                $resultado[] = $o;
+                $r = array(
+                    'id_sanitario' => $registro->id_sanitario,
+                    'nombre' => $registro->nombre,
+                    'descripcion' => $registro->descripcion
+                );
+                
+                $resultado[] = $r;
             }
 
             return $resultado;

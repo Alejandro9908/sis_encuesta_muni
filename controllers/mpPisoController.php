@@ -25,26 +25,27 @@ class pisoController{
     }
 
 
-    public function listar($buscar, $desde, $hasta)
+    public function listarSelect()
     {
         try
         {
             $conexion = new Conexion();
             $resultado = array();
-            $sql = "SELECT * FROM tbl_mp_piso WHERE
-                    (id_mp_piso LIKE '%$buscar%' OR nombre LIKE '%$buscar%') ORDER BY nombre ASC LIMIT $desde, $hasta";
+            $sql = "SELECT * FROM tbl_mp_piso;";
             $stmt = $conexion->pdo->prepare($sql);
             $stmt->execute();
 
             foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
             {
-                $o = new Opcion();
+                $r = array(
+                    'id_mp_piso' => $registro->id_mp_piso,
+                    'nombre' => $registro->nombre,
+                    'descripcion' => $registro->descripcion
+                );
 
-                $o->set('id_opcion', $registro->id_mp_piso);
-                $o->set('nombre', $registro->nombre);
-                $o->set('descripcion', $registro->descripcion);
 
-                $resultado[] = $o;
+                
+                $resultado[] = $r;
             }
 
             return $resultado;

@@ -152,7 +152,7 @@ class reporteFamiliaController{
         try{
             $conexion = new Conexion();
             $sql = "SELECT v.id_vivienda, v.numero_casa, v.direccion, v.latitud, v.longitud, v.colindantes, v.telefono, 
-                    c.nombre as comunidad, s.nombre as sector
+                    c.id_comunidad, c.nombre as comunidad, s.id_sector, s.nombre as sector
                     from tbl_persona as p inner join 
                     tbl_familia as f on p.id_familia = f.id_familia inner join 
                     tbl_boleta as b on f.id_boleta = b.id_boleta inner join 
@@ -173,7 +173,9 @@ class reporteFamiliaController{
                 "longitud" => $registro->longitud,
                 "colindantes" => $registro->colindantes,
                 "telefono" => $registro->telefono,
+                "id_comunidad" => $registro->id_comunidad,
                 "comunidad" => $registro->comunidad,
+                "id_sector" => $registro->id_sector,
                 "sector" => $registro->sector,
             );
 
@@ -297,9 +299,9 @@ class reporteFamiliaController{
     {
         try{
             $conexion = new Conexion();
-            $sql = "SELECT t.nombre as tenencia, v.cantidad_cuartos, v.sala, v.comedor, v.cocina, v.banio_privado,
-                    v.banio_colectivo, v.observaciones, pa.nombre as pared, te.nombre as techo, pi.nombre as piso,
-                    sa.nombre as sanitario, v.eliminacion_basura from
+            $sql = "SELECT v.id_vivienda, v.id_tenencia, t.nombre as tenencia, v.cantidad_cuartos, v.sala, v.comedor, v.cocina, v.banio_privado,
+                    v.banio_colectivo, v.observaciones, v.id_mp_pared, pa.nombre as pared, v.id_mp_techo, te.nombre as techo, v.id_mp_piso, pi.nombre as piso,
+                    v.id_sanitario,sa.nombre as sanitario, v.eliminacion_basura from
                     tbl_vivienda as v inner join
                     tbl_tenencia as t on v.id_tenencia = t.id_tenencia inner join
                     tbl_mp_pared as pa on v.id_mp_pared = pa.id_mp_pared inner join
@@ -314,6 +316,8 @@ class reporteFamiliaController{
             
 
             $r = array(
+                "id_vivienda" => $registro->id_vivienda,
+                "id_tenencia" => $registro->id_tenencia,
                 "tenencia" => $registro->tenencia,
                 "cantidad_cuartos" => $registro->cantidad_cuartos,
                 "sala" => $registro->sala,
@@ -322,9 +326,13 @@ class reporteFamiliaController{
                 "banio_privado" => $registro->banio_privado,
                 "banio_colectivo" => $registro->banio_colectivo,
                 "observaciones" => $registro->observaciones,
+                "id_pared" => $registro->id_mp_pared,
                 "pared" => $registro->pared,
+                "id_techo" => $registro->id_mp_techo,
                 "techo" => $registro->techo,
+                "id_piso" => $registro->id_mp_piso,
                 "piso" => $registro->piso,
+                "id_sanitario" => $registro->id_sanitario,
                 "sanitario" => $registro->sanitario,
                 "eliminacion_basura" => $registro->eliminacion_basura
             );

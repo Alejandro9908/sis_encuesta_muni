@@ -9,15 +9,26 @@
     include_once 'views/layout/topbar.php';
     include_once 'controllers/usuarioController.php';
     include_once 'controllers/reporteFamiliaController.php';
+    include_once 'controllers/sectorController.php';
+    include_once 'controllers/comunidadController.php';
 
-    $controladorMostrar = new reporteFamiliaController();
+    $controladorDomicilio = new reporteFamiliaController();
+    $controladorSectores = new sectorController();
+    $controladorComunidades = new comunidadController();
+
+
     $domicilio = array();
-    $domicilio = $controladorMostrar->buscarDomicilio($id_familia);
-    $domicilio['transportes'] = $controladorMostrar->buscarTransportes($domicilio['id_vivienda']);
+    $domicilio = $controladorDomicilio->buscarDomicilio($id_familia);
+    $domicilio['transportes'] = $controladorDomicilio->buscarTransportes($domicilio['id_vivienda']);
 
-    //print_r($domicilio);
+    $sectores = array();
+    $sectores = $controladorSectores->listarSelect();
+
+    $comunidades = array();
+    $comunidades = $controladorComunidades->listarSelect($domicilio['id_sector']);
     
 ?>
+
 
 
 
@@ -37,13 +48,26 @@
                     <div class="form-row-2">
                         <div class="form-item">
                             <label for="txt_sector" class="text-gray">Sector</label>
-                            <select required class="form-control" name="txt_sector" id="txt_sector">
-                                <option value="" disabled selected>Seleccione una opción</option>
+                            <select required class="form-control" name="txt_sector-edit" id="txt_sector-edit">
+                                    <?php 
+                                    foreach ($sectores as $i){
+                                    ?>
+                                        <option <?php if($i['id_sector'] == $domicilio['id_sector']){?>selected <?php } ?> value="<?php echo $i['id_sector'];?>"><?php echo $i['nombre'];?></option>
+                                    <?php 
+                                    }//termina ciclo for
+                                    ?>
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_comunidad" class="text-gray">Comunidad</label>
-                            <select class="form-control" name="txt_comunidad" id="txt_comunidad">
+                            <select class="form-control" name="txt_comunidad-edit" id="txt_comunidad-edit">
+                                    <?php 
+                                    foreach ($comunidades as $i){
+                                    ?>
+                                        <option <?php if($i['id_comunidad'] == $domicilio['id_comunidad']){?>selected <?php } ?> value="<?php echo $i['id_comunidad'];?>"><?php echo $i['nombre'];?></option>
+                                    <?php 
+                                    }//termina ciclo for
+                                    ?>
                             </select>
                         </div>
                         <div class="form-item">
@@ -89,10 +113,10 @@
                         </div>
                     </div>
                     <div class="content-footer">
-                        <div class="form-footer">
-                            
-                            <input type="hidden" name="registro" value="domicilio">
-                            <input type="submit" value="Guardar Boleta" class="color-primary text-light">
+                        <div class="form-footer">    
+                            <input type="hidden" name="editar" id="editar" value="domicilio">
+                            <input type="hidden" name="id_vivienda" id="id_vivienda" value="<?php echo $domicilio['id_vivienda'] ?>">
+                            <input type="submit" value="Guardar Boleta" id="editar-domicilio" class="color-primary text-light">
                             <a href="showFamilia.php?id_familia=<?php echo $id_familia ?>"><input type="button" value="Cancelar" class="color-danger text-light"></a>
 
                         </div>
@@ -114,6 +138,49 @@
 </div>
 <!--Termina content-wraper-->
 
+
 <?php 
     include_once ('views/layout/footer.php');
 ?>
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        
+        listarTransportesEdit();
+
+    });
+
+    var transportes = <?php echo json_encode($domicilio['transportes']);?>;
+
+    function listarTransportesEdit(){
+    $.ajax({
+        url: 'controllers/select/listarTransportes.php',
+        type: 'GET',
+        success: function(respuesta){
+            let Transportes = JSON.parse(respuesta);
+            let lista = '';
+            var bandera = 0;
+     
+            Transportes.forEach(e => {
+                bandera = 0;
+
+                transportes.forEach(f => {
+                    if(f.id_transporte == e.id_opcion){
+                        bandera = 1;
+                    }
+                });
+
+                if(bandera != 1){
+                    lista += `<option value="${e.id_opcion}">${e.nombre}</option>`
+                }else{
+                    lista += `<option selected value="${e.id_opcion}">${e.nombre}</option>`   
+                }
+                
+            });
+
+            $('#txt_transportes').html(lista);
+        }
+    });
+}
+</script>
