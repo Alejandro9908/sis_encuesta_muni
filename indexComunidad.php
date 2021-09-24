@@ -69,26 +69,26 @@
                         foreach ($resultado as $r){
                         ?>
                         <tr>
-                            <td><?php echo $r->get('id_comunidad'); ?></td>
-                            <td><?php echo $r->get('nombre'); ?></td>
-                            <td><?php echo $r->get('descripcion'); ?></td>
-                            <td><?php echo $r->get('tipo'); ?></td>
-                            <td><?php echo $r->get('id_sector'); ?></td>
+                            <td><?php echo $r['id_comunidad']; ?></td>
+                            <td><?php echo $r['comunidad']; ?></td>
+                            <td><?php echo $r['descripcion']; ?></td>
+                            <td><?php echo $r['tipo']; ?></td>
+                            <td><?php echo $r['id_sector']; ?></td>
                             <td>
                                 <?php 
-                                if($r->get('estado')==0){
+                                if($r['estado']==0){
                                     echo "Inactivo";
-                                } else if($r->get('estado')==1){
+                                } else if($r['estado']==1){
                                     echo "Activo";
                                 } 
                                 ?>
                             </td>
                             <td>
-                                <a href="editComunidad.php?id_comunidad=<?php echo $r->get('id_comunidad'); ?>" class="btn color-warning">Editar</a>
-                                <?php if($r->get('estado')==1){ ?>
-                                <a href="#" product="<?php echo $r->get('id_comunidad'); ?>" class="btn color-danger inactivar_comunidad">Inactivar</a>
-                                <?php }else  if($r->get('estado')==0){?>
-                                <a href="#" product="<?php echo $r->get('id_comunidad'); ?>" class="btn color-primary activar_comunidad">Activar</a>
+                                <a href="editComunidad.php?id_comunidad=<?php echo $r['id_comunidad']; ?>" class="btn color-warning">Editar</a>
+                                <?php if($r['estado']==1){ ?>
+                                <a href="#" product="<?php echo $r['id_comunidad']; ?>" class="btn color-danger inactivar_comunidad">Inactivar</a>
+                                <?php }else  if($r['estado']==0){?>
+                                <a href="#" product="<?php echo $r['id_comunidad']; ?>" class="btn color-primary activar_comunidad">Activar</a>
                                 <?php } ?>   
                             </td>
                         </tr>
