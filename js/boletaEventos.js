@@ -639,7 +639,7 @@ function agregar_mobiliario(){
         $('.modal-container').fadeOut();
         listarMobiliarios();
         setTimeout(function(){
-            if(respuesta == 'exito'){
+            if(respuestatran == 'exito'){
                 $('.modal-container').fadeIn();
                 $('.modal-title').text('Mensaje');
                 $('.modal-body').html(  '<div>'+
