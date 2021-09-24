@@ -242,7 +242,9 @@ function addSalud(datos){
         switch(datos[i]['name']){
 
             case 'txt_frecuencia_medico': salud['frecuencia_medico'] = datos[i]["value"]; break;
+            case 'txt_frecuencia_medico-edit': salud['frecuencia_medico'] = datos[i]["value"]; break;
             case 'servicios_medicos[]': salud['servicio_medico'] = datos[i]["value"]; break;
+            case 'txt_servicio_medico-edit': salud['servicio_medico'] = datos[i]["value"]; break;
         }
         
     }
@@ -279,6 +281,7 @@ function addVivienda(datos){
         //console.log(datos[i]['name']);
         switch(datos[i]['name']){
             case 'txt_tenencia': vivienda['tenencia'] = datos[i]["value"]; break;
+            case 'txt_tenencia-edit': vivienda['tenencia'] = datos[i]["value"]; break;
             case 'txt_numero_dormitorios': vivienda['numero_dormitorios'] = datos[i]["value"]; break;
             case 'txt_sala': vivienda['sala'] = datos[i]["value"]; break;
             case 'txt_comedor': vivienda['comedor'] = datos[i]["value"]; break;
@@ -287,8 +290,11 @@ function addVivienda(datos){
             case 'txt_banio_colectivo': vivienda['banio_colectivo'] = datos[i]["value"]; break;
             case 'txt_observaciones_vivienda': vivienda['observaciones_vivienda'] = datos[i]["value"]; break;
             case 'txt_pared': vivienda['pared'] = datos[i]["value"]; break;
+            case 'txt_pared-edit': vivienda['pared'] = datos[i]["value"]; break;
             case 'txt_techo': vivienda['techo'] = datos[i]["value"]; break;
+            case 'txt_techo-edit': vivienda['techo'] = datos[i]["value"]; break;
             case 'txt_piso': vivienda['piso'] = datos[i]["value"]; break;
+            case 'txt_piso-edit': vivienda['piso'] = datos[i]["value"]; break;
             case 'txt_eliminacion_basura': vivienda['eliminacion_basura'] = datos[i]["value"]; break;
             case 'mobiliarios[]': mobiliarios.push(datos[i]["value"]); break;
             case 'servicios[]': servicios.push(datos[i]["value"]); break;
@@ -367,7 +373,9 @@ function addDomicilio(datos){
         //console.log(datos[i]['name']);
         switch(datos[i]['name']){
             case 'txt_sector': domicilio['sector'] = datos[i]["value"]; break;
+            case 'txt_sector-edit': domicilio['sector'] = datos[i]["value"]; break;
             case 'txt_comunidad': domicilio['comunidad'] = datos[i]["value"]; break;
+            case 'txt_comunidad-edit': domicilio['comunidad'] = datos[i]["value"]; break;
             case 'txt_direccion': domicilio['direccion'] = datos[i]["value"]; break;
             case 'txt_numero_casa': domicilio['numero_casa'] = datos[i]["value"]; break;
             case 'txt_colindantes': domicilio['colindantes'] = datos[i]["value"]; break;

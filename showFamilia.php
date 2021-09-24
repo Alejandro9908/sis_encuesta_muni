@@ -26,7 +26,6 @@
 
     $vivienda = array();
     $vivienda = $controlador->buscarVivienda($domicilio['id_vivienda']);
-
     $vivienda['mobiliarios'] = $controlador->buscarMobiliarios($domicilio['id_vivienda']);
     $vivienda['servicios'] = $controlador->buscarServiciosVivienda($domicilio['id_vivienda']);
 
@@ -51,8 +50,6 @@
     $datos_boleta = array();
     $datos_boleta = $controlador->buscardatosboleta($id_familia);
 
-    //print_r($domicilio);
-
 ?>
 
 
@@ -65,6 +62,8 @@
 
     <div class="content">
         <div class="row">
+
+        
             <div class="box color-light">
                 <div class="box-header">
                     <h2>1. Estructura Familiar</h2>
@@ -240,6 +239,7 @@
             </div>
             <!--termina identificacion domiciliaria-->
 
+            <!--empieza ingresos y egresos-->
             <div class="box color-light">
                 <div class="form-contaniter">
                     <div class="form-row-2">
@@ -282,7 +282,7 @@
                             <div class="box-header">
                                 <h2>4. Egresos</h2>
                                 <div>
-                                    <a href="#" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                                    <a href="editBoletaEgreso.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
                                 </div>
                             </div>
                             <table class="table" style="width: 100%;">
@@ -325,13 +325,14 @@
                     </div>
                 </div>
             </div>
+            <!--termina ingresos y egresos-->
 
             <!--empieza vivienda-->
             <div class="box color-light">
                 <div class="box-header">
                     <h2>4. Vivienda</h2>
                     <div>
-                        <a href="#" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                        <a href="editBoletaVivienda.php?id_vivienda=<?php echo $domicilio['id_vivienda'];?>&id_familia=<?php echo $id_familia ?>" id="editar-vivienda" class="btn color-primary text-light">Editar</a>
                     </div>
                 </div>
                 <div class="form-contaniter">
@@ -445,7 +446,7 @@
                 <div class="box-header">
                     <h2>6. Salud</h2>
                     <div>
-                        <a href="#" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                        <a href="editBoletaSalud.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
                     </div>
                 </div>
                 <div class="form-contaniter">
@@ -573,7 +574,7 @@
                 <div class="box-header">
                     <h2>7. Alimentación</h2>
                     <div>
-                        <a href="#" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                        <a href="editBoletaAlimentacion.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
                     </div>
                 </div>
                 <div class="form-contaniter">
@@ -631,7 +632,7 @@
                 <div class="box-header">
                     <h2>8. Recreaciones</h2>
                     <div>
-                        <a href="#" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                    <a href="editBoletaRecreacion.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
                     </div>
                 </div>
                 <div class="form-contaniter">
@@ -672,7 +673,7 @@
                 <div class="box-header">
                     <h2>Datos de boleta</h2>
                     <div>
-                        <a href="#" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                        <a href="editBoletaDatos.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
                     </div>
                 </div>
                 <div class="form-contaniter">
