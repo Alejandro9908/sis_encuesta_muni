@@ -27,6 +27,40 @@ class comunidadController{
     }
     
     
+    public function listar($buscar, $desde, $hasta)
+    {
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT c.id_comunidad, c.nombre as comunidad, c.descripcion, c.id_sector, c.estado, c.tipo 
+            FROM tbl_comunidad as c INNER JOIN tbl_sector as s on c.id_sector = s.id_sector
+            WHERE (c.nombre LIKE '%$buscar%' OR s.nombre LIKE '%$buscar%' ) ORDER BY c.nombre ASC LIMIT $desde, $hasta";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $r = array(
+                    'id_comunidad' => $registro->id_comunidad,
+                    'comunidad' => $registro->comunidad,
+                    'descripcion' => $registro->descripcion,
+                    'id_sector' => $registro->id_sector,
+                    'estado' => $registro->estado,
+                    'tipo' => $registro->tipo
+
+                );
+                $resultado[] = $r;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
     public function listarSelect($sector)
     {
         try
@@ -44,9 +78,6 @@ class comunidadController{
                     'nombre' => $registro->nombre,
                     'descripcion' => $registro->descripcion,
                 );
-
-
-                
                 $resultado[] = $r;
             }
 
