@@ -1,24 +1,35 @@
 <?php 
    include_once 'controllers/sesiones.php';
    include_once 'views/layout/header.php';
+   include_once 'views/layout/sidebar.php';
+   include_once 'views/layout/topbar.php';
+   include_once 'controllers/reportePoblacionController.php';
 
    $id_persona = $_GET['id_persona'];
    if(!filter_var($id_persona,FILTER_VALIDATE_INT)){
      die('Error');
    }
 
-   include_once 'views/layout/sidebar.php';
-   include_once 'views/layout/topbar.php';
-   include_once 'controllers/reportePoblacionController.php';
-
    $controlador = new reportePoblacionController();
    $personas = array();
    $personas = $controlador->buscarPersona($id_persona);
 
-   
+   if ( count($personas) > 0 ){
+       $personas = $personas[0];
+   }
+//    var_dump$personas);
+//    die();
+
+   $persona_json = json_encode($personas);
+//    var_dump($persona_json);
+//    die();
 
 ?>
 
+<script>
+    let form_persona = '<?php echo $persona_json; ?>';
+    persona = JSON.parse(form_persona);
+</script>
 
 
 <div class="content-wrapper">
@@ -35,7 +46,7 @@
                     <form role="form" name="add-form-2" id="add-form-2" method="POST"
                         action="controllers/boletaProcesos.php">
                     <div>
-                        <label><input type="checkbox" id="cbox_entrevistado" value="1"> Entrevistado</label><br>
+                        <label><input type="checkbox" id="cbox_entrevistado" <?= $personas['entrevistado'] == 1 ? 'checked' : ''?>s> Entrevistado</label><br>
                         <input type="hidden" id="txt_entrevistado" name="txt_entrevistado">
                     </div>
                 </div>
@@ -59,20 +70,20 @@
                             <div class="form-item">
                                 <label for="txt_segundo_apellido" class="text-gray">Segundo apellido</label>
                                 <input type="text" id="txt_segundo_apellido" name="txt_segundo_apellido" required readonly
-                                    value="<?php echo $personas['segundo_apelldio']; ?>" class="form-control-2"
+                                    value="<?php echo $personas['segundo_apellido']; ?>" class="form-control-2"
                                     placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_sexo" class="text-gray">Sexo</label>
                                 <select required class="form-control" name="txt_sexo" id="txt_sexo">
                                     <option value="" disabled selected>Seleccione una opción</option> 
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Femenino</option>
+                                    <option value="M" <?= $personas['sexo'] == 'M' ? 'selected' : '' ?>>Masculino</option>
+                                    <option value="F" <?= $personas['sexo'] == 'F' ? 'selected' : '' ?>>Femenino</option>
                                 </select>
                             </div>
                             <div class="form-item" id="div-fecha-nacimiento">
                                 <label for="txt_fecha_nacimiento" class="text-gray">Fecha de nacimiento</label>
-                                <input type="date" id="txt_fecha_nacimiento" name="txt_fecha_nacimiento" value=""
+                                <input type="date" id="txt_fecha_nacimiento" name="txt_fecha_nacimiento" value="<?= $personas['fecha_nacimiento'] ?>"
                                     class="form-control" placeholder="" max="<?php echo $hoy ?>">
                             </div>
                             <div class="form-item" id="div-parentesco">
@@ -97,28 +108,27 @@
                                 <label for="txt_estado_civil" class="text-gray">Estado Civil</label>
                                 <select required class="form-control" name="txt_estado_civil" id="txt_estado_civil">
                                     <option value="" disabled selected>Seleccione una opción</option>    
-                                    <option value="soltero">Soltero(a)</option>
-                                    <option value="casado">Casado(a)</option>
-                                    <option value="divorciado">Divorciado(a)</option>
-                                    <option value="viudo">Viudo(a)</option>
-                                    <option value="union libre">Unión Libre</option>
+                                    <option value="soltero" <?= $personas['estado_civil'] == 'soltero' ? 'selected' : '' ?>>Soltero(a)</option>
+                                    <option value="casado" <?= $personas['estado_civil'] == 'casado' ? 'selected' : '' ?>>Casado(a)</option>
+                                    <option value="divorsiado" <?= $personas['estado_civil'] == 'divorsiado' ? 'selected' : '' ?>>Divorciado(a)</option>
+                                    <option value="viudo" <?= $personas['estado_civil'] == 'viudo' ? 'selected' : '' ?>>Viudo(a)</option>
+                                    <option value="union libre" <?= $personas['estado_civil'] == 'union libre' ? 'selected' : '' ?>>Unión Libre</option>
                                 </select>
                             </div>
                             <div class="form-item">
                                 <label for="txt_escolaridad" class="text-gray">Escolaridad</label>
                                 <select required class="form-control" name="txt_escolaridad" id="txt_escolaridad">
                                     <option value="" disabled selected>Seleccione una opción</option>
-                                    <option value="sin estudios">Sin estudio</option>
-                                    <option value="primaria">Nivel primario</option>
-                                    <option value="basico">Nivel básico</option>
-                                    <option value="diversificado">Nivel diversificado</option>
-                                    <option value="universitario">Nivel universitario</option>
+                                    <option value="sin estudios" <?= $personas['escolaridad'] == 'sin estudios' ? 'selected' : '' ?>>Sin estudio</option>
+                                    <option value="primaria"<?= $personas['escolaridad'] == 'primaria' ? 'selected' : '' ?>>Nivel primario</option>
+                                    <option value="basico"<?= $personas['escolaridad'] == 'basico' ? 'selected' : '' ?>>Nivel básico</option>
+                                    <option value="diversificado"<?= $personas['escolaridad'] == 'diversificado' ? 'selected' : '' ?>>Nivel diversificado</option>
+                                    <option value="universitario"<?= $personas['escolaridad'] == 'universitario' ? 'selected' : '' ?>>Nivel universitario</option>
                                 </select>
                             </div>
                             <div class="form-item">
                                 <label for="txt_ocupacion" class="text-gray">Ocupacion</label>
-                                <input type="text" id="txt_ocupacion" name="txt_ocupacion" required readonly
-                                    value="<?php echo $personas['ocupacion']; ?>" class="form-control-2"
+                                <input type="text" id="txt_ocupacion" name="txt_ocupacion"value="<?= $personas['ocupacion'] ?>" class="form-control-2"
                                     placeholder="">
                             </div>
                             <div class="form-item">
@@ -130,8 +140,8 @@
                             <div class="form-item" id="div-gestacion">
                                 <label for="txt_gestacion" class="text-gray">Gestación</label>
                                 <select class="form-control" name="txt_gestacion" id="txt_gestacion">
-                                    <option value="0" selected>No</option>
-                                    <option value="1">Si</option>
+                                    <option value="0" <?= $personas['gestacion'] == '0' ? 'selected' : '' ?>>No</option>
+                                    <option value="1"<?= $personas['gestacion'] == '1' ? 'selected' : '' ?>>Si</option>
                                 </select>
                             </div>
                             <div class="form-item" id="div-semanas-gestacion">
@@ -147,23 +157,10 @@
                                     placeholder="" min="0.00">
                             </div>
                         </div>
-                        <div class="form-row-2">
-                            <div class="form-item">
-                                <label for="txt_enfermedad" class="text-gray">Enfermedades <a href="#" id="addEnfermedad" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                                <select class="select-multiple" name="enfermedades[]" id="txt_enfermedad" multiple>
-                                </select>
-                            </div>
-                            <div class="form-item">
-                                <label for="txt_discapacidad" class="text-gray">Discapacidades <a href="#" id="addDiscapacidad" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
-                                <select class="select-multiple" name="discapacidades[]" id="txt_discapacidad" multiple>
-
-                                </select>
-                            </div>
-                           
-                        </div>
+                       
                         <div class="form-footer">
                             <input type="hidden" name="registro" value="guardar">
-                            <input type="submit" value="Actualizar" class="color-primary text-light">
+                            <!--<input type="submit" value="Actualizar" class="color-primary text-light">-->
                             <input type="reset" value="Regresar" class="color-danger text-light">
                         </div>
                     </form>

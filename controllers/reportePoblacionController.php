@@ -162,15 +162,15 @@ class reportePoblacionController{
             $conexion = new Conexion();
             $resultado = array();
             $sql = "SELECT b.id_boleta, f.id_familia, p.id_persona, p.dpi, p.sexo, p.edad, p.estado_civil, p.escolaridad, p.telefono,
-                    concat_ws('',p.nombres,' ',p.primer_apellido,' ',p.segundo_apellido) as nombre_completo,
-                    p.ocupacion, s.nombre as sector, p.entrevistado, p.fecha_nacimiento, p.parentesco, p.gestacion, p.semanas_gestacion
+                    p.nombres ,p.primer_apellido, p.segundo_apellido,
+                    p.ocupacion, s.nombre as sector, p.entrevistado, p.fecha_nacimiento, p.parentesco, p.gestacion, p.semanas_gestacion, p.ingreso_mensual 
                     from tbl_persona as p inner join 
                     tbl_familia as f on p.id_familia = f.id_familia inner join 
                     tbl_boleta as b on f.id_boleta = b.id_boleta inner join 
                     tbl_vivienda as v on f.id_familia = v.id_familia inner join
                     tbl_comunidad as c on v.id_comunidad = c.id_comunidad inner join
                     tbl_sector as s on s.id_sector = c.id_sector
-                    WHERE f.id_familia = $id";
+                    WHERE p.id_persona = $id";
             $stmt = $conexion->pdo->prepare($sql);
             $stmt->execute();
 
@@ -182,20 +182,23 @@ class reportePoblacionController{
                     "id_boleta" => $registro->id_boleta,
                     "id_familia" => $registro->id_familia,
                     "id_persona" => $registro->id_persona,
+                    "nombres" => $registro->nombres,
+                    "primer_apellido" => $registro->primer_apellido,
+                    "segundo_apellido" => $registro->segundo_apellido,
                     "dpi" => $registro->dpi,
                     "sexo" => $registro->sexo,
                     "edad" => $registro->edad,
                     "estado_civil" => $registro->estado_civil,
                     "escolaridad" => $registro->escolaridad,
                     "telefono" => $registro->telefono,
-                    "nombre_completo" => $registro->nombre_completo,
                     "ocupacion" => $registro->ocupacion,
                     "sector" => $registro->sector,
                     "entrevistado" => $registro->entrevistado,
                     "fecha_nacimiento" => $registro->fecha_nacimiento,
                     "parentesco" => $registro->parentesco,
                     "gestacion" => $registro->gestacion,
-                    "semanas_gestacion" => $registro->semanas_gestacion
+                    "semanas_gestacion" => $registro->semanas_gestacion,
+                    'ingreso_mensual'  	=> $registro->ingreso_mensual
                 );
                 
                 $resultado[] = $r;
