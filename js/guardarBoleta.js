@@ -37,7 +37,7 @@ $(document).ready(function(){
             $('#txt_parentesco').val("yo");
 
             $('#div-fecha-nacimiento').show();
-            $('#txt_fecha_nacimiento').val("");
+            // $('#txt_fecha_nacimiento').val("");
         } else {
             $('#txt_entrevistado').val(0);
             
@@ -45,7 +45,7 @@ $(document).ready(function(){
             $('#txt_parentesco').val("");
 
             $('#div-fecha-nacimiento').hide();
-            $('#txt_fecha_nacimiento').val("");
+            // $('#txt_fecha_nacimiento').val("");
         }
     });
 
