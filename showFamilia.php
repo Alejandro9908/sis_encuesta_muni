@@ -55,15 +55,18 @@
 
 
 <div class="content-wrapper">
-    <div class="content-header">
+    <div class="box-header">
         <h2>Datos de la boleta</h2>
+        <div>
+        <a href="imprimirBoleta.php?id_familia=<?php echo $id_familia ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir Boleta</a>
+        </div>    
     </div>
     <!--Termina content-heaer-->
 
     <div class="content">
         <div class="row">
 
-        
+            <!--empieza estructura familiar-->
             <div class="box color-light">
                 <div class="box-header">
                     <h2>1. Estructura Familiar</h2>
@@ -161,6 +164,7 @@
 
                 </div>
             </div>
+            <!--termina estructura familiar-->
 
             <!--empieza identificacion domiciliaria-->
             <div class="box color-light">
