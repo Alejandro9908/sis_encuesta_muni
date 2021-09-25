@@ -213,6 +213,72 @@ class reportePoblacionController{
         }
     }
 
+    public function buscarEnfermedades($id)
+    {
+        try{
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT e.id_enfermedad, e.nombre as enfermedad from
+                    tbl_enfermedad_persona as ep inner join
+                    tbl_enfermedad as e on ep.id_enfermedad = e.id_enfermedad Where
+                    ep.id_persona = $id;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            $resultado = array();
+            
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $r = array(
+                    "id_enfermedad" => $registro->id_enfermedad,
+                    "enfermedad" => $registro->enfermedad
+                );
+                
+                $resultado[] = $r;
+            }
+
+            return $resultado;
+
+        }
+        catch (Exception $e)
+        {
+            die('Error: '.$e->getMessage());
+        }
+    }
+
+    public function buscarDiscapacidad($id)
+    {
+        try{
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT d.id_discapacidad, d.nombre as discapacidad from
+                    tbl_discapacidad_persona as dp inner join
+                    tbl_discapacidad as d on dp.id_discapacidad = d.id_discapacidad Where
+                    dp.id_persona = $id;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            $resultado = array();
+            
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $r = array(
+                    "id_discapacidad" => $registro->id_discapacidad,
+                    "discapacidad" => $registro->discapacidad
+                );
+                
+                $resultado[] = $r;
+            }
+
+            return $resultado;
+
+        }
+        catch (Exception $e)
+        {
+            die('Error: '.$e->getMessage());
+        }
+    }
+
 }
 
 ?>

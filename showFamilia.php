@@ -107,7 +107,7 @@
                                 <td><?php echo $p['telefono']; ?></td>
                                 <td><?php echo $p['ocupacion']; ?></td>
                                 <td>
-                                    <a href="showPersona.php?id_persona=<?php echo $r['id_persona']; ?>"
+                                    <a href="showPersona.php?id_persona=<?php echo $p['id_persona']; ?>"
                                         class="btn color-info">Ver</a>
                                 </td>
                             </tr>

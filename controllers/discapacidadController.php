@@ -25,26 +25,25 @@ class discapacidadController{
     }
 
 
-    public function listar($buscar, $desde, $hasta)
+    public function listarSelect()
     {
         try
         {
             $conexion = new Conexion();
             $resultado = array();
-            $sql = "SELECT * FROM tbl_discapacidad WHERE
-                    (id_discapacidad LIKE '%$buscar%' OR nombre LIKE '%$buscar%') ORDER BY nombre ASC LIMIT $desde, $hasta";
+            $sql = "SELECT * FROM tbl_discapacidad";
             $stmt = $conexion->pdo->prepare($sql);
             $stmt->execute();
 
             foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
             {
-                $o = new Opcion();
+                $r = array(
+                    'id_discapacidad' => $registro->id_discapacidad,
+                    'nombre' => $registro->nombre,
+                    'descripcion' => $registro->descripcion
+                );
 
-                $o->set('id_opcion', $registro->id_discapacidad);
-                $o->set('nombre', $registro->nombre);
-                $o->set('descripcion', $registro->descripcion);
-
-                $resultado[] = $o;
+                $resultado[] = $r;
             }
 
             return $resultado;

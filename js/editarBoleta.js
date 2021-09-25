@@ -175,6 +175,53 @@ $(document).ready(function(){
             });
     });
 
+    $('#edit-form-persona').submit(function (e){
+        e.preventDefault();
+
+        let persona = {
+            entrevistado: $('#txt_entrevistado-edit').val(),
+            nombres: $('#txt_nombres').val(),
+            primer_apellido: $('#txt_primer_apellido').val(),
+            segundo_apellido: $('#txt_segundo_apellido').val(),
+            sexo: $('#txt_sexo').val(),
+            fecha_nacimiento: $('#txt_fecha_nacimiento-edit').val(),
+            parentesco: $('#txt_parentesco-edit').val(),
+            edad: $('#txt_edad').val(),
+            dpi: $('#txt_dpi').val(),
+            estado_civil: $('#txt_estado_civil').val(),
+            escolaridad: $('#txt_escolaridad').val(),
+            ocupacion: $('#txt_ocupacion').val(),
+            telefono: $('#txt_telefono').val(),
+            gestacion: $('#txt_gestacion').val(),
+            semanas_gestacion: $('#txt_semanas_gestacion').val(),
+            ingreso_mensual: $('#txt_ingreso_mensual').val(),
+            enfermedades: $('#txt_enfermedad-edit').val(),
+            discapacidades: $('#txt_discapacidad-edit').val()
+        }
+
+        var personaJson = JSON.encode(persona);
+
+        var id_persona = $('#id_persona-edit').val(); 
+        var editar = $('#editar-p').val(); 
+
+        /*console.log(id_persona);
+        console.log(editar);
+        console.log(personaJson);*/
+
+        $.post("controllers/editarBoletaProcesos.php",
+            "editar="+editar+
+            "&id_persona="+id_persona+
+            "&persona="+personaJson, 
+            function (respuesta){
+                console.log(respuesta);
+                if(respuesta == 'exito'){
+                    msjSucess();
+                }else{
+                    msjError();
+                }
+            });
+    });
+
     
     
 
