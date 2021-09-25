@@ -38,13 +38,13 @@ class enfermedadController{
 
             foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
             {
-                $o = new Opcion();
-
-                $o->set('id_opcion', $registro->id_enfermedad);
-                $o->set('nombre', $registro->nombre);
-                $o->set('descripcion', $registro->descripcion);
-
-                $resultado[] = $o;
+                $r = array(
+                    'id_enfermedad' => $registro->id_enfermedad,
+                    'nombre' => $registro->nombre,
+                    'descripcion' => $registro->descripcion
+                );
+  
+                $resultado[] = $r;
             }
 
             return $resultado;
@@ -67,13 +67,13 @@ class enfermedadController{
 
             foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
             {
-                $o = new Opcion();
-
-                $o->set('id_opcion', $registro->id_enfermedad);
-                $o->set('nombre', $registro->nombre);
-                $o->set('descripcion', $registro->descripcion);
-
-                $resultado[] = $o;
+                $r = array(
+                    'id_enfermedad' => $registro->id_enfermedad,
+                    'nombre' => $registro->nombre,
+                    'descripcion' => $registro->descripcion
+                );
+  
+                $resultado[] = $r;
             }
 
             return $resultado;

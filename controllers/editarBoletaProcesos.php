@@ -79,4 +79,14 @@
         $controlador->editarVivienda($id_vivienda, $vivienda);
     }
 
+    if($_POST['editar'] == 'persona'){
+        $controlador = new editarBoletaController();
+        
+        $persona =  array();
+        $persona = json_decode($_POST["persona"], true);
+        $id_persona = $_POST['id_persona'];
+
+        $controlador->editarPersona($id_persona, $persona);
+    }
+
 ?>

@@ -253,4 +253,63 @@ class editarBoletaController{
         }
     }
 
+    public function editarPersona($id_persona, $persona)
+    {
+        try
+        {
+            $conexion = new Conexion();
+            $stmt = $conexion->pdo;
+            $stmt->beginTransaction();
+
+
+            //borramos datos actuales enfermedades
+            $stmt->exec("DELETE FROM tbl_enfermedad_persona WHERE id_persona = $id_persona;");
+
+            //insertamos nuevos datos actualziados en enfermedades
+            foreach($persona['enfermedades'] as $i){
+                $stmt->exec("INSERT INTO tbl_enfermedad_persona (id_persona,id_enfermedad) 
+                values ('".$id_persona."','".$i."')");
+            }
+
+            //borramos datos actuales discapacidades
+            $stmt->exec("DELETE FROM tbl_discapacidad_persona WHERE id_persona = $id_persona;");
+
+            //insertamos nuevos datos actualziados en enfermedades
+            foreach($persona['discapacidades'] as $i){
+                $stmt->exec("INSERT INTO tbl_discapacidad_persona (id_persona,id_discapacidad) 
+                values ('".$id_persona."','".$i."')");
+            }
+
+            //print_r($persona);
+
+            //editamos datos de persona
+            $stmt->exec("UPDATE tbl_persona SET 
+                        entrevistado= '".$persona['entrevistado']."', 
+                        nombres= '".$persona['nombres']."', 
+                        primer_apellido ='".$persona['primer_apellido']."', 
+                        segundo_apellido = '".$persona['segundo_apellido']."',
+                        sexo = '".$persona['sexo']."', 
+                        fecha_nacimiento = '".$persona['fecha_nacimiento']."', 
+                        edad = '".$persona['edad']."', 
+                        dpi = '".$persona['dpi']."', 
+                        estado_civil = '".$persona['estado_civil']."', 
+                        escolaridad = '".$persona['escolaridad']."', 
+                        ocupacion = '".$persona['ocupacion']."', 
+                        telefono = '".$persona['telefono']."',  
+                        gestacion = '".$persona['gestacion']."',  
+                        semanas_gestacion = '".$persona['semanas_gestacion']."',  
+                        ingreso_mensual = '".$persona['ingreso_mensual']."'  
+                        WHERE id_persona = '".$id_persona."';");
+
+            $stmt->commit();
+
+            die("exito");
+        }
+        catch (Exception $e)
+        {
+            $stmt->rollBack();
+            echo 'Error '. $e;
+        }
+    }
+
 }

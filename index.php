@@ -58,7 +58,9 @@
             <div class="box color-light">
                 <div class="box-header">
                     <h3>Buscar</h3>
-
+                    <div>
+                        <a href="imprimirConteo.php?sector=<?php echo $sector ?>&comunidad=<?php echo $comunidad ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir</a>
+                    </div> 
                 </div>
                 <div class="form-contaniter">
                     <form role="form" name="buscar-index" id="buscar-index" method="POST"
