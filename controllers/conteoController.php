@@ -337,6 +337,143 @@ class conteoController{
         }
     }
 
+    public function listarRecreaciones($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT rf.id_recreacion, r.nombre, count(*) as total from 
+                    tbl_recreacion_familia as rf inner join 
+                    tbl_recreacion as r on rf.id_recreacion = r.id_recreacion inner join 
+                    tbl_familia as f on f.id_familia = rf.id_familia inner join 
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    group by rf.id_recreacion;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $l = array(
+                    "id" => $registro->id_recreacion,
+                    "nombre" => $registro->nombre,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $l;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
+    public function listarServiciosMedicos($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT mf.id_servicio_medico, m.nombre, count(*) as total from 
+                    tbl_serviciomedico_familia as mf inner join 
+                    tbl_servicio_medico as m on mf.id_servicio_medico = m.id_servicio_medico inner join 
+                    tbl_familia as f on f.id_familia = mf.id_familia inner join 
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    group by mf.id_servicio_medico;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $l = array(
+                    "id" => $registro->id_servicio_medico,
+                    "nombre" => $registro->nombre,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $l;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
+    public function listarTenencias($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT v.id_tenencia as id, t.nombre, count(*) as total from 
+                    tbl_vivienda as v inner join 
+                    tbl_tenencia as t on v.id_tenencia = t.id_tenencia inner join 
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    group by v.id_tenencia;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $l = array(
+                    "id" => $registro->id,
+                    "nombre" => $registro->nombre,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $l;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
+    public function listarServiciosBasicos($sector, $comunidad){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT sv.id_servicio as id, s.nombre, count(*) as total from 
+                    tbl_servicio_vivienda as sv inner join 
+                    tbl_servicio as s on sv.id_servicio = s.id_servicio inner join
+                    tbl_vivienda as v on v.id_vivienda = sv.id_vivienda inner join 
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where c.id_sector like '$sector' and v.id_comunidad LIKE '$comunidad'
+                    group by sv.id_servicio;";
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $l = array(
+                    "id" => $registro->id,
+                    "nombre" => $registro->nombre,
+                    "total" => $registro->total
+                );
+                
+                $resultado[] = $l;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die('Error de: '.$e->getMessage());
+        }
+    }
+
 
 
 

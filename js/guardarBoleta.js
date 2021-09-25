@@ -481,9 +481,16 @@ function addTabla(personas){
         <td>${banderaEntrevistado}</td>
         <td>${personas[i]['nombres']+" "+personas[i]['primer_apellido']+" "+personas[i]['segundo_apellido']}</td>
         <td>${personas[i]['dpi']}</td>
+        <td>${personas[i]['sexo']}</td>
+        <td>${personas[i]['edad']}</td>
+        <td>${personas[i]['estado_civil']}</td>
+        <td>${personas[i]['escolaridad']}</td>
+        <td>${personas[i]['ocupacion']}</td>
+        <td>${personas[i]['telefono']}</td>
+        <td>${personas[i]['ingreso_mensual']}</td>
         <td>
         <a class="btn color-danger" onclick="quitarRegistro(${i})">Eliminar</a>
-        <a class="btn color-info" onclick="verRegistro(${i})">Ver</a>
+   
         </td>
         </tr>
         `  

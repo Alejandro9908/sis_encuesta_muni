@@ -45,6 +45,14 @@
     $lista_rango_edades = array();
     $lista_rango_edades = $controlador->listarRangosEdades("$sector","$comunidad");
 
+    $lista_recreaciones = array();
+    $lista_recreaciones = $controlador->listarRecreaciones("$sector","$comunidad");
+    $lista_servicios_medicos = array();
+    $lista_servicios_medicos = $controlador->listarServiciosMedicos("$sector","$comunidad");
+    $lista_tenencias = array();
+    $lista_tenencias = $controlador->listarTenencias("$sector","$comunidad");
+    $lista_servicios_basicos = array();
+    $lista_servicios_basicos = $controlador->listarServiciosBasicos("$sector","$comunidad");
 
 ?>
 
@@ -323,6 +331,130 @@
                         <tr>
                             <td><?php echo $ld['ocupacion']; ?></td>
                             <td><?php echo $ld['total']; ?></td>
+                        </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
+                    </tbody>
+                </table>
+
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+            <div class="box color-light">
+                <div class="box-header">
+                    <h3>Recreación y uso del tiempo familiar</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
+                </div>
+                <table class="table table-2">
+                    <thead>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>RESULTADO</td>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        foreach ($lista_recreaciones as $le){
+                        ?>
+                        <tr>
+                            <td><?php echo $le['id']; ?></td>
+                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo $le['total']; ?></td>
+                        </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
+                    </tbody>
+                </table>
+
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+            <div class="box color-light">
+                <div class="box-header">
+                    <h3>Servicios medicos</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
+                </div>
+                <table class="table table-2">
+                    <thead>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>RESULTADO</td>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        foreach ($lista_servicios_medicos as $le){
+                        ?>
+                        <tr>
+                            <td><?php echo $le['id']; ?></td>
+                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo $le['total']; ?></td>
+                        </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
+                    </tbody>
+                </table>
+
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+            <div class="box color-light">
+                <div class="box-header">
+                    <h3>Tenencia de la vivienda</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
+                </div>
+                <table class="table table-2">
+                    <thead>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>RESULTADO</td>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        foreach ($lista_tenencias as $le){
+                        ?>
+                        <tr>
+                            <td><?php echo $le['id']; ?></td>
+                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo $le['total']; ?></td>
+                        </tr>
+                        <?php 
+                        }//termina ciclo for
+                        ?>
+                    </tbody>
+                </table>
+
+                <div class="box-footer">
+
+                </div>
+            </div>
+
+            <div class="box color-light">
+                <div class="box-header">
+                    <h3>Servicios básicos de las viviendas</h3>
+                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
+                </div>
+                <table class="table table-2">
+                    <thead>
+                        <td>ID</td>
+                        <td>NOMBRE</td>
+                        <td>RESULTADO</td>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        foreach ($lista_servicios_basicos as $le){
+                        ?>
+                        <tr>
+                            <td><?php echo $le['id']; ?></td>
+                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo $le['total']; ?></td>
                         </tr>
                         <?php 
                         }//termina ciclo for

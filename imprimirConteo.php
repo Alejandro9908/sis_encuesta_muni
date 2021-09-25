@@ -25,6 +25,15 @@
     $lista_rango_edades = array();
     $lista_rango_edades = $controlador->listarRangosEdades("$sector","$comunidad");
 
+    $lista_recreaciones = array();
+    $lista_recreaciones = $controlador->listarRecreaciones("$sector","$comunidad");
+    $lista_servicios_medicos = array();
+    $lista_servicios_medicos = $controlador->listarServiciosMedicos("$sector","$comunidad");
+    $lista_tenencias = array();
+    $lista_tenencias = $controlador->listarTenencias("$sector","$comunidad");
+    $lista_servicios_basicos = array();
+    $lista_servicios_basicos = $controlador->listarServiciosBasicos("$sector","$comunidad");
+
 
 
 
@@ -213,6 +222,102 @@ $pdf->SetFont('Arial','',10);
 foreach ($lista_ocupacion as $i){
     $pdf->Cell(100, 6, utf8_decode($i['ocupacion']), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
+}
+
+////////////////////////////////////////////////
+//
+//   RECREACIONES
+//
+///////////////////////////////////////////////
+
+$pdf->Ln(10);
+$pdf->SetFont('Arial','B',12);
+$pdf->Cell(60, 10, utf8_decode('Recreación y uso del tiempo familiar'), 0, 1,'L', 0);
+
+$pdf->SetFont('Arial','B',10);
+
+$pdf->Cell(100, 6, utf8_decode('Nombre'), 1, 0,'L', 0); 
+$pdf->Cell(113, 6, utf8_decode('Resultado'), 1, 1,'L', 0); 
+
+$pdf->SetFont('Arial','',10);
+
+foreach ($lista_recreaciones as $i){
+
+    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
+
+}
+
+////////////////////////////////////////////////
+//
+//   SERVICIO MEDICO
+//
+///////////////////////////////////////////////
+
+$pdf->Ln(10);
+$pdf->SetFont('Arial','B',12);
+$pdf->Cell(60, 10, utf8_decode('Servicios medicos'), 0, 1,'L', 0);
+
+$pdf->SetFont('Arial','B',10);
+
+$pdf->Cell(100, 6, utf8_decode('Nombre'), 1, 0,'L', 0); 
+$pdf->Cell(113, 6, utf8_decode('Resultado'), 1, 1,'L', 0); 
+
+$pdf->SetFont('Arial','',10);
+
+foreach ($lista_servicios_medicos as $i){
+
+    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
+
+}
+
+////////////////////////////////////////////////
+//
+//   tenencia
+//
+///////////////////////////////////////////////
+
+$pdf->Ln(10);
+$pdf->SetFont('Arial','B',12);
+$pdf->Cell(60, 10, utf8_decode('Tenencia de la vivienda'), 0, 1,'L', 0);
+
+$pdf->SetFont('Arial','B',10);
+
+$pdf->Cell(100, 6, utf8_decode('Nombre'), 1, 0,'L', 0); 
+$pdf->Cell(113, 6, utf8_decode('Resultado'), 1, 1,'L', 0); 
+
+$pdf->SetFont('Arial','',10);
+
+foreach ($lista_tenencias as $i){
+
+    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
+
+}
+
+////////////////////////////////////////////////
+//
+//   SERVICIOS BASICOS
+//
+///////////////////////////////////////////////
+
+$pdf->Ln(10);
+$pdf->SetFont('Arial','B',12);
+$pdf->Cell(60, 10, utf8_decode('Servicios básicos de las viviendas'), 0, 1,'L', 0);
+
+$pdf->SetFont('Arial','B',10);
+
+$pdf->Cell(100, 6, utf8_decode('Nombre'), 1, 0,'L', 0); 
+$pdf->Cell(113, 6, utf8_decode('Resultado'), 1, 1,'L', 0); 
+
+$pdf->SetFont('Arial','',10);
+
+foreach ($lista_servicios_basicos as $i){
+
+    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
+
 }
 
 

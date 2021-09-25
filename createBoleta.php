@@ -158,6 +158,13 @@
                             <td>ENTREVISTADO</td>
                             <td>NOMBRE</td>
                             <td>DPI</td>
+                            <td>SEXO</td>
+                            <td>EDAD</td>
+                            <td>ESTADO CIVIL</td>
+                            <td>ESCOLARIDAD</td>
+                            <td>OCUPACION</td>
+                            <td>TELEFONO</td>
+                            <td>INGRESO MENSUAL</td>
                             <td>OPCIONES</td>
                         </thead>
                         <tbody id="listaPersonas">
@@ -223,7 +230,7 @@
                         <div class="form-item">
                             <label for="txt_telefono" class="text-gray">Telefono</label>
                             <input type="text" id="txt_telefono" name="txt_telefono" value="12345678" class="form-control"
-                                placeholder="">
+                                placeholder="" minlength="8" maxlength="8">
                         </div>
                         <div class="form-item">
                             <label for="txt_transporte" class="text-gray">Medios de transporte para llegar al
