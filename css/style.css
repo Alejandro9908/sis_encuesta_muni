@@ -515,6 +515,13 @@ h6{
     margin-bottom: 20px;
 }
 
+.box-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
 .box .box-footer{
     display: flex;
     justify-content: space-between;
