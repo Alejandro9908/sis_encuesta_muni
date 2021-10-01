@@ -99,23 +99,24 @@ $pdf->Cell(113, 6, utf8_decode($personas['ingreso_mensual']), 1, 1,'L', 0);
 //   enfermedades
 //
 ///////////////////////////////////////////////
+if(!empty($enfermedades)){
+    $pdf->Ln(10);
+    $pdf->SetFont('Arial','B',12);
+    $pdf->Cell(60, 10, utf8_decode('Enfermedades'), 0, 1,'L', 0);
 
-$pdf->Ln(10);
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(60, 10, utf8_decode('Enfermedades'), 0, 1,'L', 0);
+    $pdf->SetFont('Arial','B',10);
 
-$pdf->SetFont('Arial','B',10);
+    $pdf->Cell(100, 6, utf8_decode('No.'), 1, 0,'L', 0); 
+    $pdf->Cell(113, 6, utf8_decode('Resultado'), 1, 1,'L', 0); 
 
-$pdf->Cell(100, 6, utf8_decode('No.'), 1, 0,'L', 0); 
-$pdf->Cell(113, 6, utf8_decode('Resultado'), 1, 1,'L', 0); 
+    $pdf->SetFont('Arial','',10);
+    $indice = 1;
+    foreach ($enf as $i){
 
-$pdf->SetFont('Arial','',10);
-$indice = 1;
-foreach ($enf as $i){
-
-    $pdf->Cell(100, 6, utf8_decode($indice), 1, 0,'L', 0); 
-    $pdf->Cell(113, 6, utf8_decode($i['enfermedad']), 1, 1,'L', 0);
-    $indice++;
+        $pdf->Cell(100, 6, utf8_decode($indice), 1, 0,'L', 0); 
+        $pdf->Cell(113, 6, utf8_decode($i['enfermedad']), 1, 1,'L', 0);
+        $indice++;
+    }
 }
 
 ////////////////////////////////////////////////
@@ -123,23 +124,24 @@ foreach ($enf as $i){
 //   discapacidades
 //
 ///////////////////////////////////////////////
+if(!empty($discapacidades)){
+    $pdf->Ln(10);
+    $pdf->SetFont('Arial','B',12);
+    $pdf->Cell(60, 10, utf8_decode('Discapacidades'), 0, 1,'L', 0);
 
-$pdf->Ln(10);
-$pdf->SetFont('Arial','B',12);
-$pdf->Cell(60, 10, utf8_decode('Discapacidades'), 0, 1,'L', 0);
+    $pdf->SetFont('Arial','B',10);
 
-$pdf->SetFont('Arial','B',10);
+    $pdf->Cell(100, 6, utf8_decode('No.'), 1, 0,'L', 0); 
+    $pdf->Cell(113, 6, utf8_decode('Resultado'), 1, 1,'L', 0); 
 
-$pdf->Cell(100, 6, utf8_decode('No.'), 1, 0,'L', 0); 
-$pdf->Cell(113, 6, utf8_decode('Resultado'), 1, 1,'L', 0); 
+    $pdf->SetFont('Arial','',10);
+    $indice = 1;
+    foreach ($dis as $i){
 
-$pdf->SetFont('Arial','',10);
-$indice = 1;
-foreach ($dis as $i){
-
-    $pdf->Cell(100, 6, utf8_decode($indice), 1, 0,'L', 0); 
-    $pdf->Cell(113, 6, utf8_decode($i['discapacidad']), 1, 1,'L', 0);
-    $indice++;
+        $pdf->Cell(100, 6, utf8_decode($indice), 1, 0,'L', 0); 
+        $pdf->Cell(113, 6, utf8_decode($i['discapacidad']), 1, 1,'L', 0);
+        $indice++;
+    }
 }
 
 

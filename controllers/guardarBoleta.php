@@ -115,7 +115,7 @@
                         values ('".$id_persona."','".$e."')");
                     }
                 }
-                print_r("\n");
+                
                 foreach($i->get('discapacidades') as $discapacidad){
                     foreach($discapacidad as $d){
                         $stmt->exec("INSERT INTO tbl_discapacidad_persona (id_persona,id_discapacidad) 
@@ -222,9 +222,7 @@
             //si todo sale bien, se hace el commit
             $stmt->commit();
 
-            //$registro = $stmt->fetch(PDO::FETCH_OBJ);
-
-            //return $registro->total_registros;
+            echo "exito";
     }catch(PDOException $e)
     {
             $stmt->rollBack();

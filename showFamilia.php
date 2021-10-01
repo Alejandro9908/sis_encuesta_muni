@@ -150,7 +150,7 @@
                                 <td><?php echo $p['telefono']; ?></td>
                                 <td><?php echo $p['ocupacion']; ?></td>
                                 <td>
-                                    <a href="showPersona.php?id_persona=<?php echo $r['id_persona']; ?>"
+                                    <a href="showPersona.php?id_persona=<?php echo $p['id_persona']; ?>"
                                         class="btn color-info">Ver</a>
                                 </td>
                             </tr>
@@ -631,7 +631,7 @@
             <!--termina alimentacion-->
 
             <!--empieza recreaciones-->
-            <?php if(!empty($recreaciones)){ ?>
+            
             <div class="box color-light" id="div-recreaciones">
                 <div class="box-header">
                     <h2>8. Recreaciones</h2>
@@ -669,7 +669,7 @@
                     </form>
                 </div>
             </div>
-            <?php } ?>
+     
             <!--termina recreaciones-->
 
             <!--empieza datos boleta-->

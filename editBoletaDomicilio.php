@@ -106,7 +106,7 @@
                         </div>
                         <div class="form-item">
                             <label for="txt_transporte" class="text-gray">Medios de transporte para llegar al
-                                domicilio <a href="#" id="addTransporte" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                                domicilio</label>
                             <select class="select-multiple" name="transportes[]" id="txt_transportes" multiple>
 
                             </select>

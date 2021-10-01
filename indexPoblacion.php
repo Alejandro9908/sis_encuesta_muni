@@ -84,7 +84,8 @@
                             <td><?php echo $r['telefono']; ?></td>
                             <td><?php echo $r['comunidad']; ?></td>
                             <td>
-                                <a href="showPersona.php?id_persona=<?php echo $r['id_persona']; ?>" class="btn color-info">Ver Detalle</a>
+                                <a href="showPersona.php?id_persona=<?php echo $r['id_persona']; ?>" class="btn color-info">Ver</a>
+                                <a href="showFamilia.php?id_familia=<?php echo $r['id_familia']; ?>" class="btn color-warning">Ver Boleta</a>
                             </td>
                         </tr>
                         <?php 

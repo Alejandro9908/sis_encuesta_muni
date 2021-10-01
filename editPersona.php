@@ -45,6 +45,9 @@
 <script>
     let form_persona = '<?php echo $persona_json; ?>';
     persona = JSON.parse(form_persona);
+
+
+  
 </script>
 
 
