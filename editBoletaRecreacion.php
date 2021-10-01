@@ -41,7 +41,7 @@
                         action="controllers/prueba.php">
                     <div class="form-row-1">
                         <div class="form-item">
-                            <label for="txt_recreacion" class="text-gray">Activiades familiariares del fin de semana <a href="#" id="addRecreacion" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <label for="txt_recreacion" class="text-gray">Activiades familiariares del fin de semana </label>
                             <select class="select-multiple" name="recreaciones[]" id="txt_recreacion" multiple>
                             </select>
                         </div>

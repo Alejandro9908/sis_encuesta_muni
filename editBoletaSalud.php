@@ -41,7 +41,7 @@
                         action="controllers/prueba.php">
                         <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_servicio_medico" class="text-gray">Servicios Medicos <a href="#" id="addServicioMedico" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <label for="txt_servicio_medico" class="text-gray">Servicios Medicos </label>
                             <select class="form-control" name="txt_servicio_medico-edit" id="txt_servicio_medico-edit">
                                     <?php 
                                     foreach ($servicios_medicos as $i){

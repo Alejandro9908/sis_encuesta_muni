@@ -531,7 +531,7 @@ function listarParedes(){
         type: 'GET',
         success: function(respuesta){
             let Transportes = JSON.parse(respuesta);
-            let lista = '';
+            let lista = '<option value="" disabled selected>Seleccione una opción</option>';
             Transportes.forEach(e => {
                 lista += `
                 <option value="${e.id_opcion}">${e.nombre}</option>
@@ -576,7 +576,7 @@ function listarTechos(){
         type: 'GET',
         success: function(respuesta){
             let Resultado = JSON.parse(respuesta);
-            let lista = '';
+            let lista = '<option value="" disabled selected>Seleccione una opción</option>';
             Resultado.forEach(e => {
                 lista += `
                 <option value="${e.id_opcion}">${e.nombre}</option>
@@ -621,7 +621,7 @@ function listarPisos(){
         type: 'GET',
         success: function(respuesta){
             let Resultado = JSON.parse(respuesta);
-            let lista = '';
+            let lista = '<option value="" disabled selected>Seleccione una opción</option>';
             Resultado.forEach(e => {
                 lista += `
                 <option value="${e.id_opcion}">${e.nombre}</option>
@@ -852,7 +852,7 @@ function listarTenencia(){
         type: 'GET',
         success: function(respuesta){
             let Resultado = JSON.parse(respuesta);
-            let lista = '';
+            let lista = '<option value="" disabled selected>Seleccione una opción</option>';
             Resultado.forEach(e => {
                 lista += `
                 <option value="${e.id_opcion}">${e.nombre}</option>
@@ -897,7 +897,7 @@ function listarSanitarios(){
         type: 'GET',
         success: function(respuesta){
             let Resultado = JSON.parse(respuesta);
-            let lista = '';
+            let lista = '<option value="" disabled selected>Seleccione una opción</option>';
             Resultado.forEach(e => {
                 lista += `
                 <option value="${e.id_opcion}">${e.nombre}</option>

@@ -223,6 +223,7 @@ $(document).ready(function(){
     });
 
     
+
     
 
     sexo = $('#txt_sexo').val();

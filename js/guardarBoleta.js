@@ -2,10 +2,15 @@ let banderaEntrevistado = 0;
 let personas = [];
 var bandera = 0;
 
+
+
 $(document).ready(function(){
 
-    $('#cbox_entrevistado').prop("checked",true);
+    //$('#cbox_entrevistado').prop("checked",true);
+    $('#entrevistado').text("Agregando persona entrevistada");
     $('#txt_entrevistado').val(1);
+
+
 
     $('#div-gestacion').hide();
     $('#div-semanas-gestacion').hide();
@@ -29,30 +34,20 @@ $(document).ready(function(){
         }
     });
 
-    $( '#cbox_entrevistado' ).on( 'click', function() {
-        if( $('#cbox_entrevistado').is(':checked') ){
-            $('#txt_entrevistado').val(1);
-            
-            $('#div-parentesco').hide();
-            $('#txt_parentesco').val("yo");
-
-            $('#div-fecha-nacimiento').show();
-            // $('#txt_fecha_nacimiento').val("");
-        } else {
-            $('#txt_entrevistado').val(0);
-            
-            $('#div-parentesco').show();
-            $('#txt_parentesco').val("");
-
-            $('#div-fecha-nacimiento').hide();
-            // $('#txt_fecha_nacimiento').val("");
-        }
-    });
 
     $('#addPersona').submit(function (e){
         e.preventDefault();
         var datos = $(this).serializeArray();
         addPersona(datos);
+
+        $('#txt_entrevistado').val(0);
+        $('#entrevistado').text("Agregando miembro familiar");
+        $('#div-parentesco').show();
+        $('#txt_parentesco').val("");
+        $('#div-fecha-nacimiento').hide();
+        $('#txt_fecha_nacimiento').val("");
+
+        $('#addPersona').trigger("reset");
     });
 
     $('#crearBoleta').submit(function (e){
@@ -94,7 +89,6 @@ $(document).ready(function(){
                     ($('#txt_leguminosas').val() == null)){
             validacionFormulario('Se deben completar los datos', '6. Alimentacion');
         }else{
-            console.log("Guardado");
             var personasJson = JSON.encode(personas);
             
             var domicilio = addDomicilio($("#add-form-2").serializeArray());//domicilio
@@ -131,9 +125,9 @@ $(document).ready(function(){
             function (respuesta){
                 console.log(respuesta);
                 if(respuesta == 'exito'){
-                
+                    msjSave();
                 }else{
-    
+                    msjErrorSave();
                 }
             });
         }
@@ -142,6 +136,30 @@ $(document).ready(function(){
 
 
 });
+
+function msjSave(){
+    $('.modal-container').fadeIn();
+        $('.modal-title').text('Mensaje');
+        $('.modal-body').html(  '<div>'+
+                                '<p>La boleta se registró exitosamente</p><br>'+
+                                '<input type="button" value="Aceptar" onclick="redirigir();" style="padding: 10px 15px;" class="btn color-primary text-light cerrar-modal">'+
+                                '</div>');
+    //$('#crearRegistro').trigger('reset');
+}
+
+function redirigir(){
+    window.location.href = "createBoleta.php";
+}
+
+function msjErrorSave(){
+    $('.modal-container').fadeIn();
+        $('.modal-title').text('Mensaje');
+        $('.modal-body').html(  '<div>'+
+                                '<p>Ups! Hubo un error al guardar la boleta</p><br>'+
+                                '<input type="button" value="Aceptar" onclick="cerrarModal();" style="padding: 10px 15px;" class="btn color-primary text-light cerrar-modal">'+
+                                '</div>');
+}
+
 
 
 function validacionFormulario(mensaje, modulo){
@@ -501,7 +519,20 @@ function addTabla(personas){
 
 //quita una persona del array
 function quitarRegistro(id){
+    
+    for(i = 0; i < personas.length; i++){
+        if((i == id) && (personas[i]['entrevistado']=="1")){
+            $('#txt_entrevistado').val(1);
+            
+            $('#div-parentesco').hide();
+            $('#txt_parentesco').val("yo");
+
+            $('#div-fecha-nacimiento').show();
+            $('#entrevistado').text("Agregando persona entrevistada");
+        }
+    }
     personas.splice(id,1);
+    
     addTabla(personas);
 }
 

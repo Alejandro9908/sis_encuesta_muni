@@ -168,18 +168,22 @@ $pdf->Cell(17, 4, utf8_decode('Longitud: '), 0, 0,'L', 0);
 $pdf->Cell(50, 4, utf8_decode($domicilio['longitud']), 'B', 0,'L', 0); 
 $pdf->Cell(30, 4, utf8_decode('Telefono domiciliar: '), 0, 0,'L', 0);
 $pdf->Cell(51, 4, utf8_decode($domicilio['telefono']), 'B', 1,'L', 0); 
-$pdf->Ln(5); 
-$pdf->Cell(15, 4, utf8_decode('Medios de transporte para llegar al domicilio: '), 0, 0,'L', 0);
-$pdf->Ln(10); 
-$indice = 1;
 
-$pdf->Cell(13, 6, utf8_decode('No.'), 1, 0,'C', 0); 
-$pdf->Cell(200, 6, utf8_decode('Transporte'), 1, 1,'L', 0); 
 
-foreach ($domicilio['transportes'] as $i){
-        $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
-        $pdf->Cell(200, 6, utf8_decode($i['transporte']), 1, 1,'L', 0); 
-        $indice++;
+if(!empty($domicilio['transportes'])){
+    $pdf->Ln(5); 
+    $pdf->Cell(15, 4, utf8_decode('Medios de transporte para llegar al domicilio: '), 0, 0,'L', 0);
+    $pdf->Ln(10); 
+    $indice = 1;
+
+    $pdf->Cell(13, 6, utf8_decode('No.'), 1, 0,'C', 0); 
+    $pdf->Cell(200, 6, utf8_decode('Transporte'), 1, 1,'L', 0); 
+
+    foreach ($domicilio['transportes'] as $i){
+            $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
+            $pdf->Cell(200, 6, utf8_decode($i['transporte']), 1, 1,'L', 0); 
+            $indice++;
+    }
 }
 
 $pdf->Ln(10);
@@ -337,39 +341,46 @@ $pdf->Cell(50, 4, utf8_decode($vivienda['techo']), 'B', 0,'L', 0);
 $pdf->Cell(15, 4, utf8_decode('Piso: '), 0, 0,'L', 0);
 $pdf->Cell(51, 4, utf8_decode($vivienda['piso']), 'B', 1,'L', 0); 
 $pdf->Ln(5); 
-$pdf->Cell(15, 4, utf8_decode('Mobiliario y equipo: '), 0, 0,'L', 0);
-$pdf->Ln(10); 
-$indice = 1;
 
-$pdf->Cell(13, 6, utf8_decode('No.'), 1, 0,'C', 0); 
-$pdf->Cell(200, 6, utf8_decode('Mobiliario o equipo'), 1, 1,'L', 0); 
+if(!empty($vivienda['mobiliarios'])){
+    $pdf->Cell(15, 4, utf8_decode('Mobiliario y equipo: '), 0, 0,'L', 0);
+    $pdf->Ln(10); 
+    $indice = 1;
 
-foreach ($vivienda['mobiliarios'] as $i){
-        $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
-        $pdf->Cell(200, 6, utf8_decode($i['mobiliario']), 1, 1,'L', 0); 
-        $indice++;
+    $pdf->Cell(13, 6, utf8_decode('No.'), 1, 0,'C', 0); 
+    $pdf->Cell(200, 6, utf8_decode('Mobiliario o equipo'), 1, 1,'L', 0); 
+
+    foreach ($vivienda['mobiliarios'] as $i){
+            $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
+            $pdf->Cell(200, 6, utf8_decode($i['mobiliario']), 1, 1,'L', 0); 
+            $indice++;
+    }
+    $pdf->Ln(5);
 }
 
-$pdf->Ln(5);
+if(!empty($vivienda['servicios'])){
 
-$pdf->SetFont('Arial','B',10);
+    $pdf->SetFont('Arial','B',10);
 
-$pdf->Cell(60, 10, utf8_decode('Servicios básicos del hogar'), 0, 1,'L', 0); 
+    $pdf->Cell(60, 10, utf8_decode('Servicios básicos del hogar'), 0, 1,'L', 0); 
 
-$pdf->SetFont('Arial','',9);
+    $pdf->SetFont('Arial','',9);
 
-$indice = 1;
+    $indice = 1;
 
-$pdf->Cell(13, 6, utf8_decode('No.'), 1, 0,'C', 0); 
-$pdf->Cell(200, 6, utf8_decode('Servicio básico'), 1, 1,'L', 0); 
+    $pdf->Cell(13, 6, utf8_decode('No.'), 1, 0,'C', 0); 
+    $pdf->Cell(200, 6, utf8_decode('Servicio básico'), 1, 1,'L', 0); 
 
-foreach ($vivienda['servicios'] as $i){
-        $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
-        $pdf->Cell(200, 6, utf8_decode($i['servicio']), 1, 1,'L', 0); 
-        $indice++;
+    foreach ($vivienda['servicios'] as $i){
+            $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
+            $pdf->Cell(200, 6, utf8_decode($i['servicio']), 1, 1,'L', 0); 
+            $indice++;
+    }
 }
 
 $pdf->Ln(10);
+
+
 
 ////////////////////////////////////////////////
 //

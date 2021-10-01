@@ -27,7 +27,7 @@
                     <form role="form" name="addPersona" id="addPersona" method="POST"
                         action="controllers/usuarioProcesos.php">
                     <div>
-                        <label><input type="checkbox" id="cbox_entrevistado" value="1"> Entrevistado</label><br>
+                        <label id="entrevistado" class=" btn color-primary text-light">--</label><br>
                         <input type="hidden" id="txt_entrevistado" name="txt_entrevistado">
                     </div>
                 </div>
@@ -200,36 +200,36 @@
                         </div>
                         <div class="form-item">
                             <label for="txt_direccion" class="text-gray">Dirección</label>
-                            <input type="text" id="txt_direccion" name="txt_direccion" required value="calle 1" class="form-control"
+                            <input type="text" id="txt_direccion" name="txt_direccion" required value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
                             <label for="txt_numero_casa" class="text-gray">Numero de casa</label>
-                            <input type="text" id="txt_numero_casa" name="txt_numero_casa" value="151515" class="form-control"
+                            <input type="text" id="txt_numero_casa" name="txt_numero_casa" value="" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
                     <div class="form-row-3">
                         <div class="form-item">
                             <label for="txt_colindantes" class="text-gray">Colindantes</label>
-                            <input type="text" id="txt_colindantes" name="txt_colindantes" value="Juan y pedro" class="form-control"
+                            <input type="text" id="txt_colindantes" name="txt_colindantes" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
                             <label for="txt_latitud" class="text-gray">Latitud</label>
-                            <input type="text" id="txt_latitud" name="txt_latitud" value="89151151" class="form-control"
+                            <input type="text" id="txt_latitud" name="txt_latitud" value="" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
                             <label for="txt_longitud" class="text-gray">Longitud</label>
-                            <input type="text" id="txt_longitud" name="txt_longitud" value="89151151" class="form-control"
+                            <input type="text" id="txt_longitud" name="txt_longitud" value="" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
                     <div class="form-row-2">
                         <div class="form-item">
                             <label for="txt_telefono" class="text-gray">Telefono</label>
-                            <input type="text" id="txt_telefono" name="txt_telefono" value="12345678" class="form-control"
+                            <input type="text" id="txt_telefono" name="txt_telefono" value="" class="form-control"
                                 placeholder="" minlength="8" maxlength="8">
                         </div>
                         <div class="form-item">
@@ -355,11 +355,12 @@
                         <div class="form-item">
                             <label for="txt_tenencia" class="text-gray">Tenencia</label>
                             <select class="form-control" name="txt_tenencia" id="txt_tenencia">
+                            
                             </select>
                         </div>
                         <div class="form-item">
                             <label for="txt_numero_dormitorios" class="text-gray">Numero de dormitorios</label>
-                            <input type="number" id="txt_numero_dormitorios" name="txt_numero_dormitorios" value="2" class="form-control"
+                            <input type="number" id="txt_numero_dormitorios" name="txt_numero_dormitorios" value="" class="form-control"
                                 placeholder="" min="0">
                         </div>
         
@@ -402,7 +403,7 @@
                     <div class="form-row-1">
                         <div class="form-item">
                             <label for="txt_observaciones_vivienda" class="text-gray">Observaciones</label>
-                            <input type="text" id="txt_observaciones_vivienda" name="txt_observaciones_vivienda" value="esto es una observacion" class="form-control"
+                            <input type="text" id="txt_observaciones_vivienda" name="txt_observaciones_vivienda" value="" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -443,7 +444,7 @@
                         </div>
                         <div class="form-item">
                             <label for="txt_eliminacion_basura" class="text-gray">Eliminación de basura</label>
-                            <input type="text" id="txt_eliminacion_basura" name="txt_eliminacion_basura" value="fuego" class="form-control"
+                            <input type="text" id="txt_eliminacion_basura" name="txt_eliminacion_basura" value="" class="form-control"
                                 placeholder="">
                         </div>
                     </div>
@@ -501,7 +502,7 @@
                             <label for="txt_carne_res" class="text-gray">Carne de res</label>
                             <select class="form-control" name="txt_carne_res" id="txt_carne_res">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="4" selected>Diario</option>
+                                <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Una vez al mes</option>
@@ -512,7 +513,7 @@
                             <label for="txt_carne_pollo" class="text-gray">Carne de pollo</label>
                             <select class="form-control" name="txt_carne_pollo" id="txt_carne_pollo">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="4" selected>Diario</option>
+                                <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -523,7 +524,7 @@
                             <label for="txt_carne_cerdo" class="text-gray">Carne de cerdo</label>
                             <select class="form-control" name="txt_carne_cerdo" id="txt_carne_cerdo">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="4" selected>Diario</option>
+                                <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -534,7 +535,7 @@
                             <label for="txt_carne_pescado" class="text-gray">Carne de pescado</label>
                             <select class="form-control" name="txt_carne_pescado" id="txt_carne_pescado">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="4" selected>Diario</option>
+                                <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -545,7 +546,7 @@
                             <label for="txt_leche" class="text-gray">Leche</label>
                             <select class="form-control" name="txt_leche" id="txt_leche">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="4" selected>Diario</option>
+                                <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -556,7 +557,7 @@
                             <label for="txt_cereales" class="text-gray">Cereales</label>
                             <select class="form-control" name="txt_cereales" id="txt_cereales">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="4" selected>Diario</option>
+                                <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -567,7 +568,7 @@
                             <label for="txt_huevos" class="text-gray">Huevos</label>
                             <select class="form-control" name="txt_huevos" id="txt_huevos">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="4" selected>Diario</option>
+                                <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -578,7 +579,7 @@
                             <label for="txt_frutas" class="text-gray">Frutas</label>
                             <select class="form-control" name="txt_frutas" id="txt_frutas">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="4" selected>Diario</option>
+                                <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -589,7 +590,7 @@
                             <label for="txt_verduras" class="text-gray">Verduras</label>
                             <select class="form-control" name="txt_verduras" id="txt_verduras">
                                 <option value="" disabled selected>Seleccione una opción</option>
-                                <option value="4" selected>Diario</option>
+                                <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
                                 <option value="1">Cada vez al mes</option>
@@ -650,20 +651,20 @@
                     <div class="form-row-1">
                         <div class="form-item">
                             <label for="txt_observaciones_encuesta" class="text-gray">Observaciones</label>
-                            <input type="text" id="txt_observaciones_encuesta" name="txt_observaciones_encuesta" required value="esta es una observacion"
+                            <input type="text" id="txt_observaciones_encuesta" name="txt_observaciones_encuesta" value=""
                             class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="form-row-2">
                         <div class="form-item">
                             <label for="txt_evaluador" class="text-gray">Evaluador</label>
-                            <input type="text" id="txt_evaluador" name="txt_evaluador" required value="Juan Perez"
+                            <input type="text" id="txt_evaluador" name="txt_evaluador" required value=""
                             class="form-control" placeholder="" >
                         </div>
                         <div class="form-item">
                             <label for="txt_fecha_evaluacion" class="text-gray">Fecha de evaluación</label>
-                            <input type="date" id="txt_fecha_evaluacion" name="txt_fecha_evaluacion" required value=""
-                            class="form-control" placeholder="">
+                            <input type="date" id="txt_fecha_evaluacion" name="txt_fecha_evaluacion" required value="<?php echo $hoy ?>"
+                            class="form-control" placeholder="" max="<?php echo $hoy ?>">
                         </div>
                         <div class="form-item">
                             <input type="hidden" id="txt_usuario" name="txt_usuario" required value="<?php echo $_SESSION['id_usuario'] ?>"

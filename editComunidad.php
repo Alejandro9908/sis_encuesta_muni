@@ -44,7 +44,7 @@
                             </div>
                             <div class="form-item">
                                 <label  for="txt_descripcion" class="text-gray">Descripcion</label>
-                                <input type="text" id="txt_descripcion" name="txt_descripcion" required value="<?php echo $resultado->get('descripcion');?>" class="form-control"
+                                <input type="text" id="txt_descripcion" name="txt_descripcion" value="<?php echo $resultado->get('descripcion');?>" class="form-control"
                                 placeholder="Nombre de usuario">
                             </div>
                             <div class="form-item">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="form-item">
                                 <label for="txt_sector" class="text-gray">Sector</label>
-                                <select class="form-control" name="txt_sector" id="txt_sector">
+                                <select class="form-control" name="txt_sector" id="txt_sector-edit">
                                     <?php 
                                     foreach ($sectores as $s){
                                     ?>
