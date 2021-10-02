@@ -516,7 +516,7 @@
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
-                                <option value="1">Cada vez al mes</option>
+                                <option value="1">Una vez al mes</option>
                                 <option value="0">Nunca</option>
                             </select>
                         </div>
@@ -527,7 +527,7 @@
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
-                                <option value="1">Cada vez al mes</option>
+                                <option value="1">Una vez al mes</option>
                                 <option value="0">Nunca</option>
                             </select>
                         </div>
@@ -538,7 +538,7 @@
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
-                                <option value="1">Cada vez al mes</option>
+                                <option value="1">Una vez al mes</option>
                                 <option value="0">Nunca</option>
                             </select>
                         </div>
@@ -549,7 +549,7 @@
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
-                                <option value="1">Cada vez al mes</option>
+                                <option value="1">Una vez al mes</option>
                                 <option value="0">Nunca</option>
                             </select>
                         </div>
@@ -560,7 +560,7 @@
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
-                                <option value="1">Cada vez al mes</option>
+                                <option value="1">Una vez al mes</option>
                                 <option value="0">Nunca</option>
                             </select>
                         </div>
@@ -571,7 +571,7 @@
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
-                                <option value="1">Cada vez al mes</option>
+                                <option value="1">Una vez al mes</option>
                                 <option value="0">Nunca</option>
                             </select>
                         </div>
@@ -582,7 +582,7 @@
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
-                                <option value="1">Cada vez al mes</option>
+                                <option value="1">Una vez al mes</option>
                                 <option value="0">Nunca</option>
                             </select>
                         </div>
@@ -593,7 +593,7 @@
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
-                                <option value="1">Cada vez al mes</option>
+                                <option value="1">Una vez al mes</option>
                                 <option value="0">Nunca</option>
                             </select>
                         </div>
@@ -604,7 +604,7 @@
                                 <option value="4">Diario</option>
                                 <option value="3">Cada tres días</option>
                                 <option value="2">Una vez a la semana</option>
-                                <option value="1">Cada vez al mes</option>
+                                <option value="1">Una vez al mes</option>
                                 <option value="0">Nunca</option>
                             </select>
                         </div>

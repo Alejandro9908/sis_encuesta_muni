@@ -212,18 +212,18 @@
                             <div class="form-item">
                                 <label for="txt_latitud" class="text-gray">Latitud</label>
                                 <input type="text" id="txt_latitud" name="txt_latitud" readonly
-                                    value="<?php echo $domicilio['telefono']; ?>" class="form-control-2" placeholder="">
+                                    value="<?php echo $domicilio['latitud']; ?>" class="form-control-2" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_longitud" class="text-gray">Longitud</label>
-                                <input type="text" id="txt_longitud" name="txt_longitud" value="89151151" readonly
+                                <input type="text" id="txt_longitud" name="txt_longitud" value="<?php echo $domicilio['longitud']; ?>" readonly
                                     class="form-control-2" placeholder="">
                             </div>
                         </div>
                         <div class="form-row-2">
                             <div class="form-item">
                                 <label for="txt_telefono" class="text-gray">Telefono</label>
-                                <input type="text" id="txt_telefono" name="txt_telefono" value="12345678" readonly
+                                <input type="text" id="txt_telefono" name="txt_telefono" value="<?php echo $domicilio['telefono']; ?>" readonly
                                     class="form-control-2" placeholder="">
                             </div>
                             <div class="form-item">
@@ -607,9 +607,9 @@
                                                 }else if($valor == 1){
                                                     echo "una vez al mes";
                                                 }else if($valor == 2){
-                                                    echo "una vez al mes";
-                                                }else if($valor == 3){
                                                     echo "una vez a la semana";
+                                                }else if($valor == 3){
+                                                    echo "cada tres días";
                                                 }else if($valor == 4){
                                                     echo "diario";
                                                 }

@@ -42,7 +42,7 @@
                                 <option value="4" <?php if($alimentacion['carne de res'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['carne de res'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['carne de res'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['carne de res'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['carne de res'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['carne de res'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
@@ -52,7 +52,7 @@
                                 <option value="4" <?php if($alimentacion['carne de pollo'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['carne de pollo'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['carne de pollo'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['carne de pollo'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['carne de pollo'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['carne de pollo'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
@@ -62,7 +62,7 @@
                                 <option value="4" <?php if($alimentacion['carne de cerdo'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['carne de cerdo'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['carne de cerdo'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['carne de cerdo'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['carne de cerdo'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['carne de cerdo'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
@@ -72,7 +72,7 @@
                                 <option value="4" <?php if($alimentacion['carne de pescado'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['carne de pescado'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['carne de pescado'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['carne de pescado'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['carne de pescado'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['carne de pescado'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
@@ -82,7 +82,7 @@
                                 <option value="4" <?php if($alimentacion['leche'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['leche'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['leche'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['leche'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['leche'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['leche'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
@@ -92,7 +92,7 @@
                                 <option value="4" <?php if($alimentacion['cereales'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['cereales'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['cereales'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['cereales'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['cereales'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['cereales'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
@@ -102,7 +102,7 @@
                                 <option value="4" <?php if($alimentacion['huevo'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['huevo'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['huevo'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['huevo'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['huevo'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['huevo'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
@@ -112,7 +112,7 @@
                                 <option value="4" <?php if($alimentacion['frutas'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['frutas'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['frutas'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['frutas'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['frutas'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['frutas'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
@@ -122,7 +122,7 @@
                                 <option value="4" <?php if($alimentacion['verduras'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['verduras'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['verduras'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['verduras'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['verduras'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['verduras'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
@@ -132,7 +132,7 @@
                                 <option value="4" <?php if($alimentacion['leguminosas'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['leguminosas'] == 3){?> selected <?php } ?>>Cada tres días</option>
                                 <option value="2" <?php if($alimentacion['leguminosas'] == 2){?> selected <?php } ?>>Una vez a la semana</option>
-                                <option value="1" <?php if($alimentacion['leguminosas'] == 1){?> selected <?php } ?>>Cada vez al mes</option>
+                                <option value="1" <?php if($alimentacion['leguminosas'] == 1){?> selected <?php } ?>>Una vez al mes</option>
                                 <option value="0" <?php if($alimentacion['leguminosas'] == 0){?> selected <?php } ?>>Nunca</option>
                             </select>
                         </div>
