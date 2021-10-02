@@ -778,13 +778,14 @@ h6{
 .form-item .form-control-2{
     border: none;
     border-bottom: 1px solid var(--gray-light);
-    height: 35px;
+    min-height: 40px;
     padding: 0px 5px;
     font-size: medium;
 }
 
 .listas{
-    height: 35px;
+    min-height: 35px;
+    margin-top: 10px;
     padding: 10px 15px 0px 5px;
     font-size: medium;
 }
@@ -792,6 +793,7 @@ h6{
 .listas li{
     display: inline;
     list-style: circle;
+    
 }
 
 
