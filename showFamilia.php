@@ -50,6 +50,10 @@
     $datos_boleta = array();
     $datos_boleta = $controlador->buscardatosboleta($id_familia);
 
+    date_default_timezone_set('America/Guatemala');
+    $hoy = new DateTime();
+    
+
 ?>
 
 
@@ -94,14 +98,19 @@
                             <?php 
                         foreach ($personas as $p){
                             if($p['entrevistado'] == 1){
+                                $fecha_nacimeinto = new DateTime($p['fecha_nacimiento']);
+                                $p['edad'] = $hoy->diff($fecha_nacimeinto);
+
+                                $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($p['fecha_nacimiento']));
+
                         ?>
                             <tr>
                                 <td><?php echo $p['id_persona']; ?></td>
                                 <td><?php echo $p['nombre_completo']; ?></td>
                                 <td><?php echo $p['dpi']; ?></td>
                                 <td><?php echo $p['sexo']; ?></td>
-                                <td><?php echo $p['fecha_nacimiento']; ?></td>
-                                <td><?php echo $p['edad']; ?></td>
+                                <td><?php echo $fecha_nacimiento_mostrar; ?></td>
+                                <td><?php echo $p['edad']->y; ?></td>
                                 <td><?php echo $p['estado_civil']; ?></td>
                                 <td><?php echo $p['escolaridad']; ?></td>
                                 <td><?php echo $p['telefono']; ?></td>
@@ -127,6 +136,7 @@
                             <td>DPI</td>
                             <td>SEXO</td>
                             <td>PARENTESCO</td>
+                            <td>FECHA NACIMIENTO</td>
                             <td>EDAD</td>
                             <td>ESTADO CIVIL</td>
                             <td>ESCOLARIDAD</td>
@@ -137,6 +147,10 @@
                             <?php 
                         foreach ($personas as $p){
                             if($p['entrevistado'] == 0){
+                                $fecha_nacimeinto = new DateTime($p['fecha_nacimiento']);
+                                $p['edad'] = $hoy->diff($fecha_nacimeinto);
+
+                                $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($p['fecha_nacimiento']));
                         ?>
                             <tr>
                                 <td><?php echo $p['id_persona']; ?></td>
@@ -144,7 +158,8 @@
                                 <td><?php echo $p['dpi']; ?></td>
                                 <td><?php echo $p['sexo']; ?></td>
                                 <td><?php echo $p['parentesco']; ?></td>
-                                <td><?php echo $p['edad']; ?></td>
+                                <td><?php echo $fecha_nacimiento_mostrar ?></td>
+                                <td><?php echo $p['edad']->y; ?></td>
                                 <td><?php echo $p['estado_civil']; ?></td>
                                 <td><?php echo $p['escolaridad']; ?></td>
                                 <td><?php echo $p['telefono']; ?></td>
@@ -342,7 +357,7 @@
                 <div class="form-contaniter">
                     <form role="form" name="add-form-4" id="add-form-4" method="POST"
                         action="controllers/boletaProcesos.php">
-                        <div class="form-row-4">
+                        <div class="form-row-3">
                             <div class="form-item">
                                 <label for="txt_tenencia" class="text-gray">Tenencia:</label>
                                 <input type="text" id="txt_tenencia" name="txt_tenencia" required readonly
@@ -389,6 +404,12 @@
                                 <label for="txt_sanitario" class="text-gray">Tipo de sanitario:</label>
                                 <input type="text" id="txt_sanitario" name="txt_sanitario" required readonly
                                     value="<?php echo $vivienda['sanitario']; ?>" class="form-control-2" placeholder="">
+                            </div>
+                            <div class="form-item">
+                                <label for="txt_metros_cuadrados" class="text-gray">Metros cuadrados de construcción:</label>
+                                <input type="text" id="txt_metros_cuadrados" name="txt_metros_cuadrados" required
+                                    readonly value="<?php echo $vivienda['metros_cuadrados']; ?>" class="form-control-2"
+                                    placeholder="">
                             </div>
                         </div>
                         <div class="form-row-1">

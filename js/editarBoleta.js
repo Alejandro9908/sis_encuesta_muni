@@ -186,7 +186,7 @@ $(document).ready(function(){
             sexo: $('#txt_sexo').val(),
             fecha_nacimiento: $('#txt_fecha_nacimiento-edit').val(),
             parentesco: $('#txt_parentesco-edit').val(),
-            edad: $('#txt_edad').val(),
+            edad: '',
             dpi: $('#txt_dpi').val(),
             estado_civil: $('#txt_estado_civil').val(),
             escolaridad: $('#txt_escolaridad').val(),
@@ -248,8 +248,7 @@ $(document).ready(function(){
         $('#div-parentesco').hide();
         $('#txt_parentesco').val("yo");
 
-        $('#div-fecha-nacimiento').show();
-        // $('#txt_fecha_nacimiento').val("");
+  
 
         $('#txt_entrevistado').val(1);
     }else{
@@ -258,7 +257,7 @@ $(document).ready(function(){
         $('#div-parentesco').show();
         $('#txt_parentesco').val("");
 
-        $('#div-fecha-nacimiento').hide();
+      
         // $('#txt_fecha_nacimiento').val("");
 
         $('#txt_entrevistado').val(0);

@@ -40,7 +40,15 @@
 //    var_dump($persona_json);
 //    die();
 
-  
+date_default_timezone_set('America/Guatemala');
+$hoy = new DateTime();
+
+$fecha_nacimiento = new DateTime($personas['fecha_nacimiento']);
+$personas['edad'] = $hoy->diff($fecha_nacimiento);
+
+$fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento']));
+
+
 
 ?>
 
@@ -97,13 +105,14 @@
                                     value="<?php echo $personas['sexo']; ?>" class="form-control-2"
                                     placeholder="">
                             </div>
-                            <?php if($personas['entrevistado'] == 1){ ?>
+                            
                             <div class="form-item" id="div-fecha-nacimiento">
                                 <label for="txt_fecha_nacimiento-edit" class="text-gray">Fecha de nacimiento</label>
                                 <input type="text" id="txt_segundo_apellido" name="txt_segundo_apellido" required readonly
-                                    value="<?php echo $personas['fecha_nacimiento']; ?>" class="form-control-2"
+                                    value="<?php echo $fecha_nacimiento_mostrar ?>" class="form-control-2"
                                     placeholder="">
                             </div>
+                            <?php if($personas['entrevistado'] == 1){ ?>
                             <input type="hidden" id="txt_parentesco-edit" name="txt_parentesco-edit" value="yo">
                             <?php }else if($personas['entrevistado'] == 0) { ?>
                             <div class="form-item" id="div-parentesco">
@@ -117,7 +126,7 @@
                             <div class="form-item">
                                 <label for="txt_edad" class="text-gray">Edad</label>
                                 <input type="text" id="txt_edad" name="txt_edad" required readonly
-                                    value="<?php echo $personas['edad']; ?>" class="form-control-2"
+                                    value="<?php echo $personas['edad']->y; ?>" class="form-control-2"
                                     placeholder="">
                             </div>
                             <div class="form-item">

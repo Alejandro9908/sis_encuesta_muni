@@ -43,6 +43,9 @@ $recreaciones = $controlador->buscarRecreaciones($id_familia);
 $datos_boleta = array();
 $datos_boleta = $controlador->buscardatosboleta($id_familia);
 
+date_default_timezone_set('America/Guatemala');
+    $hoy = new DateTime();
+
 ////////////////////////////////////////////////
 //
 //   CONFIGURACION DE LA PAGINA
@@ -91,11 +94,15 @@ $pdf->Cell(22, 6, utf8_decode('Ocupacion'), 1, 1,'L', 0);
 $pdf->SetFont('Arial','',8);
 foreach ($personas as $p){
     if($p['entrevistado'] == 1){
+        $fecha_nacimiento = new DateTime($p['fecha_nacimiento']);
+        $p['edad'] = $hoy->diff($fecha_nacimiento);
+        $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($p['fecha_nacimiento']));
+
         $pdf->Cell(70, 6, utf8_decode($p['nombre_completo']), 1, 0,'L', 0); 
         $pdf->Cell(25, 6, utf8_decode($p['dpi']), 1, 0,'L', 0); 
         $pdf->Cell(9, 6, utf8_decode($p['sexo']), 1, 0,'C', 0);
-        $pdf->Cell(27, 6, utf8_decode($p['fecha_nacimiento']), 1, 0,'L', 0);
-        $pdf->Cell(9, 6, utf8_decode($p['edad']), 1, 0,'C', 0);
+        $pdf->Cell(27, 6, utf8_decode($fecha_nacimiento_mostrar), 1, 0,'L', 0);
+        $pdf->Cell(9, 6, $p['edad']->y, 1, 0,'C', 0);
         $pdf->Cell(18, 6, utf8_decode($p['estado_civil']), 1, 0,'L', 0);
         $pdf->Cell(18, 6, utf8_decode($p['escolaridad']), 1, 0,'L', 0); 
         $pdf->Cell(15, 6, utf8_decode($p['telefono']), 1, 0,'L', 0); 
@@ -109,29 +116,35 @@ $pdf->Cell(60, 10, utf8_decode('Personas que habitan en el domicilio'), 0, 1,'L'
 
 $pdf->SetFont('Arial','B',8);
 
-$pdf->Cell(70, 6, utf8_decode('Nombre'), 1, 0,'L', 0); 
+$pdf->Cell(55, 6, utf8_decode('Nombre'), 1, 0,'L', 0); 
 $pdf->Cell(25, 6, utf8_decode('DPI'), 1, 0,'L', 0); 
-$pdf->Cell(9, 6, utf8_decode('Sexo'), 1, 0,'C', 0);
-$pdf->Cell(27, 6, utf8_decode('Parentesco'), 1, 0,'L', 0);
+$pdf->Cell(8, 6, utf8_decode('Sexo'), 1, 0,'C', 0);
+$pdf->Cell(26, 6, utf8_decode('Fecha nacimiento'), 1, 0,'L', 0);
 $pdf->Cell(9, 6, utf8_decode('Edad'), 1, 0,'C', 0);
 $pdf->Cell(18, 6, utf8_decode('Estado Civil'), 1, 0,'L', 0);
 $pdf->Cell(18, 6, utf8_decode('Escolardiad'), 1, 0,'L', 0); 
 $pdf->Cell(15, 6, utf8_decode('Teléfono'), 1, 0,'L', 0); 
-$pdf->Cell(22, 6, utf8_decode('Ocupacion'), 1, 1,'L', 0); 
+$pdf->Cell(22, 6, utf8_decode('Ocupacion'), 1, 0,'L', 0); 
+$pdf->Cell(17, 6, utf8_decode('Parentesco'), 1, 1,'L', 0); 
 
 $pdf->SetFont('Arial','',8);
 
 foreach ($personas as $p){
     if($p['entrevistado'] == 0){
-        $pdf->Cell(70, 6, utf8_decode($p['nombre_completo']), 1, 0,'L', 0); 
+        $fecha_nacimiento = new DateTime($p['fecha_nacimiento']);
+        $p['edad'] = $hoy->diff($fecha_nacimiento);
+        $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($p['fecha_nacimiento']));
+
+        $pdf->Cell(55, 6, utf8_decode($p['nombre_completo']), 1, 0,'L', 0); 
         $pdf->Cell(25, 6, utf8_decode($p['dpi']), 1, 0,'L', 0); 
-        $pdf->Cell(9, 6, utf8_decode($p['sexo']), 1, 0,'C', 0);
-        $pdf->Cell(27, 6, utf8_decode($p['parentesco']), 1, 0,'L', 0);
-        $pdf->Cell(9, 6, utf8_decode($p['edad']), 1, 0,'C', 0);
+        $pdf->Cell(8, 6, utf8_decode($p['sexo']), 1, 0,'C', 0);
+        $pdf->Cell(26, 6, utf8_decode($fecha_nacimiento_mostrar), 1, 0,'L', 0);
+        $pdf->Cell(9, 6, $p['edad']->y, 1, 0,'C', 0);
         $pdf->Cell(18, 6, utf8_decode($p['estado_civil']), 1, 0,'L', 0);
         $pdf->Cell(18, 6, utf8_decode($p['escolaridad']), 1, 0,'L', 0); 
         $pdf->Cell(15, 6, utf8_decode($p['telefono']), 1, 0,'L', 0); 
-        $pdf->Cell(22, 6, utf8_decode($p['ocupacion']), 1, 1,'L', 0); 
+        $pdf->Cell(22, 6, utf8_decode($p['ocupacion']), 1, 0,'L', 0); 
+        $pdf->Cell(17, 6, utf8_decode($p['parentesco']), 1, 1,'L', 0); 
     }
 }//termina ciclo for
 

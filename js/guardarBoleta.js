@@ -44,8 +44,7 @@ $(document).ready(function(){
         $('#entrevistado').text("Agregando miembro familiar");
         $('#div-parentesco').show();
         $('#txt_parentesco').val("");
-        $('#div-fecha-nacimiento').hide();
-        $('#txt_fecha_nacimiento').val("");
+        
 
         $('#addPersona').trigger("reset");
     });
@@ -281,6 +280,7 @@ function addVivienda(datos){
         cocina: '',
         banio_privado: '',
         banio_colectivo: '',
+        metros_cuadrados: '',
         observaciones_vivienda: '',
         pared: '',
         techo: '',
@@ -296,7 +296,7 @@ function addVivienda(datos){
 
 
     for(i = 0; i < datos.length; i++){
-        //console.log(datos[i]['name']);
+        
         switch(datos[i]['name']){
             case 'txt_tenencia': vivienda['tenencia'] = datos[i]["value"]; break;
             case 'txt_tenencia-edit': vivienda['tenencia'] = datos[i]["value"]; break;
@@ -306,6 +306,7 @@ function addVivienda(datos){
             case 'txt_cocina': vivienda['cocina'] = datos[i]["value"]; break;
             case 'txt_banio_privado': vivienda['banio_privado'] = datos[i]["value"]; break;
             case 'txt_banio_colectivo': vivienda['banio_colectivo'] = datos[i]["value"]; break;
+            case 'txt_metros_cuadrados': vivienda['metros_cuadrados'] = datos[i]["value"]; break;
             case 'txt_observaciones_vivienda': vivienda['observaciones_vivienda'] = datos[i]["value"]; break;
             case 'txt_pared': vivienda['pared'] = datos[i]["value"]; break;
             case 'txt_pared-edit': vivienda['pared'] = datos[i]["value"]; break;
@@ -446,7 +447,6 @@ function addPersona(datos){
             case 'txt_segundo_apellido': persona['segundo_apellido'] = datos[i]["value"]; break;
             case 'txt_sexo': persona['sexo'] = datos[i]["value"]; break;
             case 'txt_fecha_nacimiento': persona['fecha_nacimiento'] = datos[i]["value"]; break;
-            case 'txt_edad': persona['edad'] = datos[i]["value"]; break;
             case 'txt_parentesco': persona['parentesco'] = datos[i]["value"]; break;
             case 'txt_dpi': persona['dpi'] = datos[i]["value"]; break;
             case 'txt_estado_civil': persona['estado_civil'] = datos[i]["value"]; break;
@@ -474,8 +474,7 @@ function addPersona(datos){
         $('#div-parentesco').show();
         $('#txt_parentesco').val("");
 
-        $('#div-fecha-nacimiento').hide();
-        $('#txt_fecha_nacimiento').val("");
+   
 
         $('#txt_entrevistado').val(0);
     }
@@ -500,7 +499,7 @@ function addTabla(personas){
         <td>${personas[i]['nombres']+" "+personas[i]['primer_apellido']+" "+personas[i]['segundo_apellido']}</td>
         <td>${personas[i]['dpi']}</td>
         <td>${personas[i]['sexo']}</td>
-        <td>${personas[i]['edad']}</td>
+        <td>${personas[i]['fecha_nacimiento']}</td>
         <td>${personas[i]['estado_civil']}</td>
         <td>${personas[i]['escolaridad']}</td>
         <td>${personas[i]['ocupacion']}</td>
@@ -527,7 +526,7 @@ function quitarRegistro(id){
             $('#div-parentesco').hide();
             $('#txt_parentesco').val("yo");
 
-            $('#div-fecha-nacimiento').show();
+ 
             $('#entrevistado').text("Agregando persona entrevistada");
         }
     }

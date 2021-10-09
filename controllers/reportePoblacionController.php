@@ -39,7 +39,7 @@ class reportePoblacionController{
         {
             $conexion = new Conexion();
             $resultado = array();
-            $sql = "SELECT b.id_boleta, f.id_familia, p.id_persona, p.dpi, p.sexo, p.edad, p.estado_civil, p.escolaridad, p.telefono,
+            $sql = "SELECT b.id_boleta, f.id_familia, p.id_persona, p.dpi, p.sexo, p.fecha_nacimiento, p.estado_civil, p.escolaridad, p.telefono,
                     concat_ws('',p.nombres,' ',p.primer_apellido,' ',p.segundo_apellido) as nombre_completo,
                     c.nombre as comunidad, s.nombre as sector
                     from tbl_persona as p inner join 
@@ -61,7 +61,7 @@ class reportePoblacionController{
                     "id_persona" => $registro->id_persona,
                     "dpi" => $registro->dpi,
                     "sexo" => $registro->sexo,
-                    "edad" => $registro->edad,
+                    "fecha_nacimiento" => $registro->fecha_nacimiento,
                     "estado_civil" => $registro->estado_civil,
                     "escolaridad" => $registro->escolaridad,
                     "telefono" => $registro->telefono,

@@ -70,11 +70,6 @@
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_edad" class="text-gray">Edad</label>
-                                <input type="number" id="txt_edad" name="txt_edad" min="0" required value=""
-                                    class="form-control" placeholder="">
-                            </div>
-                            <div class="form-item">
                                 <label for="txt_dpi" class="text-gray">DPI</label>
                                 <input type="text" id="txt_dpi" name="txt_dpi" value="" required
                                     class="form-control" placeholder="" minlength="13" maxlength="13">
@@ -159,7 +154,7 @@
                             <td>NOMBRE</td>
                             <td>DPI</td>
                             <td>SEXO</td>
-                            <td>EDAD</td>
+                            <td>FECHA NACIMIENTO</td>
                             <td>ESTADO CIVIL</td>
                             <td>ESCOLARIDAD</td>
                             <td>OCUPACION</td>
@@ -398,6 +393,11 @@
                                 <option value="1">Si</option>
                                 <option value="0">No</option>
                             </select>
+                        </div>
+                        <div class="form-item">
+                            <label for="txt_metros_cuadrados" class="text-gray">Metros cuadrados de construcción</label>
+                            <input type="number" id="txt_metros_cuadrados" name="txt_metros_cuadrados" class="form-control"
+                                placeholder="" min="0" step="0.01">
                         </div>
                     </div>
                     <div class="form-row-1">

@@ -61,7 +61,7 @@
                         <td>NOMBRE</td>
                         <td>DPI</td>
                         <td>SEXO</td>
-                        <td>EDAD</td>
+                        <td>FECHA NACIMIENTO</td>
                         <td>ESTADO CIVIL</td>
                         <td>ESCOLARIDAD</td>
                         <td>TELEFONO</td>
@@ -71,6 +71,7 @@
                     <tbody>
                         <?php 
                         foreach ($resultado as $r){
+                            $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($r['fecha_nacimiento']));
                         ?>
                         <tr>
                             <td><?php echo $r['id_familia']; ?></td>
@@ -78,7 +79,7 @@
                             <td><?php echo $r['nombre_completo']; ?></td>
                             <td><?php echo $r['dpi']; ?></td>
                             <td><?php echo $r['sexo']; ?></td>
-                            <td><?php echo $r['edad']; ?></td>
+                            <td><?php echo $fecha_nacimiento_mostrar; ?></td>
                             <td><?php echo $r['estado_civil']; ?></td>
                             <td><?php echo $r['escolaridad']; ?></td>
                             <td><?php echo $r['telefono']; ?></td>

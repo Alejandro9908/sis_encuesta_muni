@@ -100,12 +100,13 @@
                                     <option value="F" <?= $personas['sexo'] == 'F' ? 'selected' : '' ?>>Femenino</option>
                                 </select>
                             </div>
-                            <?php if($personas['entrevistado'] == 1){ ?>
+                            
                             <div class="form-item" id="div-fecha-nacimiento">
                                 <label for="txt_fecha_nacimiento-edit" class="text-gray">Fecha de nacimiento</label>
                                 <input type="date" id="txt_fecha_nacimiento-edit" name="txt_fecha_nacimiento-edit" value="<?= $personas['fecha_nacimiento'] ?>"
                                     class="form-control" placeholder="" max="<?php echo $hoy ?>">
                             </div>
+                            <?php if($personas['entrevistado'] == 1){ ?>
                             <input type="hidden" id="txt_parentesco-edit" name="txt_parentesco-edit" value="yo">
                             <?php }else if($personas['entrevistado'] == 0) { ?>
                             <div class="form-item" id="div-parentesco">
@@ -116,12 +117,7 @@
                                 <input type="hidden" id="txt_fecha_nacimiento-edit" name="txt_fecha_nacimiento-edit" value="">
                             </div>
                             <?php } ?>
-                            <div class="form-item">
-                                <label for="txt_edad" class="text-gray">Edad</label>
-                                <input type="text" id="txt_edad" name="txt_edad" required 
-                                    value="<?php echo $personas['edad']; ?>" class="form-control"
-                                    placeholder="">
-                            </div>
+                            
                             <div class="form-item">
                                 <label for="txt_dpi" class="text-gray">DPI</label>
                                 <input type="text" id="txt_dpi" name="txt_dpi" required 

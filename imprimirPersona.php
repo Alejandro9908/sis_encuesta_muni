@@ -99,7 +99,7 @@ $pdf->Cell(113, 6, utf8_decode($personas['ingreso_mensual']), 1, 1,'L', 0);
 //   enfermedades
 //
 ///////////////////////////////////////////////
-if(!empty($enfermedades)){
+if(!empty($enf)){
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(60, 10, utf8_decode('Enfermedades'), 0, 1,'L', 0);
@@ -124,7 +124,7 @@ if(!empty($enfermedades)){
 //   discapacidades
 //
 ///////////////////////////////////////////////
-if(!empty($discapacidades)){
+if(!empty($dis)){
     $pdf->Ln(10);
     $pdf->SetFont('Arial','B',12);
     $pdf->Cell(60, 10, utf8_decode('Discapacidades'), 0, 1,'L', 0);
