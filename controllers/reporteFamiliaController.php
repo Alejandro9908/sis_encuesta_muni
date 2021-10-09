@@ -300,7 +300,7 @@ class reporteFamiliaController{
         try{
             $conexion = new Conexion();
             $sql = "SELECT v.id_vivienda, v.id_tenencia, t.nombre as tenencia, v.cantidad_cuartos, v.sala, v.comedor, v.cocina, v.banio_privado,
-                    v.banio_colectivo, v.observaciones, v.id_mp_pared, pa.nombre as pared, v.id_mp_techo, te.nombre as techo, v.id_mp_piso, pi.nombre as piso,
+                    v.banio_colectivo, v.metros_cuadrados, v.observaciones, v.id_mp_pared, pa.nombre as pared, v.id_mp_techo, te.nombre as techo, v.id_mp_piso, pi.nombre as piso,
                     v.id_sanitario,sa.nombre as sanitario, v.eliminacion_basura from
                     tbl_vivienda as v inner join
                     tbl_tenencia as t on v.id_tenencia = t.id_tenencia inner join
@@ -325,6 +325,7 @@ class reporteFamiliaController{
                 "cocina" => $registro->cocina,
                 "banio_privado" => $registro->banio_privado,
                 "banio_colectivo" => $registro->banio_colectivo,
+                "metros_cuadrados" => $registro->metros_cuadrados,
                 "observaciones" => $registro->observaciones,
                 "id_pared" => $registro->id_mp_pared,
                 "pared" => $registro->pared,

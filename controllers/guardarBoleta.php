@@ -172,7 +172,7 @@
             }
 
             //datos de vivienda y domicilio
-            $stmt->exec("INSERT INTO tbl_vivienda (id_familia,id_comunidad,direccion,numero_casa,colindantes,latitud,longitud,telefono,id_tenencia,cantidad_cuartos,sala,comedor,cocina,banio_privado,banio_colectivo,observaciones,id_mp_pared,id_mp_techo,id_mp_piso,id_sanitario,eliminacion_basura) 
+            $stmt->exec("INSERT INTO tbl_vivienda (id_familia,id_comunidad,direccion,numero_casa,colindantes,latitud,longitud,telefono,id_tenencia,cantidad_cuartos,sala,comedor,cocina,banio_privado,banio_colectivo,metros_cuadrados,observaciones,id_mp_pared,id_mp_techo,id_mp_piso,id_sanitario,eliminacion_basura) 
                             values ('".$id_familia."','"
                                         .$domicilio['comunidad']."','"
                                         .$domicilio['direccion']."','"
@@ -188,6 +188,7 @@
                                         .$vivienda['cocina']."','"
                                         .$vivienda['banio_privado']."','"
                                         .$vivienda['banio_colectivo']."','"
+                                        .$vivienda['metros_cuadrados']."','"
                                         .$vivienda['observaciones_vivienda']."','"
                                         .$vivienda['pared']."','"
                                         .$vivienda['techo']."','"

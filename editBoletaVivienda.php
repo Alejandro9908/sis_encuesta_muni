@@ -109,6 +109,11 @@
                                 <option <?php if($vivienda['banio_colectivo'] == 0){?>selected <?php } ?> value="0">No</option>
                             </select>
                         </div>
+                        <div class="form-item">
+                            <label for="txt_metros_cuadrados" class="text-gray">Metros cuadrados de construcción</label>
+                            <input type="number" id="txt_metros_cuadrados" name="txt_metros_cuadrados" class="form-control"
+                                placeholder="" min="0" step="0.01" value="<?php echo $vivienda['metros_cuadrados']; ?>">
+                        </div>
                     </div>
                     <div class="form-row-1">
                         <div class="form-item">
