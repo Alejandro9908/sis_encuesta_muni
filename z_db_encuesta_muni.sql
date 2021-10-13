@@ -410,7 +410,12 @@ INSERT INTO `tbl_rol` (`nombre`, `descripcion`) VALUES ('Normal', 'Usuario norma
 INSERT INTO `tbl_rol` (`nombre`, `descripcion`) VALUES ('Administrador', 'Admin');
 INSERT INTO `tbl_usuario` (`id_usuario`, `nombre`, `usuario`, `rol`, `password`, `estado`, `fecha_commit`, `fecha_update`) VALUES (NULL, 'Admin', 'Admin', '1', '$2y$12$cF2qA1NW0qHWGPYABPTwMOHkSVSDmxHYaGn1EGaNSYq0cvjpciGtq', '1', current_timestamp(), current_timestamp());
 
+select curdate();
 
+Select datediff(fecha_nacimiento,curdate()) as edad from tbl_persona;
+
+select fecha_nacimiento from tbl_persona;
+select curdate();
 
 
 

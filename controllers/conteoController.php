@@ -287,7 +287,6 @@ class conteoController{
         }
     }
 
-
     public function listarRangosEdades($sector, $comunidad){
         try
         {
@@ -295,18 +294,18 @@ class conteoController{
             $resultado = array();
             $sql = "SELECT 
                     CASE
-                    WHEN p.edad < 5 THEN 'Entre 1 y 4'
-                    WHEN p.edad < 8 THEN 'Entre 5 y 7'
-                    WHEN p.edad < 13 THEN 'Entre 8 y 12'
-                    WHEN p.edad < 19 THEN 'Entre 13 y 18'
-                    WHEN p.edad < 31 THEN 'Entre 19 y 30'
-                    WHEN p.edad < 41 THEN 'Entre 31 y 40'
-                    WHEN p.edad < 51 THEN 'Entre 41 y 50'
-                    WHEN p.edad < 61 THEN 'Entre 51 y 60'
-                    WHEN p.edad < 71 THEN 'Entre 61 y 70'
-                    WHEN p.edad < 81 THEN 'Entre 71 y 80'
-                    WHEN p.edad < 91 THEN 'Entre 81 y 90'
-                    WHEN p.edad < 101 THEN 'Entre 91 y 100'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 5 THEN 'Entre 1 y 4'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 8 THEN 'Entre 5 y 7'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 13 THEN 'Entre 8 y 12'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 19 THEN 'Entre 13 y 18'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 31 THEN 'Entre 19 y 30'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 41 THEN 'Entre 31 y 40'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 51 THEN 'Entre 41 y 50'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 61 THEN 'Entre 51 y 60'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 71 THEN 'Entre 61 y 70'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 81 THEN 'Entre 71 y 80'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 91 THEN 'Entre 81 y 90'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 101 THEN 'Entre 91 y 100'
                     ELSE 'más de 100'
                     END
                     as grupo_edad, count(*) as total

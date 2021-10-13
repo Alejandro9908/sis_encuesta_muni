@@ -118,6 +118,29 @@ class comunidadController{
         }
     }
 
+    public function buscarInfo($id)
+    {
+        try{
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = $conexion->pdo->prepare("SELECT nombre FROM tbl_comunidad WHERE id_comunidad = ?;");
+            $sql->execute(array($id));
+
+            $registro = $sql->fetch(PDO::FETCH_ASSOC);
+
+            
+
+            return $registro;
+
+
+       
+        }
+        catch (Exception $e)
+        {
+            die('Error: '.$e->getMessage());
+        }
+    }
+
     public function guardar(Comunidad $c){
         try
         {

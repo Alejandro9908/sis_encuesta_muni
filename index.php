@@ -208,6 +208,9 @@
                             <td><?php echo $le['id']; ?></td>
                             <td><?php echo $le['nombre']; ?></td>
                             <td><?php echo $le['total']; ?></td>
+                            <td>
+                                <a href="indexPoblacionEnfermedad.php?data=<?php echo $le['nombre']; ?>&comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&enfermedad=<?php echo $le['id']; ?>&registros=<?php echo$le['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
                         </tr>
                         <?php 
                         }//termina ciclo for
@@ -241,6 +244,9 @@
                             <td><?php echo $ld['id']; ?></td>
                             <td><?php echo $ld['nombre']; ?></td>
                             <td><?php echo $ld['total']; ?></td>
+                            <td>
+                                <a href="indexPoblacionDiscapacidad.php?data=<?php echo $ld['nombre']; ?>&comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&discapacidad=<?php echo $ld['id']; ?>&registros=<?php echo $ld['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
                         </tr>
                         <?php 
                         }//termina ciclo for
@@ -271,6 +277,9 @@
                         <tr>
                             <td><?php echo $l['estado_civil']; ?></td>
                             <td><?php echo $l['total']; ?></td>
+                            <td>
+                                <a href="indexPoblacionEstadoCivil.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&estado_civil=<?php echo $l['estado_civil']; ?>&registros=<?php echo $l['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
                         </tr>
                         <?php 
                         }//termina ciclo for
@@ -301,6 +310,9 @@
                         <tr>
                             <td><?php echo $ld['escolaridad']; ?></td>
                             <td><?php echo $ld['total']; ?></td>
+                            <td>
+                                <a href="indexPoblacionEscolaridad.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&escolaridad=<?php echo $ld['escolaridad']; ?>&registros=<?php echo $ld['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
                         </tr>
                         <?php 
                         }//termina ciclo for
@@ -331,6 +343,9 @@
                         <tr>
                             <td><?php echo $ld['ocupacion']; ?></td>
                             <td><?php echo $ld['total']; ?></td>
+                            <td>
+                                <a href="indexPoblacionOcupacion.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&ocupacion=<?php echo $ld['ocupacion']; ?>&registros=<?php echo $ld['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
                         </tr>
                         <?php 
                         }//termina ciclo for
@@ -362,6 +377,9 @@
                             <td><?php echo $le['id']; ?></td>
                             <td><?php echo $le['nombre']; ?></td>
                             <td><?php echo $le['total']; ?></td>
+                            <td>
+                                <a href="indexFamiliaRecreacion.php?recreacion=<?php echo $le['nombre']; ?>&comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&id_recreacion=<?php echo $le['id']; ?>&registros=<?php echo $le['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
                         </tr>
                         <?php 
                         }//termina ciclo for
@@ -393,6 +411,10 @@
                             <td><?php echo $le['id']; ?></td>
                             <td><?php echo $le['nombre']; ?></td>
                             <td><?php echo $le['total']; ?></td>
+                            <td>
+                                <a href="indexFamiliaMedico.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&data=<?php echo $le['nombre']; ?>&id_data=<?php echo $le['id']; ?>&registros=<?php echo $le['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
+                            
                         </tr>
                         <?php 
                         }//termina ciclo for
@@ -424,6 +446,9 @@
                             <td><?php echo $le['id']; ?></td>
                             <td><?php echo $le['nombre']; ?></td>
                             <td><?php echo $le['total']; ?></td>
+                            <td>
+                                <a href="indexFamiliaTenencia.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&data=<?php echo $le['nombre']; ?>&id_data=<?php echo $le['id']; ?>&registros=<?php echo $le['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
                         </tr>
                         <?php 
                         }//termina ciclo for
@@ -455,6 +480,9 @@
                             <td><?php echo $le['id']; ?></td>
                             <td><?php echo $le['nombre']; ?></td>
                             <td><?php echo $le['total']; ?></td>
+                            <td>
+                                <a href="indexFamiliaServicioBasico.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&data=<?php echo $le['nombre']; ?>&id_data=<?php echo $le['id']; ?>&registros=<?php echo $le['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
                         </tr>
                         <?php 
                         }//termina ciclo for
