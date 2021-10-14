@@ -148,7 +148,7 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
                                     placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_ocupacion" class="text-gray">Ocupacion</label>
+                                <label for="txt_ocupacion" class="text-gray">Ocupación</label>
                                 <input type="text" id="txt_ocupacion" name="txt_ocupacion"value="<?= $personas['ocupacion'] ?>" class="form-control-2"
                                     placeholder="" readonly>
                             </div>
@@ -192,7 +192,7 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
                                         ?>
                                         <tr>
                                             <td><?php echo $i['id_enfermedad']; ?></td>
-                                            <td><?php echo $i['enfermedad']; ?></td>
+                                            <td><?php echo ucwords($i['enfermedad']); ?></td>
                                         </tr>
                                         <?php 
                                         }//termina ciclo for
@@ -215,7 +215,7 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
                                         ?>
                                         <tr>
                                             <td><?php echo $i['id_discapacidad']; ?></td>
-                                            <td><?php echo $i['discapacidad']; ?></td>
+                                            <td><?php echo ucwords($i['discapacidad']); ?></td>
                                         </tr>
                                         <?php 
                                         }//termina ciclo for

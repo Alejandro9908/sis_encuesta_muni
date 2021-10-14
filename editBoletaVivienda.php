@@ -47,7 +47,7 @@
         <div class="row">
             <div class="box color-light">
                 <div class="box-header">
-                    <h2>Editar boleta</h2>
+                    <h2>Editar boleta: Vivienda</h2>
                     <div>
                         <a href="showFamilia.php?id_familia=<?php echo $id_familia ?>" class="btn color-danger text-light"><i class="las la-times"></i></a>
                     </div>   
@@ -69,7 +69,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_numero_dormitorios" class="text-gray">Numero de dormitorios</label>
+                            <label for="txt_numero_dormitorios" class="text-gray">Número de dormitorios</label>
                             <input type="number" id="txt_numero_dormitorios" name="txt_numero_dormitorios" value="<?php echo $vivienda['cantidad_cuartos']; ?>" class="form-control"
                                 placeholder="" min="0">
                         </div>

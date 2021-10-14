@@ -97,7 +97,7 @@
                                 </select>
                             </div>
                             <div class="form-item">
-                                <label for="txt_ocupacion" class="text-gray">Ocupacion</label>
+                                <label for="txt_ocupacion" class="text-gray">Ocupación</label>
                                 <input type="text" id="txt_ocupacion" name="txt_ocupacion" value=""
                                     class="form-control" placeholder="">
                             </div>
@@ -157,8 +157,8 @@
                             <td>FECHA NACIMIENTO</td>
                             <td>ESTADO CIVIL</td>
                             <td>ESCOLARIDAD</td>
-                            <td>OCUPACION</td>
-                            <td>TELEFONO</td>
+                            <td>OCUPACIÓN</td>
+                            <td>TELÉFONO</td>
                             <td>INGRESO MENSUAL</td>
                             <td>OPCIONES</td>
                         </thead>
@@ -199,7 +199,7 @@
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_numero_casa" class="text-gray">Numero de casa</label>
+                            <label for="txt_numero_casa" class="text-gray">Número de casa</label>
                             <input type="text" id="txt_numero_casa" name="txt_numero_casa" value="" class="form-control"
                                 placeholder="">
                         </div>
@@ -223,7 +223,7 @@
                     </div>
                     <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_telefono" class="text-gray">Telefono</label>
+                            <label for="txt_telefono" class="text-gray">Teléfono</label>
                             <input type="text" id="txt_telefono" name="txt_telefono" value="" class="form-control"
                                 placeholder="" minlength="8" maxlength="8">
                         </div>
@@ -279,12 +279,12 @@
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_telefono_residencial" class="text-gray">Telefono Residencial</label>
+                            <label for="txt_telefono_residencial" class="text-gray">Teléfono Residencial</label>
                             <input type="number" step="0.01" id="txt_telefono_residencial" name="txt_telefono_residencial" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_telefono_celular" class="text-gray">Telefono Celular</label>
+                            <label for="txt_telefono_celular" class="text-gray">Teléfono Celular</label>
                             <input type="number" step="0.01" id="txt_telefono_celular" name="txt_telefono_celular" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
@@ -324,7 +324,7 @@
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_creditos" class="text-gray">Creditos</label>
+                            <label for="txt_creditos" class="text-gray">Créditos</label>
                             <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
@@ -354,7 +354,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_numero_dormitorios" class="text-gray">Numero de dormitorios</label>
+                            <label for="txt_numero_dormitorios" class="text-gray">Número de dormitorios</label>
                             <input type="number" id="txt_numero_dormitorios" name="txt_numero_dormitorios" value="" class="form-control"
                                 placeholder="" min="0">
                         </div>
@@ -466,12 +466,12 @@
                         action="controllers/boletaProcesos.php">
                     <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_servicio_medico" class="text-gray">Servicios Medicos <a href="#" id="addServicioMedico" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
+                            <label for="txt_servicio_medico" class="text-gray">Servicios Médicos <a href="#" id="addServicioMedico" class="btn color-primary" style="padding: 0px 2px;"><i class="las la-plus text-light"></i></a></label>
                             <select class="form-control" name="servicios_medicos[]" id="txt_servicio_medico">
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_frecuencia_medico" class="text-gray">Fecuencia de uso de servicio medicos</label>
+                            <label for="txt_frecuencia_medico" class="text-gray">Fecuencia de uso de servicio médico</label>
                             <select class="form-control" name="txt_frecuencia_medico" id="txt_frecuencia_medico">
                                 <option value="" disabled selected>Seleccione una opción</option>
                                 <option value="una vez por semana">Una vez por semana</option>
@@ -640,7 +640,7 @@
             <!--empieza observaciones-->
             <div class="box color-light">
                 <div class="box-header">
-                    <h2>8. Observaciones</h2>
+                    <h2>8. Datos de la boleta</h2>
                     <div>
                         
                     </div>
@@ -684,7 +684,7 @@
                 <form role="form" name="crearBoleta" id="crearBoleta" method="POST" action="controllers/boletaProcesos.php">
                     <input type="hidden" name="registro" value="guardar">
                     <input type="submit" value="Guardar Boleta" class="color-primary text-light">
-                    <input type="reset" value="Cancelar" class="color-danger text-light">
+                    <a href="index.php"><input type="button" value="Cancelar" class="color-danger text-light"></a>
                 </form>
             </div>
         </div>

@@ -31,7 +31,7 @@
         <div class="row">
             <div class="box color-light">
                 <div class="box-header">
-                    <h2>Editar boleta</h2>
+                    <h2>Editar boleta: Salud</h2>
                     <div>
                         <a href="showFamilia.php?id_familia=<?php echo $id_familia ?>" class="btn color-danger text-light"><i class="las la-times"></i></a>
                     </div>   
@@ -41,7 +41,7 @@
                         action="controllers/prueba.php">
                         <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_servicio_medico" class="text-gray">Servicios Medicos </label>
+                            <label for="txt_servicio_medico" class="text-gray">Servicios Médicos </label>
                             <select class="form-control" name="txt_servicio_medico-edit" id="txt_servicio_medico-edit">
                                     <?php 
                                     foreach ($servicios_medicos as $i){
@@ -53,7 +53,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_frecuencia_medico" class="text-gray">Fecuencia de uso de servicio medicos</label>
+                            <label for="txt_frecuencia_medico" class="text-gray">Fecuencia de uso de servicio médico</label>
                             <select class="form-control" name="txt_frecuencia_medico-edit" id="txt_frecuencia_medico-edit">
                                 <option value="" disabled>Seleccione una opción</option>
                                 <option <?php if($salud['frecuencia_medico']=="una vez por semana"){?> selected <?php } ?> value="una vez por semana">Una vez por semana</option>

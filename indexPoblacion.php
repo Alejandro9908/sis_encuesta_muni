@@ -64,7 +64,7 @@
                         <td>FECHA NACIMIENTO</td>
                         <td>ESTADO CIVIL</td>
                         <td>ESCOLARIDAD</td>
-                        <td>TELEFONO</td>
+                        <td>TELÉFONO</td>
                         <td>COMUNIDAD</td>
                         <td>OPCIONES</td>
                     </thead>
