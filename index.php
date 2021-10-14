@@ -159,6 +159,7 @@
         <!--Termina CardBox-->
 
         <div class="row-2 scroll-x">
+
             <div class="box scroll color-light">
                 <div class="box-header">
                     <h3>Edades</h3>
@@ -199,6 +200,7 @@
                         <td>ID</td>
                         <td>NOMBRE</td>
                         <td>RESULTADO</td>
+                        <td>OPCIONES</td>
                     </thead>
                     <tbody>
                         <?php 
@@ -206,7 +208,7 @@
                         ?>
                         <tr>
                             <td><?php echo $le['id']; ?></td>
-                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo ucwords($le['nombre']); ?></td>
                             <td><?php echo $le['total']; ?></td>
                             <td>
                                 <a href="indexPoblacionEnfermedad.php?data=<?php echo $le['nombre']; ?>&comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&enfermedad=<?php echo $le['id']; ?>&registros=<?php echo$le['total']; ?>" class="btn color-primary">Ver</a>
@@ -234,7 +236,7 @@
                         <td>ID</td>
                         <td>NOMBRE</td>
                         <td>RESULTADO</td>
-
+                        <td>OPCIONES</td>
                     </thead>
                     <tbody>
                         <?php 
@@ -242,7 +244,7 @@
                         ?>
                         <tr>
                             <td><?php echo $ld['id']; ?></td>
-                            <td><?php echo $ld['nombre']; ?></td>
+                            <td><?php echo ucwords($ld['nombre']); ?></td>
                             <td><?php echo $ld['total']; ?></td>
                             <td>
                                 <a href="indexPoblacionDiscapacidad.php?data=<?php echo $ld['nombre']; ?>&comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&discapacidad=<?php echo $ld['id']; ?>&registros=<?php echo $ld['total']; ?>" class="btn color-primary">Ver</a>
@@ -269,13 +271,14 @@
                     <thead>
                         <td>NOMBRE</td>
                         <td>RESULTADO</td>
+                        <td>OPCIONES</td>
                     </thead>
                     <tbody>
                         <?php 
                         foreach ($lista_estado_civil as $l){
                         ?>
                         <tr>
-                            <td><?php echo $l['estado_civil']; ?></td>
+                            <td><?php echo ucwords($l['estado_civil']); ?></td>
                             <td><?php echo $l['total']; ?></td>
                             <td>
                                 <a href="indexPoblacionEstadoCivil.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&estado_civil=<?php echo $l['estado_civil']; ?>&registros=<?php echo $l['total']; ?>" class="btn color-primary">Ver</a>
@@ -302,13 +305,14 @@
                     <thead>
                         <td>NOMBRE</td>
                         <td>RESULTADO</td>
+                        <td>OPCIONES</td>
                     </thead>
                     <tbody>
                         <?php 
                         foreach ($lista_escolaridad as $ld){
                         ?>
                         <tr>
-                            <td><?php echo $ld['escolaridad']; ?></td>
+                            <td><?php echo ucwords($ld['escolaridad']); ?></td>
                             <td><?php echo $ld['total']; ?></td>
                             <td>
                                 <a href="indexPoblacionEscolaridad.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&escolaridad=<?php echo $ld['escolaridad']; ?>&registros=<?php echo $ld['total']; ?>" class="btn color-primary">Ver</a>
@@ -327,7 +331,7 @@
 
             <div class="box scroll color-light">
                 <div class="box-header">
-                    <h3>Ocupacion</h3>
+                    <h3>Ocupación</h3>
                     <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
 
@@ -335,13 +339,14 @@
                     <thead>
                         <td>NOMBRE</td>
                         <td>RESULTADO</td>
+                        <td>OPCIONES</td>
                     </thead>
                     <tbody>
                         <?php 
                         foreach ($lista_ocupacion as $ld){
                         ?>
                         <tr>
-                            <td><?php echo $ld['ocupacion']; ?></td>
+                            <td><?php echo ucwords($ld['ocupacion']); ?></td>
                             <td><?php echo $ld['total']; ?></td>
                             <td>
                                 <a href="indexPoblacionOcupacion.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&ocupacion=<?php echo $ld['ocupacion']; ?>&registros=<?php echo $ld['total']; ?>" class="btn color-primary">Ver</a>
@@ -368,6 +373,7 @@
                         <td>ID</td>
                         <td>NOMBRE</td>
                         <td>RESULTADO</td>
+                        <td>OPCIONES</td>
                     </thead>
                     <tbody>
                         <?php 
@@ -375,7 +381,7 @@
                         ?>
                         <tr>
                             <td><?php echo $le['id']; ?></td>
-                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo ucwords($le['nombre']); ?></td>
                             <td><?php echo $le['total']; ?></td>
                             <td>
                                 <a href="indexFamiliaRecreacion.php?recreacion=<?php echo $le['nombre']; ?>&comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&id_recreacion=<?php echo $le['id']; ?>&registros=<?php echo $le['total']; ?>" class="btn color-primary">Ver</a>
@@ -394,7 +400,7 @@
 
             <div class="box color-light">
                 <div class="box-header">
-                    <h3>Servicios medicos</h3>
+                    <h3>Servicios médicos</h3>
                     <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
                 <table class="table table-2">
@@ -402,6 +408,7 @@
                         <td>ID</td>
                         <td>NOMBRE</td>
                         <td>RESULTADO</td>
+                        <td>OPCIONES</td>
                     </thead>
                     <tbody>
                         <?php 
@@ -409,7 +416,7 @@
                         ?>
                         <tr>
                             <td><?php echo $le['id']; ?></td>
-                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo ucwords($le['nombre']); ?></td>
                             <td><?php echo $le['total']; ?></td>
                             <td>
                                 <a href="indexFamiliaMedico.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&data=<?php echo $le['nombre']; ?>&id_data=<?php echo $le['id']; ?>&registros=<?php echo $le['total']; ?>" class="btn color-primary">Ver</a>
@@ -437,6 +444,7 @@
                         <td>ID</td>
                         <td>NOMBRE</td>
                         <td>RESULTADO</td>
+                        <td>OPCIONES</td>
                     </thead>
                     <tbody>
                         <?php 
@@ -444,7 +452,7 @@
                         ?>
                         <tr>
                             <td><?php echo $le['id']; ?></td>
-                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo ucwords($le['nombre']); ?></td>
                             <td><?php echo $le['total']; ?></td>
                             <td>
                                 <a href="indexFamiliaTenencia.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&data=<?php echo $le['nombre']; ?>&id_data=<?php echo $le['id']; ?>&registros=<?php echo $le['total']; ?>" class="btn color-primary">Ver</a>
@@ -471,6 +479,7 @@
                         <td>ID</td>
                         <td>NOMBRE</td>
                         <td>RESULTADO</td>
+                        <td>OPCIONES</td>
                     </thead>
                     <tbody>
                         <?php 
@@ -478,7 +487,7 @@
                         ?>
                         <tr>
                             <td><?php echo $le['id']; ?></td>
-                            <td><?php echo $le['nombre']; ?></td>
+                            <td><?php echo ucwords($le['nombre']); ?></td>
                             <td><?php echo $le['total']; ?></td>
                             <td>
                                 <a href="indexFamiliaServicioBasico.php?comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&data=<?php echo $le['nombre']; ?>&id_data=<?php echo $le['id']; ?>&registros=<?php echo $le['total']; ?>" class="btn color-primary">Ver</a>

@@ -31,7 +31,7 @@
                 <li>
                     <a href="indexPoblacion.php">
                         <span class="icon"><i class="las la-male"></i></i></span>
-                        <span class="title">Reporte por poblacion</span>
+                        <span class="title">Reporte por población</span>
                     </a>
                 </li>
                 <li>

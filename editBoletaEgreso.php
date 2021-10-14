@@ -61,12 +61,12 @@
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_telefono_residencial" class="text-gray">Telefono Residencial</label>
+                            <label for="txt_telefono_residencial" class="text-gray">Teléfono Residencial</label>
                             <input type="number" step="0.01" id="txt_telefono_residencial" name="txt_telefono_residencial" value="<?php echo $egreso['telefono residencial']; ?>" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_telefono_celular" class="text-gray">Telefono Celular</label>
+                            <label for="txt_telefono_celular" class="text-gray">Teléfono Celular</label>
                             <input type="number" step="0.01" id="txt_telefono_celular" name="txt_telefono_celular" value="<?php echo $egreso['celular']; ?>" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
@@ -106,7 +106,7 @@
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_creditos" class="text-gray">Creditos</label>
+                            <label for="txt_creditos" class="text-gray">Créditos</label>
                             <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="<?php echo $egreso['credito']; ?>" class="form-control"
                                 placeholder="" min="0.00">
                         </div>

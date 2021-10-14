@@ -60,10 +60,10 @@
                         <td>ID FAMILIA</td>
                         <td>ENTREVISTADO</td>
                         <td>DPI</td>
-                        <td>TELEFONO CELULAR</td>
-                        <td>TELEFONO DOMICILIAR</td>
-                        <td>NUMERO CASA</td>
-                        <td>DIRECCION</td>
+                        <td>TELÉFONO CELULAR</td>
+                        <td>TELÉFONO DOMICILIAR</td>
+                        <td>NÚMERO CASA</td>
+                        <td>DIRECCIÓN</td>
                         <td>COMUNIDAD</td>
                         <td>SECTOR</td>
                         <td>TENENCIA</td>

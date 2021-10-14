@@ -91,8 +91,8 @@
                             <td>EDAD</td>
                             <td>ESTADO CIVIL</td>
                             <td>ESCOLARIDAD</td>
-                            <td>TELEFONO</td>
-                            <td>OCUPACION</td>
+                            <td>TELÉFONO</td>
+                            <td>OCUPACIÓN</td>
                         </thead>
                         <tbody>
                             <?php 
@@ -140,8 +140,8 @@
                             <td>EDAD</td>
                             <td>ESTADO CIVIL</td>
                             <td>ESCOLARIDAD</td>
-                            <td>TELEFONO</td>
-                            <td>OCUPACION</td>
+                            <td>TELÉFONO</td>
+                            <td>OCUPACIÓN</td>
                         </thead>
                         <tbody>
                             <?php 
@@ -211,7 +211,7 @@
                                     placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_numero_casa" class="text-gray">Numero de casa</label>
+                                <label for="txt_numero_casa" class="text-gray">Número de casa</label>
                                 <input type="text" id="txt_numero_casa" name="txt_numero_casa" readonly
                                     value="<?php echo $domicilio['numero_casa']; ?>" class="form-control-2"
                                     placeholder="">
@@ -237,7 +237,7 @@
                         </div>
                         <div class="form-row-2">
                             <div class="form-item">
-                                <label for="txt_telefono" class="text-gray">Telefono</label>
+                                <label for="txt_telefono" class="text-gray">Teléfono</label>
                                 <input type="text" id="txt_telefono" name="txt_telefono" value="<?php echo $domicilio['telefono']; ?>" readonly
                                     class="form-control-2" placeholder="">
                             </div>
@@ -279,7 +279,7 @@
                                     <tr>
                                         <td><?php echo $p['id_persona']; ?></td>
                                         <td><?php echo $p['nombre_completo']; ?></td>
-                                        <td><?php echo $p['ingreso_mensual']; ?></td>
+                                        <td><?php echo 'Q '.$p['ingreso_mensual']; ?></td>
                                     </tr>
                                     <?php 
                                     }//termina ciclo for
@@ -320,7 +320,7 @@
                             ?>
                                     <tr>
                                         <td><?php echo $numero_egreso ?></td>
-                                        <td><?php echo $clave ?></td>
+                                        <td><?php echo ucwords($clave) ?></td>
                                         <td><?php echo 'Q '.$valor ?></td>
                                     </tr>
                                     <?php  
@@ -364,7 +364,7 @@
                                     value="<?php echo $vivienda['tenencia']; ?>" class="form-control-2" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_cantidad_cuartos" class="text-gray">Numero de dormitorios:</label>
+                                <label for="txt_cantidad_cuartos" class="text-gray">Número de dormitorios:</label>
                                 <input type="text" id="txt_cantidad_cuartos" name="txt_cantidad_cuartos" required
                                     readonly value="<?php echo $vivienda['cantidad_cuartos']; ?>" class="form-control-2"
                                     placeholder="">
@@ -479,14 +479,14 @@
                         action="controllers/boletaProcesos.php">
                         <div class="form-row-2">
                             <div class="form-item">
-                                <label for="txt_servicio_medico" class="text-gray">Servicio medico:</label>
+                                <label for="txt_servicio_medico" class="text-gray">Servicio médico:</label>
                                 <input type="text" id="txt_servicio_medico" name="txt_servicio_medico" required readonly
                                     value="<?php echo $servicio_medico['servicio_medico']; ?>" class="form-control-2"
                                     placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_frecuencia_medico" class="text-gray">Frecuencia con la que asisten al
-                                    medico:</label>
+                                    médico:</label>
                                 <input type="text" id="txt_frecuencia_medico" name="txt_frecuencia_medico" required
                                     readonly value="<?php echo $servicio_medico['frecuencia_medico']; ?>"
                                     class="form-control-2" placeholder="">
@@ -621,18 +621,18 @@
                                         ?>
                                         <tr>
                                             <td><?php echo $numero_alimentacion ?></td>
-                                            <td><?php echo $clave ?></td>
+                                            <td><?php echo ucwords($clave); ?></td>
                                             <td><?php 
                                                 if($valor == 0){
-                                                    echo "nunca";
+                                                    echo "Nunca";
                                                 }else if($valor == 1){
-                                                    echo "una vez al mes";
+                                                    echo "Una vez al mes";
                                                 }else if($valor == 2){
-                                                    echo "una vez a la semana";
+                                                    echo "Una vez a la semana";
                                                 }else if($valor == 3){
-                                                    echo "cada tres días";
+                                                    echo "Cada tres días";
                                                 }else if($valor == 4){
-                                                    echo "diario";
+                                                    echo "Diario";
                                                 }
                                             
                                             ?></td>
@@ -668,7 +668,7 @@
                                 <table class="table" style="width: 100%;">
                                     <thead>
                                         <td>ID</td>
-                                        <td>RECREACION</td>
+                                        <td>RECREACIÓN</td>
                                     </thead>
                                     <tbody>
                                         <?php 

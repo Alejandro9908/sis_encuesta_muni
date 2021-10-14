@@ -31,7 +31,7 @@
         <div class="row">
             <div class="box color-light">
                 <div class="box-header">
-                    <h2>Editar boleta</h2>
+                    <h2>Editar boleta: Recreaciones y uso del tiempo libre</h2>
                     <div>
                         <a href="showFamilia.php?id_familia=<?php echo $id_familia ?>" class="btn color-danger text-light"><i class="las la-times"></i></a>
                     </div>   

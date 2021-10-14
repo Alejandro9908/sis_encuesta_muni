@@ -76,7 +76,7 @@
                                 placeholder="">
                         </div>
                         <div class="form-item">
-                            <label for="txt_numero_casa" class="text-gray">Numero de casa</label>
+                            <label for="txt_numero_casa" class="text-gray">Número de casa</label>
                             <input type="text" id="txt_numero_casa" name="txt_numero_casa" value="<?php echo $domicilio['numero_casa']; ?>" class="form-control"
                                 placeholder="">
                         </div>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_telefono" class="text-gray">Telefono</label>
+                            <label for="txt_telefono" class="text-gray">Teléfono</label>
                             <input type="text" id="txt_telefono" name="txt_telefono" value="<?php echo $domicilio['telefono']; ?>" class="form-control"
                                 placeholder="">
                         </div>
