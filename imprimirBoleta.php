@@ -551,6 +551,7 @@ $pdf->SetFont('Arial','',9);
 $pdf->Ln(5);
 $pdf->Cell(25, 4, utf8_decode('Observaciones: '), 0, 0,'L', 0);
 $pdf->Cell(188, 4, utf8_decode($datos_boleta['observaciones']), 'B', 1,'L', 0);  
+$pdf->Ln(5);
 $pdf->Cell(18, 4, utf8_decode('Evaluador: '), 0, 0,'L', 0);
 $pdf->Cell(132, 4, utf8_decode($datos_boleta['evaluador']), 'B', 0,'L', 0);  
 $pdf->Cell(33, 4, utf8_decode('Fecha de evaluación: '), 0, 0,'L', 0);
