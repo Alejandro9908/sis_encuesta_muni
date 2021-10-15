@@ -125,7 +125,7 @@ $pdf->SetFont('Arial','',10);
 
 foreach ($lista_enfermedades as $i){
 
-    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(100, 6, utf8_decode(ucfirst(strtolower($i['nombre']))), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 
 }
@@ -149,7 +149,7 @@ $pdf->SetFont('Arial','',10);
 
 foreach ($lista_discapacidades as $i){
 
-    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(100, 6, utf8_decode(ucfirst(strtolower($i['nombre']))), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 
 }
@@ -173,7 +173,7 @@ $pdf->SetFont('Arial','',10);
 
 foreach ($lista_estado_civil as $i){
 
-    $pdf->Cell(100, 6, utf8_decode($i['estado_civil']), 1, 0,'L', 0); 
+    $pdf->Cell(100, 6, utf8_decode(ucfirst(strtolower($i['estado_civil']))), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 
 }
@@ -197,7 +197,7 @@ $pdf->SetFont('Arial','',10);
 
 foreach ($lista_escolaridad as $i){
 
-    $pdf->Cell(100, 6, utf8_decode($i['escolaridad']), 1, 0,'L', 0); 
+    $pdf->Cell(100, 6, utf8_decode(ucfirst(strtolower($i['escolaridad']))), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 
 }
@@ -220,7 +220,7 @@ $pdf->Cell(113, 6, utf8_decode('Resultado'), 1, 1,'L', 0);
 $pdf->SetFont('Arial','',10);
 
 foreach ($lista_ocupacion as $i){
-    $pdf->Cell(100, 6, utf8_decode($i['ocupacion']), 1, 0,'L', 0); 
+    $pdf->Cell(100, 6, utf8_decode(ucfirst(strtolower($i['ocupacion']))), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 }
 
@@ -243,7 +243,7 @@ $pdf->SetFont('Arial','',10);
 
 foreach ($lista_recreaciones as $i){
 
-    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(100, 6, utf8_decode(ucfirst(strtolower($i['nombre']))), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 
 }
@@ -267,7 +267,7 @@ $pdf->SetFont('Arial','',10);
 
 foreach ($lista_servicios_medicos as $i){
 
-    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(100, 6, utf8_decode(ucfirst(strtolower($i['nombre']))), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 
 }
@@ -291,7 +291,7 @@ $pdf->SetFont('Arial','',10);
 
 foreach ($lista_tenencias as $i){
 
-    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(100, 6, utf8_decode(ucfirst(strtolower($i['nombre']))), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 
 }
@@ -315,7 +315,7 @@ $pdf->SetFont('Arial','',10);
 
 foreach ($lista_servicios_basicos as $i){
 
-    $pdf->Cell(100, 6, utf8_decode($i['nombre']), 1, 0,'L', 0); 
+    $pdf->Cell(100, 6, utf8_decode(ucfirst(strtolower($i['nombre']))), 1, 0,'L', 0); 
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 
 }
