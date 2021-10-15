@@ -412,10 +412,10 @@ INSERT INTO `tbl_usuario` (`id_usuario`, `nombre`, `usuario`, `rol`, `password`,
 
 select curdate();
 
-Select datediff(fecha_nacimiento,curdate()) as edad from tbl_persona;
+Select TIMESTAMPDIFF(YEAR,fecha_nacimiento,CURDATE()) AS edad from tbl_persona;
 
 select fecha_nacimiento from tbl_persona;
-select curdate();
+select datediff(curdate(),'2020-02-02');
 
 
 

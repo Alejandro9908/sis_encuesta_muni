@@ -48,8 +48,6 @@ $personas['edad'] = $hoy->diff($fecha_nacimiento);
 
 $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento']));
 
-
-
 ?>
 
 <script>
@@ -70,9 +68,11 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
                 <div class="box-header">
                     <h2>Datos de la persona</h2>
                     <div>
+                        <a href="showFamilia.php?id_familia=<?php echo $personas['id_familia']; ?>" class="btn color-warning">Ver Boleta</a>
                         <a href="editPersona.php?id_persona=<?php echo $personas['id_persona']; ?>"
                                         class="btn color-primary">Editar</a>
-                                        <a href="imprimirPersona.php?id_persona=<?php echo $personas['id_persona']; ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir</a>
+                        <a href="imprimirPersona.php?id_persona=<?php echo $personas['id_persona']; ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir</a>
+                        
                     </div>
                 </div>
                 <!--Formulario persona-->
