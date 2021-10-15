@@ -89,7 +89,7 @@ $pdf->Cell(9, 6, utf8_decode('Edad'), 1, 0,'C', 0);
 $pdf->Cell(18, 6, utf8_decode('Estado Civil'), 1, 0,'L', 0);
 $pdf->Cell(18, 6, utf8_decode('Escolaridad'), 1, 0,'L', 0); 
 $pdf->Cell(15, 6, utf8_decode('Teléfono'), 1, 0,'L', 0); 
-$pdf->Cell(22, 6, utf8_decode('Ocupacion'), 1, 1,'L', 0); 
+$pdf->Cell(22, 6, utf8_decode('Ocupación'), 1, 1,'L', 0); 
 
 $pdf->SetFont('Arial','',8);
 foreach ($personas as $p){
@@ -98,7 +98,7 @@ foreach ($personas as $p){
         $p['edad'] = $hoy->diff($fecha_nacimiento);
         $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($p['fecha_nacimiento']));
 
-        $pdf->Cell(70, 6, utf8_decode($p['nombre_completo']), 1, 0,'L', 0); 
+        $pdf->Cell(70, 6, utf8_decode(ucwords(strtolower($p['nombre_completo']))), 1, 0,'L', 0); 
         $pdf->Cell(25, 6, utf8_decode($p['dpi']), 1, 0,'L', 0); 
         $pdf->Cell(9, 6, utf8_decode($p['sexo']), 1, 0,'C', 0);
         $pdf->Cell(27, 6, utf8_decode($fecha_nacimiento_mostrar), 1, 0,'L', 0);
@@ -124,7 +124,7 @@ $pdf->Cell(9, 6, utf8_decode('Edad'), 1, 0,'C', 0);
 $pdf->Cell(18, 6, utf8_decode('Estado Civil'), 1, 0,'L', 0);
 $pdf->Cell(18, 6, utf8_decode('Escolardiad'), 1, 0,'L', 0); 
 $pdf->Cell(15, 6, utf8_decode('Teléfono'), 1, 0,'L', 0); 
-$pdf->Cell(22, 6, utf8_decode('Ocupacion'), 1, 0,'L', 0); 
+$pdf->Cell(22, 6, utf8_decode('Ocupación'), 1, 0,'L', 0); 
 $pdf->Cell(17, 6, utf8_decode('Parentesco'), 1, 1,'L', 0); 
 
 $pdf->SetFont('Arial','',8);
@@ -135,7 +135,7 @@ foreach ($personas as $p){
         $p['edad'] = $hoy->diff($fecha_nacimiento);
         $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($p['fecha_nacimiento']));
 
-        $pdf->Cell(55, 6, utf8_decode($p['nombre_completo']), 1, 0,'L', 0); 
+        $pdf->Cell(55, 6, utf8_decode(ucwords(strtolower($p['nombre_completo']))), 1, 0,'L', 0); 
         $pdf->Cell(25, 6, utf8_decode($p['dpi']), 1, 0,'L', 0); 
         $pdf->Cell(8, 6, utf8_decode($p['sexo']), 1, 0,'C', 0);
         $pdf->Cell(26, 6, utf8_decode($fecha_nacimiento_mostrar), 1, 0,'L', 0);
@@ -179,7 +179,7 @@ $pdf->Cell(15, 4, utf8_decode('Latitud: '), 0, 0,'L', 0);
 $pdf->Cell(50, 4, utf8_decode($domicilio['latitud']), 'B', 0,'L', 0);  
 $pdf->Cell(17, 4, utf8_decode('Longitud: '), 0, 0,'L', 0);
 $pdf->Cell(50, 4, utf8_decode($domicilio['longitud']), 'B', 0,'L', 0); 
-$pdf->Cell(30, 4, utf8_decode('Telefono domiciliar: '), 0, 0,'L', 0);
+$pdf->Cell(30, 4, utf8_decode('Teléfono domiciliar: '), 0, 0,'L', 0);
 $pdf->Cell(51, 4, utf8_decode($domicilio['telefono']), 'B', 1,'L', 0); 
 
 
@@ -194,7 +194,7 @@ if(!empty($domicilio['transportes'])){
 
     foreach ($domicilio['transportes'] as $i){
             $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
-            $pdf->Cell(200, 6, utf8_decode($i['transporte']), 1, 1,'L', 0); 
+            $pdf->Cell(200, 6, utf8_decode(ucfirst(strtolower($i['transporte']))), 1, 1,'L', 0); 
             $indice++;
     }
 }
@@ -232,7 +232,7 @@ foreach ($ingreso as $i){
     if((float)$i['ingreso_mensual'] >= 0.01){
         $total_ingresos = $total_ingresos + (float)$i['ingreso_mensual']; 
         $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0);
-        $pdf->Cell(150, 6, utf8_decode($i['nombre_completo']), 1, 0,'L', 0); 
+        $pdf->Cell(150, 6, utf8_decode(ucwords(strtolower($i['nombre_completo']))), 1, 0,'L', 0); 
         $pdf->Cell(50, 6, utf8_decode("Q. ".$i['ingreso_mensual']), 1, 1,'L', 0); 
         $indice++;
     }
@@ -263,7 +263,7 @@ while (list($clave, $valor) = each($egreso)){
         $total_egresos = $total_egresos + (float)$valor; 
 
         $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0);
-        $pdf->Cell(150, 6, utf8_decode($clave), 1, 0,'L', 0); 
+        $pdf->Cell(150, 6, utf8_decode(ucfirst(strtolower($clave))), 1, 0,'L', 0); 
         $pdf->Cell(50, 6, utf8_decode("Q. ".$valor), 1, 1,'L', 0); 
         $indice++;
 
@@ -365,7 +365,7 @@ if(!empty($vivienda['mobiliarios'])){
 
     foreach ($vivienda['mobiliarios'] as $i){
             $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
-            $pdf->Cell(200, 6, utf8_decode($i['mobiliario']), 1, 1,'L', 0); 
+            $pdf->Cell(200, 6, utf8_decode(ucfirst(strtolower($i['mobiliario']))), 1, 1,'L', 0); 
             $indice++;
     }
     $pdf->Ln(5);
@@ -386,7 +386,7 @@ if(!empty($vivienda['servicios'])){
 
     foreach ($vivienda['servicios'] as $i){
             $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
-            $pdf->Cell(200, 6, utf8_decode($i['servicio']), 1, 1,'L', 0); 
+            $pdf->Cell(200, 6, utf8_decode(ucfirst(strtolower($i['servicio']))), 1, 1,'L', 0); 
             $indice++;
     }
 }
@@ -409,8 +409,8 @@ $pdf->Ln(5);
 $pdf->Cell(63, 4, utf8_decode('Servicio médico con el que cuenta familia: '), 0, 0,'L', 0);
 $pdf->Cell(150, 4, utf8_decode($servicio_medico['servicio_medico']),'B', 1,'L', 0); 
 $pdf->Ln(5);
-$pdf->Cell(63, 4, utf8_decode('Frecuencia con la que asisten al medico: '), 0, 0,'L', 0);
-$pdf->Cell(150, 4, utf8_decode($servicio_medico['frecuencia_medico']),'B', 1,'L', 0);  
+$pdf->Cell(63, 4, utf8_decode('Frecuencia con la que asisten al médico: '), 0, 0,'L', 0);
+$pdf->Cell(150, 4, utf8_decode(ucfirst($servicio_medico['frecuencia_medico'])),'B', 1,'L', 0);  
 $pdf->Ln(5); 
 
 
@@ -431,7 +431,7 @@ if(!empty($gestacion)){
     foreach ($gestacion as $i){
 
             $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'L', 0); 
-            $pdf->Cell(150, 6, utf8_decode($i['nombre_completo']), 1, 0,'L', 0); 
+            $pdf->Cell(150, 6, utf8_decode(ucwords(strtolower($i['nombre_completo']))), 1, 0,'L', 0); 
             $pdf->Cell(50, 6, utf8_decode($i['semanas_gestacion']), 1, 1,'L', 0);
             $indice++; 
 
@@ -451,7 +451,7 @@ if(!empty($enfermedades)){
             $pdf->SetFont('Arial','',8); 
             foreach ($i['enfermedades'] as $k){
                 $pdf->Cell(13);
-                $pdf->Cell(200, 6, utf8_decode($k), 1, 1,'L', 0);
+                $pdf->Cell(200, 6, utf8_decode(ucfirst(strtolower($k))), 1, 1,'L', 0);
             }
             $indice++; 
 
@@ -471,7 +471,7 @@ if(!empty($discapacidades)){
             $pdf->SetFont('Arial','',8); 
             foreach ($i['discapacidades'] as $k){
                 $pdf->Cell(13);
-                $pdf->Cell(200, 6, utf8_decode($k), 1, 1,'L', 0);
+                $pdf->Cell(200, 6, utf8_decode(ucfirst(strtolower($k))), 1, 1,'L', 0);
             }
             $indice++; 
 
@@ -514,7 +514,7 @@ while (list($clave, $valor) = each($alimentacion)){
         }
 
         $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0);
-        $pdf->Cell(150, 6, utf8_decode($clave), 1, 0,'L', 0); 
+        $pdf->Cell(150, 6, utf8_decode(ucfirst(strtolower($clave))), 1, 0,'L', 0); 
         $pdf->Cell(50, 6, utf8_decode($valor), 1, 1,'L', 0); 
         $indice++;
 
@@ -539,7 +539,7 @@ if(!empty($recreaciones)){
 
     foreach ($recreaciones as $i){
             $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0); 
-            $pdf->Cell(200, 6, utf8_decode($i['recreacion']), 1, 1,'L', 0); 
+            $pdf->Cell(200, 6, utf8_decode(ucfirst(strtolower($i['recreacion']))), 1, 1,'L', 0); 
             $indice++;
     }
 }
@@ -551,6 +551,11 @@ $pdf->SetFont('Arial','',9);
 $pdf->Ln(5);
 $pdf->Cell(25, 4, utf8_decode('Observaciones: '), 0, 0,'L', 0);
 $pdf->Cell(188, 4, utf8_decode($datos_boleta['observaciones']), 'B', 1,'L', 0);  
+$pdf->Cell(18, 4, utf8_decode('Evaluador: '), 0, 0,'L', 0);
+$pdf->Cell(132, 4, utf8_decode($datos_boleta['evaluador']), 'B', 0,'L', 0);  
+$pdf->Cell(33, 4, utf8_decode('Fecha de evaluación: '), 0, 0,'L', 0);
+$datos_boleta['evaluador'] = date("d-m-Y", strtotime($datos_boleta['evaluador']));
+$pdf->Cell(30, 4, utf8_decode($datos_boleta['evaluador']), 'B', 1,'L', 0);  
 
 
 
