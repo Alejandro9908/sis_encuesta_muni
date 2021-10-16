@@ -9,13 +9,13 @@
     include_once 'views/layout/topbar.php';
     include_once 'controllers/usuarioController.php';
     include_once 'controllers/reporteFamiliaController.php';
-    include_once 'controllers/servicioMedicoController.php';
+    include_once 'controllers/opcionesController.php';
 
-    $controladorMedico = new servicioMedicoController();
-    $controlador = new reporteFamiliaController();
+    $controladorMedico = new OpcionController();
+    $controlador = new ReporteFamiliaController();
 
     $servicios_medicos = array();
-    $servicios_medicos = $controladorMedico->listarSelect();
+    $servicios_medicos = $controladorMedico->listarSelect("SELECT * FROM tbl_servicio_medico;");
 
     $salud = array();
     $salud = $controlador->buscarServicioMedico($id_familia);
@@ -27,11 +27,18 @@
 
 
 <div class="content-wrapper">
+<div class="box-header">
+        <h2>Editar boleta</h2>
+        <div>
+            <p style="font-size: small; color: red;">* Campo Obligatorio</p>
+        </div>
+    </div>
+    <!--Termina content-heaer-->
     <div class="content">
         <div class="row">
             <div class="box color-light">
                 <div class="box-header">
-                    <h2>Editar boleta: Salud</h2>
+                    <h2>6. Salud</h2>
                     <div>
                         <a href="showFamilia.php?id_familia=<?php echo $id_familia ?>" class="btn color-danger text-light"><i class="las la-times"></i></a>
                     </div>   
@@ -41,7 +48,7 @@
                         action="controllers/prueba.php">
                         <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_servicio_medico" class="text-gray">Servicios Médicos </label>
+                            <label for="txt_servicio_medico" class="text-gray">Servicios Médicos <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_servicio_medico-edit" id="txt_servicio_medico-edit">
                                     <?php 
                                     foreach ($servicios_medicos as $i){
@@ -53,7 +60,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_frecuencia_medico" class="text-gray">Fecuencia de uso de servicio médico</label>
+                            <label for="txt_frecuencia_medico" class="text-gray">Fecuencia de uso de servicio médico <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_frecuencia_medico-edit" id="txt_frecuencia_medico-edit">
                                 <option value="" disabled>Seleccione una opción</option>
                                 <option <?php if($salud['frecuencia_medico']=="una vez por semana"){?> selected <?php } ?> value="una vez por semana">Una vez por semana</option>

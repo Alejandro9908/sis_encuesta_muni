@@ -8,7 +8,7 @@
     include_once ('views/layout/topbar.php');
     include_once ('controllers/usuarioController.php');
     
-    $controlador = new usuarioController();
+    $controlador = new UsuarioController();
 
     if(!isset($_GET['b'])){
         $_GET['b'] = "";
@@ -58,12 +58,12 @@
                 </form>
                 <table class="table tabla-normal-ancho">
                     <thead>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>USUARIO</td>
-                        <td>ROL</td>
-                        <td>ESTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">USUARIO</th>
+                        <th scope="col">ROL</th>
+                        <th scope="col">ESTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 

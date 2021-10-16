@@ -3,7 +3,7 @@
     
     
     if($_POST['registro'] == 'guardar'){
-        $controlador = new usuarioController();
+        $controlador = new UsuarioController();
         $u = new Usuario();
 
         $u->set('nombre',$_POST['txt_nombre']);
@@ -31,7 +31,7 @@
 
     if($_POST['registro'] == 'editar'){
 
-        $controlador = new usuarioController();
+        $controlador = new UsuarioController();
         $u = new Usuario();
         $u->set('id_usuario',$_POST['txt_id']);
         $u->set('nombre',$_POST['txt_nombre']);
@@ -47,7 +47,7 @@
 
 
     if($_POST['registro'] == 'editarPassword'){
-        $controlador = new usuarioController();
+        $controlador = new UsuarioController();
 
         $id = $_POST['txt_id'];
         $password = $_POST['txt_pass'];
@@ -69,7 +69,7 @@
     }
 
     if($_POST['registro'] == 'inactivar'){
-        $controlador = new usuarioController();
+        $controlador = new UsuarioController();
 
         $id = $_POST['txt_id'];
          
@@ -81,7 +81,7 @@
     }
 
     if($_POST['registro'] == 'activar'){
-        $controlador = new usuarioController();
+        $controlador = new UsuarioController();
 
         $id = $_POST['txt_id'];
          
@@ -93,7 +93,7 @@
     }
 
     if($_POST['registro'] == 'login'){
-        $controlador = new usuarioController();
+        $controlador = new UsuarioController();
 
         $usuario = $_POST['txt_usuario'];
         $pass = $_POST['txt_password'];

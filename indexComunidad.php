@@ -7,7 +7,7 @@
     include_once ('views/layout/topbar.php');
     include_once ('controllers/comunidadController.php');
     
-    $controlador = new comunidadController();
+    $controlador = new ComunidadController();
 
     if(!isset($_GET['b'])){
         $_GET['b'] = "";
@@ -56,13 +56,13 @@
                 </form>
                 <table class="table tabla-normal-ancho">
                     <thead>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>DESCRIPCION</td>
-                        <td>TIPO</td>
-                        <td>SECTOR</td>
-                        <td>ESTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">DESCRIPCION</th>
+                        <th scope="col">TIPO</th>
+                        <th scope="col">SECTOR</th>
+                        <th scope="col">ESTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 

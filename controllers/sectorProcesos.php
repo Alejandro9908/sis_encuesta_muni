@@ -3,7 +3,7 @@
 
 
     if($_POST['registro'] == 'guardar'){
-        $controlador = new sectorController();
+        $controlador = new SectorController();
         $o = new Opcion();
 
         $o->set('nombre',$_POST['txt_nombre']);
@@ -18,7 +18,7 @@
 
     if($_POST['registro'] == 'editar'){
 
-        $controlador = new sectorController();
+        $controlador = new SectorController();
         $o = new Opcion();
         $o->set('id_opcion',$_POST['txt_id']);
         $o->set('nombre',$_POST['txt_nombre']);
@@ -32,7 +32,7 @@
     }
 
     if($_POST['registro'] == 'eliminar'){
-        $controlador = new sectorController();
+        $controlador = new SectorController();
 
         $id = $_POST['txt_id'];
 

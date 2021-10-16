@@ -6,7 +6,7 @@
     $sector = $_GET['sector'];
     $comunidad = $_GET['comunidad'];
 
-    $controlador = new conteoController();
+    $controlador = new ConteoController();
 
     $total_registros_persona = $controlador->contarRegistrosPersonas("$sector","$comunidad");
     $total_registros_mujeres = $controlador->contarRegistrosMujeres("$sector","$comunidad");
@@ -319,21 +319,6 @@ foreach ($lista_servicios_basicos as $i){
     $pdf->Cell(113, 6, utf8_decode($i['total']), 1, 1,'L', 0);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 $pdf->Output();
 

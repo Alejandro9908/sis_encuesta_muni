@@ -8,8 +8,8 @@
     include_once ('controllers/personaController.php');
     include_once ('controllers/comunidadController.php');
     
-    $controlador = new personaController();
-    $controladorComunidad = new comunidadController();
+    $controlador = new PersonaController();
+    $controladorComunidad = new ComunidadController();
 
     if(!isset($_GET['b'])){
         $_GET['b'] = "";
@@ -62,7 +62,7 @@
                 </div>
                 <?php if($sector == "%%"){ $sectorMostrar = "Todos";}else{$sectorMostrar = $sector;} ?>
                 <?php if($comunidad == "%%"){ $comunidadMostrar = "Todos";}else{$comunidadMostrar = $comunidad;} ?>
-                <p style="font-size: small; margin-top: -20px;"> 🡢 <b>Sector:</b> <?= $sectorMostrar ?> 🡢 <b>Comunidad:</b> <?= $comunidadInfo['nombre'] ?> 🡢 <b>Estado Civil: </b><?= $estado_civil ?></p>
+                <p style="font-size: small; margin-top: -20px;"> 🡢 <strong>Sector:</strong> <?= $sectorMostrar ?> 🡢 <strong>Comunidad:</strong> <?= $comunidadInfo['nombre'] ?> 🡢 <strong>Estado Civil: </strong><?= $estado_civil ?></p>
                 <br>
                 <form role="form" name="buscar" id="buscar" method="GET" action="indexPoblacionEstadoCivil.php" class="search">
                     <label>
@@ -76,17 +76,17 @@
                 </form>
                 <table class="table tabla-normal-ancho">
                     <thead>
-                        <td>ID FAMILIA</td>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>DPI</td>
-                        <td>SEXO</td>
-                        <td>FECHA NACIMIENTO</td>
-                        <td>ESTADO CIVIL</td>
-                        <td>ESCOLARIDAD</td>
-                        <td>TELEFONO</td>
-                        <td>COMUNIDAD</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID FAMILIA</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">DPI</th>
+                        <th scope="col">SEXO</th>
+                        <th scope="col">FECHA NACIMIENTO</th>
+                        <th scope="col">ESTADO CIVIL</th>
+                        <th scope="col">ESCOLARIDAD</th>
+                        <th scope="col">TELEFONO</th>
+                        <th scope="col">COMUNIDAD</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 

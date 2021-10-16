@@ -9,7 +9,7 @@
     include_once 'views/layout/topbar.php';
     include_once 'controllers/comunidadController.php';
 
-    $controlador = new comunidadController();
+    $controlador = new ComunidadController();
 
     $sectores = array();
     $sectores = $controlador->listarSectores();
@@ -21,7 +21,11 @@
 
 
 <div class="content-wrapper">
-    <div class="content-header">
+    <div class="box-header">
+    	<h2>Comunidades</h2>
+        <div>
+            <p style="font-size: small; color: red;">* Campo Obligatorio</p>
+        </div>
     </div>
     <!--Termina content-heaer-->
 
@@ -38,7 +42,7 @@
                     <form role="form" name="editarComunidad" id="editarComunidad" method="POST" action="controllers/comunidadProcesos.php">
                         <div class="form-row-2">
                             <div class="form-item">
-                                <label for="txt_nombre" class="text-gray">Nombre</label>
+                                <label for="txt_nombre" class="text-gray">Nombre <span style="color: red;">*</span></label>
                                 <input type="text" id="txt_nombre" name="txt_nombre" required value="<?php echo $resultado->get('nombre');?>" class="form-control"
                                 placeholder="Ingresar nombre completo">
                             </div>
@@ -48,8 +52,8 @@
                                 placeholder="Nombre de usuario">
                             </div>
                             <div class="form-item">
-                                <label  for="txt_tipo" class="text-gray">Tipo</label>
-                                <select class="form-control" name="txt_tipo" id="txt_tipo">
+                                <label  for="txt_tipo" class="text-gray">Tipo <span style="color: red;">*</span></label>
+                                <select class="form-control" name="txt_tipo" id="txt_tipo" required>
                                     <option <?php if($resultado->get('tipo')=="barrio"){?>selected <?php } ?> value="barrio">Barrio</option>
                                     <option <?php if($resultado->get('tipo')=="colonia"){?>selected <?php } ?> value="colonia">Colonia</option>
                                     <option <?php if($resultado->get('tipo')=="lotificacion"){?>selected <?php } ?> value="lotificacion">Lotificacion</option>
@@ -58,8 +62,8 @@
                                 </select>
                             </div>
                             <div class="form-item">
-                                <label for="txt_sector" class="text-gray">Sector</label>
-                                <select class="form-control" name="txt_sector" id="txt_sector-edit">
+                                <label for="txt_sector" class="text-gray">Sector <span style="color: red;">*</span></label>
+                                <select class="form-control" name="txt_sector" id="txt_sector-edit" required >
                                     <?php 
                                     foreach ($sectores as $s){
                                     ?>

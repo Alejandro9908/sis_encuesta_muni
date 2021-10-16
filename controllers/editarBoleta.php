@@ -3,7 +3,7 @@ include_once ($_SERVER['DOCUMENT_ROOT']."/constantes.php");
 include_once ($_SERVER['DOCUMENT_ROOT'].'/routes.php');
 include_once ('conexion.php');
 
-class editarBoletaController{
+class EditarBoletaController{
 
     public function editarDomicilio($id_vivienda, $domicilio)
     {
@@ -40,7 +40,7 @@ class editarBoletaController{
         catch (Exception $e)
         {
             $stmt->rollBack();
-            echo 'Error '. $e;
+            echo $e;
         }
     }
 
@@ -73,7 +73,7 @@ class editarBoletaController{
         catch (Exception $e)
         {
             $stmt->rollBack();
-            echo 'Error '. $e;
+            echo $e;
         }
     }
 
@@ -111,7 +111,7 @@ class editarBoletaController{
         catch (Exception $e)
         {
             $stmt->rollBack();
-            echo 'Error '. $e;
+            echo $e;
         }
     }
 
@@ -138,7 +138,7 @@ class editarBoletaController{
         catch (Exception $e)
         {
             $stmt->rollBack();
-            echo 'Error '. $e;
+            echo $e;
         }
     }
 
@@ -163,7 +163,7 @@ class editarBoletaController{
         catch (Exception $e)
         {
             $stmt->rollBack();
-            echo 'Error '. $e;
+            echo $e;
         }
     }
 
@@ -194,7 +194,7 @@ class editarBoletaController{
         catch (Exception $e)
         {
             $stmt->rollBack();
-            echo 'Error '. $e;
+            echo $e;
         }
     }
 
@@ -250,7 +250,7 @@ class editarBoletaController{
         catch (Exception $e)
         {
             $stmt->rollBack();
-            echo 'Error '. $e;
+            echo $e;
         }
     }
 
@@ -281,8 +281,6 @@ class editarBoletaController{
                 values ('".$id_persona."','".$i."')");
             }
 
-            //print_r($persona);
-
             //editamos datos de persona
             $stmt->exec("UPDATE tbl_persona SET 
                         entrevistado= '".$persona['entrevistado']."', 
@@ -308,7 +306,7 @@ class editarBoletaController{
         catch (Exception $e)
         {
             $stmt->rollBack();
-            echo 'Error '. $e;
+            echo $e;
         }
     }
 

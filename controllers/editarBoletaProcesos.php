@@ -3,7 +3,7 @@
 
 
     if($_POST['editar'] == 'domicilio'){
-        $controlador = new editarBoletaController();
+        $controlador = new EditarBoletaController();
         
         $domicilio =  array();
         $domicilio = json_decode($_POST["domicilio"], true);
@@ -14,7 +14,7 @@
     }
 
     if($_POST['editar'] == 'alimentacion'){
-        $controlador = new editarBoletaController();
+        $controlador = new EditarBoletaController();
         
         $alimentacion =  array();
         $alimentacion = json_decode($_POST["alimentacion"], true);
@@ -25,7 +25,7 @@
     }
 
     if($_POST['editar'] == 'egreso'){
-        $controlador = new editarBoletaController();
+        $controlador = new EditarBoletaController();
         
         $egreso =  array();
         $egreso = json_decode($_POST["egreso"], true);
@@ -36,7 +36,7 @@
     }
 
     if($_POST['editar'] == 'datos-boleta'){
-        $controlador = new editarBoletaController();
+        $controlador = new EditarBoletaController();
         
         $datosBoleta =  array();
         $datosBoleta = json_decode($_POST["datosBoleta"], true);
@@ -47,7 +47,7 @@
     }
 
     if($_POST['editar'] == 'salud'){
-        $controlador = new editarBoletaController();
+        $controlador = new EditarBoletaController();
         
         $salud =  array();
         $salud = json_decode($_POST["salud"], true);
@@ -58,7 +58,7 @@
     }
 
     if($_POST['editar'] == 'recreacion'){
-        $controlador = new editarBoletaController();
+        $controlador = new EditarBoletaController();
         
         $recreacion =  array();
         $recreacion = json_decode($_POST["recreacion"], true);
@@ -69,7 +69,7 @@
     }
 
     if($_POST['editar'] == 'vivienda'){
-        $controlador = new editarBoletaController();
+        $controlador = new EditarBoletaController();
         
         $vivienda =  array();
         $vivienda = json_decode($_POST["vivienda"], true);
@@ -80,7 +80,7 @@
     }
 
     if($_POST['editar'] == 'persona'){
-        $controlador = new editarBoletaController();
+        $controlador = new EditarBoletaController();
         
         $persona =  array();
         $persona = json_decode($_POST["persona"], true);

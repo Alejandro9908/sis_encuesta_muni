@@ -4,42 +4,35 @@
    include_once 'views/layout/sidebar.php';
    include_once 'views/layout/topbar.php';
    include_once 'controllers/reportePoblacionController.php';
-   include_once 'controllers/enfermedadController.php';
-   include_once 'controllers/discapacidadController.php';
+   include_once 'controllers/opcionesController.php';
 
    $id_persona = $_GET['id_persona'];
    if(!filter_var($id_persona,FILTER_VALIDATE_INT)){
      die('Error');
    }
 
-   $controlador = new reportePoblacionController();
-   $controladorDiscapacidad = new discapacidadController();
-   $controladorEnfermedad = new enfermedadController();
+   $controlador = new ReportePoblacionController();
+   $controladorOpciones = new OpcionController();
 
-   
-   
-   
    $personas = array();
    $personas = $controlador->buscarPersona($id_persona);
    $dis = $controlador->buscarDiscapacidad($id_persona);
    $enf = $controlador->buscarEnfermedades($id_persona);
    
    $enfermedad = array();
-   $enfermedad = $controladorEnfermedad->listarSelect();
+   $enfermedad = $controladorOpciones->listarSelect("SELECT * FROM tbl_enfermedad ORDER BY nombre ASC");
    
    $discapacidad = array();
-   $discapacidad = $controladorDiscapacidad->listarSelect();
+   $discapacidad = $controladorOpciones->listarSelect("SELECT * FROM tbl_discapacidad ORDER BY nombre ASC");
 
    if ( count($personas) > 0 ){
        $personas = $personas[0];
    }
-//    var_dump$personas);
-//    die();
 
    $persona_json = json_encode($personas);
-//    var_dump($persona_json);
-//    die();
 
+   date_default_timezone_set('America/Guatemala');
+   $hoy = date('Y-m-d');
 ?>
 
 <script>
@@ -62,7 +55,7 @@
         <div class="box color-light">
                 <div class="box-header">
                     <h2>Datos de la persona</h2>
-                    <form role="form" name="edit-form-persona" id="edit-form-persona" method="POST"
+                    <form role="form" aria-label="editar persona" name="edit-form-persona" id="edit-form-persona" method="POST"
                         action="prueba.php">
                     <div>
                         <a href="showPersona.php?id_persona=<?php echo $id_persona?>" class="btn color-danger text-light"><i class="las la-times"></i></a>
@@ -70,18 +63,18 @@
                 </div>
                 <!--Formulario persona-->
                 <div class="form-container">
-                    <form role="form" name="edit-form-persona" id="edit-form-persona" method="POST"
+                    <form role="form" aria-label="editar persona" name="edit-form-persona" id="edit-form-persona" method="POST"
                         action="controllers/prueba.php">
                         <input type="hidden" id="txt_entrevistado-edit" name="txt_entrevistado-edit" value="<?php echo $personas['entrevistado']; ?>">
                         <div class="form-row-4">
                             <div class="form-item">
-                            <label for="txt_nombres" class="text-gray">Nombres</label>
+                            <label for="txt_nombres" class="text-gray">Nombres <span style="color: red;">*</span></label>
                                 <input type="text" id="txt_nombres" name="txt_nombres" required 
                                     value="<?php echo $personas['nombres']; ?>" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_primer_apellido" class="text-gray">Primer apellido</label>
+                                <label for="txt_primer_apellido" class="text-gray">Primer apellido <span style="color: red;">*</span></label>
                                 <input type="text" id="txt_primer_apellido" name="txt_primer_apellido" required
                                     value="<?php echo $personas['primer_apellido']; ?>" class="form-control"
                                     placeholder="">
@@ -93,7 +86,7 @@
                                     placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_sexo" class="text-gray">Sexo</label>
+                                <label for="txt_sexo" class="text-gray">Sexo <span style="color: red;">*</span></label>
                                 <select required class="form-control" name="txt_sexo" id="txt_sexo">
                                     <option value="" disabled selected>Seleccione una opción</option> 
                                     <option value="M" <?= $personas['sexo'] == 'M' ? 'selected' : '' ?>>Masculino</option>
@@ -102,7 +95,7 @@
                             </div>
                             
                             <div class="form-item" id="div-fecha-nacimiento">
-                                <label for="txt_fecha_nacimiento-edit" class="text-gray">Fecha de nacimiento</label>
+                                <label for="txt_fecha_nacimiento-edit" class="text-gray">Fecha de nacimiento <span style="color: red;">*</span></label>
                                 <input type="date" id="txt_fecha_nacimiento-edit" name="txt_fecha_nacimiento-edit" value="<?= $personas['fecha_nacimiento'] ?>"
                                     class="form-control" placeholder="" max="<?php echo $hoy ?>">
                             </div>
@@ -119,13 +112,13 @@
                             <?php } ?>
                             
                             <div class="form-item">
-                                <label for="txt_dpi" class="text-gray">DPI</label>
+                                <label for="txt_dpi" class="text-gray">DPI <span style="color: red;">*</span></label>
                                 <input type="text" id="txt_dpi" name="txt_dpi" required 
                                     value="<?php echo $personas['dpi']; ?>" class="form-control"
                                     placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_estado_civil" class="text-gray">Estado Civil</label>
+                                <label for="txt_estado_civil" class="text-gray">Estado Civil <span style="color: red;">*</span></label>
                                 <select required class="form-control" name="txt_estado_civil" id="txt_estado_civil">
                                     <option value="" disabled selected>Seleccione una opción</option>    
                                     <option value="soltero" <?= $personas['estado_civil'] == 'soltero' ? 'selected' : '' ?>>Soltero(a)</option>
@@ -136,7 +129,7 @@
                                 </select>
                             </div>
                             <div class="form-item">
-                                <label for="txt_escolaridad" class="text-gray">Escolaridad</label>
+                                <label for="txt_escolaridad" class="text-gray">Escolaridad <span style="color: red;">*</span></label>
                                 <select required class="form-control" name="txt_escolaridad" id="txt_escolaridad">
                                     <option value="" disabled selected>Seleccione una opción</option>
                                     <option value="sin estudios" <?= $personas['escolaridad'] == 'sin estudios' ? 'selected' : '' ?>>Sin estudio</option>
@@ -171,7 +164,7 @@
                                     placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual</label>
+                                <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual <span style="color: red;">*</span></label>
                                 <input type="text" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required 
                                     value="<?php echo $personas['ingreso_mensual']; ?>" class="form-control"
                                     placeholder="" min="0.00">

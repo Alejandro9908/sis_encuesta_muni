@@ -2,7 +2,7 @@
 include_once ($_SERVER['DOCUMENT_ROOT'].'/models/opcion.php');
 include_once ('conexion.php');
 
-class sectorController{
+class SectorController{
 
     public function contarRegistros($buscar){
 
@@ -19,7 +19,7 @@ class sectorController{
             return $registro->total_registros;
         }catch(Exception $e)
         {
-            echo 'Error '. $e;
+            echo $e;
         }
 
     }
@@ -50,7 +50,7 @@ class sectorController{
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -58,7 +58,7 @@ class sectorController{
     {
         try{
             $conexion = new Conexion();
-            $resultado = array();
+            
             $sql = $conexion->pdo->prepare("SELECT * FROM tbl_sector WHERE id_sector = ?;");
             $sql->execute(array($id));
 
@@ -71,13 +71,10 @@ class sectorController{
             $o->set('descripcion', $registro->descripcion);
 
             return $o;
-
-
-            return $resultado;
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -98,7 +95,7 @@ class sectorController{
         }
         catch (Exception $e)
         {
-            echo "error";
+            echo $e;
         }
     }
 
@@ -121,7 +118,7 @@ class sectorController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -140,7 +137,7 @@ class sectorController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 

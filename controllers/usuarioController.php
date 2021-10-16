@@ -5,7 +5,7 @@ include_once (MODEL_PATH.'usuario.php');
 include_once (MODEL_PATH.'rol.php');
 include_once ('conexion.php');
 
-class usuarioController{
+class UsuarioController{
    
     public function contarRegistros($buscar){
 
@@ -22,7 +22,7 @@ class usuarioController{
             return $registro->total_registros;
         }catch(Exception $e)
         {
-            echo 'Error '. $e;
+            echo $e;
         }
         
     }
@@ -56,7 +56,7 @@ class usuarioController{
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -65,7 +65,6 @@ class usuarioController{
     {
         try{
             $conexion = new Conexion();
-            $resultado = array();
             $sql = $conexion->pdo->prepare("SELECT id_usuario, nombre, usuario, rol, estado, fecha_commit, fecha_update FROM tbl_usuario WHERE id_usuario = ?;");
             $sql->execute(array($id));
 
@@ -82,13 +81,10 @@ class usuarioController{
             $u->set('fecha_update', $registro->fecha_update);
                 
             return $u;
-            
-
-            return $resultado;
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -111,7 +107,7 @@ class usuarioController{
         }
         catch (Exception $e)
         {
-            echo "error";
+            echo $e;
         }
     }
 
@@ -135,7 +131,7 @@ class usuarioController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -156,7 +152,7 @@ class usuarioController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -175,7 +171,7 @@ class usuarioController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -194,7 +190,7 @@ class usuarioController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -230,7 +226,7 @@ class usuarioController{
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -258,7 +254,7 @@ class usuarioController{
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 

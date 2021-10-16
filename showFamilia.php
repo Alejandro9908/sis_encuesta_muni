@@ -10,7 +10,7 @@
     include_once 'views/layout/topbar.php';
     include_once 'controllers/reporteFamiliaController.php';
 
-    $controlador = new reporteFamiliaController();
+    $controlador = new ReporteFamiliaController();
     $personas = array();
     $personas = $controlador->buscarPersonas($id_familia);
 
@@ -52,6 +52,8 @@
 
     date_default_timezone_set('America/Guatemala');
     $hoy = new DateTime();
+
+    $vinieta = "&nbsp;●&nbsp;&nbsp;";
     
 
 ?>
@@ -62,7 +64,7 @@
     <div class="box-header">
         <h2>Datos de la boleta</h2>
         <div>
-        <a href="imprimirBoleta.php?id_familia=<?php echo $id_familia ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir Boleta</a>
+        <a rel="noopener" href="imprimirBoleta.php?id_familia=<?php echo $id_familia ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir Boleta</a>
         </div>    
     </div>
     <!--Termina content-heaer-->
@@ -83,16 +85,16 @@
                     <h3>Entrevistado</h3>
                     <table class="table tabla-normal-ancho">
                         <thead>
-                            <td>ID</td>
-                            <td>NOMBRE</td>
-                            <td>DPI</td>
-                            <td>SEXO</td>
-                            <td>FECHA NACIMIENTO</td>
-                            <td>EDAD</td>
-                            <td>ESTADO CIVIL</td>
-                            <td>ESCOLARIDAD</td>
-                            <td>TELÉFONO</td>
-                            <td>OCUPACIÓN</td>
+                            <th scope="col">ID</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">DPI</th>
+                            <th scope="col">SEXO</th>
+                            <th scope="col">FECHA NACIMIENTO</th>
+                            <th scope="col">EDAD</th>
+                            <th scope="col">ESTADO CIVIL</th>
+                            <th scope="col">ESCOLARIDAD</th>
+                            <th scope="col">TELÉFONO</th>
+                            <th scope="col">OCUPACIÓN</th>
                         </thead>
                         <tbody>
                             <?php 
@@ -131,17 +133,17 @@
                     <h3>Miembros de la familia</h3>
                     <table class="table tabla-normal-ancho">
                         <thead>
-                            <td>ID</td>
-                            <td>NOMBRE</td>
-                            <td>DPI</td>
-                            <td>SEXO</td>
-                            <td>PARENTESCO</td>
-                            <td>FECHA NACIMIENTO</td>
-                            <td>EDAD</td>
-                            <td>ESTADO CIVIL</td>
-                            <td>ESCOLARIDAD</td>
-                            <td>TELÉFONO</td>
-                            <td>OCUPACIÓN</td>
+                            <th scope="col">ID</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">DPI</th>
+                            <th scope="col">SEXO</th>
+                            <th scope="col">PARENTESCO</th>
+                            <th scope="col">FECHA NACIMIENTO</th>
+                            <th scope="col">EDAD</th>
+                            <th scope="col">ESTADO CIVIL</th>
+                            <th scope="col">ESCOLARIDAD</th>
+                            <th scope="col">TELÉFONO</th>
+                            <th scope="col">OCUPACIÓN</th>
                         </thead>
                         <tbody>
                             <?php 
@@ -190,8 +192,6 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
-                    <form role="form" name="add-form-2" id="add-form-2" method="POST"
-                        action="controllers/boletaProcesos.php">
                         <div class="form-row-2">
                             <div class="form-item">
                                 <label for="txt_sector" class="text-gray">Sector</label>
@@ -246,12 +246,11 @@
                                     domicilio</label>
                                 <ul class="form-control-2 listas">
                                     <?php foreach ($domicilio['transportes'] as $t){ ?>
-                                    <li> <?php echo "&nbsp;●&nbsp;&nbsp;".$t['transporte']; ?> </li>
+                                    <li> <?php echo $vinieta.$t['transporte']; ?> </li>
                                     <?php } ?>
                                 </ul>
                             </div>
                         </div>
-                    </form>
                 </div>
 
 
@@ -266,9 +265,9 @@
                             <h2>3. Ingresos</h2>
                             <table class="table" style="width: 100%;">
                                 <thead>
-                                    <td>ID</td>
-                                    <td>NOMBRE</td>
-                                    <td>CANTIDAD</td>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">NOMBRE</th>
+                                    <th scope="col">CANTIDAD</th>
                                 </thead>
                                 <tbody>
                                     <?php 
@@ -306,9 +305,9 @@
                             </div>
                             <table class="table" style="width: 100%;">
                                 <thead>
-                                    <td>ID</td>
-                                    <td>TIPO</td>
-                                    <td>CANTIDAD</td>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">TIPO</th>
+                                    <th scope="col">CANTIDAD</th>
                                 </thead>
                                 <tbody>
                                     <?php 
@@ -355,8 +354,6 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
-                    <form role="form" name="add-form-4" id="add-form-4" method="POST"
-                        action="controllers/boletaProcesos.php">
                         <div class="form-row-3">
                             <div class="form-item">
                                 <label for="txt_tenencia" class="text-gray">Tenencia:</label>
@@ -448,7 +445,7 @@
                                 <label for="txt_mobiliario" class="text-gray">Mobiliario y equipo</label>
                                 <ul class="form-control-2 listas">
                                     <?php foreach ($vivienda['mobiliarios'] as $t){ ?>
-                                    <li> <?php echo "&nbsp;●&nbsp;&nbsp;".$t['mobiliario']; ?> </li>
+                                    <li> <?php echo $vinieta.$t['mobiliario']; ?> </li>
                                     <?php } ?>
                                 </ul>
                             </div>
@@ -456,12 +453,11 @@
                                 <label for="txt_servicio_basico" class="text-gray">Servicio básico</label>
                                 <ul class="form-control-2 listas">
                                     <?php foreach ($vivienda['servicios'] as $t){ ?>
-                                    <li> <?php echo "&nbsp;●&nbsp;&nbsp;".$t['servicio']; ?> </li>
+                                    <li> <?php echo $vinieta.$t['servicio']; ?> </li>
                                     <?php } ?>
                                 </ul>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
             <!--termina vivienda-->
@@ -475,8 +471,6 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
-                    <form role="form" name="add-form-5" id="add-form-5" method="POST"
-                        action="controllers/boletaProcesos.php">
                         <div class="form-row-2">
                             <div class="form-item">
                                 <label for="txt_servicio_medico" class="text-gray">Servicio médico:</label>
@@ -500,9 +494,9 @@
                                 <h3>Mujeres en estado de gestación</h3>
                                 <table class="table" style="width: 100%;">
                                     <thead>
-                                        <td>ID</td>
-                                        <td>NOMBRE</td>
-                                        <td>SEMANAS DE GESTACIÓN</td>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">NOMBRE</th>
+                                        <th scope="col">SEMANAS DE GESTACIÓN</th>
                                     </thead>
                                     <tbody>
                                         <?php 
@@ -529,9 +523,9 @@
                                 <h3>Personas con enfermedad</h3>
                                 <table class="table" style="width: 100%;">
                                     <thead>
-                                        <td>ID</td>
-                                        <td>NOMBRE</td>
-                                        <td>ENFERMEDADES</td>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">NOMBRE</th>
+                                        <th scope="col">ENFERMEDADES</th>
                                     </thead>
                                     <tbody>
                                         <?php 
@@ -561,9 +555,9 @@
                                 <h3>Personas con discapacidad</h3>
                                 <table class="table" style="width: 100%;">
                                     <thead>
-                                        <td>ID</td>
-                                        <td>NOMBRE</td>
-                                        <td>DISCAPACIDADES</td>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">NOMBRE</th>
+                                        <th scope="col">DISCAPACIDADES</th>
                                     </thead>
                                     <tbody>
                                         <?php 
@@ -589,7 +583,6 @@
                             </div>
                             <?php } ?>
                         </div>
-                    </form>
                 </div>
             </div>
             <!--termina salud-->
@@ -603,15 +596,13 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
-                    <form role="form" name="add-form-5" id="add-form-5" method="POST"
-                        action="controllers/boletaProcesos.php">
                         <div class="form-row-1">
                             <div>
                                 <table class="table" style="width: 100%;">
                                     <thead>
-                                        <td>NO.</td>
-                                        <td>TIPO DE ALIMENTACIÓN</td>
-                                        <td>FRECUENCIA</td>
+                                        <th scope="col">NO.</th>
+                                        <th scope="col">TIPO DE ALIMENTACIÓN</th>
+                                        <th scope="col">FRECUENCIA</th>
                                     </thead>
                                     <tbody>
                                         <?php 
@@ -646,13 +637,11 @@
                             </div>
                         </div>
                         <br>
-                    </form>
                 </div>
             </div>
             <!--termina alimentacion-->
 
-            <!--empieza recreaciones-->
-            
+            <!--empieza recreaciones-->         
             <div class="box color-light" id="div-recreaciones">
                 <div class="box-header">
                     <h2>8. Recreaciones</h2>
@@ -661,14 +650,12 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
-                    <form role="form" name="add-form-5" id="add-form-5" method="POST"
-                        action="controllers/boletaProcesos.php">
                         <div class="form-row-1">
                             <div>
                                 <table class="table" style="width: 100%;">
                                     <thead>
-                                        <td>ID</td>
-                                        <td>RECREACIÓN</td>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">RECREACIÓN</th>
                                     </thead>
                                     <tbody>
                                         <?php 
@@ -687,10 +674,8 @@
                             </div>
                         </div>
                         <br>
-                    </form>
                 </div>
             </div>
-     
             <!--termina recreaciones-->
 
             <!--empieza datos boleta-->
@@ -702,8 +687,6 @@
                     </div>
                 </div>
                 <div class="form-contaniter">
-                    <form role="form" name="add-form-4" id="add-form-4" method="POST"
-                        action="controllers/boletaProcesos.php">
                         <div class="form-row-1">
                             <div class="form-item">
                                 <label for="txt_observaciones_boleta" class="text-gray">Observaciones:</label>
@@ -729,8 +712,6 @@
                                     placeholder="">
                             </div>
                         </div>
- 
-                    </form>
                 </div>
             </div>
             <!--termina datos boleta-->

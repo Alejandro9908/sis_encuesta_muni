@@ -5,7 +5,7 @@
     include_once 'views/layout/topbar.php';
     include_once 'controllers/comunidadController.php';
     include_once 'controllers/sectorController.php';
-    $controlador = new comunidadController();
+    $controlador = new ComunidadController();
 
     
     $sectores = array();
@@ -15,8 +15,11 @@
 
 
 <div class="content-wrapper">
-    <div class="content-header">
+    <div class="box-header">
         <h2>Comunidades</h2>
+        <div>
+            <p style="font-size: small; color: red;">* Campo Obligatorio</p>
+        </div>
     </div>
     <!--Termina content-heaer-->
 
@@ -25,6 +28,7 @@
             <div class="box color-light">
                 <div class="box-header">
                     <h2>Nueva Comunidad</h2>
+                    
                     <div>
                         <a href="indexComunidad.php" class="btn color-danger text-light"><i class="las la-times"></i></a>
                     </div>   
@@ -33,7 +37,7 @@
                     <form role="form" name="crearComunidad" id="crearComunidad" method="POST" action="controllers/comunidadProcesos.php">
                         <div class="form-row-2">
                             <div class="form-item">
-                                <label for="txt_nombre" class="text-gray">Nombre </label>
+                                <label for="txt_nombre" class="text-gray">Nombre <span style="color: red;">*</span></label>
                                 <input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"
                                 placeholder="Ingresar nombre">
                             </div>
@@ -43,8 +47,8 @@
                                 placeholder="Ingrese una descripcion">
                             </div>
                             <div class="form-item">
-                            <label for="txt_tipo" class="text-gray">Tipo</label>
-                                <select class="form-control" name="txt_tipo" id="txt_tipo">
+                            <label for="txt_tipo" class="text-gray">Tipo <span style="color: red;">*</span></label>
+                                <select class="form-control" name="txt_tipo" id="txt_tipo" required>
                                     <option value="barrio">Barrio</option>
                                     <option value="colonia">Colonia</option>
                                     <option value="lotificacion">Lotificacion</option>
@@ -54,8 +58,8 @@
                             </div>
                             
                             <div class="form-item">
-                                <label for="txt_rol" class="text-gray">Sector</label>
-                                <select class="form-control" name="txt_sector" id="txt_sector">
+                                <label for="txt_rol" class="text-gray">Sector <span style="color: red;">*</span></label>
+                                <select class="form-control" name="txt_sector" id="txt_sector" required>
                                   
                                     <?php 
                                     foreach ($sectores as $s){

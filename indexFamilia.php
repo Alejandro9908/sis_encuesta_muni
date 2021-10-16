@@ -8,7 +8,7 @@
     include_once ('views/layout/topbar.php');
     include_once ('controllers/reporteFamiliaController.php');
     
-    $controlador = new reporteFamiliaController();
+    $controlador = new ReporteFamiliaController();
 
     if(!isset($_GET['b'])){
         $_GET['b'] = "";
@@ -57,17 +57,17 @@
                 </form>
                 <table class="table tabla-normal-ancho">
                     <thead>
-                        <td>ID FAMILIA</td>
-                        <td>ENTREVISTADO</td>
-                        <td>DPI</td>
-                        <td>TELÉFONO CELULAR</td>
-                        <td>TELÉFONO DOMICILIAR</td>
-                        <td>NÚMERO CASA</td>
-                        <td>DIRECCIÓN</td>
-                        <td>COMUNIDAD</td>
-                        <td>SECTOR</td>
-                        <td>TENENCIA</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID FAMILIA</th>
+                        <th scope="col">ENTREVISTADO</th>
+                        <th scope="col">DPI</th>
+                        <th scope="col">TELÉFONO CELULAR</th>
+                        <th scope="col">TELÉFONO DOMICILIAR</th>
+                        <th scope="col">NÚMERO CASA</th>
+                        <th scope="col">DIRECCIÓN</th>
+                        <th scope="col">COMUNIDAD</th>
+                        <th scope="col">SECTOR</th>
+                        <th scope="col">TENENCIA</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 

@@ -1,6 +1,4 @@
 <?php 
-    //include ("constantes.php");
-
     include_once ('routes.php');
     include_once ("controllers/sesiones.php");
     include_once 'views/layout/header.php';
@@ -8,7 +6,7 @@
     include_once 'views/layout/topbar.php';
     include_once ('controllers/conteoController.php');
 
-    $controlador = new conteoController();
+    $controlador = new ConteoController();
 
     if(!isset($_GET['sector'])){
         $_GET['sector'] = "%%";
@@ -67,11 +65,11 @@
                 <div class="box-header">
                     <h3>Buscar</h3>
                     <div>
-                        <a href="imprimirConteo.php?sector=<?php echo $sector ?>&comunidad=<?php echo $comunidad ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir</a>
+                        <a rel="noopener" href="imprimirConteo.php?sector=<?php echo $sector ?>&comunidad=<?php echo $comunidad ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir</a>
                     </div> 
                 </div>
                 <div class="form-contaniter">
-                    <form role="form" name="buscar-index" id="buscar-index" method="POST"
+                    <form role="form" aria-label="buscar por filtros" name="buscar-index" id="buscar-index" method="POST"
                         action="controllers/boletaProcesos.php">
                         <div class="form-row-2">
                             <div class="form-item">
@@ -91,8 +89,6 @@
                 </div>
             </div>
             <div class="form-contaniter">
-                <form role="form" name="buscar-index" id="buscar-index" method="POST"
-                    action="controllers/boletaProcesos.php">
                     <div class="form-row-2">
                         <div class="content-header">
                             <h2>Sector: <?php if($sector == "%%"){echo "Todos";}else{echo $sector;} ?></h2>
@@ -101,7 +97,6 @@
                             <h2>Comunidad: <?php echo $nombre_comunidad;?></h2>
                         </div>
                     </div>
-                </form>
             </div>
 
         </div>
@@ -163,13 +158,12 @@
             <div class="box scroll color-light">
                 <div class="box-header">
                     <h3>Edades</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
 
                 <table class="table">
                     <thead>
-                        <td>RANGO</td>
-                        <td>RESULTADO</td>
+                        <th scope="col">RANGO</th>
+                        <th scope="col">RESULTADO</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -193,14 +187,13 @@
             <div class="box color-light">
                 <div class="box-header">
                     <h3>Enfermedades</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
                 <table class="table table-2">
                     <thead>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>RESULTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -228,15 +221,14 @@
             <div class="box scroll color-light">
                 <div class="box-header">
                     <h3>Discapacidades</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
 
                 <table class="table">
                     <thead>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>RESULTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -264,14 +256,13 @@
             <div class="box scroll color-light">
                 <div class="box-header">
                     <h3>Estado Civil</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
 
                 <table class="table">
                     <thead>
-                        <td>NOMBRE</td>
-                        <td>RESULTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -298,14 +289,13 @@
             <div class="box scroll color-light">
                 <div class="box-header">
                     <h3>Escolaridad</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
 
                 <table class="table">
                     <thead>
-                        <td>NOMBRE</td>
-                        <td>RESULTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -332,14 +322,13 @@
             <div class="box scroll color-light">
                 <div class="box-header">
                     <h3>Ocupación</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
 
                 <table class="table">
                     <thead>
-                        <td>NOMBRE</td>
-                        <td>RESULTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -366,14 +355,13 @@
             <div class="box color-light">
                 <div class="box-header">
                     <h3>Recreación y uso del tiempo familiar</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
                 <table class="table table-2">
                     <thead>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>RESULTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -401,14 +389,13 @@
             <div class="box color-light">
                 <div class="box-header">
                     <h3>Servicios médicos</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
                 <table class="table table-2">
                     <thead>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>RESULTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -437,14 +424,14 @@
             <div class="box color-light">
                 <div class="box-header">
                     <h3>Tenencia de la vivienda</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
+
                 </div>
                 <table class="table table-2">
                     <thead>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>RESULTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 
@@ -472,14 +459,13 @@
             <div class="box color-light">
                 <div class="box-header">
                     <h3>Servicios básicos de las viviendas</h3>
-                    <!--<a href="#" class="btn color-info">Ver todo</a>-->
                 </div>
                 <table class="table table-2">
                     <thead>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>RESULTADO</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 

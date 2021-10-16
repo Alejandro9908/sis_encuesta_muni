@@ -3,7 +3,7 @@ include ($_SERVER['DOCUMENT_ROOT']."/constantes.php");
 include_once ($_SERVER['DOCUMENT_ROOT'].'/routes.php');
 include_once ('conexion.php');
 
-class reportePoblacionController{
+class ReportePoblacionController{
    
     public function contarRegistros($buscar){
 
@@ -27,7 +27,7 @@ class reportePoblacionController{
             return $registro->total_registros;
         }catch(Exception $e)
         {
-            echo 'Error '. $e;
+            echo $e;
         }
         
     }
@@ -77,7 +77,7 @@ class reportePoblacionController{
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -85,7 +85,7 @@ class reportePoblacionController{
     {
         try{
             $conexion = new Conexion();
-            $resultado = array();
+
             $sql = $conexion->pdo->prepare("SELECT * FROM tbl_comunidad WHERE id_comunidad = ?;");
             $sql->execute(array($id));
 
@@ -102,11 +102,11 @@ class reportePoblacionController{
             return $c;
 
 
-            return $resultado;
+        
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -131,11 +131,9 @@ class reportePoblacionController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
-
-  
 
     public function eliminar($id)
     {
@@ -152,7 +150,7 @@ class reportePoblacionController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -209,7 +207,7 @@ class reportePoblacionController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -242,7 +240,7 @@ class reportePoblacionController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -275,7 +273,7 @@ class reportePoblacionController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
