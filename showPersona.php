@@ -4,41 +4,32 @@
    include_once 'views/layout/sidebar.php';
    include_once 'views/layout/topbar.php';
    include_once 'controllers/reportePoblacionController.php';
-   include_once 'controllers/enfermedadController.php';
-   include_once 'controllers/discapacidadController.php';
+   include_once 'controllers/opcionesController.php';
 
    $id_persona = $_GET['id_persona'];
    if(!filter_var($id_persona,FILTER_VALIDATE_INT)){
      die('Error');
    }
 
-   $controlador = new reportePoblacionController();
-   $controladorDiscapacidad = new discapacidadController();
-   $controladorEnfermedad = new enfermedadController();
+   $controlador = new ReportePoblacionController();
+   $controladorOpciones = new OpcionController();
 
-   
-   
-   
    $personas = array();
    $personas = $controlador->buscarPersona($id_persona);
    $dis = $controlador->buscarDiscapacidad($id_persona);
    $enf = $controlador->buscarEnfermedades($id_persona);
    
    $enfermedad = array();
-   $enfermedad = $controladorEnfermedad->listarSelect();
+   $enfermedad = $controladorOpciones->listarSelect("SELECT * FROM tbl_enfermedad ORDER BY nombre ASC");
    
    $discapacidad = array();
-   $discapacidad = $controladorDiscapacidad->listarSelect();
+   $discapacidad = $controladorOpciones->listarSelect("SELECT * FROM tbl_discapacidad ORDER BY nombre ASC");
 
    if ( count($personas) > 0 ){
        $personas = $personas[0];
    }
-//    var_dump$personas);
-//    die();
 
    $persona_json = json_encode($personas);
-//    var_dump($persona_json);
-//    die();
 
 date_default_timezone_set('America/Guatemala');
 $hoy = new DateTime();
@@ -71,7 +62,7 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
                         <a href="showFamilia.php?id_familia=<?php echo $personas['id_familia']; ?>" class="btn color-warning">Ver Boleta</a>
                         <a href="editPersona.php?id_persona=<?php echo $personas['id_persona']; ?>"
                                         class="btn color-primary">Editar</a>
-                        <a href="imprimirPersona.php?id_persona=<?php echo $personas['id_persona']; ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir</a>
+                        <a rel="noopener" href="imprimirPersona.php?id_persona=<?php echo $personas['id_persona']; ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir</a>
                         
                     </div>
                 </div>
@@ -183,8 +174,8 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
                                 <h3>Enfermedades</h3>
                                 <table class="table" style="width: 100%;">
                                     <thead>
-                                        <td>ID</td>
-                                        <td>ENFERMEDADES</td>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">ENFERMEDADES</th>
                                     </thead>
                                     <tbody>
                                         <?php 
@@ -206,8 +197,8 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
                                 <h3>Personas con discapacidad</h3>
                                 <table class="table" style="width: 100%;">
                                     <thead>
-                                        <td>ID</td>
-                                        <td>DISCAPACIDADES</td>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">DISCAPACIDADES</th>
                                     </thead>
                                     <tbody>
                                         <?php 

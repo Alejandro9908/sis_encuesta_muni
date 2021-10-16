@@ -9,7 +9,7 @@
     include_once 'views/layout/topbar.php';
     include_once 'controllers/usuarioController.php';
 
-    $controlador = new usuarioController();
+    $controlador = new UsuarioController();
 
     $resultado = $controlador->buscarUsuario($id);
 ?>

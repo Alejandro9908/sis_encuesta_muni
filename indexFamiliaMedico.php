@@ -9,8 +9,8 @@
     include_once ('controllers/familiaController.php');
     include_once ('controllers/comunidadController.php');
     
-    $controlador = new familiaController();
-    $controladorComunidad = new comunidadController();
+    $controlador = new FamiliaController();
+    $controladorComunidad = new ComunidadController();
 
     if(!isset($_GET['b'])){
         $_GET['b'] = "";
@@ -69,7 +69,7 @@
                 </div>
                 <?php if($sector == "%%"){ $sectorMostrar = "Todos";}else{$sectorMostrar = $sector;} ?>
                 <?php if($comunidad == "%%"){ $comunidadMostrar = "Todos";}else{$comunidadMostrar = $comunidad;} ?>
-                <p style="font-size: small; margin-top: -20px;"> 🡢 <b>Sector:</b> <?= $sectorMostrar ?> 🡢 <b>Comunidad:</b> <?= $comunidadInfo['nombre'] ?> 🡢 <b>Servicio Medico: </b><?= $data ?></p>
+                <p style="font-size: small; margin-top: -20px;"> 🡢 <strong>Sector:</strong> <?= $sectorMostrar ?> 🡢 <strong>Comunidad:</strong> <?= $comunidadInfo['nombre'] ?> 🡢 <strong>Servicio Medico: </strong><?= $data ?></p>
                 <br>
                 <form role="form" name="buscar" id="buscar" method="GET" action="indexFamiliaMedico.php" class="search">
                     <label>
@@ -84,17 +84,17 @@
                 </form>
                 <table class="table tabla-normal-ancho">
                     <thead>
-                        <td>ID FAMILIA</td>
-                        <td>ENTREVISTADO</td>
-                        <td>DPI</td>
-                        <td>TELEFONO CELULAR</td>
-                        <td>TELEFONO DOMICILIAR</td>
-                        <td>NUMERO CASA</td>
-                        <td>DIRECCION</td>
-                        <td>COMUNIDAD</td>
-                        <td>SECTOR</td>
-                        <td>TENENCIA</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID FAMILIA</th>
+                        <th scope="col">ENTREVISTADO</th>
+                        <th scope="col">DPI</th>
+                        <th scope="col">TELEFONO CELULAR</th>
+                        <th scope="col">TELEFONO DOMICILIAR</th>
+                        <th scope="col">NUMERO CASA</th>
+                        <th scope="col">DIRECCION</th>
+                        <th scope="col">COMUNIDAD</th>
+                        <th scope="col">SECTOR</th>
+                        <th scope="col">TENENCIA</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 

@@ -10,24 +10,28 @@
     include_once 'controllers/usuarioController.php';
     include_once 'controllers/reporteFamiliaController.php';
 
-    $controladorAlementacion = new reporteFamiliaController();
+    $controladorAlementacion = new ReporteFamiliaController();
 
     $alimentacion = array();
     $alimentacion = $controladorAlementacion->buscarAlimentacion($id_familia);
-
-    //print_r($alimentacion);
- 
 ?>
 
 
 
 
 <div class="content-wrapper">
+<div class="box-header">
+        <h2>Editar boleta</h2>
+        <div>
+            <p style="font-size: small; color: red;">* Campo Obligatorio</p>
+        </div>
+    </div>
+    <!--Termina content-heaer-->
     <div class="content">
         <div class="row">
             <div class="box color-light">
                 <div class="box-header">
-                    <h2>Editar boleta: Alimentación</h2>
+                    <h2>7. Alimentación</h2>
                     <div>
                         <a href="showFamilia.php?id_familia=<?php echo $id_familia ?>" class="btn color-danger text-light"><i class="las la-times"></i></a>
                     </div>   
@@ -37,7 +41,7 @@
                         action="controllers/prueba.php">
                     <div class="form-row-4">
                         <div class="form-item">
-                            <label for="txt_carne_res" class="text-gray">Carne de res</label>
+                            <label for="txt_carne_res" class="text-gray">Carne de res <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_carne_res" id="txt_carne_res">
                                 <option value="4" <?php if($alimentacion['carne de res'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['carne de res'] == 3){?> selected <?php } ?>>Cada tres días</option>
@@ -47,7 +51,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_carne_pollo" class="text-gray">Carne de pollo</label>
+                            <label for="txt_carne_pollo" class="text-gray">Carne de pollo <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_carne_pollo" id="txt_carne_pollo">
                                 <option value="4" <?php if($alimentacion['carne de pollo'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['carne de pollo'] == 3){?> selected <?php } ?>>Cada tres días</option>
@@ -57,7 +61,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_carne_cerdo" class="text-gray">Carne de cerdo</label>
+                            <label for="txt_carne_cerdo" class="text-gray">Carne de cerdo <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_carne_cerdo" id="txt_carne_cerdo">
                                 <option value="4" <?php if($alimentacion['carne de cerdo'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['carne de cerdo'] == 3){?> selected <?php } ?>>Cada tres días</option>
@@ -67,7 +71,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_carne_pescado" class="text-gray">Carne de pescado</label>
+                            <label for="txt_carne_pescado" class="text-gray">Carne de pescado <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_carne_pescado" id="txt_carne_pescado">
                                 <option value="4" <?php if($alimentacion['carne de pescado'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['carne de pescado'] == 3){?> selected <?php } ?>>Cada tres días</option>
@@ -77,7 +81,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_leche" class="text-gray">Leche</label>
+                            <label for="txt_leche" class="text-gray">Leche <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_leche" id="txt_leche">
                                 <option value="4" <?php if($alimentacion['leche'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['leche'] == 3){?> selected <?php } ?>>Cada tres días</option>
@@ -87,7 +91,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_cereales" class="text-gray">Cereales</label>
+                            <label for="txt_cereales" class="text-gray">Cereales <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_cereales" id="txt_cereales">
                                 <option value="4" <?php if($alimentacion['cereales'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['cereales'] == 3){?> selected <?php } ?>>Cada tres días</option>
@@ -97,7 +101,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_huevos" class="text-gray">Huevos</label>
+                            <label for="txt_huevos" class="text-gray">Huevos <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_huevos" id="txt_huevos">
                                 <option value="4" <?php if($alimentacion['huevo'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['huevo'] == 3){?> selected <?php } ?>>Cada tres días</option>
@@ -107,7 +111,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_frutas" class="text-gray">Frutas</label>
+                            <label for="txt_frutas" class="text-gray">Frutas <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_frutas" id="txt_frutas">
                                 <option value="4" <?php if($alimentacion['frutas'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['frutas'] == 3){?> selected <?php } ?>>Cada tres días</option>
@@ -117,7 +121,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_verduras" class="text-gray">Verduras</label>
+                            <label for="txt_verduras" class="text-gray">Verduras <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_verduras" id="txt_verduras">
                                 <option value="4" <?php if($alimentacion['verduras'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['verduras'] == 3){?> selected <?php } ?>>Cada tres días</option>
@@ -127,7 +131,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_leguminosas" class="text-gray">Leguminosas</label>
+                            <label for="txt_leguminosas" class="text-gray">Leguminosas <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_leguminosas" id="txt_leguminosas">
                                 <option value="4" <?php if($alimentacion['leguminosas'] == 4){?> selected <?php } ?> >Diario</option>
                                 <option value="3" <?php if($alimentacion['leguminosas'] == 3){?> selected <?php } ?>>Cada tres días</option>

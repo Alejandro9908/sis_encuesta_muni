@@ -540,7 +540,6 @@ h6{
     font-size: var(--t6);
     border: none;
     cursor: pointer;
-    border-radius: 2px;
 }
 
 .tabla-normal-ancho{
@@ -553,9 +552,10 @@ h6{
     margin-top: 30px;
 }
 
-.table thead td{
+.table thead th{
     font-weight: 600;
     font-size: var(--t6);
+    text-align: left;
 }
 
 .table tbody tr{
@@ -711,7 +711,6 @@ h6{
 .form-row-1{
     width: 100%;
     position: relative;
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(1,1fr);
     grid-gap: 20px;
@@ -721,7 +720,6 @@ h6{
 .form-row-2{
     width: 100%;
     position: relative;
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-gap: 20px;
@@ -732,7 +730,6 @@ h6{
 .form-row-3{
     width: 100%;
     position: relative;
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-gap: 20px;
@@ -743,7 +740,6 @@ h6{
 .form-row-4{
     width: 100%;
     position: relative;
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 20px;
@@ -753,7 +749,6 @@ h6{
 .form-row-5{
     width: 100%;
     position: relative;
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-gap: 20px;

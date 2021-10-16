@@ -4,7 +4,7 @@ include_once ($_SERVER['DOCUMENT_ROOT'].'/routes.php');
 include_once ($_SERVER['DOCUMENT_ROOT'].'/models/comunidad.php');
 include_once ('conexion.php');
 
-class comunidadController{
+class ComunidadController{
    
     public function contarRegistros($buscar){
 
@@ -21,7 +21,7 @@ class comunidadController{
             return $registro->total_registros;
         }catch(Exception $e)
         {
-            echo 'Error '. $e;
+            echo $e;
         }
         
     }
@@ -57,7 +57,7 @@ class comunidadController{
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -85,7 +85,7 @@ class comunidadController{
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -93,7 +93,6 @@ class comunidadController{
     {
         try{
             $conexion = new Conexion();
-            $resultado = array();
             $sql = $conexion->pdo->prepare("SELECT * FROM tbl_comunidad WHERE id_comunidad = ?;");
             $sql->execute(array($id));
 
@@ -109,12 +108,10 @@ class comunidadController{
 
             return $c;
 
-
-            return $resultado;
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -122,22 +119,17 @@ class comunidadController{
     {
         try{
             $conexion = new Conexion();
-            $resultado = array();
             $sql = $conexion->pdo->prepare("SELECT nombre FROM tbl_comunidad WHERE id_comunidad = ?;");
             $sql->execute(array($id));
 
             $registro = $sql->fetch(PDO::FETCH_ASSOC);
 
-            
-
             return $registro;
 
-
-       
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -160,7 +152,7 @@ class comunidadController{
         }
         catch (Exception $e)
         {
-            echo "error: ".$e;
+            echo $e;
         }
     }
 
@@ -185,7 +177,7 @@ class comunidadController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -204,7 +196,7 @@ class comunidadController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -223,7 +215,7 @@ class comunidadController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -251,7 +243,7 @@ class comunidadController{
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 

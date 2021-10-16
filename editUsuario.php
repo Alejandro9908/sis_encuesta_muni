@@ -9,7 +9,7 @@
     include_once 'views/layout/topbar.php';
     include_once 'controllers/usuarioController.php';
 
-    $controlador = new usuarioController();
+    $controlador = new UsuarioController();
 
     $roles = array();
     $roles = $controlador->listarRoles();
@@ -21,8 +21,11 @@
 
 
 <div class="content-wrapper">
-    <div class="content-header">
+    <div class="box-header">
         <h2>Usuarios</h2>
+        <div>
+            <p style="font-size: small; color: red;">* Campo Obligatorio</p>
+        </div>
     </div>
     <!--Termina content-heaer-->
 
@@ -39,18 +42,18 @@
                     <form role="form" name="editarRegistro" id="editarRegistro" method="POST" action="controllers/usuarioProcesos.php">
                         <div class="form-row-2">
                             <div class="form-item">
-                                <label for="txt_nombre" class="text-gray">Nombre Completo</label>
+                                <label for="txt_nombre" class="text-gray">Nombre Completo <span style="color: red;">*</span></label>
                                 <input type="text" id="txt_nombre" name="txt_nombre" required value="<?php echo $resultado->get('nombre');?>" class="form-control"
                                 placeholder="Ingresar nombre completo">
                             </div>
                             <div class="form-item">
-                                <label  for="txt_usuario" class="text-gray">Usuario</label>
+                                <label  for="txt_usuario" class="text-gray">Usuario <span style="color: red;">*</span></label>
                                 <input type="text" id="txt_usuario" name="txt_usuario" required value="<?php echo $resultado->get('usuario');?>" class="form-control"
                                 placeholder="Nombre de usuario">
                             </div>
                             <div class="form-item">
-                                <label for="txt_rol" class="text-gray">Rol de usuario</label>
-                                <select class="form-control" name="txt_rol" id="txt_rol">
+                                <label for="txt_rol" class="text-gray">Rol de usuario <span style="color: red;">*</span></label>
+                                <select class="form-control" name="txt_rol" id="txt_rol" required>
                                     <?php 
                                     foreach ($roles as $r){
                                     ?>

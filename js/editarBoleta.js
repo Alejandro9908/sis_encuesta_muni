@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('#edit-form-domicilio').submit(function (e){
         e.preventDefault();
         var domicilio = addDomicilio($(this).serializeArray());//domicilio
-        var domicilioJson = JSON.encode(domicilio);
+        var domicilioJson = JSON.stringify(domicilio);
 
         var id_domicilio = $('#edit-form-domicilio #id_vivienda').val(); 
         var editar = $('#edit-form-domicilio #editar').val(); 
@@ -30,7 +30,7 @@ $(document).ready(function(){
     $('#edit-form-alimentacion').submit(function (e){
         e.preventDefault();
         var alimentacion = addAlimentacion($(this).serializeArray());
-        var alimentacionJson = JSON.encode(alimentacion);
+        var alimentacionJson = JSON.stringify(alimentacion);
 
         var id_familia = $('#edit-form-alimentacion #id').val(); 
         var editar = $('#edit-form-alimentacion #editar').val(); 
@@ -52,7 +52,7 @@ $(document).ready(function(){
     $('#edit-form-egreso').submit(function (e){
         e.preventDefault();
         var egreso = addEgresos($(this).serializeArray());
-        var egresoJson = JSON.encode(egreso);
+        var egresoJson = JSON.stringify(egreso);
 
         var id_familia = $('#edit-form-egreso #id').val(); 
         var editar = $('#edit-form-egreso #editar').val(); 
@@ -74,15 +74,11 @@ $(document).ready(function(){
     $('#edit-form-datos-boleta').submit(function (e){
         e.preventDefault();
         var datosBoleta = addObservacion($(this).serializeArray());
-        var datosBoletaJson = JSON.encode(datosBoleta);
+        var datosBoletaJson = JSON.stringify(datosBoleta);
 
         var id_boleta = $('#edit-form-datos-boleta #id').val(); 
         
         var editar = $('#edit-form-datos-boleta #editar').val(); 
-
-        //console.log(id_boleta);
-        //console.log(editar);
-        //console.log(datosBoletaJson);
 
         $.post("controllers/editarBoletaProcesos.php",
             "editar="+editar+
@@ -101,15 +97,11 @@ $(document).ready(function(){
     $('#edit-form-datos-salud').submit(function (e){
         e.preventDefault();
         var salud = addSalud($(this).serializeArray());
-        var saludJson = JSON.encode(salud);
+        var saludJson = JSON.stringify(salud);
 
         var id_familia = $('#edit-form-datos-salud #id').val(); 
         
         var editar = $('#edit-form-datos-salud #editar').val(); 
-
-        /*console.log(id_familia);
-        console.log(editar);
-        console.log(saludJson);*/
 
         $.post("controllers/editarBoletaProcesos.php",
             "editar="+editar+
@@ -128,7 +120,7 @@ $(document).ready(function(){
     $('#edit-form-recreacion').submit(function (e){
         e.preventDefault();
         var recreacion = addRecreacion($(this).serializeArray());
-        var recreacionJson = JSON.encode(recreacion);
+        var recreacionJson = JSON.stringify(recreacion);
 
         var id_familia = $('#edit-form-recreacion #id').val(); 
         
@@ -151,7 +143,7 @@ $(document).ready(function(){
     $('#edit-form-vivienda').submit(function (e){
         e.preventDefault();
         var vivienda = addVivienda($(this).serializeArray());//vivienda
-        var viviendaJson = JSON.encode(vivienda);
+        var viviendaJson = JSON.stringify(vivienda);
 
         var id_vivienda = $('#edit-form-vivienda #id').val(); 
         var editar = $('#edit-form-vivienda #editar').val(); 
@@ -199,14 +191,10 @@ $(document).ready(function(){
             discapacidades: $('#txt_discapacidad-edit').val()
         }
 
-        var personaJson = JSON.encode(persona);
+        let personaJson = JSON.stringify(persona);
 
-        var id_persona = $('#id_persona-edit').val(); 
-        var editar = $('#editar-p').val(); 
-
-        /*console.log(id_persona);
-        console.log(editar);
-        console.log(personaJson);*/
+        let id_persona = $('#id_persona-edit').val(); 
+        let editar = $('#editar-p').val(); 
 
         $.post("controllers/editarBoletaProcesos.php",
             "editar="+editar+
@@ -224,9 +212,8 @@ $(document).ready(function(){
 
     
 
+    let sexo = $('#txt_sexo').val();
     
-
-    sexo = $('#txt_sexo').val();
     if(sexo == "M"){
         $('#div-gestacion').hide();
         $('#div-semanas-gestacion').hide();
@@ -239,31 +226,19 @@ $(document).ready(function(){
         $('#div-semanas-gestacion').show();
     }   
 
-    // alert(persona['entrevistado']);
+   
     if(persona['entrevistado']==1){
-        // $('#cbox_entrevistado').prop("checked",false);
         $('#cbox_entrevistado').prop("checked",true);
-        
-        // alert("ËNTRA");
         $('#div-parentesco').hide();
         $('#txt_parentesco').val("yo");
-
-  
-
         $('#txt_entrevistado').val(1);
     }else{
-        // alert("ELSSE");
+        
         $('#cbox_entrevistado').prop("checked",false);
         $('#div-parentesco').show();
         $('#txt_parentesco').val("");
-
-      
-        // $('#txt_fecha_nacimiento').val("");
-
         $('#txt_entrevistado').val(0);
     }
-
-
 
 });
 
@@ -275,7 +250,6 @@ function msjSucess(){
                                 '<p>Los cambios se guardaron exitosamente</p><br>'+
                                 '<input type="button" value="Aceptar" onclick="cerrarModal();" style="padding: 10px 15px;" class="btn color-primary text-light cerrar-modal">'+
                                 '</div>');
-    //$('#crearRegistro').trigger('reset');
 }
 
 function msjError(){

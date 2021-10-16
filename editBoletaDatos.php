@@ -10,7 +10,7 @@
     include_once 'controllers/usuarioController.php';
     include_once 'controllers/reporteFamiliaController.php';
 
-    $controlador = new reporteFamiliaController();
+    $controlador = new ReporteFamiliaController();
 
     $datos_boleta = array();
     $datos_boleta = $controlador->buscardatosboleta($id_familia);
@@ -24,11 +24,18 @@
 
 
 <div class="content-wrapper">
+    <div class="box-header">
+        <h2>Editar boleta</h2>
+        <div>
+            <p style="font-size: small; color: red;">* Campo Obligatorio</p>
+        </div>
+    </div>
+    <!--Termina content-heaer-->
     <div class="content">
         <div class="row">
             <div class="box color-light">
                 <div class="box-header">
-                    <h2>Editar boleta: Datos</h2>
+                    <h2>Datos de la boleta</h2>
                     <div>
                         <a href="showFamilia.php?id_familia=<?php echo $id_familia ?>" class="btn color-danger text-light"><i class="las la-times"></i></a>
                     </div>   
@@ -39,19 +46,19 @@
                     <div class="form-row-1">
                         <div class="form-item">
                             <label for="txt_observaciones_encuesta" class="text-gray">Observaciones</label>
-                            <input type="text" id="txt_observaciones_encuesta" name="txt_observaciones_encuesta" required value="<?php echo $datos_boleta['observaciones'] ?>"
+                            <input type="text" id="txt_observaciones_encuesta" name="txt_observaciones_encuesta" value="<?php echo $datos_boleta['observaciones'] ?>"
                             class="form-control" placeholder="">
                         </div>
                     </div>
                     <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_evaluador" class="text-gray">Evaluador</label>
-                            <input type="text" id="txt_evaluador" name="txt_evaluador" required value="<?php echo $datos_boleta['evaluador'] ?>"
+                            <label for="txt_evaluador" class="text-gray">Evaluador <span style="color: red;">*</span></label>
+                            <input type="text" id="txt_evaluador" required name="txt_evaluador" value="<?php echo $datos_boleta['evaluador'] ?>"
                             class="form-control" placeholder="" >
                         </div>
                         <div class="form-item">
-                            <label for="txt_fecha_evaluacion" class="text-gray">Fecha de evaluación</label>
-                            <input type="date" id="txt_fecha_evaluacion" name="txt_fecha_evaluacion" required value="<?php echo $fecha_mostrar ?>"
+                            <label for="txt_fecha_evaluacion" class="text-gray">Fecha de evaluación <span style="color: red;">*</span></label>
+                            <input type="date" id="txt_fecha_evaluacion" required name="txt_fecha_evaluacion" value="<?php echo $fecha_mostrar ?>"
                             class="form-control" placeholder="">
                         </div>
                         <div class="form-item">

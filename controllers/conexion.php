@@ -5,11 +5,10 @@ include_once ($_SERVER['DOCUMENT_ROOT']."/constantes.php");
 class Conexion{
     public $pdo;
 
-    public function Conexion()
+    public function __construct()
     {
         try{
 
-            //$this->pdo = new PDO('mysql:host=localhost;dbname=db_encuesta_muni','root','');
             $this->pdo = new PDO("mysql:host=".DB_HOST.";dbname=".DB_BASE_DATOS, DB_USER, DB_PASS);
 
             

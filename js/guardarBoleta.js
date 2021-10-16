@@ -6,11 +6,8 @@ var bandera = 0;
 
 $(document).ready(function(){
 
-    //$('#cbox_entrevistado').prop("checked",true);
     $('#entrevistado').text("Agregando persona entrevistada");
     $('#txt_entrevistado').val(1);
-
-
 
     $('#div-gestacion').hide();
     $('#div-semanas-gestacion').hide();
@@ -18,10 +15,8 @@ $(document).ready(function(){
     $('#div-parentesco').hide();
     $('#txt_parentesco').val("yo");
 
-
-
     $('#txt_sexo').change(function(){
-        sexo = $('#txt_sexo').val()
+        let sexo = $('#txt_sexo').val()
         if(sexo == "M"){
             $('#div-gestacion').hide();
             $('#div-semanas-gestacion').hide();
@@ -88,29 +83,29 @@ $(document).ready(function(){
                     ($('#txt_leguminosas').val() == null)){
             validacionFormulario('Se deben completar los datos', '6. Alimentacion');
         }else{
-            var personasJson = JSON.encode(personas);
+            var personasJson = JSON.stringify(personas);
             
             var domicilio = addDomicilio($("#add-form-2").serializeArray());//domicilio
-            var domicilioJson = JSON.encode(domicilio);
+            var domicilioJson = JSON.stringify(domicilio);
 
             var egresos = addEgresos($("#add-form-3").serializeArray());//domicilio
-            var egresosJson = JSON.encode(egresos);
+            var egresosJson = JSON.stringify(egresos);
 
             var vivienda = addVivienda($("#add-form-4").serializeArray());//domicilio
-            var viviendaJson = JSON.encode(vivienda);
+            var viviendaJson = JSON.stringify(vivienda);
 
             var salud = addSalud($("#add-form-5").serializeArray());//domicilio
-            var saludJson = JSON.encode(salud);
+            var saludJson = JSON.stringify(salud);
 
             var alimentacion = addAlimentacion($("#add-form-6").serializeArray());//domicilio
-            var alimentacionJson = JSON.encode(alimentacion);
+            var alimentacionJson = JSON.stringify(alimentacion);
 
             var recreacion = addRecreacion($("#add-form-7").serializeArray());//domicilio
-            var recreacionJson = JSON.encode(recreacion);
+            var recreacionJson = JSON.stringify(recreacion);
 
             var observacion = addObservacion($("#add-form-8").serializeArray());//domicilio
-            var observacionJson = JSON.encode(observacion);
-            //console.log(observacionJson);
+            var observacionJson = JSON.stringify(observacion);
+            
             
             $.post("controllers/guardarBoleta.php",
             "personas="+personasJson+
@@ -143,7 +138,7 @@ function msjSave(){
                                 '<p>La boleta se registró exitosamente</p><br>'+
                                 '<input type="button" value="Aceptar" onclick="redirigir();" style="padding: 10px 15px;" class="btn color-primary text-light cerrar-modal">'+
                                 '</div>');
-    //$('#crearRegistro').trigger('reset');
+    
 }
 
 function redirigir(){
@@ -180,8 +175,8 @@ function addObservacion(datos){
     }
 
 
-    for(i = 0; i < datos.length; i++){
-        //console.log(datos[i]['name']);
+    for(let i = 0; i < datos.length; i++){
+       
         switch(datos[i]['name']){
             case 'txt_observaciones_encuesta': observacion['observaciones_encuesta'] = datos[i]["value"]; break;
             case 'txt_evaluador': observacion['evaluador'] = datos[i]["value"]; break;
@@ -202,9 +197,9 @@ function addRecreacion(datos){
     var recreaciones = [];
 
     for(i = 0; i < datos.length; i++){
-        //console.log(datos[i]['name']);
-        switch(datos[i]['name']){
-            case 'recreaciones[]': recreaciones.push(datos[i]["value"]); break;
+        
+        if(datos[i]['name']=='recreaciones[]'){
+            recreaciones.push(datos[i]["value"]);
         }
         
     }
@@ -228,8 +223,8 @@ function addAlimentacion(datos){
     }
 
 
-    for(i = 0; i < datos.length; i++){
-        //console.log(datos[i]['name']);
+    for(let i = 0; i < datos.length; i++){
+      
         switch(datos[i]['name']){
             case 'txt_carne_res': alimentacion['carne_res'] = datos[i]["value"]; break;
             case 'txt_carne_pollo': alimentacion['carne_pollo'] = datos[i]["value"]; break;
@@ -255,7 +250,7 @@ function addSalud(datos){
     }
 
     for(i = 0; i < datos.length; i++){
-        //console.log(datos[i]['name']);
+     
         switch(datos[i]['name']){
 
             case 'txt_frecuencia_medico': salud['frecuencia_medico'] = datos[i]["value"]; break;
@@ -349,7 +344,7 @@ function addEgresos(datos){
 
 
     for(i = 0; i < datos.length; i++){
-        //console.log(datos[i]['name']);
+        
         switch(datos[i]['name']){
             case 'txt_alimentacion': egresos['alimentacion'] = datos[i]["value"]; break;
             case 'txt_gas': egresos['gas'] = datos[i]["value"]; break;
@@ -389,7 +384,7 @@ function addDomicilio(datos){
     var transportes = [];
 
     for(i = 0; i < datos.length; i++){
-        //console.log(datos[i]['name']);
+        
         switch(datos[i]['name']){
             case 'txt_sector': domicilio['sector'] = datos[i]["value"]; break;
             case 'txt_sector-edit': domicilio['sector'] = datos[i]["value"]; break;
@@ -411,8 +406,7 @@ function addDomicilio(datos){
 }
 
 function addPersona(datos){
-    //personas.push(datos);
-    //console.log(datos);
+
     var persona = {
         entrevistado: '',
         nombres: '',
@@ -426,7 +420,6 @@ function addPersona(datos){
         estado_civil: '',
         escolaridad: '',
         ocupacion: '',
-        ocupacion: '',
         telefono: '',
         gestacion:'',
         semanas_gestacion: '',
@@ -439,7 +432,7 @@ function addPersona(datos){
     var enfermedades=[];
 
     for(i = 0; i < datos.length; i++){
-        //console.log(datos[i]['name']);
+
         switch(datos[i]['name']){
             case 'txt_nombres': persona['nombres'] = datos[i]["value"]; break;
             case 'txt_entrevistado': persona['entrevistado'] = datos[i]["value"]; break;
@@ -463,8 +456,6 @@ function addPersona(datos){
         
     }
 
-    //console.log(enfermedades);
-    //console.log(discapacidades);
     persona['enfermedades'] = enfermedades;
     persona['discapacidades'] = discapacidades;
 
@@ -485,26 +476,26 @@ function addPersona(datos){
 
 }
 
-function addTabla(personas){
+function addTabla(personasTabla){
     let lista = '';
-    for(i = 0; i < personas.length; i++){
+    for(i = 0; i < personasTabla.length; i++){
         
-        var banderaEntrevistado = "";
-        if(personas[i]['entrevistado']=="1"){
+        banderaEntrevistado = "";
+        if(personasTabla[i]['entrevistado']=="1"){
             banderaEntrevistado = "◉"
         }
         lista += `
         <tr>
         <td>${banderaEntrevistado}</td>
-        <td>${personas[i]['nombres']+" "+personas[i]['primer_apellido']+" "+personas[i]['segundo_apellido']}</td>
-        <td>${personas[i]['dpi']}</td>
-        <td>${personas[i]['sexo']}</td>
-        <td>${personas[i]['fecha_nacimiento']}</td>
-        <td>${personas[i]['estado_civil']}</td>
-        <td>${personas[i]['escolaridad']}</td>
-        <td>${personas[i]['ocupacion']}</td>
-        <td>${personas[i]['telefono']}</td>
-        <td>${personas[i]['ingreso_mensual']}</td>
+        <td>${personasTabla[i]['nombres']+" "+personasTabla[i]['primer_apellido']+" "+personasTabla[i]['segundo_apellido']}</td>
+        <td>${personasTabla[i]['dpi']}</td>
+        <td>${personasTabla[i]['sexo']}</td>
+        <td>${personasTabla[i]['fecha_nacimiento']}</td>
+        <td>${personasTabla[i]['estado_civil']}</td>
+        <td>${personasTabla[i]['escolaridad']}</td>
+        <td>${personasTabla[i]['ocupacion']}</td>
+        <td>${personasTabla[i]['telefono']}</td>
+        <td>${personasTabla[i]['ingreso_mensual']}</td>
         <td>
         <a class="btn color-danger" onclick="quitarRegistro(${i})">Eliminar</a>
    
@@ -513,7 +504,6 @@ function addTabla(personas){
         `  
     }
     $('#listaPersonas').html(lista);
-    //console.log(personas);
 }
 
 //quita una persona del array

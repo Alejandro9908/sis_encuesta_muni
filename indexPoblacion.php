@@ -7,7 +7,7 @@
     include_once ('views/layout/topbar.php');
     include_once ('controllers/reportePoblacionController.php');
     
-    $controlador = new reportePoblacionController();
+    $controlador = new ReportePoblacionController();
 
     if(!isset($_GET['b'])){
         $_GET['b'] = "";
@@ -56,17 +56,17 @@
                 </form>
                 <table class="table tabla-normal-ancho">
                     <thead>
-                        <td>ID FAMILIA</td>
-                        <td>ID</td>
-                        <td>NOMBRE</td>
-                        <td>DPI</td>
-                        <td>SEXO</td>
-                        <td>FECHA NACIMIENTO</td>
-                        <td>ESTADO CIVIL</td>
-                        <td>ESCOLARIDAD</td>
-                        <td>TELÉFONO</td>
-                        <td>COMUNIDAD</td>
-                        <td>OPCIONES</td>
+                        <th scope="col">ID FAMILIA</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">DPI</th>
+                        <th scope="col">SEXO</th>
+                        <th scope="col">FECHA NACIMIENTO</th>
+                        <th scope="col">ESTADO CIVIL</th>
+                        <th scope="col">ESCOLARIDAD</th>
+                        <th scope="col">TELÉFONO</th>
+                        <th scope="col">COMUNIDAD</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 

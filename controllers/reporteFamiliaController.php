@@ -3,7 +3,7 @@ include_once ($_SERVER['DOCUMENT_ROOT']."/constantes.php");
 include_once ($_SERVER['DOCUMENT_ROOT'].'/routes.php');
 include_once ('conexion.php');
 
-class reporteFamiliaController{
+class ReporteFamiliaController{
    
     public function contarRegistros($buscar)
     {
@@ -30,7 +30,7 @@ class reporteFamiliaController{
             return $registro->total_registros;
         }catch(Exception $e)
         {
-            echo 'Error '. $e;
+            echo $e;
         }
         
     }
@@ -89,7 +89,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -143,7 +143,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -185,7 +185,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -218,7 +218,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -257,7 +257,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -291,7 +291,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -344,7 +344,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -377,7 +377,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -410,7 +410,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -439,7 +439,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -473,7 +473,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -503,7 +503,6 @@ class reporteFamiliaController{
                 $datos[] = $r;
             }
 
-            //print_r($datos);
             $listaId = array();
     
             foreach($datos as $d){
@@ -525,7 +524,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -555,7 +554,6 @@ class reporteFamiliaController{
                 $datos[] = $r;
             }
 
-            //print_r($datos);
             $listaId = array();
     
             foreach($datos as $d){
@@ -577,7 +575,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -611,7 +609,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -644,7 +642,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -674,65 +672,7 @@ class reporteFamiliaController{
         }
         catch (Exception $e)
         {
-            die('Error: '.$e->getMessage());
-        }
-    }
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function editar(Comunidad $c)
-    {
-        try
-        {
-            $conexion = new Conexion();
-            $sql = "UPDATE tbl_comunidad SET nombre=?, descripcion=?, tipo=?, id_sector=? WHERE id_comunidad=?";
-
-            $resultado = $conexion->pdo->prepare($sql)->execute(
-                array(
-                  $c->get('nombre'),
-                  $c->get('descripcion'),
-                  $c->get('tipo'),
-                  $c->get('id_sector'),
-                  $c->get('id_comunidad')
-                )
-            );
-
-            return $resultado;
-        }
-        catch (Exception $e)
-        {
-            die('Error: '.$e->getMessage());
-        }
-    }
-
-    public function eliminar($id)
-    {
-        try
-        {
-            $conexion = new Conexion();
-            $sql = "UPDATE tbl_comunidad SET estado=1 WHERE id_comunidad=?";
-            
-            $resultado = $conexion->pdo->prepare($sql)->execute(
-                array($id)
-            );
-
-            return $resultado;
-        }
-        catch (Exception $e)
-        {
-            die('Error: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 

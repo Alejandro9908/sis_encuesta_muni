@@ -1,17 +1,4 @@
 $(document).ready(function(){ 
-
-    /*$(".select-multiple").mousedown(function(e){
-        e.preventDefault();
-    
-        var select = this;
-        var scroll = select .scrollTop;
-    
-        e.target.selected = !e.target.selected;
-    
-        setTimeout(function(){select.scrollTop = scroll;}, 0);
-    
-        $(select ).focus();
-    }).mousemove(function(e){e.preventDefault()});*/
     
     listarEnfermedades();
     listarDiscapacidades();
@@ -27,11 +14,6 @@ $(document).ready(function(){
     listarTenencia();
     listarSanitarios();
     
-    
-    $('#txt_transportes').click(function(){
-        transportes = $('#txt_transportes').val()
-        console.log(transportes);
-    });
 
     $("#addEnfermedad").click(function(e){
         e.preventDefault();
@@ -43,7 +25,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Enfermedad</label>'+
+                                '<label for="txt_nombre" class="text-gray">Enfermedad <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -55,6 +37,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="enfermedad">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -72,7 +55,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Discapacidad</label>'+
+                                '<label for="txt_nombre" class="text-gray">Discapacidad <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -84,6 +67,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="discapacidad">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -102,7 +86,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Transporte</label>'+
+                                '<label for="txt_nombre" class="text-gray">Transporte <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -114,6 +98,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="transporte">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -131,7 +116,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Tipo de pared</label>'+
+                                '<label for="txt_nombre" class="text-gray">Tipo de pared <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -143,6 +128,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="pared">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -160,7 +146,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Tipo de techo</label>'+
+                                '<label for="txt_nombre" class="text-gray">Tipo de techo <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -172,6 +158,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="techo">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -189,7 +176,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Tipo de piso</label>'+
+                                '<label for="txt_nombre" class="text-gray">Tipo de piso <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -201,6 +188,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="piso">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -218,7 +206,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Mobiliario o equipo</label>'+
+                                '<label for="txt_nombre" class="text-gray">Mobiliario o equipo <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -230,6 +218,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="mobiliario">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -247,7 +236,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Servicio básico</label>'+
+                                '<label for="txt_nombre" class="text-gray">Servicio básico <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -259,6 +248,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="servicio_basico">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -276,7 +266,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Servicio medico</label>'+
+                                '<label for="txt_nombre" class="text-gray">Servicio medico <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -288,6 +278,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="servicio_medico">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -305,7 +296,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Recreación</label>'+
+                                '<label for="txt_nombre" class="text-gray">Recreación <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -317,6 +308,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="recreacion">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -334,7 +326,7 @@ $(document).ready(function(){
                                 'class="form-container">'+
                                 '<div class="form-row-1">'+
                                 '<div class="form-item">'+
-                                '<label for="txt_nombre" class="text-gray">Tipo de sanitario</label>'+
+                                '<label for="txt_nombre" class="text-gray">Tipo de sanitario <span style="color: red;">*</span></label>'+
                                 '<input type="text" id="txt_nombre" name="txt_nombre" required value="" class="form-control"'+
                                 'placeholder="">'+
                                 '</div>'+
@@ -346,6 +338,7 @@ $(document).ready(function(){
                                 '</div>'+
                                 '<div class="form-footer">'+
                                 '<input type="hidden" name="registro" value="guardar">'+
+                                '<input type="hidden" name="opcion" value="sanitario">'+
                                 '<input type="submit" value="Guardar" class="btn color-primary text-light">'+
                                 '<input type="button" value="Cancelar" onclick="cerrarModal();" class="btn color-danger text-light cerrar-modal">'+
                                 '</div>'+
@@ -365,10 +358,11 @@ $(document).ready(function(){
 function agregar_enfermedad(){
     var datos = $('#agregarEnfermedad').serializeArray();
     
-    $.post("controllers/enfermedadProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarEnfermedades();
         setTimeout(function(){
+            console.log(respuesta);
             if(respuesta == 'exito'){
                 $('.modal-container').fadeIn();
                 $('.modal-title').text('Mensaje');
@@ -410,7 +404,7 @@ function listarEnfermedades(){
 function agregar_discapacidad(){
     var datos = $('#agregarDiscapacidad').serializeArray();
     
-    $.post("controllers/discapacidadProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarDiscapacidades();
         setTimeout(function(){
@@ -455,7 +449,7 @@ function listarDiscapacidades(){
 function agregar_transporte(){
     var datos = $('#agregarTransporte').serializeArray();
     
-    $.post("controllers/transporteProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarTransportes();
         setTimeout(function(){
@@ -500,7 +494,7 @@ function listarTransportes(){
 function agregar_pared(){
     var datos = $('#agregarPared').serializeArray();
     
-    $.post("controllers/mpParedProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarParedes();
         setTimeout(function(){
@@ -545,7 +539,7 @@ function listarParedes(){
 function agregar_techo(){
     var datos = $('#agregarTecho').serializeArray();
     
-    $.post("controllers/mpTechoProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarTechos();
         setTimeout(function(){
@@ -590,7 +584,7 @@ function listarTechos(){
 function agregar_piso(){
     var datos = $('#agregarPiso').serializeArray();
     
-    $.post("controllers/mpPisoProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarPisos();
         setTimeout(function(){
@@ -635,11 +629,12 @@ function listarPisos(){
 function agregar_mobiliario(){
     var datos = $('#agregarMobiliario').serializeArray();
     
-    $.post("controllers/mobiliarioProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarMobiliarios();
         setTimeout(function(){
-            if(respuestatran == 'exito'){
+            
+            if(respuesta == 'exito'){
                 $('.modal-container').fadeIn();
                 $('.modal-title').text('Mensaje');
                 $('.modal-body').html(  '<div>'+
@@ -680,7 +675,7 @@ function listarMobiliarios(){
 function agregar_servicio(){
     var datos = $('#agregarServicio').serializeArray();
     
-    $.post("controllers/servicioProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarServicios();
         setTimeout(function(){
@@ -725,7 +720,7 @@ function listarServicios(){
 function agregar_servicio_medico(){
     var datos = $('#agregarServicioMedico').serializeArray();
     
-    $.post("controllers/servicioMedicoProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarServiciosMedicos();
         setTimeout(function(){
@@ -770,7 +765,7 @@ function listarServiciosMedicos(){
 function agregar_recreacion(){
     var datos = $('#agregarRecreacion').serializeArray();
     
-    $.post("controllers/recreacionProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarRecreaciones();
         setTimeout(function(){
@@ -866,7 +861,7 @@ function listarTenencia(){
 function agregar_sanitario(){
     var datos = $('#agregarSanitario').serializeArray();
     
-    $.post("controllers/sanitarioProcesos.php", datos, function (respuesta){
+    $.post("controllers/opcionesProcesos.php", datos, function (respuesta){
         $('.modal-container').fadeOut();
         listarSanitarios();
         setTimeout(function(){

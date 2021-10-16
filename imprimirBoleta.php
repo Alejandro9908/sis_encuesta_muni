@@ -511,6 +511,7 @@ while (list($clave, $valor) = each($alimentacion)){
             case 2: $valor = "Una vez a la semana"; break;
             case 3: $valor = "Cada tres días"; break;
             case 4: $valor = "Diario"; break;
+            default: break;
         }
 
         $pdf->Cell(13, 6, utf8_decode($indice), 1, 0,'C', 0);

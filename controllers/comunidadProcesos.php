@@ -3,7 +3,7 @@
     
     
     if($_POST['registro'] == 'guardar'){
-        $controlador = new comunidadController();
+        $controlador = new ComunidadController();
         $c = new Comunidad();
 
         $c->set('nombre',$_POST['txt_nombre']);
@@ -22,7 +22,7 @@
 
     if($_POST['registro'] == 'editar'){
 
-        $controlador = new comunidadController();
+        $controlador = new ComunidadController();
         $c = new Comunidad();
 
         $c->set('id_comunidad',$_POST['txt_id']);
@@ -39,7 +39,7 @@
     }
 
     if($_POST['registro'] == 'inactivar'){
-        $controlador = new comunidadController();
+        $controlador = new ComunidadController();
 
         $id = $_POST['txt_id'];
          
@@ -51,7 +51,7 @@
     }
 
     if($_POST['registro'] == 'activar'){
-        $controlador = new comunidadController();
+        $controlador = new ComunidadController();
 
         $id = $_POST['txt_id'];
          

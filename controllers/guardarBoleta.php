@@ -4,35 +4,27 @@
 
     $personas =  array();
     $personas = json_decode($_POST["personas"], true);
-    //print_r($personas);
 
     $domicilio =  array();
     $domicilio = json_decode($_POST["domicilio"], true);
-    //print_r($domicilio);
 
     $egresos =  array();
     $egresos = json_decode($_POST["egresos"], true);
-    //print_r($egresos);
 
     $vivienda =  array();
     $vivienda = json_decode($_POST["vivienda"], true);
-    //print_r($vivienda);
 
     $salud =  array();
     $salud = json_decode($_POST["salud"], true);
-    //print_r($salud);
 
     $alimentacion =  array();
     $alimentacion = json_decode($_POST["alimentacion"], true);
-    //print_r($alimentacion);
 
     $recreacion =  array();
     $recreacion = json_decode($_POST["recreacion"], true);
-    //print_r($recreacion);
 
     $observacion =  array();
     $observacion = json_decode($_POST["observacion"], true);
-    //print_r($observacion);
 
 
    //con esto podría mostrar todos los datos del JSON recibido
@@ -107,7 +99,6 @@
                                         .$i->get('ingreso_mensual')."','"
                                         .$i->get('parentesco')."')");
                 $id_persona = $stmt->lastInsertId();
-                //print_r($id_persona."-");
 
                 foreach($i->get('enfermedades') as $enfermedad){
                     foreach($enfermedad as $e){

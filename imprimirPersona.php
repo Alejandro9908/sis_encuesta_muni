@@ -7,7 +7,7 @@
 
 
 
-    $controlador = new reportePoblacionController();
+    $controlador = new ReportePoblacionController();
 
     $personas = array();
     $personas = $controlador->buscarPersona($id_persona);

@@ -4,7 +4,7 @@ include ($_SERVER['DOCUMENT_ROOT']."/constantes.php");
 include_once ($_SERVER['DOCUMENT_ROOT'].'/routes.php');
 include_once ('conexion.php');
 
-class personaController {
+class PersonaController {
 
     public function listarEnfermedades($desde, $hasta, $sector, $comunidad, $enfermedad, $buscar){
         try
@@ -51,7 +51,7 @@ class personaController {
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -100,7 +100,7 @@ class personaController {
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -147,7 +147,7 @@ class personaController {
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -194,7 +194,7 @@ class personaController {
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 
@@ -241,7 +241,7 @@ class personaController {
         }
         catch (Exception $e)
         {
-            die('Error de: '.$e->getMessage());
+            die($e->getMessage());
         }
     }
 

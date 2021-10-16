@@ -12,9 +12,9 @@
     include_once 'controllers/sectorController.php';
     include_once 'controllers/comunidadController.php';
 
-    $controladorDomicilio = new reporteFamiliaController();
-    $controladorSectores = new sectorController();
-    $controladorComunidades = new comunidadController();
+    $controladorDomicilio = new ReporteFamiliaController();
+    $controladorSectores = new SectorController();
+    $controladorComunidades = new ComunidadController();
 
 
     $domicilio = array();
@@ -33,11 +33,18 @@
 
 
 <div class="content-wrapper">
+<div class="box-header">
+        <h2>Editar boleta</h2>
+        <div>
+            <p style="font-size: small; color: red;">* Campo Obligatorio</p>
+        </div>
+    </div>
+    <!--Termina content-heaer-->
     <div class="content">
         <div class="row">
             <div class="box color-light">
                 <div class="box-header">
-                    <h2>Editar boleta</h2>
+                    <h2>2. Identificación domiciliar</h2>
                     <div>
                         <a href="showFamilia.php?id_familia=<?php echo $id_familia ?>" class="btn color-danger text-light"><i class="las la-times"></i></a>
                     </div>   
@@ -47,7 +54,7 @@
                         action="controllers/boletaProcesos.php">
                     <div class="form-row-2">
                         <div class="form-item">
-                            <label for="txt_sector" class="text-gray">Sector</label>
+                            <label for="txt_sector" class="text-gray">Sector <span style="color: red;">*</span></label>
                             <select required class="form-control" name="txt_sector-edit" id="txt_sector-edit">
                                     <?php 
                                     foreach ($sectores as $i){
@@ -59,7 +66,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_comunidad" class="text-gray">Comunidad</label>
+                            <label for="txt_comunidad" class="text-gray">Comunidad <span style="color: red;">*</span></label>
                             <select class="form-control" name="txt_comunidad-edit" id="txt_comunidad-edit">
                                     <?php 
                                     foreach ($comunidades as $i){
@@ -71,7 +78,7 @@
                             </select>
                         </div>
                         <div class="form-item">
-                            <label for="txt_direccion" class="text-gray">Dirección</label>
+                            <label for="txt_direccion" class="text-gray">Dirección <span style="color: red;">*</span></label>
                             <input type="text" id="txt_direccion" name="txt_direccion" required value="<?php echo $domicilio['direccion']; ?>" class="form-control"
                                 placeholder="">
                         </div>
