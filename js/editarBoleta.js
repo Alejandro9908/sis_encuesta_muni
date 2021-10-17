@@ -243,6 +243,26 @@ $(document).ready(function(){
 });
 
 
+function listarComunidadesEdit(sector){
+    $.ajax({
+        url: 'controllers/select/listarComunidades.php?sector='+sector,
+        type: 'GET',
+        success: function(respuesta){
+            let Resultado = JSON.parse(respuesta);
+            let lista = '<option value="" disabled selected>Seleccione una opción</option>';
+            Resultado.forEach(e => {
+                lista += `
+                <option value="${e.id_comunidad}">${e.nombre}</option>
+                `
+            });
+
+            $('#txt_comunidad-edit').html(lista);
+        }
+    });
+}
+
+
+
 function msjSucess(){
     $('.modal-container').fadeIn();
         $('.modal-title').text('Mensaje');

@@ -106,7 +106,7 @@
                             </div>
                             <div class="form-item">
                                 <label for="txt_telefono" class="text-gray">Teléfono</label>
-                                <input type="number" id="txt_telefono" name="txt_telefono" value=""
+                                <input type="text" id="txt_telefono" name="txt_telefono" value=""
                                     class="form-control" placeholder="" minlength="8" maxlength="8">
                             </div>
                             <div class="form-item" id="div-gestacion">
