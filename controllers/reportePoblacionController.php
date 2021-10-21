@@ -159,7 +159,7 @@ class ReportePoblacionController{
         try{
             $conexion = new Conexion();
             $resultado = array();
-            $sql = "SELECT b.id_boleta, f.id_familia, p.id_persona, p.dpi, p.sexo, p.edad, p.estado_civil, p.escolaridad, p.telefono,
+            $sql = "SELECT b.id_boleta, f.id_familia, p.id_persona, p.dpi, p.sexo, p.edad, p.estado_civil, p.escolaridad, p.telefono,p.correo,
                     p.nombres ,p.primer_apellido, p.segundo_apellido,
                     p.ocupacion, s.nombre as sector, p.entrevistado, p.fecha_nacimiento, p.parentesco, p.gestacion, p.semanas_gestacion, p.ingreso_mensual 
                     from tbl_persona as p inner join 
@@ -189,6 +189,7 @@ class ReportePoblacionController{
                     "estado_civil" => $registro->estado_civil,
                     "escolaridad" => $registro->escolaridad,
                     "telefono" => $registro->telefono,
+                    "correo" => $registro->correo,
                     "ocupacion" => $registro->ocupacion,
                     "sector" => $registro->sector,
                     "entrevistado" => $registro->entrevistado,

@@ -48,6 +48,7 @@
         $per->set('escolaridad', $p["escolaridad"]); 
         $per->set('ocupacion', $p["ocupacion"]); 
         $per->set('telefono', $p["telefono"]); 
+        $per->set('correo', $p["correo"]); 
         $per->set('gestacion', $p["gestacion"]); 
         $per->set('semanas_gestacion', $p["semanas_gestacion"]); 
         $per->set('ingreso_mensual', $p["ingreso_mensual"]); 
@@ -80,7 +81,7 @@
 
             //tabla persona
             foreach ($listaPersonas as $i){
-                $stmt->exec("INSERT INTO tbl_persona (id_familia,entrevistado,nombres,primer_apellido,segundo_apellido,sexo,fecha_nacimiento,edad,dpi,estado_civil,escolaridad,ocupacion,telefono,gestacion,semanas_gestacion,ingreso_mensual, parentesco) 
+                $stmt->exec("INSERT INTO tbl_persona (id_familia,entrevistado,nombres,primer_apellido,segundo_apellido,sexo,fecha_nacimiento,edad,dpi,estado_civil,escolaridad,ocupacion,telefono,correo,gestacion,semanas_gestacion,ingreso_mensual, parentesco) 
                             values ('".$id_familia."','"
                                         .$i->get('entrevistado')."','"
                                         .$i->get('nombres')."','"
@@ -94,6 +95,7 @@
                                         .$i->get('escolaridad')."','"
                                         .$i->get('ocupacion')."','"
                                         .$i->get('telefono')."','"
+                                        .$i->get('correo')."','"
                                         .$i->get('gestacion')."','"
                                         .$i->get('semanas_gestacion')."','"
                                         .$i->get('ingreso_mensual')."','"
@@ -116,7 +118,7 @@
             }
 
             //tabla egreso
-            $stmt->exec("INSERT INTO tbl_egreso (id_familia,alimentacion,combustible,renta,agua,electricidad,telefono_residencial,celular,transporte,educacion,medico,recreacion,cable,ropa_calzado,fondo_ahorro,credito) 
+            $stmt->exec("INSERT INTO tbl_egreso (id_familia,alimentacion,combustible,renta,agua,electricidad,telefono_residencial,celular,transporte,educacion,medico,recreacion,cable,ropa_calzado,fondo_ahorro,credito,otros) 
                             values ('".$id_familia."','"
                                         .$egresos['alimentacion']."','"
                                         .$egresos['gas']."','"
@@ -132,7 +134,8 @@
                                         .$egresos['cable']."','"
                                         .$egresos['ropa_calzado']."','"
                                         .$egresos['fondos_ahorro']."','"
-                                        .$egresos['creditos']."')");
+                                        .$egresos['creditos']."','"
+                                        .$egresos['otros']."')");
 
             //tabla alimentacion
             $stmt->exec("INSERT INTO tbl_alimentacion (id_familia,carne_res,carne_pollo,carne_cerdo,carne_pescado,leche,cereales,huevo,frutas,verduras,leguminosas) 
@@ -161,16 +164,22 @@
                     values ('".$id_familia."','".$i."')");
                 }
             }
-
+            
             //datos de vivienda y domicilio
+            $latitud = str_replace('"','\\"',$domicilio['latitud']);
+            $latitud = str_replace("'","\\'",$latitud);
+
+            $longitud = str_replace('"','\\"',$domicilio['longitud']);
+            $longitud = str_replace("'","\\'",$longitud);
+            
             $stmt->exec("INSERT INTO tbl_vivienda (id_familia,id_comunidad,direccion,numero_casa,colindantes,latitud,longitud,telefono,id_tenencia,cantidad_cuartos,sala,comedor,cocina,banio_privado,banio_colectivo,metros_cuadrados,observaciones,id_mp_pared,id_mp_techo,id_mp_piso,id_sanitario,eliminacion_basura) 
                             values ('".$id_familia."','"
                                         .$domicilio['comunidad']."','"
                                         .$domicilio['direccion']."','"
                                         .$domicilio['numero_casa']."','"
                                         .$domicilio['colindantes']."','"
-                                        .$domicilio['latitud']."','"
-                                        .$domicilio['longitud']."','"
+                                        .$latitud."','"
+                                        .$longitud."','"
                                         .$domicilio['telefono']."','"
                                         .$vivienda['tenencia']."','"
                                         .$vivienda['numero_dormitorios']."','"

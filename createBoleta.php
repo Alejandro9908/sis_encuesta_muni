@@ -73,7 +73,7 @@
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_dpi" class="text-gray">DPI  <span style="color: red;">*</span></label>
+                                <label for="txt_dpi" class="text-gray">CUI  <span style="color: red;">*</span></label>
                                 <input type="text" id="txt_dpi" name="txt_dpi" value="" required
                                     class="form-control" placeholder="" minlength="13" maxlength="13">
                             </div>
@@ -100,14 +100,24 @@
                                 </select>
                             </div>
                             <div class="form-item">
-                                <label for="txt_ocupacion" class="text-gray">Ocupación</label>
-                                <input type="text" id="txt_ocupacion" name="txt_ocupacion" value=""
+                                <label for="txt_ocupacion" class="text-gray">Ocupación <span style="color: red;">*</span></label>
+                                <input type="text" id="txt_ocupacion" required name="txt_ocupacion" value=""
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_telefono" class="text-gray">Teléfono</label>
-                                <input type="number" id="txt_telefono" name="txt_telefono" value=""
+                                <input type="text" id="txt_telefono" name="txt_telefono" value=""
                                     class="form-control" placeholder="" minlength="8" maxlength="8">
+                            </div>
+                            <div class="form-item">
+                                <label for="txt_correo" class="text-gray">Correo electrónico</label>
+                                <input type="text" id="txt_correo" name="txt_correo" value=""
+                                    class="form-control" placeholder="">
+                            </div>
+                            <div class="form-item">
+                                <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual</label>
+                                <input type="number" step="0.01" id="txt_ingreso_mensual" name="txt_ingreso_mensual" value=""
+                                    class="form-control" placeholder="" min="0.00">
                             </div>
                             <div class="form-item" id="div-gestacion">
                                 <label for="txt_gestacion" class="text-gray">Gestación</label>
@@ -121,11 +131,7 @@
                                 <input type="number" id="txt_semanas_gestacion" name="txt_semanas_gestacion" required value="0"
                                     class="form-control" placeholder=""  min="0">
                             </div>
-                            <div class="form-item">
-                                <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual  <span style="color: red;">*</span></label>
-                                <input type="number" step="0.01" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required value=""
-                                    class="form-control" placeholder="" min="0.00">
-                            </div>
+                            
                         </div>
                         <div class="form-row-2">
                             <div class="form-item">
@@ -331,7 +337,11 @@
                             <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="0" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
-                        
+                        <div class="form-item">
+                            <label for="txt_otros" class="text-gray">Otros <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_otros" name="txt_otros" value="0" class="form-control"
+                                placeholder="" min="0.00">
+                        </div>
                     </div>
                     </form>
                 </div>

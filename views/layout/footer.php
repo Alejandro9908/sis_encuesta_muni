@@ -8,7 +8,7 @@
 
     <!--Scripts-->
     <script src="js/jquery.min.js"></script>
-    
+    <script src="js/validaciones.js"></script>
     <script src="js/usuarioEventos.js"></script>
     <script src="js/comunidadEventos.js"></script>
     <script src="js/guardarBoleta.js"></script>

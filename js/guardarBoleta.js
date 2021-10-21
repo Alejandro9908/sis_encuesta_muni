@@ -15,6 +15,13 @@ $(document).ready(function(){
     $('#div-parentesco').hide();
     $('#txt_parentesco').val("yo");
 
+    if($('#txt_gestacion').val() == 0){
+        $('#div-semanas-gestacion').hide();
+        $('#txt_semanas_gestacion').val("0");
+    }else if($('#txt_gestacion').val() == 1){
+        $('#div-semanas-gestacion').show();
+    }
+
     $('#txt_sexo').change(function(){
         let sexo = $('#txt_sexo').val()
         if(sexo == "M"){
@@ -25,9 +32,20 @@ $(document).ready(function(){
             
         }else if(sexo == "F"){
             $('#div-gestacion').show();
+        }
+    });
+
+    //inputs de mujer en estado de gestacion
+    $('#txt_gestacion').change(function(){
+        if($('#txt_gestacion').val() == 0){
+            $('#div-semanas-gestacion').hide();
+            $('#txt_semanas_gestacion').val("0");
+        }else if($('#txt_gestacion').val() == 1){
             $('#div-semanas-gestacion').show();
         }
     });
+    
+
 
 
     $('#addPersona').submit(function (e){
@@ -339,7 +357,8 @@ function addEgresos(datos){
         cable: '',
         ropa_calzado: '',
         fondos_ahorro: '',
-        creditos: ''
+        creditos: '',
+        otros: ''
     }
 
 
@@ -361,6 +380,7 @@ function addEgresos(datos){
             case 'txt_ropa_calzado': egresos['ropa_calzado'] = datos[i]["value"]; break;
             case 'txt_fondos_ahorro': egresos['fondos_ahorro'] = datos[i]["value"]; break;
             case 'txt_creditos': egresos['creditos'] = datos[i]["value"]; break;
+            case 'txt_otros': egresos['otros'] = datos[i]["value"]; break;
         }
         
     }
@@ -421,6 +441,7 @@ function addPersona(datos){
         escolaridad: '',
         ocupacion: '',
         telefono: '',
+        correo: '',
         gestacion:'',
         semanas_gestacion: '',
         ingreso_mensual: '',
@@ -446,6 +467,7 @@ function addPersona(datos){
             case 'txt_escolaridad': persona['escolaridad'] = datos[i]["value"]; break;
             case 'txt_ocupacion': persona['ocupacion'] = datos[i]["value"]; break;
             case 'txt_telefono': persona['telefono'] = datos[i]["value"]; break;
+            case 'txt_correo': persona['correo'] = datos[i]["value"]; break;
             case 'txt_gestacion': persona['gestacion'] = datos[i]["value"]; break;
             case 'txt_semanas_gestacion': persona['semanas_gestacion'] = datos[i]["value"]; break;
             case 'txt_ingreso_mensual': persona['ingreso_mensual'] = datos[i]["value"]; break;

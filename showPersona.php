@@ -58,10 +58,12 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
         <div class="box color-light">
                 <div class="box-header">
                     <h2>Datos de la persona</h2>
-                    <div>
+                    <div> 
                         <a href="showFamilia.php?id_familia=<?php echo $personas['id_familia']; ?>" class="btn color-warning">Ver Boleta</a>
+                        <?php if(($_SESSION['rol'] == 1)||($_SESSION['rol'] == 2)){ ?>
                         <a href="editPersona.php?id_persona=<?php echo $personas['id_persona']; ?>"
                                         class="btn color-primary">Editar</a>
+                        <?php } ?>
                         <a rel="noopener" href="imprimirPersona.php?id_persona=<?php echo $personas['id_persona']; ?>" target="_blank" id="editar-domicilio" class="btn color-danger text-light">Imprimir</a>
                         
                     </div>
@@ -149,6 +151,18 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
                                     value="<?php echo $personas['telefono']; ?>" class="form-control-2"
                                     placeholder="">
                             </div>
+                            <div class="form-item">
+                                <label for="txt_correo" class="text-gray">Correo electrónico</label>
+                                <input type="text" id="txt_correo" name="txt_correo" required readonly
+                                    value="<?php echo $personas['correo']; ?>" class="form-control-2"
+                                    placeholder="">
+                            </div>
+                            <div class="form-item">
+                                <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual</label>
+                                <input type="text" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required  readonly
+                                    value="<?php echo $personas['ingreso_mensual']; ?>" class="form-control-2"
+                                    placeholder="" min="0.00">
+                            </div>
                             <div class="form-item" id="div-gestacion">
                                 <label for="txt_gestacion" class="text-gray">Gestación</label>
                                 <input type="text" id="txt_gestacion" name="txt_gestacion" required readonly
@@ -161,12 +175,7 @@ $fecha_nacimiento_mostrar = date("d-m-Y", strtotime($personas['fecha_nacimiento'
                                     value="<?php echo $personas['semanas_gestacion']; ?>" class="form-control-2"
                                     placeholder="">
                             </div>
-                            <div class="form-item">
-                                <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual</label>
-                                <input type="text" id="txt_ingreso_mensual" name="txt_ingreso_mensual" required  readonly
-                                    value="<?php echo $personas['ingreso_mensual']; ?>" class="form-control-2"
-                                    placeholder="" min="0.00">
-                            </div>
+                            
                         </div>
                         <div class="form-row-2">
                             <?php if(!empty($enf)){ ?>

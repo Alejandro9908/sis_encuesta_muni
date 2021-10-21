@@ -54,7 +54,10 @@
     $hoy = new DateTime();
 
     $vinieta = "&nbsp;●&nbsp;&nbsp;";
-    
+
+    $latitud = str_replace('"',"&quot;",$domicilio['latitud']);
+ 
+    $longitud = str_replace('"','&quot;',$domicilio['longitud']);
 
 ?>
 
@@ -188,7 +191,9 @@
                 <div class="box-header">
                     <h2>2. Identificación domiciliaria</h2>
                     <div>
+                    <?php if(($_SESSION['rol'] == 1)||($_SESSION['rol'] == 2)){ ?>
                         <a href="editBoletaDomicilio.php?id_familia=<?php echo $id_familia ?>" id="editar-domicilio" class="btn color-primary text-light">Editar</a>
+                    <?php } ?>
                     </div>
                 </div>
                 <div class="form-contaniter">
@@ -227,11 +232,11 @@
                             <div class="form-item">
                                 <label for="txt_latitud" class="text-gray">Latitud</label>
                                 <input type="text" id="txt_latitud" name="txt_latitud" readonly
-                                    value="<?php echo $domicilio['latitud']; ?>" class="form-control-2" placeholder="">
+                                    value="<?php echo $latitud; ?>" class="form-control-2" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_longitud" class="text-gray">Longitud</label>
-                                <input type="text" id="txt_longitud" name="txt_longitud" value="<?php echo $domicilio['longitud']; ?>" readonly
+                                <input type="text" id="txt_longitud" name="txt_longitud" value="<?php echo $longitud; ?>" readonly
                                     class="form-control-2" placeholder="">
                             </div>
                         </div>
@@ -300,7 +305,9 @@
                             <div class="box-header">
                                 <h2>4. Egresos</h2>
                                 <div>
+                                <?php if(($_SESSION['rol'] == 1)||($_SESSION['rol'] == 2)){ ?>
                                     <a href="editBoletaEgreso.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <table class="table" style="width: 100%;">
@@ -350,7 +357,9 @@
                 <div class="box-header">
                     <h2>4. Vivienda</h2>
                     <div>
+                    <?php if(($_SESSION['rol'] == 1)||($_SESSION['rol'] == 2)){ ?>
                         <a href="editBoletaVivienda.php?id_vivienda=<?php echo $domicilio['id_vivienda'];?>&id_familia=<?php echo $id_familia ?>" id="editar-vivienda" class="btn color-primary text-light">Editar</a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="form-contaniter">
@@ -467,7 +476,9 @@
                 <div class="box-header">
                     <h2>6. Salud</h2>
                     <div>
+                    <?php if(($_SESSION['rol'] == 1)||($_SESSION['rol'] == 2)){ ?>
                         <a href="editBoletaSalud.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="form-contaniter">
@@ -592,7 +603,9 @@
                 <div class="box-header">
                     <h2>7. Alimentación</h2>
                     <div>
+                    <?php if(($_SESSION['rol'] == 1)||($_SESSION['rol'] == 2)){ ?>
                         <a href="editBoletaAlimentacion.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="form-contaniter">
@@ -646,8 +659,10 @@
                 <div class="box-header">
                     <h2>8. Recreaciones</h2>
                     <div>
+                    <?php if(($_SESSION['rol'] == 1)||($_SESSION['rol'] == 2)){ ?>
                     <a href="editBoletaRecreacion.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
-                    </div>
+                    <?php } ?>
+                </div>
                 </div>
                 <div class="form-contaniter">
                         <div class="form-row-1">
@@ -683,7 +698,9 @@
                 <div class="box-header">
                     <h2>Datos de boleta</h2>
                     <div>
+                    <?php if(($_SESSION['rol'] == 1)||($_SESSION['rol'] == 2)){ ?>
                         <a href="editBoletaDatos.php?id_familia=<?php echo $id_familia ?>" id="editar-egresos" class="btn color-primary text-light">Editar</a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="form-contaniter">

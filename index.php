@@ -1,6 +1,11 @@
 <?php 
     include_once ('routes.php');
     include_once ("controllers/sesiones.php");
+
+    if($_SESSION['rol']==4){
+        header('Location: createBoleta.php');
+    }
+
     include_once 'views/layout/header.php';
     include_once 'views/layout/sidebar.php';
     include_once 'views/layout/topbar.php';

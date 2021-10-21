@@ -22,14 +22,20 @@ class EditarBoletaController{
                 values ('".$id_vivienda."','".$t."')");
             }
 
+            $latitud = str_replace('"','\\"',$domicilio['latitud']);
+            $latitud = str_replace("'","\\'",$latitud);
+
+            $longitud = str_replace('"','\\"',$domicilio['longitud']);
+            $longitud = str_replace("'","\\'",$longitud);
+
             //editamos datos vehiculos
             $stmt->exec("UPDATE tbl_vivienda SET 
                         id_comunidad= '".$domicilio['comunidad']."', 
                         numero_casa= '".$domicilio['numero_casa']."', 
                         direccion ='".$domicilio['direccion']."', 
                         colindantes = '".$domicilio['colindantes']."',
-                        latitud = '".$domicilio['latitud']."', 
-                        longitud = '".$domicilio['longitud']."', 
+                        latitud = '".$latitud."', 
+                        longitud = '".$longitud."', 
                         telefono = '".$domicilio['telefono']."'  
                         WHERE id_vivienda = '".$id_vivienda."';");
 
@@ -101,7 +107,8 @@ class EditarBoletaController{
                         cable = '".$egreso['cable']."',
                         ropa_calzado = '".$egreso['ropa_calzado']."',
                         fondo_ahorro = '".$egreso['fondos_ahorro']."',
-                        credito = '".$egreso['creditos']."' 
+                        credito = '".$egreso['creditos']."',
+                        otros = '".$egreso['otros']."' 
                         WHERE id_familia = '".$id_familia."';");
 
             $stmt->commit();
@@ -294,6 +301,7 @@ class EditarBoletaController{
                         escolaridad = '".$persona['escolaridad']."', 
                         ocupacion = '".$persona['ocupacion']."', 
                         telefono = '".$persona['telefono']."',  
+                        correo = '".$persona['correo']."',  
                         gestacion = '".$persona['gestacion']."',  
                         semanas_gestacion = '".$persona['semanas_gestacion']."',  
                         ingreso_mensual = '".$persona['ingreso_mensual']."'  

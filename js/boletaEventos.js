@@ -350,7 +350,6 @@ $(document).ready(function(){
         var sector = $('#txt_sector').val()
         listarComunidades(sector);
     });
-  
 
 });
 
@@ -836,6 +835,7 @@ function listarComunidades(sector){
                 <option value="${e.id_comunidad}">${e.nombre}</option>
                 `
             });
+
             $('#txt_comunidad').html(lista);
         }
     });
