@@ -26,7 +26,11 @@
 
     $comunidades = array();
     $comunidades = $controladorComunidades->listarSelect($domicilio['id_sector']);
-    
+
+    $latitud = str_replace('"',"&quot;",$domicilio['latitud']);
+ 
+    $longitud = str_replace('"','&quot;',$domicilio['longitud']);
+
 ?>
 
 
@@ -96,12 +100,12 @@
                         </div>
                         <div class="form-item">
                             <label for="txt_latitud" class="text-gray">Latitud</label>
-                            <input type="text" id="txt_latitud" name="txt_latitud" value="<?php echo $domicilio['latitud']; ?>" class="form-control"
+                            <input type="text" id="txt_latitud" name="txt_latitud" value="<?php echo $latitud; ?>" class="form-control"
                                 placeholder="">
                         </div>
                         <div class="form-item">
                             <label for="txt_longitud" class="text-gray">Longitud</label>
-                            <input type="text" id="txt_longitud" name="txt_longitud" value="<?php echo $domicilio['longitud']; ?>" class="form-control"
+                            <input type="text" id="txt_longitud" name="txt_longitud" value="<?php echo $longitud; ?>" class="form-control"
                                 placeholder="">
                         </div>
                     </div>

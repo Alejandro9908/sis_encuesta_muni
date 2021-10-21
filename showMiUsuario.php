@@ -28,7 +28,6 @@
                 <div class="box-header">
                     <h2>Mi Usuario</h2>
                     <div>
-                        <a href="indexUsuario.php" class="btn color-danger text-light">×</a>
                     </div>   
                 </div>
                 <div class="form-container">

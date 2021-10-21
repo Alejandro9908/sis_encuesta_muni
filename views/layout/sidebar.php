@@ -17,34 +17,44 @@
                     </a>
                 </li>
                 <li>
+                    <?php if(($rol == 1)||($rol == 2)||($rol == 3)){ ?>
                     <a href="index.php">
                         <span class="icon"><i class="las la-chart-bar"></i></i></span>
                         <span class="title">Dashboard</span>
                     </a>
+                    <?php } ?>
                 </li>
                 <li>
+                    <?php if(($rol == 1)||($rol == 2)||($rol == 4)){ ?>
                     <a href="createBoleta.php">
                         <span class="icon"><i class="las la-file-medical"></i></span>
                         <span class="title">Nueva boleta</span>
                     </a>
+                    <?php } ?>
                 </li>
                 <li>
+                    <?php if(($rol == 1)||($rol == 2)||($rol == 3)){ ?>
                     <a href="indexPoblacion.php">
                         <span class="icon"><i class="las la-male"></i></i></span>
                         <span class="title">Reporte por población</span>
                     </a>
+                    <?php } ?>
                 </li>
                 <li>
+                    <?php if(($rol == 1)||($rol == 2)||($rol == 3)){ ?>
                     <a href="indexFamilia.php">
                         <span class="icon"><i class="las la-home"></i></span>
                         <span class="title">Reporte por familias</span>
                     </a>
+                    <?php } ?>
                 </li>
                 <li>
+                    <?php if(($rol == 1)||($rol == 2)){ ?>
                     <a href="indexComunidad.php">
                         <span class="icon"><i class="las la-map-marker"></i></span>
                         <span class="title">Comunidades</span>
                     </a>
+                    <?php } ?>
                 </li>
                 <li>
                     <a href="showMiUsuario.php?id_usuario=<?php echo $_SESSION['id_usuario'] ?>">
@@ -53,7 +63,7 @@
                     </a>
                 </li>
                 <li>
-                    <?php if($rol != 1){ ?>
+                    <?php if($rol == 2){ ?>
                     <a href="indexUsuario.php">
                         <span class="icon"><i class="las la-users"></i></span>
                         <span class="title">Usuarios</span>

@@ -117,7 +117,11 @@
                             <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="<?php echo $egreso['credito']; ?>" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
-                        
+                        <div class="form-item">
+                            <label for="txt_otros" class="text-gray">Otros <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_otros" name="txt_otros" value="<?php echo $egreso['otros']; ?>" class="form-control"
+                                placeholder="" min="0.00">
+                        </div>
                     </div>
                     <div class="content-footer">
                         <div class="form-footer">    

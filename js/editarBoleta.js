@@ -184,6 +184,7 @@ $(document).ready(function(){
             escolaridad: $('#txt_escolaridad').val(),
             ocupacion: $('#txt_ocupacion').val(),
             telefono: $('#txt_telefono').val(),
+            correo: $('#txt_correo').val(),
             gestacion: $('#txt_gestacion').val(),
             semanas_gestacion: $('#txt_semanas_gestacion').val(),
             ingreso_mensual: $('#txt_ingreso_mensual').val(),

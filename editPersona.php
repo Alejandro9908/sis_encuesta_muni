@@ -81,7 +81,7 @@
                             </div>
                             <div class="form-item">
                                 <label for="txt_segundo_apellido" class="text-gray">Segundo apellido</label>
-                                <input type="text" id="txt_segundo_apellido" name="txt_segundo_apellido" required 
+                                <input type="text" id="txt_segundo_apellido" name="txt_segundo_apellido" 
                                     value="<?php echo $personas['segundo_apellido']; ?>" class="form-control"
                                     placeholder="">
                             </div>
@@ -150,18 +150,10 @@
                                     value="<?php echo $personas['telefono']; ?>" class="form-control"
                                     placeholder="">
                             </div>
-                            <div class="form-item" id="div-gestacion">
-                                <label for="txt_gestacion" class="text-gray">Gestación</label>
-                                <select class="form-control" name="txt_gestacion" id="txt_gestacion">
-                                    <option value="0" <?= $personas['gestacion'] == '0' ? 'selected' : '' ?>>No</option>
-                                    <option value="1"<?= $personas['gestacion'] == '1' ? 'selected' : '' ?>>Si</option>
-                                </select>
-                            </div>
-                            <div class="form-item" id="div-semanas-gestacion">
-                                <label for="txt_semanas_gestacion" class="text-gray">Semanas de gestación</label>
-                                <input type="text" id="txt_semanas_gestacion" name="txt_semanas_gestacion" required 
-                                    value="<?php echo $personas['semanas_gestacion']; ?>" class="form-control"
-                                    placeholder="">
+                            <div class="form-item">
+                                <label for="txt_correo" class="text-gray">Correo electrónico</label>
+                                <input type="text" id="txt_correo" name="txt_correo" value="<?php echo $personas['correo']; ?>"
+                                    class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
                                 <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual <span style="color: red;">*</span></label>
@@ -169,6 +161,21 @@
                                     value="<?php echo $personas['ingreso_mensual']; ?>" class="form-control"
                                     placeholder="" min="0.00">
                             </div>
+                            <div class="form-item" id="div-gestacion">
+                                <label for="txt_gestacion" class="text-gray">Gestación</label>
+                                <select class="form-control" name="txt_gestacion" id="txt_gestacion">
+                                    <option value="0" <?= $personas['gestacion'] == '0' ? 'selected' : '' ?>>No</option>
+                                    <option value="1"<?= $personas['gestacion'] == '1' ? 'selected' : '' ?>>Si</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-item" id="div-semanas-gestacion">
+                                <label for="txt_semanas_gestacion" class="text-gray">Semanas de gestación</label>
+                                <input type="text" id="txt_semanas_gestacion" name="txt_semanas_gestacion" required 
+                                    value="<?php echo $personas['semanas_gestacion']; ?>" class="form-control"
+                                    placeholder="">
+                            </div>
+                       
                         </div>
                         <div class="form-row-2">
                             <div class="form-item">

@@ -99,7 +99,7 @@ class ReporteFamiliaController{
             $conexion = new Conexion();
             $resultado = array();
             $sql = "SELECT b.id_boleta, f.id_familia, p.id_persona, p.dpi, p.sexo, p.edad, p.estado_civil, p.escolaridad, p.telefono,
-                    concat_ws('',p.nombres,' ',p.primer_apellido,' ',p.segundo_apellido) as nombre_completo,
+                    p.correo,concat_ws('',p.nombres,' ',p.primer_apellido,' ',p.segundo_apellido) as nombre_completo,
                     p.ocupacion, s.nombre as sector, p.entrevistado, p.fecha_nacimiento, p.parentesco, p.gestacion, p.semanas_gestacion
                     from tbl_persona as p inner join 
                     tbl_familia as f on p.id_familia = f.id_familia inner join 
@@ -248,7 +248,8 @@ class ReporteFamiliaController{
                 "cable" => $registro->cable,
                 "ropa calzado" => $registro->ropa_calzado,
                 "fondo ahorro" => $registro->fondo_ahorro,
-                "credito" => $registro->credito
+                "credito" => $registro->credito,
+                "otros" => $registro->otros
             );
 
 
