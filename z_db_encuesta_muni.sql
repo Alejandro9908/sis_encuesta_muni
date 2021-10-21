@@ -418,8 +418,26 @@ select fecha_nacimiento from tbl_persona;
 select datediff(curdate(),'2020-02-02');
 
 
+CURRENT_DATE, ((YEAR(CURRENT_DATE) -
+YEAR(datos.nacimiento)) - (RIGHT(CURRENT_DATE,5) <
+RIGHT(datos.nacimiento, 5))) AS 'edad'
 
 
+SELECT YEAR(CURRENT_TIMESTAMP) - YEAR(fecha_nacimiento) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(fecha_nacimiento, 5)) as age 
+  FROM tbl_persona;
+
+SELECT b.id_boleta,f.id_familia,p.id_persona, p.dpi, p.sexo, p.fecha_nacimiento, p.estado_civil, p.escolaridad, p.telefono,
+concat_ws('',p.nombres,' ',p.primer_apellido,' ',p.segundo_apellido) as nombre_completo,
+c.nombre as comunidad
+from tbl_persona as p inner join
+tbl_familia as f on p.id_familia = f.id_familia inner join 
+tbl_boleta as b on f.id_boleta = b.id_boleta inner join
+tbl_vivienda as v on f.id_familia = v.id_familia inner join
+tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+where (concat_ws('',p.nombres,' ',p.primer_apellido,' ',p.segundo_apellido) LIKE '%%' 
+OR p.dpi LIKE '%%') AND 
+c.id_sector like '%%' AND v.id_comunidad LIKE '%%' AND (YEAR(CURRENT_TIMESTAMP) - YEAR(p.fecha_nacimiento) - (RIGHT(CURRENT_TIMESTAMP, 5) < RIGHT(p.fecha_nacimiento, 5)) between 19 AND 30)
+ORDER BY p.id_persona ASC LIMIT 0, 200
 
 
 
