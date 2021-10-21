@@ -105,8 +105,6 @@
                             for($i=1; $i <= $total_paginas ; $i++){
                                 if($i == $pagina){
                                     echo '<li class="paginaSelect">'.$i.'</li>';
-                                }else{
-                                echo '<li><a href="?pagina='.$i.'&b='.$buscar.'">'.$i.'</a></li>';
                                 }
                             }
                             ?>
