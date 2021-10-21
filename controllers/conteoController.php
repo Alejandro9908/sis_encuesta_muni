@@ -294,7 +294,7 @@ class ConteoController{
             $resultado = array();
             $sql = "SELECT 
                     CASE
-                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 5 THEN 'Entre 1 y 4'
+                    WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 5 THEN 'Entre 0 y 4'
                     WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 8 THEN 'Entre 5 y 7'
                     WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 13 THEN 'Entre 8 y 12'
                     WHEN TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) < 19 THEN 'Entre 13 y 18'

@@ -6,6 +6,55 @@ include_once ('conexion.php');
 
 class PersonaController {
 
+    public function listarEdades($desde, $hasta, $sector, $comunidad, $edad_min, $edad_max, $buscar){
+        try
+        {
+            $conexion = new Conexion();
+            $resultado = array();
+            $sql = "SELECT b.id_boleta,f.id_familia,p.id_persona, p.dpi, p.sexo, p.fecha_nacimiento, p.estado_civil, p.escolaridad, p.telefono,
+                    concat_ws('',p.nombres,' ',p.primer_apellido,' ',p.segundo_apellido) as nombre_completo,
+                    c.nombre as comunidad
+                    from tbl_persona as p inner join
+                    tbl_familia as f on p.id_familia = f.id_familia inner join 
+                    tbl_boleta as b on f.id_boleta = b.id_boleta inner join
+                    tbl_vivienda as v on f.id_familia = v.id_familia inner join
+                    tbl_comunidad as c on v.id_comunidad = c.id_comunidad 
+                    where (concat_ws('',p.nombres,' ',p.primer_apellido,' ',p.segundo_apellido) LIKE '%$buscar%' 
+                    OR p.dpi LIKE '%$buscar%') AND 
+                    c.id_sector like '$sector' AND v.id_comunidad LIKE '$comunidad' AND (TIMESTAMPDIFF(YEAR,p.fecha_nacimiento,CURDATE()) between $edad_min AND $edad_max)
+                    ORDER BY p.id_persona ASC LIMIT $desde, $hasta";
+
+                
+            $stmt = $conexion->pdo->prepare($sql);
+            $stmt->execute();
+
+            foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $registro)
+            {
+                $r = array(
+                    "id_boleta" => $registro->id_boleta,
+                    "id_familia" => $registro->id_familia,
+                    "id_persona" => $registro->id_persona,
+                    "dpi" => $registro->dpi,
+                    "sexo" => $registro->sexo,
+                    "fecha_nacimiento" => $registro->fecha_nacimiento,
+                    "estado_civil" => $registro->estado_civil,
+                    "escolaridad" => $registro->escolaridad,
+                    "telefono" => $registro->telefono,
+                    "nombre_completo" => $registro->nombre_completo,
+                    "comunidad" => $registro->comunidad,
+                );
+                
+                $resultado[] = $r;
+            }
+
+            return $resultado;
+        }
+        catch (Exception $e)
+        {
+            die($e->getMessage());
+        }
+    }
+
     public function listarEnfermedades($desde, $hasta, $sector, $comunidad, $enfermedad, $buscar){
         try
         {

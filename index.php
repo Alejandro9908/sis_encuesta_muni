@@ -57,6 +57,10 @@
     $lista_servicios_basicos = array();
     $lista_servicios_basicos = $controlador->listarServiciosBasicos("$sector","$comunidad");
 
+
+    $re = '/(\d{1,})/';
+    
+
 ?>
 
 
@@ -169,16 +173,22 @@
                     <thead>
                         <th scope="col">RANGO</th>
                         <th scope="col">RESULTADO</th>
+                        <th scope="col">OPCIONES</th>
                     </thead>
                     <tbody>
                         <?php 
                         foreach ($lista_rango_edades as $ld){
+                            preg_match_all($re, $ld['grupo_edad'], $matches, PREG_SET_ORDER, 0);
                         ?>
                         <tr>
                             <td><?php echo $ld['grupo_edad']; ?></td>
                             <td><?php echo $ld['total']; ?></td>
+                            <td>
+                                <a href="indexPoblacionEdad.php?data=<?php echo $ld['grupo_edad']; ?>&comunidad=<?php echo $comunidad ?>&sector=<?php echo $sector ?>&data_min=<?php echo $matches[0][0]; ?>&data_max=<?php echo $matches[1][0]; ?>&registros=<?php echo$ld['total']; ?>" class="btn color-primary">Ver</a>
+                            </td>
                         </tr>
                         <?php 
+                       
                         }//termina ciclo for
                         ?>
                     </tbody>
