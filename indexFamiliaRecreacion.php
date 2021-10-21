@@ -130,8 +130,6 @@
                             for($i=1; $i <= $total_paginas ; $i++){
                                 if($i == $pagina){
                                     echo '<li class="paginaSelect">'.$i.'</li>';
-                                }else{
-                                echo '<li><a href="?pagina='.$i.'&b='.$buscar.'&comunidad='.$comunidad.'&sector='.$sector.'&recreacion='.$recreacion.'&id_recreacion='.$id_recreacion.'&registros='.$total_registros.'">'.$i.'</a></li>';
                                 }
                             }
                             ?>
