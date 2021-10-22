@@ -115,8 +115,8 @@
                                     class="form-control" placeholder="">
                             </div>
                             <div class="form-item">
-                                <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual</label>
-                                <input type="number" step="0.01" id="txt_ingreso_mensual" name="txt_ingreso_mensual" value=""
+                                <label for="txt_ingreso_mensual" class="text-gray">Ingreso Mensual(Q.) <span style="color: red;">*</span></label>
+                                <input type="number" step="0.01" required id="txt_ingreso_mensual" name="txt_ingreso_mensual" value="0.00"
                                     class="form-control" placeholder="" min="0.00">
                             </div>
                             <div class="form-item" id="div-gestacion">
@@ -262,84 +262,84 @@
                         action="controllers/boletaProcesos.php">
                     <div class="form-row-4">
                         <div class="form-item">
-                            <label for="txt_alimentacion" class="text-gray">Alimentación <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_alimentacion" name="txt_alimentacion" required value="0" class="form-control"
+                            <label for="txt_alimentacion" class="text-gray">Alimentación(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_alimentacion" name="txt_alimentacion" required value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_gas" class="text-gray">Gas o combustible <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_gas" name="txt_gas" value="0" class="form-control"
+                            <label for="txt_gas" class="text-gray">Gas o combustible(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_gas" name="txt_gas" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
         
                         <div class="form-item">
-                            <label for="txt_renta" class="text-gray">Renta <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_renta" name="txt_renta" value="0" class="form-control"
+                            <label for="txt_renta" class="text-gray">Renta(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_renta" name="txt_renta" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_agua" class="text-gray">Agua <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_agua" name="txt_agua" value="0" class="form-control"
+                            <label for="txt_agua" class="text-gray">Agua(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_agua" name="txt_agua" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_electricidad" class="text-gray">Electricidad <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_electricidad" name="txt_electricidad" value="0" class="form-control"
+                            <label for="txt_electricidad" class="text-gray">Electricidad(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_electricidad" name="txt_electricidad" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_telefono_residencial" class="text-gray">Teléfono Residencial <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_telefono_residencial" name="txt_telefono_residencial" value="0" class="form-control"
+                            <label for="txt_telefono_residencial" class="text-gray">Teléfono Residencial(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_telefono_residencial" name="txt_telefono_residencial" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_telefono_celular" class="text-gray">Teléfono Celular <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_telefono_celular" name="txt_telefono_celular" value="0" class="form-control"
+                            <label for="txt_telefono_celular" class="text-gray">Teléfono Celular(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_telefono_celular" name="txt_telefono_celular" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_transporte" class="text-gray">Transporte <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_transporte" name="txt_transporte" value="0" class="form-control"
+                            <label for="txt_transporte" class="text-gray">Transporte(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_transporte" name="txt_transporte" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_educacion" class="text-gray">Educación <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_educacion" name="txt_educacion" value="0" class="form-control"
+                            <label for="txt_educacion" class="text-gray">Educación(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_educacion" name="txt_educacion" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_medicos" class="text-gray">Gastos Médicos <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_medicos" name="txt_medicos" value="0" class="form-control"
+                            <label for="txt_medicos" class="text-gray">Gastos Médicos(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_medicos" name="txt_medicos" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_gastos_recreacion" class="text-gray">Recreación <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_gastos_recreacion" name="txt_gastos_recreacion" value="0" class="form-control"
+                            <label for="txt_gastos_recreacion" class="text-gray">Recreación(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_gastos_recreacion" name="txt_gastos_recreacion" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_cable" class="text-gray">Cable <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_cable" name="txt_cable" value="0" class="form-control"
+                            <label for="txt_cable" class="text-gray">Cable(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_cable" name="txt_cable" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_ropa_calzado" class="text-gray">Ropa y Calzado <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_ropa_calzado" name="txt_ropa_calzado" value="0" class="form-control"
+                            <label for="txt_ropa_calzado" class="text-gray">Ropa y Calzado(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_ropa_calzado" name="txt_ropa_calzado" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_fondos_ahorro" class="text-gray">Fondos de ahorro <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_fondos_ahorro" name="txt_fondos_ahorro" value="0" class="form-control"
+                            <label for="txt_fondos_ahorro" class="text-gray">Fondos de ahorro(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_fondos_ahorro" name="txt_fondos_ahorro" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_creditos" class="text-gray">Créditos <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="0" class="form-control"
+                            <label for="txt_creditos" class="text-gray">Créditos(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_creditos" name="txt_creditos" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                         <div class="form-item">
-                            <label for="txt_otros" class="text-gray">Otros <span style="color: red;">*</span></label>
-                            <input type="number" step="0.01" id="txt_otros" name="txt_otros" value="0" class="form-control"
+                            <label for="txt_otros" class="text-gray">Otros(Q.) <span style="color: red;">*</span></label>
+                            <input type="number" step="0.01" id="txt_otros" name="txt_otros" value="0.00" class="form-control"
                                 placeholder="" min="0.00">
                         </div>
                     </div>
