@@ -34,7 +34,7 @@ class UsuarioController{
         {
             $conexion = new Conexion();
             $resultado = array();
-            $sql = "SELECT u.id_usuario, u.nombre, u.usuario, r.nombre AS rol, u.estado FROM tbl_usuario AS u INNER JOIN tbl_rol AS r ON u.rol = r.id_rol WHERE 
+            $sql = "SELECT u.id_usuario, u.nombre, u.usuario,u.rol as id_rol, r.nombre AS rol, u.estado FROM tbl_usuario AS u INNER JOIN tbl_rol AS r ON u.rol = r.id_rol WHERE 
                     (u.id_usuario LIKE '%$buscar%' OR u.nombre LIKE '%$buscar%' OR u.usuario LIKE '%$buscar%') ORDER BY nombre ASC LIMIT $desde, $hasta";
             $stmt = $conexion->pdo->prepare($sql);
             $stmt->execute();
@@ -46,6 +46,7 @@ class UsuarioController{
                 $u->set('id_usuario', $registro->id_usuario);
                 $u->set('nombre', $registro->nombre);
                 $u->set('usuario', $registro->usuario);
+                $u->set('id_rol', $registro->id_rol);
                 $u->set('rol', $registro->rol);
                 $u->set('estado', $registro->estado);
                 
