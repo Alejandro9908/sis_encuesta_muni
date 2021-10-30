@@ -214,7 +214,7 @@ function addRecreacion(datos){
 
     var recreaciones = [];
 
-    for(i = 0; i < datos.length; i++){
+    for(let i = 0; i < datos.length; i++){
         
         if(datos[i]['name']=='recreaciones[]'){
             recreaciones.push(datos[i]["value"]);

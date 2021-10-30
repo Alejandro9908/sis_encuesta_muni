@@ -79,7 +79,7 @@
                 <hr>
                 
                 <li>
-                    <a href="#">
+                    <a href="fpdf/MANUAL DE USUARIO.pdf" rel="noopener" target="_blank">
                         <span class="icon"><i class="las la-info-circle"></i></span>
                         <span class="title">Manual de usuario</span>
                     </a>
