@@ -85,7 +85,7 @@
                             </td>
                             <td>
                                 <a href="showUsuario.php?id_usuario=<?php echo $r->get('id_usuario'); ?>" class="btn color-info">Ver</a>
-                                <?php if($r->get('id_rol') != 2){ ?>
+                                <?php if(($r->get('id_rol') != 2) || ($_SESSION['id_usuario']==$r->get('id_usuario'))){ ?>
                                     	<a href="editUsuario.php?id_usuario=<?php echo $r->get('id_usuario'); ?>" class="btn color-warning">Editar</a>
                                     	<?php if($r->get('estado')==1){ ?>
                                     	<a href="#" product="<?php echo $r->get('id_usuario'); ?>" class="btn color-danger inactivar_usuario">Inactivar</a>
